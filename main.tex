@@ -1,0 +1,318 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage[    style=authoryear,
+    backend=biber,
+    natbib=true,
+    sorting=nyt,
+    labelnumber=true]{biblatex}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\addbibresource{reference.bib}
+\title{Proposal for SYP}
+\author{Ke Jiang}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Introduction}
+\subsection{Motivation}
+U.S cities on average show lower transit infrastructure, \cite{Freemark2023-jh} reported that even the transit length and ridership are growing globally, the Unitied States seems to be stagnated since 1980s. Putting aside China, whom contribute to 40\% of total metro length, by 2023 the total metro length of United States was surpassed by India and nearly half of EU(fig \ref{metro lines global}). Even incorporating light rails or streetcars, which U.S cities put more focus on, the construction of transit still declines since 1970s and struggles to catch up the population growth. Reasons behind this can be puzzling but nontrivial. Transportation infrastructures are often endogeneous, 
+
+Transportation serves as a tool to boost economic development by reducing spatial friction and connecting employees to better opportunities,but can also be distorted by congestion and pollution\citep{Donaldson2025-wa}. Different transportation modes may shape urban structure in fundamentally different ways. For example, light rail or subways can increase the attractiveness of station-adjacent locations for both households and firms. By reducing commuting costs along a limited set of corridors, rail-based transit may concentrate development, promote higher density, and encourage mixed-use activity near transit nodes\citep{Miyauchi2021-tp}. In contrast, highway expansion or automobile-oriented infrastructure often provides more flexible point-to-point access, which may facilitate decentralization, residential sprawl, and the dispersion of employment across space\citep{Baum-Snow2007-zj,Velasquez2024-nr}. Also, transportation infrastructure can be endogeneous, policymakers may intentionally build the infrastructure to boost economics, or they may choose not to build if it's too expensive compared to returns. In general they are involved in scenario where they evaluate the returns and costs of new infrastructure. 
+
+Zoning is often politically supported by incumbent residents because it protects neighborhood quality and property values. In particular, restrictive zoning can limit housing supply, reduce congestion in local public goods and amenities, and preserve environmental quality and neighborhood character\citep{Rollet2025-mk}.
+However, these local benefits may come at broader citywide costs. In particular, restrictive zoning reduces the elasticity of housing supply in desirable locations\citep{Glaeser2002-vq}. As a result, some households are priced out of areas close to jobs and transit, and are pushed toward cheaper but more distant locations. This increases job-housing separation, raises commuting costs, and contributes to urban sprawl\citep{Glaeser2003-sr}. 
+
+
+Focusing on commuting patterns, standard ways of evalutaing the welfare gains from new infrastructure including measuring the travel time saved or more distributional effect\citep{Fogel1964-pu,Tsivanidis2023-hs,Severen2021-oi}. 
+
+
+The effect of zoning may further depend on the mode of transportation. Around rail stations, restrictive zoning can prevent transit access from translating into higher density and mixed-use development. In contrast, in car-oriented environments, restrictive low-density zoning may reinforce decentralization by encouraging households and firms to locate farther apart across space. And with car-ownership becoming dominant, the commuting behavior will aslo be less elastic in response to newly constructed transit mode, which mitigate the economic return from building public transit, and leading towards investment on expanding roads. But better roads facilitate decentralization towards surburbs which household can enjoy large houses and therefore ask for zoning regulations. This patterns will continue to be self-enforcing and pushing forward city sprawl.
+
+
+\textbf{Why public transit is important}: paragraph here.
+
+
+
+This discussion points to a broader urban inefficiency: decentralized land-use regulation and transportation choices may together produce an urban form that is privately desirable at the neighborhood level but inefficient at the metropolitan level.Two distortions are particularly relevant. First, local governments may make myopic transportation and land-use decisions without fully accounting for long-run population growth and future development needs. Second, incumbent residents have incentives to support restrictive zoning without internalizing the broader effects on housing affordability, commuting patterns, and infrastructure efficiency. Motivated by these issues, this proposal studies \textbf{how the interaction between zoning regulation and transportation infrastructure may distort city structure in U.S. metropolitan areas and contribute to inefficient urban sprawl}.
+
+\subsection{Literature Review}
+This proposal relates to 
+\section{Model}
+\subsection{Toy model}
+For simplicity, consider a monocentric model where every household commute to city center(CBD) to work, earning a uniform wage w, net of commuting cost $\tau x$ where $\tau=\tau(N,I)$ is the unit travel cost which subject to travel volume, and transportation investment. First let's assume the ecomonic is closed, such that total population $\bar{N}$ is fixed.Household arbitrage between commuting cost and housing units. There is a local municipality who is responsible for area $x \in (0,x_{m}]$, and for area  $(x_{m},x_{f})$ are the rest areas without municipality, and $x_{f}$ determines the city firnge.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1, >=stealth]
+
+% main city line
+\draw[thick, ->] (0,0) -- (10,0) node[right] {distance from CBD};
+
+% CBD
+\draw[fill=black] (0,0) circle (2pt);
+\node[below] at (0,0) {CBD};
+\node[above] at (0,0.15) {$x=0$};
+
+% generic location
+\draw[fill=black] (5,0) circle (2pt);
+\node[below] at (5,0) {location $x_{m}$};
+
+% urban boundary
+\draw[fill=black] (8,0) circle (2pt);
+\node[below] at (8,0) {urban fringe};
+\node[above] at (8,0.15) {$x_{f}$};
+
+% agricultural land
+% \draw[dashed] (8,0) -- (8,1.2);
+% \node[above] at (8,1.2) {$r(\bar{x})=r_A$};
+% \node[below] at (9.1,-0.35) {agricultural land};
+
+% commuting arrow
+\draw[<->] (0,-0.8) -- (5,-0.8);
+\node[below] at (2.5,-0.8) {local municipality};
+
+% city area label
+\draw[decorate, decoration={brace, amplitude=5pt}] (0,0.6) -- (8,0.6);
+\node[above] at (4,0.8) {urban land};
+
+\end{tikzpicture}
+\caption{A line-segment representation of the monocentric city model}
+\end{figure}
+\subsubsection{Household}
+Following \cite{Glaeser2003-sr}, I write the household utility as follows
+\begin{equation}
+  u(c,h)=c+\alpha logh
+\end{equation}
+with budget constraint $ w -\tau x=c+ hp(x)$, where p(x) is the housing price. Optimal allocation of household gives $    p(x)h=\alpha$. Equilibirum asserts household is indifferent across locations, such that $    p'(x)h+\tau=0
+$ These two condition pin down the housing price in terms of location x:
+\begin{equation}
+    P(x)=P(0)exp(-\frac{\tau}{\alpha}x)
+\end{equation}
+\subsubsection{Developer}
+Housing supply in each land  is provided by developers who:
+\begin{equation}
+    \max \pi=pH(S)- S- r= p S^{\gamma}-S-r
+\end{equation}
+S is defined as structural density, which is the housing capital per land unit, this captures the housing intensity in given area, or how tall the builidng can be. By setting $\gamma \in (0,1) $, the housing production exhibits a  DRS.The developer market is competitive, free-entry, asserting that $r(x)=p(x)S(x)^\gamma- S(x)$, which pins down the land price. Solving the developer's problem gives: $s(x)=(\gamma p(x))^{1/1-\gamma}$. Combining housing supply and housing demand, the population density can be deterimined:
+\begin{equation}
+    n(x)=\frac{H(x)}{h(x)}=\frac{p(x)S(x)^\gamma}{\alpha}
+\end{equation}
+\subsubsection{Local municipality}
+Local municipality who is responsible for location $(0,x_{m}]$ cares about land price, as well as localities' life quality, which can be negative correlated with density. I coonsructed the local municipality's problem as follows:
+\begin{equation}
+    \max_{s(x)} \int_{0}^{x_{m}} r(x) -\omega n(x) dx
+\end{equation}
+The $\omega$ captures the marginal disutility brought by density. combined with previous conditions, it can be refined as:
+\begin{equation}
+    \max_{s(x)} \int_{0}^{x_{m}} p(x)S(x)^{\gamma}-S(x) -\omega \frac{p(x)S(x)^{\gamma}}{\alpha} dx
+\end{equation}
+The optimal structural density $S_{m}(x)=(\gamma p(x)(1-\frac{\omega}{\alpha}))^{1/1-\gamma}$. To assert a zoning restriction such that $S_{m}(x) < S^{\star}(x)$, we only need $\omega < \alpha$, which is intuitive such that local cost associated with the residents accommodated by one unit of housing output is no more than the local land-rent value generated by that housing output.
+
+\subsubsection{Transit Infrastructure}
+
+Suppose local municipalities choose structural density according to
+\[
+S_m(x)
+=
+\left[
+\gamma p(x)\left(1-\frac{\omega}{\alpha}\right)
+\right]^{\frac{1}{1-\gamma}},
+\]
+and the transit agent chooses the length of a transit line by solving
+\[
+\max_{X_T}
+v\int_0^{X_T}n_m(x)dx-F-cX_T.
+\]
+If
+\[
+p(x)=P(0)\exp\left(-\frac{\tau}{\alpha}x\right),
+\]
+then
+\[
+n_m(x)=N_0e^{-\kappa x},
+\qquad
+\kappa=\frac{\tau}{\alpha(1-\gamma)}.
+\]
+The optimal transit length is
+\[
+X_T^*
+=
+\frac{1}{\kappa}
+\log\left(\frac{vN_0}{c}\right),
+\]
+provided $vN_0>c$ and the maximum net surplus is non-negative. Since $N_0$ is decreasing in $\omega$, stronger local density costs reduce the optimal transit length.
+
+\subsection{Environment}
+
+Consider a metropolitan area consisting of a finite set of locations \(S=\{1,2,\dots,N\}\). These locations are partitioned into a set of municipalities \(g\in G\), such that
+\[
+S=\bigcup_{g\in G} S^g, \qquad S^g \cap S^{g'}=\emptyset \quad \text{for } g\neq g'.
+\]
+
+Each location \(i\in S\) is endowed with a fixed amount of land \(\bar H_{i}\), which can be allocated between residential and commercial use:
+\[
+H_i^R + H_i^F \leq \bar H_{i}.
+\]
+Land use is further subject to zoning regulations. Let \(Z_i^R\) and \(Z_i^F\) denote the residential and commercial zoning restrictions at location \(i\). These regulations impose upper bounds on feasible development:
+\[
+H_i^R \leq \bar H_i^R(Z_i), \qquad H_i^F \leq \bar H_i^F(Z_i),
+\]
+where stricter zoning lowers the feasible density of development.
+
+Locations are connected through a transportation network. For any pair of residence and workplace locations \((i,j)\), households can choose a commuting route \(r \in R_{ij}\). The generalized commuting cost associated with route \(r\) is denoted by \(\tau_{ijr}\), which depends on transportation infrastructure and congestion:
+\[
+\tau_{ijr} = \tau_{ijr}(I^R, I^T, \mathbf n),
+\]
+where \(I^R\) denotes metropolitan road investment, \(I^T\) denotes metropolitan public transit investment, and \(\mathbf n\) collects equilibrium traffic and transit usage across routes, which implies congestion force. Road investment primarily lowers the cost of private commuting, whereas transit investment lowers the cost of public commuting and is more valuable when land around high-access locations can be developed more intensively.
+
+There are three types of agents in the model: households, firms, and governments. Households choose where to live, where to work, and how to commute. Competitive firms choose labor and commercial land to produce a freely tradable good. Government decisions are made at two levels. Municipal governments choose local zoning regulations, while a metropolitan transportation authority chooses transportation investment for the urban area as a whole.
+
+\subsection{Households}
+
+A household chooses a residence location \(i\), a workplace location \(j\), and a commuting route \(r \in R_{ij}\). Conditional on these choices, the household consumes a composite tradable good \(Q_{ij}\) and residential land \(h_{ij}^R\). Preferences are given by
+\[
+u_{ijr}(w)=\frac{B_i}{\tau_{ijr}}
+\left(\frac{Q_{ij}}{\beta}\right)^{\beta}
+\left(\frac{h_{ij}^R}{1-\beta}\right)^{1-\beta}
+v_{ijr}(w),
+\]
+where \(B_i\) is the residential amenity at location \(i\), \(\beta \in (0,1)\), and \(v_{ijr}(w)\) is an idiosyncratic preference shock.
+
+Let \(q_i^R\) denote the rental price of residential land at location \(i\), and \(w_j\) the wage earned at workplace location \(j\). The household's budget constraint is
+\[
+Q_{ij}+q_i^R h_{ij}^R = w_j.
+\]
+Solving the within-choice consumption problem yields the indirect utility
+\[
+V_{ijr}(w)=\frac{B_i}{\tau_{ijr}}
+\frac{w_j}{(q_i^R)^{1-\beta}}v_{ijr}(w),
+\]
+up to a constant common to all choices.
+
+To allow for a nested discrete-choice structure, let the idiosyncratic shocks follow a generalized extreme value distribution. The lower nest corresponds to route choice conditional on a residential-workplace pair \((i,j)\), while the upper nest corresponds to the joint choice of residence and workplace. Formally,
+\[
+G(\{v_{ijr}(w)\})
+=
+\exp \left(
+-\sum_{i,j\in S^2}
+\left(
+\sum_{r\in R_{ij}} v_{ijr}^{-1/\rho}
+\right)^{\rho/\theta}
+\right),
+\]
+where \(\rho\) and \(\theta\) govern substitution within and across nests.
+
+Conditional on \((i,j)\), households choose the commuting route that maximizes indirect utility. At the upper level, they choose residence and workplace locations based on the expected value from the lower nest. Thus, household sorting across space depends on wages, rents, local amenities, commuting costs, and transportation infrastructure.
+
+\subsection{Firms}
+
+At each workplace location \(j\), competitive firms produce a freely tradable good using effective labor and commercial land. Let output be given by
+\[
+Y_j = A_j F(L_j, H_j^F),
+\]
+where \(A_j\) is location-specific productivity, \(L_j\) is labor employed at location \(j\), and \(H_j^F\) is commercial land use. Firms solve
+\[
+\max_{L_j,H_j^F}
+\; A_j F(L_j,H_j^F)-w_jL_j-q_j^F H_j^F,
+\]
+where \(q_j^F\) denotes the rental price of commercial land.
+
+Profit maximization implies standard labor-demand and land-demand conditions. In equilibrium, wages and commercial rents adjust so that labor and land markets clear.
+
+\subsection{Municipal Zoning Decisions}
+
+Each municipality \(g\in G\) chooses a vector of zoning policies
+\[
+Z^g=\{Z_i\}_{i\in S^g}.
+\]
+To avoid modeling an explicit dynamic voting game, I assume municipal governments act as reduced-form representatives of incumbent residents. This captures the idea that local land-use policy is shaped by the interests of existing residents, who value neighborhood amenities, lower congestion, and higher property values, but do not internalize metropolitan-wide effects on housing supply, commuting, or transit efficiency.
+
+Accordingly, municipality \(g\) solves
+\[
+\max_{Z^g} \; W^g(Z^g; I^R, I^T, Z^{-g}),
+\]
+where \(Z^{-g}\) denotes the zoning choices of other municipalities, and \(W^g\) is incumbent welfare in municipality \(g\). In reduced form, this objective can be written as
+\[
+W^g
+=
+\sum_{i\in S^g}
+\left[
+\omega_1 P_i
++\omega_2 B_i^{\text{loc}}
+-\omega_3 N_i
+\right],
+\]
+where \(P_i\) captures local property-value considerations, \(B_i^{\text{loc}}\) captures neighborhood amenities, and \(N_i\) captures congestion or crowding costs associated with additional development. Because this objective is local, municipalities do not internalize the effect of zoning restrictions on regionwide housing allocation, commuting patterns, or the return to regional transit investment.
+
+\subsection{Metropolitan Transportation Authority}
+
+A metropolitan transportation authority chooses investment in road and transit infrastructure for the region as a whole. Let its policy vector be
+\[
+I=(I^R,I^T).
+\]
+Taking local zoning as given, the authority solves
+\[
+\max_{I^R,I^T} \; W^M(I^R,I^T; Z)-C^R(I^R)-C^T(I^T),
+\]
+where \(W^M(\cdot)\) denotes the regional benefit from transportation infrastructure, \(Z\) is the vector of municipal zoning policies, and \(C^R(\cdot)\), \(C^T(\cdot)\) are the costs of road and transit investment.
+
+The key institutional friction is that the metropolitan authority controls transportation investment but does not control zoning. Since local land use determines whether high-access locations can absorb additional residential and commercial development, the marginal return to transit investment depends on municipal zoning decisions. In particular, restrictive zoning near transit-accessible locations weakens the density and ridership response to public transit investment.
+
+\subsection{Equilibrium}
+
+A decentralized equilibrium consists of
+\[
+\left\{
+q_i^R, q_i^F, w_j, H_i^R, H_i^F, L_j, Z^g, I^R, I^T
+\right\}_{i,j\in S,\, g\in G}
+\]
+such that:
+
+\begin{enumerate}
+    \item Households choose residence, workplace, and commuting route to maximize utility.
+    \item Firms choose labor and commercial land to maximize profits.
+    \item Each municipality chooses zoning to maximize incumbent resident welfare.
+    \item The metropolitan transportation authority chooses road and transit investment to maximize regional net benefits, taking zoning as given.
+    \item Residential land, commercial land, and labor markets clear.
+\end{enumerate}
+
+\subsection{Inefficiency and the Source of Sprawl}
+
+The main distortion in the model arises from a mismatch in governance scales. Zoning is chosen locally by municipalities that represent incumbent interests, while transportation is chosen at the metropolitan level. Municipalities have incentives to restrict development in high-access locations in order to preserve local amenities and limit congestion. However, they do not internalize the broader metropolitan costs of such restrictions, including higher housing prices, greater job-housing separation, and lower returns to public transit investment.
+
+As a result, restrictive zoning can prevent transportation improvements---especially transit investments---from translating into higher-density development near well-connected locations. Growth is instead pushed toward lower-cost, more distant areas, contributing to urban sprawl. In this sense, sprawl in the model is not simply a reflection of geography or household preferences, but may emerge as an inefficient equilibrium outcome of fragmented land-use regulation combined with metropolitan transportation investment.
+
+\subsection{Efficient Benchmark}
+
+To evaluate the inefficiency of the decentralized equilibrium, I compare it to a coordinated benchmark in which a planner chooses both transportation investment and zoning:
+\[
+\max_{I^R,I^T,Z}
+\; W(I^R,I^T,Z)-C^R(I^R)-C^T(I^T),
+\]
+where \(W(\cdot)\) denotes aggregate metropolitan welfare. Unlike individual municipalities, the planner internalizes the effect of land-use restrictions on housing supply, commuting, and the productivity of transportation infrastructure.
+
+Comparing the decentralized equilibrium with this benchmark highlights the extent to which fragmented zoning lowers the return to transit, biases investment toward road-oriented development, and generates excessive urban sprawl.
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Metro lines Global.png}
+    \caption{Metro kilometers in operation}
+    \label{metro lines global}
+\end{figure}
+\printbibliography
+\end{document}
