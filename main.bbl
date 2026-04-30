@@ -1,0 +1,1206 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{Akbar2023-ce}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6fe3ac4df34b4bc6344a41393fdea0a8}{%
+           family={Akbar},
+           familyi={A\bibinitperiod},
+           given={Prottoy},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7e04bb1f0a7962e508a41fa9d60186a1}{%
+           family={Couture},
+           familyi={C\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2b06d270a769f22705c89de5da7eb07}{%
+           family={Duranton},
+           familyi={D\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=acda91dac77106c338b7df7f51eebb52}{%
+           family={Storeygard},
+           familyi={S\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1f1166af16bd9ec45b81ef5493e13db0}
+      \strng{fullhash}{a78e9d8caac4146fd7a51fecfa5fac10}
+      \strng{fullhashraw}{a78e9d8caac4146fd7a51fecfa5fac10}
+      \strng{bibnamehash}{1f1166af16bd9ec45b81ef5493e13db0}
+      \strng{authorbibnamehash}{1f1166af16bd9ec45b81ef5493e13db0}
+      \strng{authornamehash}{1f1166af16bd9ec45b81ef5493e13db0}
+      \strng{authorfullhash}{a78e9d8caac4146fd7a51fecfa5fac10}
+      \strng{authorfullhashraw}{a78e9d8caac4146fd7a51fecfa5fac10}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Mobility and Congestion in Urban India by Prottoy Akbar, Victor Couture, Gilles Duranton and Adam Storeygard. Published in volume 113, issue 4, pages 1083-1111 of American Economic Review, April 2023, Abstract: We develop a methodology to estimate robust city-level vehicular speed indices, exactly d...}
+      \field{issue}{4}
+      \field{journaltitle}{The American economic review}
+      \field{month}{4}
+      \field{title}{Mobility and Congestion in Urban India}
+      \field{urlday}{20}
+      \field{urlmonth}{9}
+      \field{urlyear}{2023}
+      \field{volume}{113}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1083\bibrangedash 1111}
+      \range{pages}{29}
+    \endentry
+    \entry{Allen2022-ms}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c6da22fb2258db0db845299a5091c5c7}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={Treb},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c99d9d323f323ffc11adc74acb24b4f}{%
+           family={Arkolakis},
+           familyi={A\bibinitperiod},
+           given={Costas},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press (OUP)}%
+      }
+      \strng{namehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{fullhash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{fullhashraw}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{bibnamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorbibnamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authornamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorfullhash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorfullhashraw}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Each year in the US, hundreds of billions of dollars are spent on transportation infrastructure and billions of hours are lost in traffic. We develop a quantitative general equilibrium spatial framework featuring endogenous transportation costs and traffic congestion and apply it to evaluate the welfare impact of transportation infrastructure improvements. Our approach yields analytical expressions for transportation costs between any two locations, the traffic along each link of the transportation network, and the equilibrium distribution of economic activity across the economy, each as a function of the underlying quality of infrastructure and the strength of traffic congestion. We characterize the properties of such an equilibrium and show how the framework can be combined with traffic data to evaluate the impact of improving any segment of the infrastructure network. Applying our framework to both the US highway network and the Seattle road network, we find highly variable returns to investment across different links in the respective transportation networks, highlighting the importance of well-targeted infrastructure investment.}
+      \field{day}{7}
+      \field{issue}{6}
+      \field{journaltitle}{The Review of Economic Studies}
+      \field{month}{11}
+      \field{title}{The welfare effects of transportation infrastructure improvements}
+      \field{volume}{89}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{pages}{2911\bibrangedash 2957}
+      \range{pages}{47}
+    \endentry
+    \entry{Baum-Snow2007-zj}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3ab304f229ed273705b65bd10541d9e3}{%
+           family={Baum-Snow},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Nathaniel},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{fullhash}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{fullhashraw}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{bibnamehash}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{authorbibnamehash}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{authornamehash}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{authorfullhash}{3ab304f229ed273705b65bd10541d9e3}
+      \strng{authorfullhashraw}{3ab304f229ed273705b65bd10541d9e3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{[Between 1950 and 1990, the aggregate population of central cities in the United States declined by 17 percent despite population growth of 72 percent in metropolitan areas as a whole. This paper assesses the extent to which the construction of new limited access highways has contributed to central city population decline. Using planned portions of the interstate highway system as a source of exogenous variation, empirical estimates indicate that one new highway passing through a central city reduces its population by about 18 percent. Estimates imply that aggregate central city population would have grown by about 8 percent had the interstate highway system not been built.]}
+      \field{issue}{2}
+      \field{journaltitle}{The Quarterly Journal of Economics}
+      \field{title}{Did Highways Cause Suburbanization?}
+      \field{volume}{122}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{pages}{775\bibrangedash 805}
+      \range{pages}{31}
+    \endentry
+    \entry{Baum-Snow2025-ml}{inbook}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3ab304f229ed273705b65bd10541d9e3}{%
+           family={Baum-Snow},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Nathaniel},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2b06d270a769f22705c89de5da7eb07}{%
+           family={Duranton},
+           familyi={D\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{fullhash}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{fullhashraw}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{bibnamehash}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{authorbibnamehash}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{authornamehash}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{authorfullhash}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \strng{authorfullhashraw}{0b14efc0a30d1c8418132ef2ccadd95d}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of Regional and Urban Economics}
+      \field{series}{Handbook of regional and urban economics}
+      \field{title}{Housing supply and housing affordability}
+      \field{volume}{6}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{353\bibrangedash 461}
+      \range{pages}{109}
+    \endentry
+    \entry{Baum-Snow2000-xl}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3ab304f229ed273705b65bd10541d9e3}{%
+           family={Baum-Snow},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Nathaniel},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d388e55470172d7e86c427fe6935fd71}{%
+           family={Kahn},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{fullhash}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{fullhashraw}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{bibnamehash}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{authorbibnamehash}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{authornamehash}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{authorfullhash}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \strng{authorfullhashraw}{f3838a58d134bfa6fcbfe94cd2947e6b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Many US cities invest in large public transit projects in order to reduce private vehicle dependence and to reverse the downward trend in public transit use. Using a unique panel data set for five major cities that upgraded their rail transit systems in the 1980s, we estimate new rail transit’s impact on usage and housing values, using distance as a proxy for transit access. New rail transit has a small impact on usage and housing values. This impact is enough to represent tangible benefits of new transit to nearby residents. New transit’s benefits are not uniformly distributed. We document which demographic groups are over represented in transit growth areas and the changes in transit usage by different demographic groups.}
+      \field{issue}{2}
+      \field{journaltitle}{Journal of Public Economics}
+      \field{month}{8}
+      \field{title}{The effects of new public projects to expand urban rail transit}
+      \field{volume}{77}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{pages}{241\bibrangedash 263}
+      \range{pages}{23}
+    \endentry
+    \entry{Brueckner2000-vd}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=475960db9d449cfe8f8ab1ecb8a46ff5}{%
+           family={Brueckner},
+           familyi={B\bibinitperiod},
+           given={Jan\bibnamedelima K},
+           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications}%
+      }
+      \strng{namehash}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{fullhash}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{fullhashraw}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{bibnamehash}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{authorbibnamehash}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{authornamehash}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{authorfullhash}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \strng{authorfullhashraw}{475960db9d449cfe8f8ab1ecb8a46ff5}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This article argues that urban spatial expansion results mainly from three powerful forces: a growing population, rising incomes, and falling commuting costs. Urban growth occurring purely in response to these fundamental forces cannot be faulted as socially undesirable, but three market failures may distort their operation, upsetting the allocation of land between agricultural and urban uses and justifying criticism of urban sprawl. These are the failure to account for the benefits of open space, excessive commuting because of a failure to account for the social costs of congestion, and failure to make new development pay for the infrastructure costs it generates. Precise remedies for these market failures are two types of development taxes and congestion tolls levied on commuters. Each of these remedies leads to a reduction in the spatial size of the city.}
+      \field{issue}{2}
+      \field{journaltitle}{International Regional Science Review}
+      \field{month}{4}
+      \field{title}{Urban sprawl: Diagnosis and remedies}
+      \field{volume}{23}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{pages}{160\bibrangedash 171}
+      \range{pages}{12}
+    \endentry
+    \entry{Coeurdacier2022-ip}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a4a4125ba5f4d0635f847f9f0c7f0a6f}{%
+           family={Coeurdacier},
+           familyi={C\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1df19e866215aff643305792b616cc2}{%
+           family={Oswald},
+           familyi={O\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9a8dd5f6c49e85113692f1eb1e7af65e}{%
+           family={Teignier},
+           familyi={T\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{fullhash}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{fullhashraw}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{bibnamehash}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{authorbibnamehash}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{authornamehash}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{authorfullhash}{c1a6191f04c80ef86d95fb63383d07ab}
+      \strng{authorfullhashraw}{c1a6191f04c80ef86d95fb63383d07ab}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{SSRN Electronic Journal}
+      \field{title}{Structural Change, Land Use and Urban Expansion}
+      \field{year}{2022}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Cuberes2021-vo}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=7eab9b94dd75fb49e78707f9e603d5a4}{%
+           family={Cuberes},
+           familyi={C\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=facae89172bb27b205aeb801d977d122}{%
+           family={Desmet},
+           familyi={D\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b0c29abb79ef441c856cb797ed3f932}{%
+           family={Rappaport},
+           familyi={R\bibinitperiod},
+           given={Jordan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{fullhash}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{fullhashraw}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{bibnamehash}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{authorbibnamehash}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{authornamehash}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{authorfullhash}{b9a64e52712b6053e2793f17b3afe260}
+      \strng{authorfullhashraw}{b9a64e52712b6053e2793f17b3afe260}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Does a location’s growth benefit or suffer from being geographically close to large economic centers? Spatial proximity may lead to competition and hurt growth, but it may also improve market access and enhance growth. Using data on U.S. counties and metro areas for the period 1840–2017, we document this tradeoff between urban shadows and urban access. Proximity to large urban centers was negatively associated with growth between 1840 and 1920, and positively associated with growth after 1920. Using a two-city spatial model, we show that the secular evolution of inter-city and intra-city commuting costs can account for this. Alternatively, the long-run decline in inter-city shipping costs relative to intra-city commuting costs is also consistent with these observed patterns.}
+      \field{day}{1}
+      \field{journaltitle}{Journal of Urban Economics}
+      \field{month}{5}
+      \field{title}{Urban growth shadows}
+      \field{volume}{123}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{103334}
+      \range{pages}{1}
+      \keyw{Urban shadows; Urban access; Commuting; Spatial economics; Urban systems; City growth; United states; 1840–2017}
+    \endentry
+    \entry{Desmet2017-kc}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=facae89172bb27b205aeb801d977d122}{%
+           family={Desmet},
+           familyi={D\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b0c29abb79ef441c856cb797ed3f932}{%
+           family={Rappaport},
+           familyi={R\bibinitperiod},
+           given={Jordan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{005929e60fbedf1b691748c9aa714733}
+      \strng{fullhash}{005929e60fbedf1b691748c9aa714733}
+      \strng{fullhashraw}{005929e60fbedf1b691748c9aa714733}
+      \strng{bibnamehash}{005929e60fbedf1b691748c9aa714733}
+      \strng{authorbibnamehash}{005929e60fbedf1b691748c9aa714733}
+      \strng{authornamehash}{005929e60fbedf1b691748c9aa714733}
+      \strng{authorfullhash}{005929e60fbedf1b691748c9aa714733}
+      \strng{authorfullhashraw}{005929e60fbedf1b691748c9aa714733}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gibrat’s law, the orthogonality of growth with initial levels, has long been considered a stylized fact of local population growth. But throughout U.S. history, local population growth has significantly deviated from it. Across small locations, growth was strongly negatively correlated with initial population throughout the nineteenth and early twentieth centuries. This strong convergence gave way to moderate divergence beginning in the mid-twentieth century. Across intermediate and large locations, growth became moderately positively correlated with initial population starting in the late nineteenth century. This divergence eventually dissipated but never completely. A simple-one sector model combining the entry of new locations, a friction from population growth, and a decrease in the congestion arising from the supply of land closely matches these and a number of other evolving empirical relationships.}
+      \field{day}{1}
+      \field{journaltitle}{Journal of urban economics}
+      \field{month}{3}
+      \field{title}{The settlement of the United States, {1800–2000}: The long transition towards Gibrat’s law}
+      \field{urlday}{8}
+      \field{urlmonth}{10}
+      \field{urlyear}{2025}
+      \field{volume}{98}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{50\bibrangedash 68}
+      \range{pages}{19}
+    \endentry
+    \entry{Donaldson2025-wa}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ebaa25e63560bd4b55d707322b3b0128}{%
+           family={Donaldson},
+           familyi={D\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{fullhash}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{fullhashraw}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{bibnamehash}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{authorbibnamehash}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{authornamehash}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{authorfullhash}{ebaa25e63560bd4b55d707322b3b0128}
+      \strng{authorfullhashraw}{ebaa25e63560bd4b55d707322b3b0128}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of Regional and Urban Economics}
+      \field{series}{Handbook of regional and urban economics}
+      \field{title}{Transport infrastructure and policy evaluation}
+      \field{volume}{6}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{287\bibrangedash 352}
+      \range{pages}{66}
+    \endentry
+    \entry{Fajgelbaum2021-fx}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%
+           family={Fajgelbaum},
+           familyi={F\bibinitperiod},
+           given={Pablo\bibnamedelima D},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0dc2bc75ccb2701ec261f3b53a2d1df5}{%
+           family={Khandelwal},
+           familyi={K\bibinitperiod},
+           given={Amit},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=468325f122eb718f4598af89faaa952a}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Wookun},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f80bfc9788f70cc84d512a07de25dbc7}{%
+           family={Mantovani},
+           familyi={M\bibinitperiod},
+           given={Cristiano},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d14ebb8e5545310e2916d361c886645}{%
+           family={Schaal},
+           familyi={S\bibinitperiod},
+           given={Edouard},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {American Economic Association}%
+      }
+      \strng{namehash}{8b06d4c883a05c58dae3dd143075e023}
+      \strng{fullhash}{b05a9f5826bc5c291a50c310fee83bf0}
+      \strng{fullhashraw}{b05a9f5826bc5c291a50c310fee83bf0}
+      \strng{bibnamehash}{8b06d4c883a05c58dae3dd143075e023}
+      \strng{authorbibnamehash}{8b06d4c883a05c58dae3dd143075e023}
+      \strng{authornamehash}{8b06d4c883a05c58dae3dd143075e023}
+      \strng{authorfullhash}{b05a9f5826bc5c291a50c310fee83bf0}
+      \strng{authorfullhashraw}{b05a9f5826bc5c291a50c310fee83bf0}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study optimal dynamic lockdowns against COVID-19 within a commuting network. Our framework integrates canonical spatial epidemiology and trade models and is applied to cities with varying initial viral spread: Seoul, Daegu, and the New York City metropolitan area (NYM). Spatial lockdowns achieve substantially smaller income losses than uniform lockdowns. In the NYM and Daegu—with large initial shocks—the optimal lockdown restricts inflows to central districts before gradual relaxation, while in Seoul it imposes low temporal but large spatial variation. Actual commuting reductions were too weak in central locations in Daegu and the NYM and too strong across Seoul. (JEL H51, I12, I18, R23, R41)}
+      \field{day}{1}
+      \field{issue}{4}
+      \field{journaltitle}{American economic review. Insights}
+      \field{month}{12}
+      \field{title}{Optimal lockdown in a commuting network}
+      \field{volume}{3}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{503\bibrangedash 522}
+      \range{pages}{20}
+    \endentry
+    \entry{Fogel1964-pu}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=422a15132ac3c51bff5e9e92e20229ca}{%
+           family={Fogel},
+           familyi={F\bibinitperiod},
+           given={Robert\bibnamedelima William},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Baltimore: Johns Hopkins Press.}%
+      }
+      \strng{namehash}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{fullhash}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{fullhashraw}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{bibnamehash}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{authorbibnamehash}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{authornamehash}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{authorfullhash}{422a15132ac3c51bff5e9e92e20229ca}
+      \strng{authorfullhashraw}{422a15132ac3c51bff5e9e92e20229ca}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Railroads and American economic growth}
+      \field{year}{1964}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Freemark2023-jh}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6a153441b1aade0bf0afc4cf88297da0}{%
+           family={Freemark},
+           familyi={F\bibinitperiod},
+           given={Yonah},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{fullhash}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{fullhashraw}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{bibnamehash}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{authorbibnamehash}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{authornamehash}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{authorfullhash}{6a153441b1aade0bf0afc4cf88297da0}
+      \strng{authorfullhashraw}{6a153441b1aade0bf0afc4cf88297da0}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Worldwide, metro service availability has expanded exponentially. In 1950, only 24 metropolitan areas in 13 countries globally could boast of a subway, elevated line, or monorail. Today, 232 metrop…}
+      \field{booktitle}{The Transport Politic}
+      \field{day}{7}
+      \field{month}{6}
+      \field{title}{Once a Leader in Urban Rail Investment, the United States Now Trails}
+      \field{urlday}{28}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{Glaeser2002-vq}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2b41d6ca29618683e119f3255b723113}{%
+           family={Glaeser},
+           familyi={G\bibinitperiod},
+           given={Edward\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6c63eff67ae7f34599b0ac43f4a7554}{%
+           family={Gyourko},
+           familyi={G\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA}%
+      }
+      \list{publisher}{1}{%
+        {National Bureau of Economic Research}%
+      }
+      \strng{namehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{fullhash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{fullhashraw}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{bibnamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorbibnamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authornamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorfullhash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorfullhashraw}{44ccea5de7a87e6b9498bac67e0965fa}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{8835}
+      \field{title}{The impact of zoning on housing affordability}
+      \field{type}{resreport}
+      \field{year}{2002}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Glaeser2003-sr}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2b41d6ca29618683e119f3255b723113}{%
+           family={Glaeser},
+           familyi={G\bibinitperiod},
+           given={Edward\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d388e55470172d7e86c427fe6935fd71}{%
+           family={Kahn},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {National Bureau of Economic Research}%
+      }
+      \strng{namehash}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{fullhash}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{fullhashraw}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{bibnamehash}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{authorbibnamehash}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{authornamehash}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{authorfullhash}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \strng{authorfullhashraw}{dd0cde7b560e725a73e91d9fd46f4ce8}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{9733}
+      \field{title}{Sprawl and urban growth}
+      \field{type}{resreport}
+      \field{year}{2003}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Hsieh2019-rx}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=26798c6ec7f127f0ef90aea3ce03b002}{%
+           family={Hsieh},
+           familyi={H\bibinitperiod},
+           given={Chang-Tai},
+           giveni={C\bibinithyphendelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f58347226b88750723f89cb2b99cd2e9}{%
+           family={Moretti},
+           familyi={M\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {American Economic Association}%
+      }
+      \strng{namehash}{b321297a8b3960ff35238bbe7e012770}
+      \strng{fullhash}{b321297a8b3960ff35238bbe7e012770}
+      \strng{fullhashraw}{b321297a8b3960ff35238bbe7e012770}
+      \strng{bibnamehash}{b321297a8b3960ff35238bbe7e012770}
+      \strng{authorbibnamehash}{b321297a8b3960ff35238bbe7e012770}
+      \strng{authornamehash}{b321297a8b3960ff35238bbe7e012770}
+      \strng{authorfullhash}{b321297a8b3960ff35238bbe7e012770}
+      \strng{authorfullhashraw}{b321297a8b3960ff35238bbe7e012770}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We quantify the amount of spatial misallocation of labor across US cities and its aggregate costs. Misallocation arises because high productivity cities like New York and the San Francisco Bay Area have adopted stringent restrictions to new housing supply, effectively limiting the number of workers who have access to such high productivity. Using a spatial equilibrium model and data from 220 metropolitan areas we find that these constraints lowered aggregate US growth by 36 percent from 1964 to 2009. (JEL E23, J24, J31, R23, R31)}
+      \field{day}{1}
+      \field{issue}{2}
+      \field{journaltitle}{American Economic Journal Macroeconomics}
+      \field{month}{4}
+      \field{title}{Housing constraints and spatial misallocation}
+      \field{volume}{11}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 39}
+      \range{pages}{39}
+    \endentry
+    \entry{Hu2025-hj}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=379aa5dadc04e79f4ac017f15cdb02e4}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Wenhao},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55a96589f628c36984e2904ab308c607}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Lili},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{fullhash}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{fullhashraw}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{bibnamehash}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{authorbibnamehash}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{authornamehash}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{authorfullhash}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \strng{authorfullhashraw}{72a2a9a5b0403b8aad9875a9f386cc16}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{102102}
+      \field{journaltitle}{Journal of Housing Economics}
+      \field{month}{12}
+      \field{title}{Building the metropolis: Subway expansion, land use regulation, and welfare}
+      \field{volume}{70}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{102102}
+      \range{pages}{1}
+    \endentry
+    \entry{Kahn2007-xc}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d388e55470172d7e86c427fe6935fd71}{%
+           family={Kahn},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{d388e55470172d7e86c427fe6935fd71}
+      \strng{fullhash}{d388e55470172d7e86c427fe6935fd71}
+      \strng{fullhashraw}{d388e55470172d7e86c427fe6935fd71}
+      \strng{bibnamehash}{d388e55470172d7e86c427fe6935fd71}
+      \strng{authorbibnamehash}{d388e55470172d7e86c427fe6935fd71}
+      \strng{authornamehash}{d388e55470172d7e86c427fe6935fd71}
+      \strng{authorfullhash}{d388e55470172d7e86c427fe6935fd71}
+      \strng{authorfullhashraw}{d388e55470172d7e86c427fe6935fd71}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Over 25 billion dollars were spent between 1970 and 2000 in 14 major cities in the United States on the construction of new rail transit lines. This massive investment in rail transit construction and expansion allows me to study the consequences of local public goods improvements for communities nearby new stations. This article uses a 14‐city census tract–level panel data set covering the years 1970 to 2000 to document significant heterogeneity in the effects of rail transit expansions across the 14 cities. Communities receiving increased access to new “Walk and Ride” stations experience greater gentrification than communities that are now close to new “Park and Ride” stations.}
+      \field{issue}{2}
+      \field{journaltitle}{Real Estate Economics}
+      \field{month}{6}
+      \field{title}{Gentrification trends in new transit‐oriented communities: Evidence from 14 cities that expanded and built rail transit systems}
+      \field{volume}{35}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \field{pages}{155\bibrangedash 182}
+      \range{pages}{28}
+    \endentry
+    \entry{Kashner2025-iv}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a8c8a546dd67e06af77bddd133b6f639}{%
+           family={Kashner},
+           familyi={K\bibinitperiod},
+           given={Zane},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b884ccea24ab3c4a339ba03893d463d0}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={Brad},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{d96765caea000ced99a9216b4565aa8e}
+      \strng{fullhash}{d96765caea000ced99a9216b4565aa8e}
+      \strng{fullhashraw}{d96765caea000ced99a9216b4565aa8e}
+      \strng{bibnamehash}{d96765caea000ced99a9216b4565aa8e}
+      \strng{authorbibnamehash}{d96765caea000ced99a9216b4565aa8e}
+      \strng{authornamehash}{d96765caea000ced99a9216b4565aa8e}
+      \strng{authorfullhash}{d96765caea000ced99a9216b4565aa8e}
+      \strng{authorfullhashraw}{d96765caea000ced99a9216b4565aa8e}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Measuring and mitigating traffic externalities}
+      \field{year}{2025}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Mast2024-zi}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1443a4fc1aeb4dc26a24d5292d03fb9}{%
+           family={Mast},
+           familyi={M\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{fullhash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{fullhashraw}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{bibnamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorbibnamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authornamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorfullhash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorfullhashraw}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Local control of land-use regulation creates a not-in-my-backyard (NIMBY) problem that can suppress housing construction, contributing to rising prices and potentially slowing economic growth. I study how increased local control affects housing production by exploiting a common electoral reform—changing from “at-large” to “ward” elections for town council. These reforms, which are not typically motivated by housing markets, shrink each representative’s constituency from the entire town to one ward. Results from a variety of difference-in-differences estimators show that this decentralization decreases housing units permitted by 20\%, with similar effects on multi- and single-family permits. Effects are larger in whiter and higher-income towns.}
+      \field{day}{14}
+      \field{issue}{3}
+      \field{journaltitle}{The Review of Economics and Statistics}
+      \field{month}{5}
+      \field{title}{Warding off development: Local control, housing supply, and {NIMBYs}}
+      \field{volume}{106}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{671\bibrangedash 680}
+      \range{pages}{10}
+    \endentry
+    \entry{Redding2025-fr}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=29db3ac8f93041c5506aa68eca7e6163}{%
+           family={Redding},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{fullhash}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{fullhashraw}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{bibnamehash}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{authorbibnamehash}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{authornamehash}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{authorfullhash}{29db3ac8f93041c5506aa68eca7e6163}
+      \strng{authorfullhashraw}{29db3ac8f93041c5506aa68eca7e6163}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Handbook of Regional and Urban Economics}
+      \field{series}{Handbook of regional and urban economics}
+      \field{title}{Quantitative urban economics}
+      \field{volume}{6}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{73\bibrangedash 141}
+      \range{pages}{69}
+    \endentry
+    \entry{Redding2017-nf}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=29db3ac8f93041c5506aa68eca7e6163}{%
+           family={Redding},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89fa91af2b16400f2ce6dc9cd7ea9c33}{%
+           family={Rossi-Hansberg},
+           familyi={R\bibinithyphendelim H\bibinitperiod},
+           given={Esteban},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{fullhash}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{fullhashraw}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{bibnamehash}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{authorbibnamehash}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{authornamehash}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{authorfullhash}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \strng{authorfullhashraw}{0ddde1c8f060ecc6ee66986dbf0e94e4}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The observed uneven distribution of economic activity across space is influenced by variation in exogenous geographical characteristics and endogenous interactions between agents in goods and factor markets. Until the past decade, the theoretical literature on economic geography had focused on stylized settings that could not easily be taken to the data. This article reviews more recent research that has developed quantitative models of economic geography. These models are rich enough to speak to first-order features of the data, such as many heterogeneous locations and gravity equation relationships for trade and commuting. At the same time, these models are sufficiently tractable to undertake realistic counterfactual exercises to study the effect of changes in amenities, productivity, and public policy interventions such as transport infrastructure investments. We provide an extensive taxonomy of the different building blocks of these quantitative spatial models and discuss their main properties and quantification.}
+      \field{day}{2}
+      \field{issue}{1}
+      \field{journaltitle}{Annual review of economics}
+      \field{month}{8}
+      \field{title}{Quantitative spatial economics}
+      \field{volume}{9}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{pages}{21\bibrangedash 58}
+      \range{pages}{38}
+    \endentry
+    \entry{Rollet2025-mk}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=351f9396f8ceea35f7d87f3928a710e0}{%
+           family={Rollet},
+           familyi={R\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d4e7ba7d41975724bba1990e98b4615}{%
+           family={Weiwu},
+           familyi={W\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{fullhash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{fullhashraw}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{bibnamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorbibnamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authornamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorfullhash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorfullhashraw}{35b61b4b088ed4acac476aed6aa7237b}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Measuring winners and losers from increasing housing supply}
+      \field{type}{resreport}
+      \field{year}{2025}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Severen2021-oi}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1ed20152afc365ba12eb30bb383b62d2}{%
+           family={Severen},
+           familyi={S\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press - Journals}%
+      }
+      \strng{namehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{fullhash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{fullhashraw}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{bibnamehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authorbibnamehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authornamehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authorfullhash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authorfullhashraw}{1ed20152afc365ba12eb30bb383b62d2}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract I study Los Angeles Metro Rail's effects using panel data on bilateral commuting flows, a quantitative spatial model, and historically motivated quasi-experimental research designs. The model separates transit's commuting effects from local productivity or amenity effects, and spatial shift-share instruments identify inelastic labor and housing supply. Metro Rail connections increase commuting by 16\% but do not have large effects on local productivity or amenities. Metro Rail generates $94 million in annual benefits by 2000, or 12-25\% of annualized costs. Accounting for reduced congestion and slow transit adoption adds, at most, another $200 million in annual benefits.}
+      \field{day}{22}
+      \field{issue}{5}
+      \field{journaltitle}{The Review of Economics and Statistics}
+      \field{month}{9}
+      \field{title}{Commuting, labor, and housing market effects of mass transportation: Welfare and identification}
+      \field{volume}{105}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 99}
+      \range{pages}{99}
+    \endentry
+    \entry{Severen2026-qx}{report}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1ed20152afc365ba12eb30bb383b62d2}{%
+           family={Severen},
+           familyi={S\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{fullhash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{fullhashraw}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{bibnamehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authorbibnamehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authornamehash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authorfullhash}{1ed20152afc365ba12eb30bb383b62d2}
+      \strng{authorfullhashraw}{1ed20152afc365ba12eb30bb383b62d2}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{I describe the use of quantitative spatial models (QSMs) to evaluate the effects of transportation infrastructure within cities. After discussing the motivation for QSMs relative to other economic measurement techniques, I develop a simple QSM and detail the components that enter into the model. Next, I consider identification challenges and practical implementation. Finally, I highlight several shortcomings common in applications of QSMs, as well as growth areas where QSMs show promise for future development.}
+      \field{title}{Evaluating transportation improvements within cities using quantitative spatial models}
+      \field{type}{resreport}
+      \field{year}{2026}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Song2025-ft}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=468ae1e7c06fcae94b1c045641d5b69d}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Jaehee},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{fullhash}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{fullhashraw}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{bibnamehash}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{authorbibnamehash}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{authornamehash}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{authorfullhash}{468ae1e7c06fcae94b1c045641d5b69d}
+      \strng{authorfullhashraw}{468ae1e7c06fcae94b1c045641d5b69d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{103784}
+      \field{journaltitle}{Journal of Urban Economics}
+      \field{month}{9}
+      \field{title}{The effects of residential zoning in {U}.{S}. housing markets}
+      \field{volume}{149}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{pages}{103784}
+      \range{pages}{1}
+    \endentry
+    \entry{Tsivanidis2023-hs}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=836d8328e88b5ce6425dcdd64c15ffa9}{%
+           family={Tsivanidis},
+           familyi={T\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{fullhash}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{fullhashraw}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{bibnamehash}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{authorbibnamehash}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{authornamehash}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{authorfullhash}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \strng{authorfullhashraw}{836d8328e88b5ce6425dcdd64c15ffa9}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AER journal: research and practice in visual impairment and blindness}
+      \field{title}{Evaluating the impact of urban transit infrastructure: Evidence from Bogotá’s {TransMilenio}}
+      \field{year}{2023}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Zheng2013-of}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=706818f7cd0f7fa0b8abc0611d97ed77}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Siqi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d388e55470172d7e86c427fe6935fd71}{%
+           family={Kahn},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{fullhash}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{fullhashraw}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{bibnamehash}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{authorbibnamehash}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{authornamehash}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{authorfullhash}{b3085cb20def8954b87f1b41eb0179e8}
+      \strng{authorfullhashraw}{b3085cb20def8954b87f1b41eb0179e8}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Megacity growth in the developing world is fueled by a desire to access their large local labor markets. Growing megacities suffer from high levels of traffic congestion and pollution, which degrade local quality of life. Transportation technology that allows individuals to access the megacity without living within its boundaries offers potentially large social benefits, because individuals can enjoy the benefits of urban agglomeration while not paying megacity real estate rents and suffering from the city’s social costs. This paper presents evidence supporting the claim that China’s bullet trains are playing this role. The bullet train is regarded as one of the most significant technological breakthroughs in passenger transportation developed in the second half of the 20th century. Starting in 2007, China has introduced several new bullet trains that connect megacities such as Beijing, Shanghai, and Guangzhou with nearby cities. Through facilitating market integration, bullet trains will stimulate the development of second- and third-tier cities. By offering households and firms a larger menu of location alternatives, bullet trains help to protect the quality of life of the growing urban population. We document that this transport innovation is associated with rising real estate prices in the nearby secondary cities. Our findings offer insights for other countries planning to build bullet trains. We report that the cost-effectiveness of bullet trains is determined by three key factors: high population density, a sufficient number of large cities in reasonable proximity to one another along railway corridors, and congested traffic in competing modes of transportation. These conditions may be met in some European countries but are less likely to be met in a decentralized state such as California. China’s unique political structure would likely allow for the efficient implementation of megaprojects, but such projects might face strong not in my backyard opposition from citizens in the United States. Given that China’s bullet trains have only recently begun operating, it is too early to examine shifts in the spatial distribution of firms and households across cities. Because current real estate prices reflect expectations of future dynamics in city rent, we focus on city-specific real estate prices and document that there is greater real estate price appreciation in cities that have enjoyed greater increases in market potential (i.e., a concept used by economic geographers to measure a specific geographic area’s access to markets for inputs and outputs). The introduction of the bullet train significantly increases the market potential of cities located near megacities relative to those far from megacities. Our study relies on an instrumental variables regression approach to document the robust positive correlation between city growth in market potential and city growth in real estate prices. We find that the bullet train plays an important role in the integration of China’s individual cities into a network of connected cities. If this integration decreases suburban growth in megacities, a sustainable urban development pattern could emerge. Several small secondary cities are located between 100 and 750 km of China’s megacities of Beijing, Shanghai, and Guangzhou; residents of these cities gained rapid access to the megacities after the introduction of bullet trains (Fig. P1). The distance from these small cities to the megacities is not easily traveled by car, but these locations are close enough to make flying impractical. Bullet trains improve market access, expand labor markets, and enhance spatial agglomeration. They allow firms and workers in cities such as Tianjin to access megacities such as Beijing. High home prices and relatively low quality of life experienced by residents of megacities also encourage some households and firms to relocate in secondary cities. This cross-city integration allowed by bullet trains simultaneously alleviates some of the congestion costs associated with urban growth in megacities and triggers the growth of secondary cities along the bullet train route. Macroeconomists view urbanization as a necessary condition for long-term economic growth, but rapid urbanization—especially in developing nations—imposes large social costs. China has three megacities—Beijing, Shanghai, and Guangzhou—with each metropolitan area’s total population in excess of 10 million people. The quality of life of megacity residents suffers from exacerbated pollution and traffic congestion. Here, we propose that China’s recent investment in so-called bullet trains, which allow individuals to move at speeds of roughly 175 mi/h, increases the breadth of locations with access to megacities. This innovation in transportation technology allows individuals to access a megacity without living within its boundaries and thus, offers potentially large social benefits. For example, individuals can enjoy the benefits of urban agglomeration without the high cost of living.}
+      \field{issue}{14}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{title}{China’s bullet trains facilitate market integration and mitigate the cost of megacity growth}
+      \field{volume}{110}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \field{pages}{E1248\bibrangedash E1253}
+      \range{pages}{-1}
+    \endentry
+  \enddatalist
+  \missing{Kawano2023-ly}
+\endrefsection
+\endinput
+
