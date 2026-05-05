@@ -9,11 +9,12 @@
 \usepackage{amsmath, amssymb}
 \usepackage{setspace}
 \usepackage{hyperref}
-\usepackage[    style=authoryear,
+\usepackage[
+    bibstyle=numeric,
+    citestyle=authoryear,
     backend=biber,
     natbib=true,
-    sorting=nyt,
-    labelnumber=true]{biblatex}
+    sorting=nyt]{biblatex}
 \usepackage{booktabs}
 \usepackage{titlesec}
 \usepackage{indentfirst}
@@ -29,12 +30,12 @@
 
 \section{Introduction}
 \subsection{Motivation}
-U.S cities on average show lower transit infrastructure, \cite{Freemark2023-jh} reported that even the transit length and ridership are growing globally, the Unitied States seems to be stagnated since 1980s. Putting aside China, whom contribute to 40\% of total metro length, by 2023 the total metro length of United States was surpassed by India and nearly half of EU(fig \ref{metro lines global}). Even incorporating light rails or streetcars, which U.S cities put more focus on, the construction of transit still declines since 1970s and struggles to catch up the population growth. Reasons behind this can be puzzling but nontrivial. Transportation infrastructures are often endogeneous, it serces as a tool to boost economic development by reducing spatial frictions but can also be distorted\citep{Donaldson2025-wa}. In particular, policymakers may intentionally build the infrastructure to boost economics, or they may choose not to build if it's too expensive compared to returns. In general they are involved in scenario where they evaluate the returns and costs of new infrastructure. Standard evalutaion of the returns to transportation infrastructure invloves measuring the travel time saved or more distributional effect\citep{Fogel1964-pu,Tsivanidis2023-hs,Severen2021-oi}. Both \textcite{Tsivanidis2023-hs} and \textcite{Severen2021-oi} find that the returns to new transit infrastructure are lower than expected, and even negative from \textcite{Severen2021-oi}, due to the limited housing supply near stations. \textcite{Severen2021-oi} also pointed out the despersed workplaces and polycentric city structure as another reason for the low return to transit.  In summary restrictive zoning can limit the housing supply response to transit investment, which in turn potentially discourage transit investment. 
+U.S cities on average show lower transit infrastructure, \cite{Freemark2023-jh} reported that even the transit length and ridership are growing globally, the Unitied States seems to be stagnated since 1980s. Putting aside China, whom contribute to 40\% of total metro length, by 2023 the total metro length of United States was surpassed by India and nearly half of EU(fig\ref{metro lines global}). Even incorporating light rails or streetcars, which U.S cities put more focus on, the construction of transit still declines since 1970s and struggles to catch up the population growth. Reasons behind this can be puzzling but nontrivial. Transportation infrastructures are often endogeneous, it serces as a tool to boost economic development by reducing spatial frictions but can also be distorted\citep{Donaldson2025-wa}. In particular, policymakers may intentionally build the infrastructure to boost economics, or they may choose not to build if it's too expensive compared to returns. In general they are involved in scenario where they evaluate the returns and costs of new infrastructure. Standard evalutaion of the returns to transportation infrastructure invloves measuring the travel time saved or more distributional effect\citep{Fogel1964-pu,Tsivanidis2023-hs,Severen2021-oi}. Both \textcite{Tsivanidis2023-hs} and \textcite{Severen2021-oi} find that the returns to new transit infrastructure are lower than expected, and even negative from \textcite{Severen2021-oi}, due to the limited housing supply near stations. \textcite{Severen2021-oi} also pointed out the despersed workplaces and polycentric city structure as another reason for the low return to transit.  In summary restrictive zoning can limit the housing supply response to transit investment, which in turn potentially discourage transit investment. 
 
 However,literature on estimating transportation infrasructure often take these housing-supply restrictions as given, wheras in realty, aside from certain geographic constraints, such restrictions are often the result of local zoning policies. Zoning is often politically supported by incumbent residents because it protects neighborhood quality and property values. In particular, restrictive zoning can limit housing supply,which protects local property values, reduces congestion in local public goods and amenities, and preserves environmental quality and neighborhood character\citep{Rollet2025-mk}.
 However, these local benefits may come at broader citywide costs. In particular, restrictive zoning reduces the elasticity of housing supply in desirable locations\citep{Glaeser2002-vq}, and land-use regulationg pushes forward job-housing separation, raises commuting costs, and contributes to urban sprawl\citep{Glaeser2003-sr}. But the low-density city layout can also lower the economic return to public transit and discourage investment in public transit. Lower transit investment can turn into more car-oriented commuting, which further decentralize the city\citep{Baum-Snow2007-zj}. Such decentraliztion and car-dominance in turn reinforce the demand for low-density city and therefore the zoning regulations. This self-enforcing pattern can be a key driver of urban sprawl, and may help explain the stagnation of transit infrastructure in U.S cities.    
 
-This self-reinforcing pattern between restrictive zoning and low transit investment can be particularly problematic in the context of U.S cities. On the one hand, low-density sprawl requires more road infrastructures per capita, the cost and maintenance fees may not be sustainable\citep{Brueckner2000-vd}. On the other hand, the car-denpendence and long commuting distance can increases congestion which are not internalized by households. Moreover, the low transit investment can also limit the accessibility of low-income households to job opportunities, which can exacerbate economic inequality\citep{Kawano2023-ly}.
+This self-reinforcing pattern between restrictive zoning and low transit investment can be particularly problematic in the context of U.S cities. On the one hand, low-density sprawl requires more road infrastructures per capita, the cost and maintenance fees may not be sustainable\citep{Brueckner2000-vd}. On the other hand, the car-denpendence and long commuting distance can increases congestion which are not internalized by households. Moreover, the low transit investment can also limit the accessibility of low-income households to job opportunities, which can exacerbate economic inequality\citep{Glaeser2008-xq}.
 
 In summary, the discussion points to a broder but maybe underexplored problem: the full effect of zoning could be potentially more than what we currently understand, if we consider its effect on endogeneous transit investment decisions. In particular, this proposal aims to explore the following questions: First, how does local zoning affect metropolitan transportation investment decisions? Second, what are the welfare implications of this interaction, and how much inefficiency can be mitigated compared to a socially optimal benchmark where zoning and transportation are coordinated?
 \subsection{Literature Review}
@@ -58,103 +59,116 @@ Urban sprawl represents a fundamental concern in metropolitan economics. \citet{
 
 The literature collectively demonstrates that sprawl outcomes reflect a complex interaction between fundamental forces, such as population growth, rising incomes, falling transport costs, and structural changes.  \citet{Cuberes2021-vo} documents urban growth shadows and access effects, showing how proximity to large metropolitan areas affects growth patterns through both competition and market-access mechanisms. \citet{Desmet2017-kc} traces the long-term evolution of U.S. settlement patterns from 1800-2000, documenting the transition toward increasingly dispersed city systems. Structural change and land use are intimately connected. \citet{Coeurdacier2022-ip} studies how structural change in the economy drives land-use changes and urban expansion. International evidence adds important insights: \citet{Zheng2013-of} documents how China's bullet trains facilitate market integration and mitigate megacity growth costs by allowing workers to access large labor markets from secondary cities.  Building on these intergrated insights, my proposal aims to explore how the interaction between zoning and transportation investment shapes sprawl patterns, and how more coordinated policies could mitigate sprawl and its associated costs.
 
+\subsection{Planned Empirical Work}
+
+The empirical part of the project will examine whether metropolitan transportation investment is shaped by the expected economic returns to transit. I plan to focus on three related hypotheses:
+\begin{enumerate}
+    \item Transportation investment decisions respond to the expected costs and benefits of new infrastructure.
+    \item Older cities that developed extensive transit systems before widespread automobile dominance have higher returns to transit investment and therefore maintain larger transit networks, whereas newer, more car-oriented cities face lower returns.
+    \item Restrictive zoning lowers the return to transit investment by limiting the density and ridership response around high-access locations.
+\end{enumerate}
+
+The main data sources will include the National Transit Database (NTD) and the Transit Explorer database, which provide information on transit volumes, revenues, investment, and opening dates. I will measure zoning constraints using housing supply elasticity estimates from \textcite{Baum-Snow2024-ii}.
+
 \section{Model}
 Following \citet{Severen2026-qx}, I aim to develop a quantitative spatial model to answer the questions raised in the introduction. The model will capture the key features of metropolitan spatial structure, including heterogeneous locations, commuting patterns, and land-use decisions. It will also incorporate the institutional structure of local zoning and metropolitan transportation investment.
-Before delving into the full model, I first present a simplified toy model to illustrate the key mechanisms at play. (In progress and may be revised in the future)
-\subsection{Toy model}
-For simplicity, consider a monocentric model where every household commutes to the city center (CBD) to work, earning a uniform wage $w$, net of commuting cost $\tau x$, where $\tau=\tau(N,I)$ is the unit travel cost subject to travel volume and transportation investment. First, let's assume the economy is closed, such that total population $\bar{N}$ is fixed. Households arbitrage between commuting costs and housing units. There is a local municipality responsible for area $x \in (0,x_{m}]$, while for area $(x_{m},x_{f})$ there are unregulated areas, and $x_{f}$ determines the city fringe.
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[scale=1.1, >=stealth]
 
-% main city line
-\draw[thick, ->] (0,0) -- (10,0) node[right] {distance from CBD};
+For now I tried to think of a model where municipalities and transportation authority make decisions sequentially, with municipalities choosing zoning first and the transportation authority responding with infrastructure investment. This captures the idea that zoning decisions are often more entrenched and harder to change than transportation investments, which can be adjusted more frequently. However, I am open to alternative specifications where the timing of decisions may differ. 
+% Before delving into the full model, I first present a simplified toy model to illustrate the key mechanisms at play. (In progress and may be revised in the future)
+% \subsection{Toy model}
+% For simplicity, consider a monocentric model where every household commutes to the city center (CBD) to work, earning a uniform wage $w$, net of commuting cost $\tau x$, where $\tau=\tau(N,I)$ is the unit travel cost subject to travel volume and transportation investment. First, let's assume the economy is closed, such that total population $\bar{N}$ is fixed. Households arbitrage between commuting costs and housing units. There is a local municipality responsible for area $x \in (0,x_{m}]$, while for area $(x_{m},x_{f})$ there are unregulated areas, and $x_{f}$ determines the city fringe.
+% \begin{figure}[htbp]
+% \centering
+% \begin{tikzpicture}[scale=1.1, >=stealth]
 
-% CBD
-\draw[fill=black] (0,0) circle (2pt);
-\node[below] at (0,0) {CBD};
-\node[above] at (0,0.15) {$x=0$};
+% % main city line
+% \draw[thick, ->] (0,0) -- (10,0) node[right] {distance from CBD};
 
-% generic location
-\draw[fill=black] (5,0) circle (2pt);
-\node[below] at (5,0) {location $x_{m}$};
+% % CBD
+% \draw[fill=black] (0,0) circle (2pt);
+% \node[below] at (0,0) {CBD};
+% \node[above] at (0,0.15) {$x=0$};
 
-% urban boundary
-\draw[fill=black] (8,0) circle (2pt);
-\node[below] at (8,0) {urban fringe};
-\node[above] at (8,0.15) {$x_{f}$};
+% % generic location
+% \draw[fill=black] (5,0) circle (2pt);
+% \node[below] at (5,0) {location $x_{m}$};
 
-% agricultural land
-% \draw[dashed] (8,0) -- (8,1.2);
-% \node[above] at (8,1.2) {$r(\bar{x})=r_A$};
-% \node[below] at (9.1,-0.35) {agricultural land};
+% % urban boundary
+% \draw[fill=black] (8,0) circle (2pt);
+% \node[below] at (8,0) {urban fringe};
+% \node[above] at (8,0.15) {$x_{f}$};
 
-% commuting arrow
-\draw[<->] (0,-0.8) -- (5,-0.8);
-\node[below] at (2.5,-0.8) {local municipality};
+% % agricultural land
+% % \draw[dashed] (8,0) -- (8,1.2);
+% % \node[above] at (8,1.2) {$r(\bar{x})=r_A$};
+% % \node[below] at (9.1,-0.35) {agricultural land};
 
-% city area label
-\draw[decorate, decoration={brace, amplitude=5pt}] (0,0.6) -- (8,0.6);
-\node[above] at (4,0.8) {urban land};
+% % commuting arrow
+% \draw[<->] (0,-0.8) -- (5,-0.8);
+% \node[below] at (2.5,-0.8) {local municipality};
 
-\end{tikzpicture}
-\caption{A line-segment representation of the monocentric city model}
-\end{figure}
-\subsubsection{Household}
-Following \cite{Glaeser2003-sr}, I write household utility as follows:
-\begin{equation}
-  u(c,h)=c+\alpha \log h
-\end{equation}
-with budget constraint $w -\tau x=c+ hp(x)$, where $p(x)$ is the housing price. Optimal allocation of housing gives $p(x)h=\alpha$. Equilibrium implies households are indifferent across locations, such that $p'(x)h+\tau=0
-$ These two conditions pin down the housing price in terms of location $x$:
-\begin{equation}
-    P(x)=P(0)exp(-\frac{\tau}{\alpha}x)
-\end{equation}
-\subsubsection{Developer}
-Housing supply on each parcel of land is provided by competitive developers who solve:
-\begin{equation}
-    \max \pi= p S^{\gamma}-S-r
-\end{equation}
-where $S$ is structural density (housing capital per land unit), which captures housing intensity, or building height. By setting $\gamma \in (0,1)$, housing production exhibits decreasing returns to scale. In the competitive, free-entry developer market, $r(x)=p(x)S(x)^\gamma- S(x)$, which pins down the land price. Solving the developer's problem gives $s(x)=(\gamma p(x))^{1/(1-\gamma)}$. Combining housing supply and housing demand, population density is determined by:
-\begin{equation}
-    n(x)=\frac{H(x)}{h(x)}=\frac{p(x)S(x)^\gamma}{\alpha}
-\end{equation}
-\subsubsection{Local Municipality}
-The local municipality responsible for location $(0,x_{m}]$ cares about land prices and local quality of life, which is negatively correlated with density. I formulate the local municipality's problem as follows:
-\begin{equation}
-    \max_{s(x)} \int_{0}^{x_{m}} [r(x) -\omega n(x)] dx
-\end{equation}
-where $\omega$ captures the marginal disutility from density. Combined with previous conditions, this can be refined as:
-\begin{equation}
-    \max_{s(x)} \int_{0}^{x_{m}} p(x)S(x)^{\gamma}-S(x) -\omega \frac{p(x)S(x)^{\gamma}}{\alpha} dx
-\end{equation}
-The optimal structural density is $S_{m}(x)=(\gamma p(x)(1-\frac{\omega}{\alpha}))^{1/(1-\gamma)}$. To have a zoning restriction such that $S_{m}(x) < S^{\star}(x)$, we only need $\omega > 0$. Intuitively, when local residents have a preference for lower density (captured by $\omega > 0$), they choose zoning that restricts density below the unconstrained developer optimum.
+% % city area label
+% \draw[decorate, decoration={brace, amplitude=5pt}] (0,0.6) -- (8,0.6);
+% \node[above] at (4,0.8) {urban land};
 
-\subsubsection{Transit Infrastructure}
+% \end{tikzpicture}
+% \caption{A line-segment representation of the monocentric city model}
+% \end{figure}
+% \subsubsection{Household}
+% Following \cite{Glaeser2003-sr}, I write household utility as follows:
+% \begin{equation}
+%   u(c,h)=c+\alpha \log h
+% \end{equation}
+% with budget constraint $w -\tau x=c+ hp(x)$, where $p(x)$ is the housing price. Optimal allocation of housing gives $p(x)h=\alpha$. Equilibrium implies households are indifferent across locations, such that $p'(x)h+\tau=0
+% $ These two conditions pin down the housing price in terms of location $x$:
+% \begin{equation}
+%     P(x)=P(0)exp(-\frac{\tau}{\alpha}x)
+% \end{equation}
+% \subsubsection{Developer}
+% Housing supply on each parcel of land is provided by competitive developers who solve:
+% \begin{equation}
+%     \max \pi= p S^{\gamma}-S-r
+% \end{equation}
+% where $S$ is structural density (housing capital per land unit), which captures housing intensity, or building height. By setting $\gamma \in (0,1)$, housing production exhibits decreasing returns to scale. In the competitive, free-entry developer market, $r(x)=p(x)S(x)^\gamma- S(x)$, which pins down the land price. Solving the developer's problem gives $s(x)=(\gamma p(x))^{1/(1-\gamma)}$. Combining housing supply and housing demand, population density is determined by:
+% \begin{equation}
+%     n(x)=\frac{H(x)}{h(x)}=\frac{p(x)S(x)^\gamma}{\alpha}
+% \end{equation}
+% \subsubsection{Local Municipality}
+% The local municipality responsible for location $(0,x_{m}]$ cares about land prices and local quality of life, which is negatively correlated with density. I formulate the local municipality's problem as follows:
+% \begin{equation}
+%     \max_{s(x)} \int_{0}^{x_{m}} [r(x) -\omega n(x)] dx
+% \end{equation}
+% where $\omega$ captures the marginal disutility from density. Combined with previous conditions, this can be refined as:
+% \begin{equation}
+%     \max_{s(x)} \int_{0}^{x_{m}} p(x)S(x)^{\gamma}-S(x) -\omega \frac{p(x)S(x)^{\gamma}}{\alpha} dx
+% \end{equation}
+% The optimal structural density is $S_{m}(x)=(\gamma p(x)(1-\frac{\omega}{\alpha}))^{1/(1-\gamma)}$. To have a zoning restriction such that $S_{m}(x) < S^{\star}(x)$, we only need $\omega > 0$. Intuitively, when local residents have a preference for lower density (captured by $\omega > 0$), they choose zoning that restricts density below the unconstrained developer optimum.
 
-Suppose a metropolitan transit authority chooses the length of a transit line by solving
-\[
-\max_{X_T}
-\int_0^{X_T} v x n_m(x)dx-F-cX_T.
-\]
-where $v$ is the value of transit accessibility (the value of unit travel cost saved per trip), and $cX_T+F$ represents the cost of building the transit line.
-Under the local municipality's zoning restriction, population density along the transit line is $n_m(x)=\frac{p(x)S_m(x)^\gamma}{\alpha}$. Solving the transit authority's problem gives the first-order condition:
+% \subsubsection{Transit Infrastructure}
 
-The optimal transit length is
-\[
-X_T^*
-=
-\frac{1}{\kappa}
-\log\left(\frac{vN_0}{c}\right),
-\]
-and the builidng condition is 
-\[
-\frac{vN_0}{\kappa}
-\left(1-\frac{c}{vN_0}\right)
--\frac{c}{\kappa}\log\left(\frac{vN_0}{c}\right)
-\geq F
-\]
-where $\kappa=\frac{\tau}{\alpha}(1+\frac{\gamma}{1-\gamma}\frac{\omega}{\alpha})$ captures the effective density cost along the transit line, and $N_0=\frac{\left[\gamma\left(1-\frac{\omega}{\alpha}\right)\right]^{\frac{\gamma}{1-\gamma}}}{\alpha}p(0)^{\frac{1}{1-\gamma}}$ is the population density at the CBD. The optimal transit length is increasing in the value of transit accessibility, provided $vN_0>c$ and maximum net surplus is non-negative. Intuitively, $N_0$ decreases with $\omega$ (more restrictive zoning), which leads to lower population density along the transit line, lower returns to transit investment, and discourages transit expansion.
+% Suppose a metropolitan transit authority chooses the length of a transit line by solving
+% \[
+% \max_{X_T}
+% \int_0^{X_T} v x n_m(x)dx-F-cX_T.
+% \]
+% where $v$ is the value of transit accessibility (the value of unit travel cost saved per trip), and $cX_T+F$ represents the cost of building the transit line.
+% Under the local municipality's zoning restriction, population density along the transit line is $n_m(x)=\frac{p(x)S_m(x)^\gamma}{\alpha}$. Solving the transit authority's problem gives the first-order condition:
+
+% The optimal transit length is
+% \[
+% X_T^*
+% =
+% \frac{1}{\kappa}
+% \log\left(\frac{vN_0}{c}\right),
+% \]
+% and the builidng condition is 
+% \[
+% \frac{vN_0}{\kappa}
+% \left(1-\frac{c}{vN_0}\right)
+% -\frac{c}{\kappa}\log\left(\frac{vN_0}{c}\right)
+% \geq F
+% \]
+% where $\kappa=\frac{\tau}{\alpha}(1+\frac{\gamma}{1-\gamma}\frac{\omega}{\alpha})$ captures the effective density cost along the transit line, and $N_0=\frac{\left[\gamma\left(1-\frac{\omega}{\alpha}\right)\right]^{\frac{\gamma}{1-\gamma}}}{\alpha}p(0)^{\frac{1}{1-\gamma}}$ is the population density at the CBD. The optimal transit length is increasing in the value of transit accessibility, provided $vN_0>c$ and maximum net surplus is non-negative. Intuitively, $N_0$ decreases with $\omega$ (more restrictive zoning), which leads to lower population density along the transit line, lower returns to transit investment, and discourages transit expansion.
 \subsection{Quantitative Spatial Model}
 \subsubsection{Setup}
 Consider a metropolitan area consisting of a finite set of locations \(S=\{1,2,\dots,N\}\). These locations are partitioned into a set of municipalities \(g\in G\), such that
@@ -268,6 +282,8 @@ Taking local zoning as given, the authority solves
 \max_{I^R,I^T} \; W^M(I^R,I^T; Z)-C^R(I^R)-C^T(I^T),
 \]
 where \(W^M(\cdot)\) denotes the regional benefit from transportation infrastructure, \(Z\) is the vector of municipal zoning policies, and \(C^R(\cdot)\), \(C^T(\cdot)\) are the costs of road and transit investment.
+
+The distinction between road and transit investment is primarily in how their returns are evaluated. Road investment primarily reduces the cost of private commuting, and its returns depend on the overall level of car-based commuting. Transit investment reduces the cost of public commuting, and its returns depend critically on the density and ridership response to transit-accessible locations, which in turn depends on local zoning.
 
 The key institutional friction is that the metropolitan authority controls transportation investment but does not control zoning. Since local land use determines whether high-access locations can absorb additional residential and commercial development, the marginal return to transit investment depends on municipal zoning decisions. In particular, restrictive zoning near transit-accessible locations weakens the density and ridership response to public transit investment.
 
