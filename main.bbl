@@ -62,7 +62,7 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Mobility and Congestion in Urban India by Prottoy Akbar, Victor Couture, Gilles Duranton and Adam Storeygard. Published in volume 113, issue 4, pages 1083-1111 of American Economic Review, April 2023, Abstract: We develop a methodology to estimate robust city-level vehicular speed indices, exactly d...}
       \field{issue}{4}
-      \field{journaltitle}{The American economic review}
+      \field{journaltitle}{American Economic Review}
       \field{month}{4}
       \field{title}{Mobility and Congestion in Urban India}
       \field{urlday}{20}
@@ -115,7 +115,7 @@
       \field{issue}{6}
       \field{journaltitle}{The Review of Economic Studies}
       \field{month}{11}
-      \field{title}{The welfare effects of transportation infrastructure improvements}
+      \field{title}{The Welfare Effects of Transportation Infrastructure Improvements}
       \field{volume}{89}
       \field{year}{2022}
       \field{dateera}{ce}
@@ -194,13 +194,59 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Handbook of Regional and Urban Economics}
-      \field{series}{Handbook of regional and urban economics}
-      \field{title}{Housing supply and housing affordability}
+      \field{series}{Handbook of Regional and Urban Economics}
+      \field{title}{Housing Supply and Housing Affordability}
       \field{volume}{6}
       \field{year}{2025}
       \field{dateera}{ce}
       \field{pages}{353\bibrangedash 461}
       \range{pages}{109}
+    \endentry
+    \entry{Baum-Snow2024-ii}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3ab304f229ed273705b65bd10541d9e3}{%
+           family={Baum-Snow},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Nathaniel},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=292e57f67acbacbc6a29d70208bd6498}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{fullhash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{fullhashraw}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{bibnamehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authorbibnamehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authornamehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authorfullhash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authorfullhashraw}{44b3430e36e1e77fdcaf7abaaa592166}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issue}{6}
+      \field{journaltitle}{The Journal of Political Economy}
+      \field{month}{6}
+      \field{title}{The microgeography of housing supply}
+      \field{volume}{132}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{1897\bibrangedash 1946}
+      \range{pages}{50}
     \endentry
     \entry{Baum-Snow2000-xl}{article}{}{}
       \name{author}{2}{}{%
@@ -241,7 +287,7 @@
       \field{issue}{2}
       \field{journaltitle}{Journal of Public Economics}
       \field{month}{8}
-      \field{title}{The effects of new public projects to expand urban rail transit}
+      \field{title}{The Effects of New Public Projects to Expand Urban Rail Transit}
       \field{volume}{77}
       \field{year}{2000}
       \field{dateera}{ce}
@@ -281,7 +327,7 @@
       \field{issue}{2}
       \field{journaltitle}{International Regional Science Review}
       \field{month}{4}
-      \field{title}{Urban sprawl: Diagnosis and remedies}
+      \field{title}{Urban Sprawl: Diagnosis and Remedies}
       \field{volume}{23}
       \field{year}{2000}
       \field{dateera}{ce}
@@ -324,7 +370,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{SSRN Electronic Journal}
-      \field{title}{Structural Change, Land Use and Urban Expansion}
+      \field{title}{Structural Change, Land Use, and Urban Expansion}
       \field{year}{2022}
       \field{dateera}{ce}
     \endentry
@@ -370,7 +416,7 @@
       \field{day}{1}
       \field{journaltitle}{Journal of Urban Economics}
       \field{month}{5}
-      \field{title}{Urban growth shadows}
+      \field{title}{Urban Growth Shadows}
       \field{volume}{123}
       \field{year}{2021}
       \field{dateera}{ce}
@@ -415,9 +461,9 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Gibrat’s law, the orthogonality of growth with initial levels, has long been considered a stylized fact of local population growth. But throughout U.S. history, local population growth has significantly deviated from it. Across small locations, growth was strongly negatively correlated with initial population throughout the nineteenth and early twentieth centuries. This strong convergence gave way to moderate divergence beginning in the mid-twentieth century. Across intermediate and large locations, growth became moderately positively correlated with initial population starting in the late nineteenth century. This divergence eventually dissipated but never completely. A simple-one sector model combining the entry of new locations, a friction from population growth, and a decrease in the congestion arising from the supply of land closely matches these and a number of other evolving empirical relationships.}
       \field{day}{1}
-      \field{journaltitle}{Journal of urban economics}
+      \field{journaltitle}{Journal of Urban Economics}
       \field{month}{3}
-      \field{title}{The settlement of the United States, {1800–2000}: The long transition towards Gibrat’s law}
+      \field{title}{The Settlement of the United States, {1800–2000}: The Long Transition towards Gibrat’s Law}
       \field{urlday}{8}
       \field{urlmonth}{10}
       \field{urlyear}{2025}
@@ -458,8 +504,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Handbook of Regional and Urban Economics}
-      \field{series}{Handbook of regional and urban economics}
-      \field{title}{Transport infrastructure and policy evaluation}
+      \field{series}{Handbook of Regional and Urban Economics}
+      \field{title}{Transport Infrastructure and Policy Evaluation}
       \field{volume}{6}
       \field{year}{2025}
       \field{dateera}{ce}
@@ -522,9 +568,9 @@
       \field{abstract}{We study optimal dynamic lockdowns against COVID-19 within a commuting network. Our framework integrates canonical spatial epidemiology and trade models and is applied to cities with varying initial viral spread: Seoul, Daegu, and the New York City metropolitan area (NYM). Spatial lockdowns achieve substantially smaller income losses than uniform lockdowns. In the NYM and Daegu—with large initial shocks—the optimal lockdown restricts inflows to central districts before gradual relaxation, while in Seoul it imposes low temporal but large spatial variation. Actual commuting reductions were too weak in central locations in Daegu and the NYM and too strong across Seoul. (JEL H51, I12, I18, R23, R41)}
       \field{day}{1}
       \field{issue}{4}
-      \field{journaltitle}{American economic review. Insights}
+      \field{journaltitle}{American Economic Review: Insights}
       \field{month}{12}
-      \field{title}{Optimal lockdown in a commuting network}
+      \field{title}{Optimal Lockdown in a Commuting Network}
       \field{volume}{3}
       \field{year}{2021}
       \field{dateera}{ce}
@@ -557,7 +603,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Railroads and American economic growth}
+      \field{title}{Railroads and American Economic Growth}
       \field{year}{1964}
       \field{dateera}{ce}
     \endentry
@@ -638,7 +684,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{8835}
-      \field{title}{The impact of zoning on housing affordability}
+      \field{title}{The Impact of Zoning on Housing Affordability}
       \field{type}{resreport}
       \field{year}{2002}
       \field{dateera}{ce}
@@ -682,10 +728,64 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{9733}
-      \field{title}{Sprawl and urban growth}
+      \field{title}{Sprawl and Urban Growth}
       \field{type}{resreport}
       \field{year}{2003}
       \field{dateera}{ce}
+    \endentry
+    \entry{Glaeser2008-xq}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=2b41d6ca29618683e119f3255b723113}{%
+           family={Glaeser},
+           familyi={G\bibinitperiod},
+           given={Edward\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d388e55470172d7e86c427fe6935fd71}{%
+           family={Kahn},
+           familyi={K\bibinitperiod},
+           given={Matthew\bibnamedelima E},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5b0c29abb79ef441c856cb797ed3f932}{%
+           family={Rappaport},
+           familyi={R\bibinitperiod},
+           given={Jordan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{fullhash}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{fullhashraw}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{bibnamehash}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{authorbibnamehash}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{authornamehash}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{authorfullhash}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \strng{authorfullhashraw}{25c7411a3a4dde53f2318996f7c9d3e2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{1}
+      \field{journaltitle}{Journal of Urban Economics}
+      \field{month}{1}
+      \field{title}{Why Do the Poor Live in Cities? The Role of Public Transportation}
+      \field{volume}{63}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 24}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1016/j.jue.2006.12.004
+      \endverb
     \endentry
     \entry{Hsieh2019-rx}{article}{}{}
       \name{author}{2}{}{%
@@ -725,9 +825,9 @@
       \field{abstract}{We quantify the amount of spatial misallocation of labor across US cities and its aggregate costs. Misallocation arises because high productivity cities like New York and the San Francisco Bay Area have adopted stringent restrictions to new housing supply, effectively limiting the number of workers who have access to such high productivity. Using a spatial equilibrium model and data from 220 metropolitan areas we find that these constraints lowered aggregate US growth by 36 percent from 1964 to 2009. (JEL E23, J24, J31, R23, R31)}
       \field{day}{1}
       \field{issue}{2}
-      \field{journaltitle}{American Economic Journal Macroeconomics}
+      \field{journaltitle}{American Economic Journal: Macroeconomics}
       \field{month}{4}
-      \field{title}{Housing constraints and spatial misallocation}
+      \field{title}{Housing Constraints and Spatial Misallocation}
       \field{volume}{11}
       \field{year}{2019}
       \field{dateera}{ce}
@@ -772,7 +872,7 @@
       \field{issue}{102102}
       \field{journaltitle}{Journal of Housing Economics}
       \field{month}{12}
-      \field{title}{Building the metropolis: Subway expansion, land use regulation, and welfare}
+      \field{title}{Building the Metropolis: Subway Expansion, Land Use Regulation, and Welfare}
       \field{volume}{70}
       \field{year}{2025}
       \field{dateera}{ce}
@@ -812,7 +912,7 @@
       \field{issue}{2}
       \field{journaltitle}{Real Estate Economics}
       \field{month}{6}
-      \field{title}{Gentrification trends in new transit‐oriented communities: Evidence from 14 cities that expanded and built rail transit systems}
+      \field{title}{Gentrification Trends in New Transit‐Oriented Communities: Evidence from 14 Cities That Expanded and Built Rail Transit Systems}
       \field{volume}{35}
       \field{year}{2007}
       \field{dateera}{ce}
@@ -851,7 +951,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Measuring and mitigating traffic externalities}
+      \field{title}{Measuring and Mitigating Traffic Externalities}
       \field{year}{2025}
       \field{dateera}{ce}
     \endentry
@@ -889,7 +989,7 @@
       \field{issue}{3}
       \field{journaltitle}{The Review of Economics and Statistics}
       \field{month}{5}
-      \field{title}{Warding off development: Local control, housing supply, and {NIMBYs}}
+      \field{title}{Warding off Development: Local Control, Housing Supply, and {NIMBYs}}
       \field{volume}{106}
       \field{year}{2024}
       \field{dateera}{ce}
@@ -926,8 +1026,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Handbook of Regional and Urban Economics}
-      \field{series}{Handbook of regional and urban economics}
-      \field{title}{Quantitative urban economics}
+      \field{series}{Handbook of Regional and Urban Economics}
+      \field{title}{Quantitative Urban Economics}
       \field{volume}{6}
       \field{year}{2025}
       \field{dateera}{ce}
@@ -972,9 +1072,9 @@
       \field{abstract}{The observed uneven distribution of economic activity across space is influenced by variation in exogenous geographical characteristics and endogenous interactions between agents in goods and factor markets. Until the past decade, the theoretical literature on economic geography had focused on stylized settings that could not easily be taken to the data. This article reviews more recent research that has developed quantitative models of economic geography. These models are rich enough to speak to first-order features of the data, such as many heterogeneous locations and gravity equation relationships for trade and commuting. At the same time, these models are sufficiently tractable to undertake realistic counterfactual exercises to study the effect of changes in amenities, productivity, and public policy interventions such as transport infrastructure investments. We provide an extensive taxonomy of the different building blocks of these quantitative spatial models and discuss their main properties and quantification.}
       \field{day}{2}
       \field{issue}{1}
-      \field{journaltitle}{Annual review of economics}
+      \field{journaltitle}{Annual Review of Economics}
       \field{month}{8}
-      \field{title}{Quantitative spatial economics}
+      \field{title}{Quantitative Spatial Economics}
       \field{volume}{9}
       \field{year}{2017}
       \field{dateera}{ce}
@@ -1013,7 +1113,7 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Measuring winners and losers from increasing housing supply}
+      \field{title}{Measuring Winners and Losers from Increasing Housing Supply}
       \field{type}{resreport}
       \field{year}{2025}
       \field{dateera}{ce}
@@ -1053,7 +1153,7 @@
       \field{issue}{5}
       \field{journaltitle}{The Review of Economics and Statistics}
       \field{month}{9}
-      \field{title}{Commuting, labor, and housing market effects of mass transportation: Welfare and identification}
+      \field{title}{Commuting, Labor, and Housing Market Effects of Mass Transportation: Welfare and Identification}
       \field{volume}{105}
       \field{year}{2021}
       \field{dateera}{ce}
@@ -1088,7 +1188,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{I describe the use of quantitative spatial models (QSMs) to evaluate the effects of transportation infrastructure within cities. After discussing the motivation for QSMs relative to other economic measurement techniques, I develop a simple QSM and detail the components that enter into the model. Next, I consider identification challenges and practical implementation. Finally, I highlight several shortcomings common in applications of QSMs, as well as growth areas where QSMs show promise for future development.}
-      \field{title}{Evaluating transportation improvements within cities using quantitative spatial models}
+      \field{title}{Evaluating Transportation Improvements within Cities Using Quantitative Spatial Models}
       \field{type}{resreport}
       \field{year}{2026}
       \field{dateera}{ce}
@@ -1125,7 +1225,7 @@
       \field{issue}{103784}
       \field{journaltitle}{Journal of Urban Economics}
       \field{month}{9}
-      \field{title}{The effects of residential zoning in {U}.{S}. housing markets}
+      \field{title}{The Effects of Residential Zoning in {U}.{S}. Housing Markets}
       \field{volume}{149}
       \field{year}{2025}
       \field{dateera}{ce}
@@ -1155,10 +1255,18 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{AER journal: research and practice in visual impairment and blindness}
-      \field{title}{Evaluating the impact of urban transit infrastructure: Evidence from Bogotá’s {TransMilenio}}
-      \field{year}{2023}
+      \field{issue}{2}
+      \field{journaltitle}{American Economic Review}
+      \field{month}{2}
+      \field{title}{Evaluating the Impact of Urban Transit Infrastructure: Evidence from Bogotá’s {TransMilenio}}
+      \field{volume}{116}
+      \field{year}{2026}
       \field{dateera}{ce}
+      \field{pages}{418\bibrangedash 463}
+      \range{pages}{46}
+      \verb{doi}
+      \verb 10.1257/aer.20190874
+      \endverb
     \endentry
     \entry{Zheng2013-of}{article}{}{}
       \name{author}{2}{}{%
@@ -1192,7 +1300,7 @@
       \field{abstract}{Megacity growth in the developing world is fueled by a desire to access their large local labor markets. Growing megacities suffer from high levels of traffic congestion and pollution, which degrade local quality of life. Transportation technology that allows individuals to access the megacity without living within its boundaries offers potentially large social benefits, because individuals can enjoy the benefits of urban agglomeration while not paying megacity real estate rents and suffering from the city’s social costs. This paper presents evidence supporting the claim that China’s bullet trains are playing this role. The bullet train is regarded as one of the most significant technological breakthroughs in passenger transportation developed in the second half of the 20th century. Starting in 2007, China has introduced several new bullet trains that connect megacities such as Beijing, Shanghai, and Guangzhou with nearby cities. Through facilitating market integration, bullet trains will stimulate the development of second- and third-tier cities. By offering households and firms a larger menu of location alternatives, bullet trains help to protect the quality of life of the growing urban population. We document that this transport innovation is associated with rising real estate prices in the nearby secondary cities. Our findings offer insights for other countries planning to build bullet trains. We report that the cost-effectiveness of bullet trains is determined by three key factors: high population density, a sufficient number of large cities in reasonable proximity to one another along railway corridors, and congested traffic in competing modes of transportation. These conditions may be met in some European countries but are less likely to be met in a decentralized state such as California. China’s unique political structure would likely allow for the efficient implementation of megaprojects, but such projects might face strong not in my backyard opposition from citizens in the United States. Given that China’s bullet trains have only recently begun operating, it is too early to examine shifts in the spatial distribution of firms and households across cities. Because current real estate prices reflect expectations of future dynamics in city rent, we focus on city-specific real estate prices and document that there is greater real estate price appreciation in cities that have enjoyed greater increases in market potential (i.e., a concept used by economic geographers to measure a specific geographic area’s access to markets for inputs and outputs). The introduction of the bullet train significantly increases the market potential of cities located near megacities relative to those far from megacities. Our study relies on an instrumental variables regression approach to document the robust positive correlation between city growth in market potential and city growth in real estate prices. We find that the bullet train plays an important role in the integration of China’s individual cities into a network of connected cities. If this integration decreases suburban growth in megacities, a sustainable urban development pattern could emerge. Several small secondary cities are located between 100 and 750 km of China’s megacities of Beijing, Shanghai, and Guangzhou; residents of these cities gained rapid access to the megacities after the introduction of bullet trains (Fig. P1). The distance from these small cities to the megacities is not easily traveled by car, but these locations are close enough to make flying impractical. Bullet trains improve market access, expand labor markets, and enhance spatial agglomeration. They allow firms and workers in cities such as Tianjin to access megacities such as Beijing. High home prices and relatively low quality of life experienced by residents of megacities also encourage some households and firms to relocate in secondary cities. This cross-city integration allowed by bullet trains simultaneously alleviates some of the congestion costs associated with urban growth in megacities and triggers the growth of secondary cities along the bullet train route. Macroeconomists view urbanization as a necessary condition for long-term economic growth, but rapid urbanization—especially in developing nations—imposes large social costs. China has three megacities—Beijing, Shanghai, and Guangzhou—with each metropolitan area’s total population in excess of 10 million people. The quality of life of megacity residents suffers from exacerbated pollution and traffic congestion. Here, we propose that China’s recent investment in so-called bullet trains, which allow individuals to move at speeds of roughly 175 mi/h, increases the breadth of locations with access to megacities. This innovation in transportation technology allows individuals to access a megacity without living within its boundaries and thus, offers potentially large social benefits. For example, individuals can enjoy the benefits of urban agglomeration without the high cost of living.}
       \field{issue}{14}
       \field{journaltitle}{Proceedings of the National Academy of Sciences}
-      \field{title}{China’s bullet trains facilitate market integration and mitigate the cost of megacity growth}
+      \field{title}{China’s Bullet Trains Facilitate Market Integration and Mitigate the Cost of Megacity Growth}
       \field{volume}{110}
       \field{year}{2013}
       \field{dateera}{ce}
@@ -1200,7 +1308,6 @@
       \range{pages}{-1}
     \endentry
   \enddatalist
-  \missing{Kawano2023-ly}
 \endrefsection
 \endinput
 
