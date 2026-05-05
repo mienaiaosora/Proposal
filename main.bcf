@@ -642,8 +642,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">dashed</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -725,7 +724,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -814,7 +813,7 @@
     <bcf:option datatype="boolean" backendout="1">doi</bcf:option>
     <bcf:option datatype="boolean" backendout="1">eprint</bcf:option>
     <bcf:option datatype="boolean" backendout="1">related</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">mergedate</bcf:option>
+    <bcf:option datatype="boolean" backendout="1">subentry</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
@@ -2387,7 +2386,7 @@
     <bcf:citekey order="10" intorder="1">Glaeser2003-sr</bcf:citekey>
     <bcf:citekey order="11" intorder="1">Baum-Snow2007-zj</bcf:citekey>
     <bcf:citekey order="12" intorder="1">Brueckner2000-vd</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">Kawano2023-ly</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">Glaeser2008-xq</bcf:citekey>
     <bcf:citekey order="14" intorder="1">Donaldson2025-wa</bcf:citekey>
     <bcf:citekey order="15" intorder="1">Redding2025-fr</bcf:citekey>
     <bcf:citekey order="16" intorder="1">Redding2017-nf</bcf:citekey>
@@ -2413,8 +2412,8 @@
     <bcf:citekey order="36" intorder="1">Desmet2017-kc</bcf:citekey>
     <bcf:citekey order="37" intorder="1">Coeurdacier2022-ip</bcf:citekey>
     <bcf:citekey order="38" intorder="1">Zheng2013-of</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">Severen2026-qx</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">Glaeser2003-sr</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">Baum-Snow2024-ii</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">Severen2026-qx</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
