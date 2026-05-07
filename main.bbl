@@ -513,7 +513,7 @@
       \range{pages}{66}
     \endentry
     \entry{Fajgelbaum2021-fx}{article}{}{}
-      \name{author}{5}{}{%
+      \name{author}{5}{ul=2}{%
         {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%
            family={Fajgelbaum},
            familyi={F\bibinitperiod},
@@ -551,12 +551,12 @@
       \list{publisher}{1}{%
         {American Economic Association}%
       }
-      \strng{namehash}{8b06d4c883a05c58dae3dd143075e023}
+      \strng{namehash}{1a327916b35609c6952197761fb89afc}
       \strng{fullhash}{b05a9f5826bc5c291a50c310fee83bf0}
       \strng{fullhashraw}{b05a9f5826bc5c291a50c310fee83bf0}
-      \strng{bibnamehash}{8b06d4c883a05c58dae3dd143075e023}
-      \strng{authorbibnamehash}{8b06d4c883a05c58dae3dd143075e023}
-      \strng{authornamehash}{8b06d4c883a05c58dae3dd143075e023}
+      \strng{bibnamehash}{1a327916b35609c6952197761fb89afc}
+      \strng{authorbibnamehash}{1a327916b35609c6952197761fb89afc}
+      \strng{authornamehash}{1a327916b35609c6952197761fb89afc}
       \strng{authorfullhash}{b05a9f5826bc5c291a50c310fee83bf0}
       \strng{authorfullhashraw}{b05a9f5826bc5c291a50c310fee83bf0}
       \field{sortinit}{F}
@@ -576,6 +576,51 @@
       \field{dateera}{ce}
       \field{pages}{503\bibrangedash 522}
       \range{pages}{20}
+    \endentry
+    \entry{Fajgelbaum2020-yv}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%
+           family={Fajgelbaum},
+           familyi={F\bibinitperiod},
+           given={Pablo\bibnamedelima D},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d14ebb8e5545310e2916d361c886645}{%
+           family={Schaal},
+           familyi={S\bibinitperiod},
+           given={Edouard},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {The Econometric Society}%
+      }
+      \strng{namehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{fullhash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{fullhashraw}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{bibnamehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authorbibnamehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authornamehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authorfullhash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authorfullhashraw}{08b9fec9061bc455f80fe4b64d70dde7}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study optimal transport networks in spatial equilibrium. We develop a framework consisting of a neoclassical trade model with labor mobility in which locations are arranged on a graph. Goods must be shipped through linked locations, and transport costs depend on congestion and on the infrastructure in each link, giving rise to an optimal transport problem in general equilibrium. The optimal transport network is the solution to a social planner's problem of building infrastructure in each link. We provide conditions such that this problem is globally convex, guaranteeing its numerical tractability. We also study cases with increasing returns to transport technologies in which global convexity fails. We apply the framework to assess optimal investments and inefficiencies in the road networks of European countries.}
+      \field{issue}{4}
+      \field{journaltitle}{Econometrica: Journal of the Econometric Society}
+      \field{title}{Optimal transport networks in spatial equilibrium}
+      \field{volume}{88}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{pages}{1411\bibrangedash 1452}
+      \range{pages}{42}
     \endentry
     \entry{Fogel1964-pu}{book}{}{}
       \name{author}{1}{}{%
