@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  7 MAY 2026 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  7 MAY 2026 21:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/corgi/Downloads/Proposal/main
-(/Users/corgi/Downloads/Proposal/main.tex
+**"/Volumes/ORICO/Proposal for SYP/ Proposal draft/main"
+(/Volumes/ORICO/Proposal for SYP/ Proposal draft/main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -839,30 +839,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [6]
 
 [7]
-Overfull \hbox (1.91505pt too wide) in paragraph at lines 316--317
+Overfull \hbox (1.91505pt too wide) in paragraph at lines 315--316
 \T1/cmr/m/n/12 tran-sit investments---from trans-lat-ing into higher-density de-vel-op-ment near well-connected
  []
 
 
 
 [8]
-<Metro lines Global.png, id=217, 956.57375pt x 463.7325pt>
-File: Metro lines Global.png Graphic file (type png)
-<use Metro lines Global.png>
-Package pdftex.def Info: Metro lines Global.png  used on input line 333.
-(pdftex.def)             Requested size: 455.24411pt x 220.6927pt.
-
-
-[9 <./Metro lines Global.png>]
-Overfull \hbox (15.97897pt too wide) in paragraph at lines 338--338
+Overfull \hbox (15.97897pt too wide) in paragraph at lines 332--332
 []\T1/cmr/m/n/12 Klaus Desmet and Jor-dan Rap-pa-port. ``The Set-tle-ment of the United States, 1800^^U2000:
  []
 
 
 
-[10]
+[9]
 
-[11] (./main.aux)
+[10]
+<Metro lines Global.png, id=234, 956.57375pt x 463.7325pt>
+File: Metro lines Global.png Graphic file (type png)
+<use Metro lines Global.png>
+Package pdftex.def Info: Metro lines Global.png  used on input line 334.
+(pdftex.def)             Requested size: 455.24411pt x 220.6927pt.
+
+
+[11 <./Metro lines Global.png>] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -872,7 +872,7 @@ L3 programming layer <2025-01-18>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 599FDD7DE72EBACA4E425F715498B29B;2960.
+(rerunfilecheck)             Checksum: F9779159ED48DF3C712FC86CCD133E13;3117.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -883,18 +883,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29241 strings out of 473190
- 559305 string characters out of 5715801
- 1353135 words of memory out of 5000000
- 51998 multiletter control sequences out of 15000+600000
+ 29243 strings out of 473190
+ 559375 string characters out of 5715801
+ 1352136 words of memory out of 5000000
+ 51999 multiletter control sequences out of 15000+600000
  575611 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,6n,107p,5218b,1547s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,6n,107p,5236b,1547s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (11 pages, 369729 bytes).
+Output written on main.pdf (11 pages, 373298 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 283 compressed objects within 3 object streams
- 69 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
