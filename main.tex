@@ -221,6 +221,10 @@ and $I_{ij}$ leads to a reduction in the commuting cost
 \begin{align}
 \frac{\partial \tau_{ijr}}{\partial I_{ij}} \leq 0.
 \end{align}
+Following \cite{Fajgelbaum2020-yv}, I will parametrize the commuting cost function as follows:
+\begin{align}
+    \tau_{jk}(\mathbf n,I)=\delta^{\tau}_{jk}\frac{(\mathbf{n})^{\rho}}{\mathbf{I}^{\gamma}}
+\end{align}
 There are three types of agents in the model: households, firms, and governments. Households choose where to live, where to work, and how to commute. Competitive firms choose labor and commercial land to produce a freely tradable good. Government decisions are made at two levels. Municipal governments choose local zoning regulations, while a metropolitan transportation authority chooses transportation investment for the urban area as a whole.
 
 \subsubsection{Households}
@@ -285,36 +289,23 @@ To avoid modeling an explicit dynamic voting game, I assume municipal government
 
 Accordingly, municipality \(g\) solves
 \[
-\max_{Z^g} \; W^g(Z^g; I^R, I^T, Z^{-g}),
+\max_{Z^g} \; W^g=\sum_{i\in S^g} \omega_i u_i(Z^g, Z^{-g})
 \]
-where \(Z^{-g}\) denotes the zoning choices of other municipalities, and \(W^g\) is incumbent welfare in municipality \(g\). In reduced form, this objective can be written as
-\[
-W^g
-=
-\sum_{i\in S^g}
-\left[
-\omega_1 P_i
-+\omega_2 B_i^{\text{loc}}
--\omega_3 N_i
-\right],
-\]
-where \(P_i\) captures local property-value considerations, \(B_i^{\text{loc}}\) captures neighborhood amenities, and \(N_i\) captures congestion or crowding costs associated with additional development. Because this objective is local, municipalities do not internalize the effect of zoning restrictions on regionwide housing allocation, commuting patterns, or the return to regional transit investment.
+
 
 \subsubsection{Optimal Transportation Investment}
 
-A metropolitan transportation authority chooses investment for the region as a whole. Let its policy vector be
+A metropolitan transportation authority chooses investment for the region as a whole. Taking local zoning as given, the authority solves
 \[
-I=(I^R,I^T).
+\max_{I_{jk}} \; W=\sum_{i} \omega_{i} \sum_{j} N_{ij} U_{ij}(Q_{ij}, h_{ij}^R)
 \]
-Taking local zoning as given, the authority solves
-\[
-\max_{I^R,I^T} \; W^M(I^R,I^T; Z)-C^R(I^R)-C^T(I^T),
-\]
-where \(W^M(\cdot)\) denotes the regional benefit from transportation infrastructure, \(Z\) is the vector of municipal zoning policies, and \(C^R(\cdot)\), \(C^T(\cdot)\) are the costs of road and transit investment.
+subject to:
+\begin{align}
+    \sum_{j,k} \delta_{jk} I_{jk} & \leq K, \\
+    0 \leq \underline{I_{jk}} \leq I_{jk} & \leq \bar{I_{jk}} \leq \infty
+\end{align}
+Where $U_{ij}(Q_{ij}, h_{ij}^R)$ represents the utility of a household living in location $i$ and working in location $j$, and $N_{ij}$ is the number of such households. 
 
-The distinction between road and transit investment is primarily in how their returns are evaluated. Road investment primarily reduces the cost of private commuting, and its returns depend on the overall level of car-based commuting. Transit investment reduces the cost of public commuting, and its returns depend critically on the density and ridership response to transit-accessible locations, which in turn depends on local zoning.
-
-The key institutional friction is that the metropolitan authority controls transportation investment but does not control zoning. Since local land use determines whether high-access locations can absorb additional residential and commercial development, the marginal return to transit investment depends on municipal zoning decisions. In particular, restrictive zoning near transit-accessible locations weakens the density and ridership response to public transit investment.
 
 \subsubsection{Equilibrium}
 
@@ -340,18 +331,20 @@ The main distortion in the model arises from a mismatch in governance scales. Zo
 
 As a result, restrictive zoning can prevent transportation improvements---especially transit investments---from translating into higher-density development near well-connected locations. Growth is instead pushed toward lower-cost, more distant areas, contributing to urban sprawl. In this sense, sprawl in the model is not simply a reflection of geography or household preferences, but may emerge as an inefficient equilibrium outcome of fragmented land-use regulation combined with metropolitan transportation investment.
 
-\subsubsection{Efficient Benchmark}
-
-To evaluate the inefficiency of the decentralized equilibrium, I compare it to a coordinated benchmark in which a planner chooses both transportation investment and zoning:
+\subsubsection{Efficient Benchmark: Planner's Problem}
+Now, for a planner who chooses zoning and transportation investment jointly to maximize metropolitan welfare, the problem can be written as
 \[
-\max_{I^R,I^T,Z}
-\; W(I^R,I^T,Z)-C^R(I^R)-C^T(I^T),
+\max_{Z^g, I_{jk}} \; W=\sum_{i} \omega_{i} \sum_{j} N_{ij} U_{ij}(Q_{ij}, h_{ij}^R)
 \]
-where \(W(\cdot)\) denotes aggregate metropolitan welfare. Unlike individual municipalities, the planner internalizes the effect of land-use restrictions on housing supply, commuting, and the productivity of transportation infrastructure.
-
-Comparing the decentralized equilibrium with this benchmark highlights the extent to which fragmented zoning lowers the return to transit, biases investment toward road-oriented development, and generates excessive urban sprawl.
-
-
+subject to:
+\begin{align}
+    \sum_{j,k} \delta_{jk} I_{jk} & \leq K, \\
+    0 \leq \underline{I_{jk}} \leq I_{jk} & \leq \bar{I_{jk}} \leq \infty, \\
+    \sum_{j} N_{ij} h_{ij}^R & \leq   H_i^R, \\
+    \sum_{i} \sum_{j} N_{ij} & = L, \\
+    \sum_{i} \sum_{j} N_{ij} Q_{ij} & = \sum_{j} A_j F(L_j, H_j^F), \\
+    H_i^R + H_i^F & \leq \bar H_i \
+ \end{align}
 \section{Expected Outcome}
 I expect to use my model to quantify the existing U.S. metropolitan transportation network and construct the counterfactual optimal transportation network under coordinated zoning and transportation policies. I will also evaluate the welfare distribution and differences between the two scenarios to estimate how much welfare improvement can be achieved and identify the winners and losers.
 
