@@ -1,0 +1,62 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage[
+    bibstyle=numeric,
+    citestyle=authoryear,
+    backend=biber,
+    natbib=true,
+    sorting=nyt]{biblatex}
+\usepackage{booktabs}
+\usepackage{pgfgantt}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\addbibresource{reference.bib}
+\title{Model}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\section{Model}
+\subsection{set up}
+Consider a metropolitan area consisting of a finite set of locations \(S=\{1,2,\dots,N\}\). These locations are partitioned into a set of municipalities \(g\in G\), such that
+\[
+S=\bigcup_{g\in G} S^g, \qquad S^g \cap S^{g'}=\emptyset \quad \text{for } g\neq g'.
+\]
+
+Each location \(i\in S\) is endowed with a fixed amount of land \(\bar H_{i}\), which can be allocated between residential and commercial use:
+\[
+H_i^R + H_i^F \leq \bar H_{i}.
+\]
+Land use is further subject to zoning regulations. Let \(Z_i^R\) and \(Z_i^F\) denote the residential and commercial zoning restrictions at location \(i\). These regulations impose upper bounds on feasible development:
+\[
+H_i^R \leq \bar H_i^R(Z_i), \qquad H_i^F \leq \bar H_i^F(Z_i),
+\]
+where stricter zoning lowers the feasible density of development.
+
+Locations are connected through a transportation network. For any pair of residence and workplace locations \((i,j)\), households can choose a commuting route \(r \in R_{ij}\). Following \cite{Fajgelbaum2020-yv}, the generalized commuting cost associated with route \(r\) is denoted by \(\tau_{ijr}\), which depends on transportation infrastructure and congestion:
+\[
+\tau_{ijr} = \tau_{ijr}(I_{ij}, \mathbf n),
+\]
+where \(I_{ij}\) denotes the transportation investment between locations \(i\) and \(j\), and \(\mathbf n\) collects equilibrium traffic and transit usage across routes, which generate congestion. The commuting cost is increasing in the quantity of commuters on the route
+\begin{align}
+\frac{\partial \tau_{ijr}}{\partial n_{ijr}} \geq 0,
+\end{align}
+and $I_{ij}$ leads to a reduction in the commuting cost
+\begin{align}
+\frac{\partial \tau_{ijr}}{\partial I_{ij}} \leq 0.
+\end{align}
+Following \cite{Fajgelbaum2020-yv}, I will parametrize the commuting cost function as follows:
+\begin{align}
+    \tau_{jk}(\mathbf n,I)=\delta^{\tau}_{jk}\frac{(\mathbf{n})^{\rho}}{\mathbf{I}^{\gamma}}
+\end{align}
+There are three types of agents in the model: households, firms, and governments. Households choose where to live, where to work, and how to commute. Competitive firms choose labor and commercial land to produce a freely tradable good. Government decisions are made at two levels. Municipal governments choose local zoning regulations, while a metropolitan transportation authority chooses transportation investment for the urban area as a whole.
+\end{document}
