@@ -42,21 +42,69 @@ H_i^R \leq \bar H_i^R(Z_i), \qquad H_i^F \leq \bar H_i^F(Z_i),
 \]
 where stricter zoning lowers the feasible density of development.
 
-Locations are connected through a transportation network. For any pair of residence and workplace locations \((i,j)\), households can choose a commuting route \(r \in R_{ij}\). Following \cite{Fajgelbaum2020-yv}, the generalized commuting cost associated with route \(r\) is denoted by \(\tau_{ijr}\), which depends on transportation infrastructure and congestion:
+Locations are connected through a transportation network. Following \cite{Fajgelbaum2020-yv}, the generalized commuting cost is denoted by \(\tau_{ij}\), which depends on transportation infrastructure and congestion:
 \[
-\tau_{ijr} = \tau_{ijr}(I_{ij}, \mathbf n),
+\tau_{ij} = \tau_{ij}(I_{ij}, \mathbf n),
 \]
 where \(I_{ij}\) denotes the transportation investment between locations \(i\) and \(j\), and \(\mathbf n\) collects equilibrium traffic and transit usage across routes, which generate congestion. The commuting cost is increasing in the quantity of commuters on the route
 \begin{align}
-\frac{\partial \tau_{ijr}}{\partial n_{ijr}} \geq 0,
+\frac{\partial \tau_{ij}}{\partial n_{ij}} \geq 0,
 \end{align}
 and $I_{ij}$ leads to a reduction in the commuting cost
 \begin{align}
-\frac{\partial \tau_{ijr}}{\partial I_{ij}} \leq 0.
+\frac{\partial \tau_{ij}}{\partial I_{ij}} \leq 0.
 \end{align}
 Following \cite{Fajgelbaum2020-yv}, I will parametrize the commuting cost function as follows:
 \begin{align}
     \tau_{jk}(\mathbf n,I)=\delta^{\tau}_{jk}\frac{(\mathbf{n})^{\rho}}{\mathbf{I}^{\gamma}}
 \end{align}
 There are three types of agents in the model: households, firms, and governments. Households choose where to live, where to work, and how to commute. Competitive firms choose labor and commercial land to produce a freely tradable good. Government decisions are made at two levels. Municipal governments choose local zoning regulations, while a metropolitan transportation authority chooses transportation investment for the urban area as a whole.
+\subsection{Household}
+For a household $\omega$ located at $i$ and working at $j$, the utility is given by
+\[
+u_{\omega i j}= \frac{B_{i}}{d_{ij}}(\frac{C_{ij}}{\alpha})^{\alpha}(\frac{H_{ij}}{1-\alpha})^{1-\alpha} v(\omega ij)
+\]
+where \(C_{ij}\) and \(H_{ij}\) are the consumption of the composite good and housing, respectively, and \(v(\omega ij)\) captures idiosyncratic preferences for location and job pair \((i,j)\). The term \(B_i\) captures the local amenities at residence location \(i\), while \(d_{ij}\) captures the spatial friction of commuting from \(i\) to \(j\). The household faces a budget constraint:
+\[
+C_{ij}+q_{i}H_{ij} \leq w_{j}
+\]
+Solved: $V_{ij\omega}=\frac{B_{i}w_{j}q_{i}^{\alpha-1}}{d_{ij}}v_{ij\omega}$
+and $F(v_{ij\omega})=exp(-T_{i}E_{j}v_{ij\omega}^{-\epsilon})$
+
+Such that 
+\begin{align}
+ \pi_{ij}=\frac{T_{i}E_{j}(\frac{B_{i}w_{j}q_{i}^{\alpha-1}}{d_{ij}})^{\epsilon}}{\sum \sum T_{r}E_{s}(\frac{B_{r}w_{s}q_{r}^{\alpha-1}}{d_{rs}})^{\epsilon}}=\frac{\Phi_{ij}}{\Phi}
+\end{align}
+
+Given equilibrium condition
+\begin{align}
+E(V_{ij\omega})=\Gamma (\sum \sum T_{r}E_{s}(\frac{B_{r}w_{s}q_{r}^{\alpha-1}}{d_{rs}})^{\epsilon})^{1/\epsilon}=U
+\end{align}
+    
+
+
+\subsection{Firm}
+A firm located at \(j\) produces output using labor and commercial land from location \(j\) according to the production function    
+\[
+y_{j}= A_{j}L_{mj}^{\beta}(H_{j}^F)^{1-\beta}
+\]
+where \(H_{j}\) denotes the commercial land available at location \(j\). \(L_{mj}\) denotes the labor demand from location \(j\).
+For now I ignore the agglomeration effect and assume that the productivity \(A_j\) is location-specific and exogenous.
+
+\subsection{Local Municipal}
+For each municipality \(g\), the local government chooses zoning regulations to maximize the welfare of its incumbent residents.
+\subsection{Optimal Transportation network}
+\subsection{Social planner}
+
+
+
+
+
+\section{Model 2}
+In this section, I try to build a model with two time periods to see if it help me capture the mechanism of zoning regulations better. In the first period There are existing incumbents who own the land and decide the zoning regulations for second period, wheras the government choose the transportation investment given the whole zoning regulations in each municipality. In the second period, the new entrants choose where to live and work given the zoning regulations and transportation network determined in the first period.
+
+\subsection{set up}
+Consider a metropolitan area consisting of a finite set of locations \(S=\{1,2,\dots,N\}\). These locations are partitioned into a set of municipalities \(g\in G\), such that
+\[S=\bigcup_{g\in G} S^g, \qquad S^g \cap S^{g'}=\emptyset \quad \text{for } g\neq g'.\]    
+Each location \(i\in S\) is endowed with a fixed amount of land \(\bar H_{i}\). In the first period, each location \(i\) is occupied by  incumbents who own the land and decides the zoning regulations for the second period.
 \end{document}
