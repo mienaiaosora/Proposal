@@ -48,20 +48,32 @@ A representative landowner in municipality $g$ chooses zoning capacity to maximi
 
 $u_{0,g}=\max_{h_{0,g}} \sum_{i \in g} u_{1,i}(h_{0,i};h_{0,-g},I)-\lambda \sum_{i\in g}h_{0,i}.$
 
+## 5. In Period 1
+In period 1, for a household who initially live in location, and choose to live in i and work in j sloves:
+$$
+\begin{align}
+    u_{1,\omega oij}=\max_{c_{ij},h_{ij}} \frac{B_{i}}{D_{oij}}(\frac{c_{ij}}{\alpha})^{\alpha}(\frac{h_{ij}}{1-\alpha})^{1-\alpha} \upsilon_{\omega ij}
+\end{align}
+$$
 
-In Preiod 1, the
-subject to
-$h_{1,i}q_{i}+c_{ij} \leq w_{ij} + q_{i}h_{0,i}-\phi(N_{i})$
+subject to $c_{ij}+h_{ij}q_{i} \leq w_{j}(1-\phi(h_{0,i}))+h_{0,o}q_{o}$
 
 where:
 
 - $q_{i}$ is the local housing price,
 - $h_{0,i}$ is the zoning rule controlled by the landowner,
 - $w_{ij}$ is accessibility-adjusted income,
-- $\phi(N_i)$ is local congestion or density disutility,
-- $\lambda h_{0,i}$ is the cost of housing capacity.
+- $\phi(h_{0,i})$ is local congestion or density disutility, I set $\phi(h_{0})=\phi_{0}h_{0}^{\phi_{1}}$
 
-## 5. In Period 1
+The spatial friction term $D_{oij}$ can be:
+$$
+\begin{align}
+    D_{oij}=\varepsilon_{oij} exp(\rho d_{oi}+\kappa d_{ij}+ \delta d_{oj})
+\end{align}
+$$ 
+
+and idiosyncratic shock $\upsilon_{\omega ij}$ follows $Pr(z_{oij}\leq z)=exp(-T_{i}E_{j}z^{\epsilon})$
+
 
 
 ## Optimal Transportation network
