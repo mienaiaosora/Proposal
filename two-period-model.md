@@ -48,6 +48,7 @@ A representative landowner in municipality $g$ chooses zoning capacity to maximi
 
 $u_{0,g}=\max_{h_{0,g}} \sum_{i \in g} u_{1,i}(h_{0,i};h_{0,-g},I)-\lambda \sum_{i\in g}h_{0,i}.$
 
+For each landowner, they took other landowner's zoning decision and transportation investment as given. $\lambda$ is the construction cost for zoning.
 ## 5. In Period 1
 In period 1, for a household who initially live in location, and choose to live in i and work in j sloves:
 $$
@@ -56,7 +57,11 @@ $$
 \end{align}
 $$
 
-subject to $c_{ij}+h_{ij}q_{i} \leq w_{j}(1-\phi(h_{0,i}))+h_{0,o}q_{o}$
+subject to  
+
+$$
+c_{ij}+h_{ij}q_{i} \leq w_{j}(1-\phi(h_{0,i}))+h_{0,o}q_{o}
+$$
 
 where:
 
