@@ -1,4 +1,4 @@
-# Model
+# Two-Period Model
 
 ## 1. Motivation
 
@@ -66,98 +66,7 @@ $$\Pr(\upsilon_{\omega ij} \leq z) = \exp\!\left(-T_i E_j\, z^{-\epsilon}\right)
 
 where $T_i > 0$ captures location $i$'s attractiveness as a residence, $E_j > 0$ captures location $j$'s attractiveness as a workplace, and $\epsilon$ is the dispersion parameter.
 
-## 6. Solving the Household Problem
-
-**Effective income.** Define the effective income for a household from $o$ choosing $(i, j)$:
-
-$$Y_{oij} \equiv w_j + h_{0,o}\,q_o - \phi(N_i, h_{0,i})$$
-
-This is wages plus rental income from origin housing minus the monetary congestion cost at the destination.
-
-**Optimal demands.** The Cobb-Douglas normalization $(c/\alpha)^\alpha(h/(1-\alpha))^{1-\alpha}$ implies constant budget shares regardless of prices:
-
-$$c_{ij}^* = \alpha\, Y_{oij}, \qquad h_{ij}^* = \frac{(1-\alpha)\,Y_{oij}}{q_i}$$
-
-**Indirect utility.** Substituting the optimal demands, the normalization factors cancel:
-
-$$\boxed{V_{oij,\omega} = \frac{B_i \cdot Y_{oij}}{D_{oij} \cdot q_i^{1-\alpha}} \cdot \upsilon_{\omega ij} \;\equiv\; \tilde{V}_{oij} \cdot \upsilon_{\omega ij}}$$
-
-where $\tilde{V}_{oij}$ is the **deterministic indirect utility** — the systematic attractiveness of the $(o \to i, j)$ triple.
-
-**Derivation check.** With $c^* = \alpha Y$ and $h^* q_i = (1-\alpha)Y$:
-$$u^* = \frac{B_i}{D_{oij}}\bigl(\alpha Y/\alpha\bigr)^\alpha\bigl((1-\alpha)Y/q_i\,/\,(1-\alpha)\bigr)^{1-\alpha}\upsilon = \frac{B_i}{D_{oij}}\,Y^\alpha\,(Y/q_i)^{1-\alpha}\,\upsilon = \frac{B_i\,Y}{D_{oij}\,q_i^{1-\alpha}}\,\upsilon \quad \checkmark$$
-
-**Mechanism check on $\tilde{V}_{oij}$:**
-
-| Change | Effect on $\tilde{V}_{oij}$ | Intuition |
-|--------|-----------------------------|-----------|
-| $\uparrow w_j$ | $\uparrow$ (via $\uparrow Y_{oij}$) | Better wages at $j$ raise income |
-| $\uparrow h_{0,o}\,q_o$ | $\uparrow$ (via $\uparrow Y_{oij}$) | More rental income from origin |
-| $\uparrow \phi$ | $\downarrow$ (via $\downarrow Y_{oij}$) | More congestion at $i$ lowers net income |
-| $\uparrow q_i$ | $\downarrow$ (housing expensive at $i$) | Deters in-movers |
-| $\uparrow D_{oij}$ | $\downarrow$ (higher friction) | Harder/costlier to reach $(i,j)$ |
-| $\uparrow B_i$ | $\uparrow$ (destination amenity) | Better amenities at $i$ |
-
-All signs are directionally correct. ✓
-
-## 7. Commuting Flows and Expected Utility
-
-Each household from $o$ independently draws Fréchet shocks $\upsilon_{\omega ij}$ and chooses $(i,j)$ to maximize $V_{oij,\omega} = \tilde{V}_{oij} \cdot \upsilon_{\omega ij}$.
-
-**Commuting probability.** By the Fréchet aggregation theorem (Eaton and Kortum, 2002), the probability that a household from $o$ chooses residence $i$ and workplace $j$ is:
-
-$$\boxed{\pi_{oij} = \frac{T_i\,E_j\,\tilde{V}_{oij}^\epsilon}{\Phi_o}, \qquad \Phi_o \equiv \sum_{i'}\sum_{j'} T_{i'}\,E_{j'}\,\tilde{V}_{oi'j'}^\epsilon}$$
-
-**Expected utility.** The expected maximum of $\{\tilde{V}_{oij}\,\upsilon_{\omega ij}\}$ is itself Fréchet with scale $\Phi_o^{1/\epsilon}$, giving:
-
-$$\boxed{\bar{U}_o = \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\,\Phi_o^{1/\epsilon}}$$
-
-where $\Gamma(\cdot)$ is the gamma function. Expected welfare at $o$ is a power of the aggregate attractiveness index $\Phi_o$.
-
-**Commuting flows and period-1 population.**
-
-$$L_{oij} = N_o^0 \cdot \pi_{oij}, \qquad N_i^1 = \sum_o\sum_j L_{oij}$$
-
-where $N_o^0$ is the initial (period-0) count at origin $o$.
-
-**Mechanism checks on $\pi_{oij}$:**
-
-| Change | Effect on $\pi_{oij}$ | Channel |
-|--------|----------------------|---------|
-| $\uparrow w_j$ | $\uparrow$ | $\uparrow \tilde{V}_{oij}$ via $\uparrow Y_{oij}$ |
-| $\uparrow \tau_{ij}$ | $\downarrow$ | $\downarrow \tilde{V}_{oij}$ via $\uparrow D_{oij}$ |
-| $\uparrow q_i$ | $\downarrow$ | $\downarrow \tilde{V}_{oij}$ directly |
-| $\uparrow h_{0,i}$ | $\uparrow$ | $\downarrow q_i \Rightarrow \uparrow \tilde{V}_{oij}$ — **the core density channel** |
-| $\uparrow \Phi_o$ | $\downarrow$ (for $(i,j)$ pair) | Other destinations become relatively more attractive |
-
-The **core density channel** — looser zoning lowers housing prices, attracting more residents — is the mechanism through which zoning affects transit ridership and investment returns.
-
-**Welfare index decomposition.** Writing $\Phi_o = \sum_{i',j'} T_{i'}E_{j'}\tilde{V}_{oi'j'}^\epsilon$, we can interpret $\pi_{oij} = T_i E_j \tilde{V}_{oij}^\epsilon / \Phi_o$ as the share of aggregate welfare contributed by destination $(i,j)$. This gravity-type expression shows that flows are driven by the relative product of bilateral attractiveness $\tilde{V}_{oij}^\epsilon$ and location fixed effects $T_i E_j$.
-
-## 8. Market Clearing
-
-**Housing market.** At each location $i$, total housing demand equals zoning-constrained supply:
-
-$$\sum_o\sum_j L_{oij} \cdot h_{ij}^* = h_{0,i}$$
-
-Substituting $h_{ij}^* = (1-\alpha)Y_{oij}/q_i$:
-
-$$\boxed{q_i = \frac{(1-\alpha)\displaystyle\sum_o\sum_j L_{oij}\,Y_{oij}}{h_{0,i}}}$$
-
-The housing price at $i$ equals the (income-weighted) total income flowing to location $i$, divided by housing capacity. Two implications:
-
-1. **Zoning tightens prices**: $\partial q_i/\partial h_{0,i} < 0$ holding flows fixed — stricter zoning raises prices. ✓
-2. **Demand raises prices**: more income at $i$ (more workers, higher wages) raises $q_i$. ✓
-
-**Labor market.** Total employment at $j$: $L_j = \sum_o\sum_i L_{oij}$. From firm profit maximization with CRS production $y_j = A_j L_j^\beta (H_j^F)^{1-\beta}$:
-
-$$w_j = \beta\,A_j\!\left(\frac{H_j^F}{L_j}\right)^{\!1-\beta}$$
-
-More workers relative to commercial floor space drives down the marginal product and hence wages. ✓
-
-**Fixed-point structure.** The equilibrium is a fixed point in $(\{q_i\}, \{w_j\})$: commuting probabilities $\pi_{oij}$ depend on prices, prices depend on flows, flows depend on probabilities. Standard contraction arguments establish existence under regularity conditions on $\phi$ and the Fréchet distribution.
-
-## 9. Optimal Transportation Network
+## 6. Optimal Transportation Network
 
 In period 0, the transportation agency chooses the optimal network conditional on the full zoning vector $h_0$:
 
@@ -294,3 +203,96 @@ Transit returns are **disproportionately sensitive** to zoning at transit-access
 > Municipalities set $h_{0,i}^{DE} < h_{0,i}^{SP}$ — too little zoning. This suppresses density near transit-accessible locations. The transport authority, observing sub-optimal spatial patterns, finds transit investment relatively less attractive. Road investment is comparatively unaffected. The equilibrium tilts toward roads and away from transit, even when the coordinated outcome (higher zoning + more transit) would deliver higher metropolitan welfare for all.
 
 **Note on mode-specific extension.** A complete formal treatment of the transit vs. road asymmetry requires mode-specific commuting costs $\tau_{ijR}$ and $\tau_{ijT}$ with structurally different density complementarities (roads extensive-margin, transit intensive-margin) — see advisor feedback, Open Issue \#1 in CLAUDE.md. The mechanism established above holds for any model where transit ridership is more concentrated at fixed nodes than road ridership, which will be verified once mode-specific costs are incorporated.
+
+
+# Appendix
+##  Solving the Household Problem
+
+**Effective income.** Define the effective income for a household from $o$ choosing $(i, j)$:
+
+$$Y_{oij} \equiv w_j + h_{0,o}\,q_o - \phi(N_i, h_{0,i})$$
+
+This is wages plus rental income from origin housing minus the monetary congestion cost at the destination.
+
+**Optimal demands.** The Cobb-Douglas normalization $(c/\alpha)^\alpha(h/(1-\alpha))^{1-\alpha}$ implies constant budget shares regardless of prices:
+
+$$c_{ij}^* = \alpha\, Y_{oij}, \qquad h_{ij}^* = \frac{(1-\alpha)\,Y_{oij}}{q_i}$$
+
+**Indirect utility.** Substituting the optimal demands, the normalization factors cancel:
+
+$$\boxed{V_{oij,\omega} = \frac{B_i \cdot Y_{oij}}{D_{oij} \cdot q_i^{1-\alpha}} \cdot \upsilon_{\omega ij} \;\equiv\; \tilde{V}_{oij} \cdot \upsilon_{\omega ij}}$$
+
+where $\tilde{V}_{oij}$ is the **deterministic indirect utility** — the systematic attractiveness of the $(o \to i, j)$ triple.
+
+**Derivation check.** With $c^* = \alpha Y$ and $h^* q_i = (1-\alpha)Y$:
+$$u^* = \frac{B_i}{D_{oij}}\bigl(\alpha Y/\alpha\bigr)^\alpha\bigl((1-\alpha)Y/q_i\,/\,(1-\alpha)\bigr)^{1-\alpha}\upsilon = \frac{B_i}{D_{oij}}\,Y^\alpha\,(Y/q_i)^{1-\alpha}\,\upsilon = \frac{B_i\,Y}{D_{oij}\,q_i^{1-\alpha}}\,\upsilon \quad \checkmark$$
+
+**Mechanism check on $\tilde{V}_{oij}$:**
+
+| Change | Effect on $\tilde{V}_{oij}$ | Intuition |
+|--------|-----------------------------|-----------|
+| $\uparrow w_j$ | $\uparrow$ (via $\uparrow Y_{oij}$) | Better wages at $j$ raise income |
+| $\uparrow h_{0,o}\,q_o$ | $\uparrow$ (via $\uparrow Y_{oij}$) | More rental income from origin |
+| $\uparrow \phi$ | $\downarrow$ (via $\downarrow Y_{oij}$) | More congestion at $i$ lowers net income |
+| $\uparrow q_i$ | $\downarrow$ (housing expensive at $i$) | Deters in-movers |
+| $\uparrow D_{oij}$ | $\downarrow$ (higher friction) | Harder/costlier to reach $(i,j)$ |
+| $\uparrow B_i$ | $\uparrow$ (destination amenity) | Better amenities at $i$ |
+
+All signs are directionally correct. ✓
+
+## Commuting Flows and Expected Utility
+
+Each household from $o$ independently draws Fréchet shocks $\upsilon_{\omega ij}$ and chooses $(i,j)$ to maximize $V_{oij,\omega} = \tilde{V}_{oij} \cdot \upsilon_{\omega ij}$.
+
+**Commuting probability.** By the Fréchet aggregation theorem (Eaton and Kortum, 2002), the probability that a household from $o$ chooses residence $i$ and workplace $j$ is:
+
+$$\boxed{\pi_{oij} = \frac{T_i\,E_j\,\tilde{V}_{oij}^\epsilon}{\Phi_o}, \qquad \Phi_o \equiv \sum_{i'}\sum_{j'} T_{i'}\,E_{j'}\,\tilde{V}_{oi'j'}^\epsilon}$$
+
+**Expected utility.** The expected maximum of $\{\tilde{V}_{oij}\,\upsilon_{\omega ij}\}$ is itself Fréchet with scale $\Phi_o^{1/\epsilon}$, giving:
+
+$$\boxed{\bar{U}_o = \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\,\Phi_o^{1/\epsilon}}$$
+
+where $\Gamma(\cdot)$ is the gamma function. Expected welfare at $o$ is a power of the aggregate attractiveness index $\Phi_o$.
+
+**Commuting flows and period-1 population.**
+
+$$L_{oij} = N_o^0 \cdot \pi_{oij}, \qquad N_i^1 = \sum_o\sum_j L_{oij}$$
+
+where $N_o^0$ is the initial (period-0) count at origin $o$.
+
+**Mechanism checks on $\pi_{oij}$:**
+
+| Change | Effect on $\pi_{oij}$ | Channel |
+|--------|----------------------|---------|
+| $\uparrow w_j$ | $\uparrow$ | $\uparrow \tilde{V}_{oij}$ via $\uparrow Y_{oij}$ |
+| $\uparrow \tau_{ij}$ | $\downarrow$ | $\downarrow \tilde{V}_{oij}$ via $\uparrow D_{oij}$ |
+| $\uparrow q_i$ | $\downarrow$ | $\downarrow \tilde{V}_{oij}$ directly |
+| $\uparrow h_{0,i}$ | $\uparrow$ | $\downarrow q_i \Rightarrow \uparrow \tilde{V}_{oij}$ — **the core density channel** |
+| $\uparrow \Phi_o$ | $\downarrow$ (for $(i,j)$ pair) | Other destinations become relatively more attractive |
+
+The **core density channel** — looser zoning lowers housing prices, attracting more residents — is the mechanism through which zoning affects transit ridership and investment returns.
+
+**Welfare index decomposition.** Writing $\Phi_o = \sum_{i',j'} T_{i'}E_{j'}\tilde{V}_{oi'j'}^\epsilon$, we can interpret $\pi_{oij} = T_i E_j \tilde{V}_{oij}^\epsilon / \Phi_o$ as the share of aggregate welfare contributed by destination $(i,j)$. This gravity-type expression shows that flows are driven by the relative product of bilateral attractiveness $\tilde{V}_{oij}^\epsilon$ and location fixed effects $T_i E_j$.
+
+## Market Clearing
+
+**Housing market.** At each location $i$, total housing demand equals zoning-constrained supply:
+
+$$\sum_o\sum_j L_{oij} \cdot h_{ij}^* = h_{0,i}$$
+
+Substituting $h_{ij}^* = (1-\alpha)Y_{oij}/q_i$:
+
+$$\boxed{q_i = \frac{(1-\alpha)\displaystyle\sum_o\sum_j L_{oij}\,Y_{oij}}{h_{0,i}}}$$
+
+The housing price at $i$ equals the (income-weighted) total income flowing to location $i$, divided by housing capacity. Two implications:
+
+1. **Zoning tightens prices**: $\partial q_i/\partial h_{0,i} < 0$ holding flows fixed — stricter zoning raises prices. ✓
+2. **Demand raises prices**: more income at $i$ (more workers, higher wages) raises $q_i$. ✓
+
+**Labor market.** Total employment at $j$: $L_j = \sum_o\sum_i L_{oij}$. From firm profit maximization with CRS production $y_j = A_j L_j^\beta (H_j^F)^{1-\beta}$:
+
+$$w_j = \beta\,A_j\!\left(\frac{H_j^F}{L_j}\right)^{\!1-\beta}$$
+
+More workers relative to commercial floor space drives down the marginal product and hence wages. ✓
+
+**Fixed-point structure.** The equilibrium is a fixed point in $(\{q_i\}, \{w_j\})$: commuting probabilities $\pi_{oij}$ depend on prices, prices depend on flows, flows depend on probabilities. Standard contraction arguments establish existence under regularity conditions on $\phi$ and the Fréchet distribution.
