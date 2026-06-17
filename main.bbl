@@ -622,36 +622,6 @@
       \field{pages}{1411\bibrangedash 1452}
       \range{pages}{42}
     \endentry
-    \entry{Fogel1964-pu}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=422a15132ac3c51bff5e9e92e20229ca}{%
-           family={Fogel},
-           familyi={F\bibinitperiod},
-           given={Robert\bibnamedelima William},
-           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Baltimore: Johns Hopkins Press.}%
-      }
-      \strng{namehash}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{fullhash}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{fullhashraw}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{bibnamehash}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{authorbibnamehash}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{authornamehash}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{authorfullhash}{422a15132ac3c51bff5e9e92e20229ca}
-      \strng{authorfullhashraw}{422a15132ac3c51bff5e9e92e20229ca}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Railroads and American Economic Growth}
-      \field{year}{1964}
-      \field{dateera}{ce}
-    \endentry
     \entry{Freemark2023-jh}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6a153441b1aade0bf0afc4cf88297da0}{%
