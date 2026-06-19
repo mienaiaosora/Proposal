@@ -255,22 +255,55 @@ $
 
 \end{frame}
 
-\begin{frame}{Decentralized Equilibrium and Inefficiency}
-A decentralized equilibrium features:
-\begin{itemize}
-    \item optimal household location, workplace, and route choices,
-    \item optimal firm labor and commercial land choices,
-    \item municipal zoning choices,
-    \item metropolitan road and transit investment,
-    \item market clearing in residential land, commercial land, and labor.
-\end{itemize}
+\begin{frame}[shrink=5]{Two-Period Mechanism}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\small
+\textbf{Timing}
+\begin{enumerate}
+    \item Municipalities choose zoning capacity $h_{0,i}$ to protect incumbent interests.
+    \item The transportation authority observes $h_0$ and chooses road/transit investment.
+    \item Households sort across residences, jobs, and commuting modes.
+\end{enumerate}
 
-\vspace{0.35cm}
-\begin{block}{Source of inefficiency}
-Municipalities restrict development of housing to protect incumbent interests, but do not internalize the broader metropolitan costs in housing supply, commuting, and transit effectiveness.
+\vspace{0.25cm}
+\begin{block}{Decentralized wedge}
+Local zoning omits two metropolitan benefits:
+\begin{itemize}
+    \item lower rents for households outside the municipality,
+    \item higher returns to transit investment near dense nodes.
+\end{itemize}
+\[
+h_{0,i}^{DE}<h_{0,i}^{SP}
+\]
 \end{block}
 
+\column{0.52\textwidth}
+\centering
+\begin{tikzpicture}[
+node distance=0.45cm,
+box/.style={rectangle, rounded corners, draw=blue!65, fill=blue!8, thick,
+            align=center, minimum height=0.52cm, text width=4.2cm, font=\footnotesize},
+warn/.style={rectangle, rounded corners, draw=orange!75!black, fill=orange!12, thick,
+             align=center, minimum height=0.52cm, text width=4.2cm, font=\footnotesize},
+arrow/.style={-{Latex[length=2mm]}, thick}
+]
+\node[warn] (zoning) {Restrictive local zoning};
+\node[box, below=of zoning] (density) {Low density near transit-accessible nodes};
+\node[box, below=of density] (ridership) {Weak ridership and accessibility response};
+\node[box, below=of ridership] (returns) {Lower marginal benefit of transit};
+\node[warn, below=of returns] (roads) {Investment tilts toward roads};
 
+\draw[arrow] (zoning) -- (density);
+\draw[arrow] (density) -- (ridership);
+\draw[arrow] (ridership) -- (returns);
+\draw[arrow] (returns) -- (roads);
+\end{tikzpicture}
+
+\vspace{0.12cm}
+\footnotesize
+\textbf{Key implication:} zoning changes the relative return of transit versus road investment.
+\end{columns}
 \end{frame}
 
 
