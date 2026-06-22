@@ -209,17 +209,17 @@ H_i^R \leq \bar H_i^R(Z_i), \qquad H_i^F \leq \bar H_i^F(Z_i),
 \]
 where stricter zoning lowers the feasible density of development.
 
-Locations are connected through a transportation network. For any pair of residence and workplace locations \((i,j)\), households can choose a commuting route \(r \in R_{ij}\). Following \cite{Fajgelbaum2020-yv}, the generalized commuting cost associated with route \(r\) is denoted by \(\tau_{ijr}\), which depends on transportation infrastructure and congestion:
+Locations are connected through a transportation network. Following \cite{Fajgelbaum2020-yv}, the generalized commuting cost between locations \(i\) and \(j\) is denoted by \(\tau_{ij}\), which depends on transportation infrastructure and congestion:
 \[
-\tau_{ijr} = \tau_{ijr}(I_{ij}, \mathbf n),
+\tau_{ij} = \tau_{ij}(I_{ij}, \mathbf n),
 \]
-where \(I_{ij}\) denotes the transportation investment between locations \(i\) and \(j\), and \(\mathbf n\) collects equilibrium traffic and transit usage across routes, which generate congestion. The commuting cost is increasing in the quantity of commuters on the route
+where \(I_{ij}\) denotes the transportation investment between locations \(i\) and \(j\), and \(\mathbf n\) collects equilibrium traffic and transit usage, which generate congestion. The commuting cost is increasing in the quantity of commuters between \(i\) and \(j\):
 \begin{align}
-\frac{\partial \tau_{ijr}}{\partial n_{ijr}} \geq 0,
+\frac{\partial \tau_{ij}}{\partial n_{ij}} \geq 0,
 \end{align}
-and $I_{ij}$ leads to a reduction in the commuting cost
+and $I_{ij}$ leads to a reduction in the commuting cost:
 \begin{align}
-\frac{\partial \tau_{ijr}}{\partial I_{ij}} \leq 0.
+\frac{\partial \tau_{ij}}{\partial I_{ij}} \leq 0.
 \end{align}
 Following \cite{Fajgelbaum2020-yv}, I will parametrize the commuting cost function as follows:
 \begin{align}
@@ -229,14 +229,14 @@ There are three types of agents in the model: households, firms, and governments
 
 \subsubsection{Households}
 
-A household chooses a residence location \(i\), a workplace location \(j\), and a commuting route \(r \in R_{ij}\). Conditional on these choices, the household consumes a composite tradable good \(Q_{ij}\) and residential land \(h_{ij}^R\). Preferences are given by
+A household chooses a residence location \(i\) and a workplace location \(j\). Conditional on these choices, the household consumes a composite tradable good \(Q_{ij}\) and residential land \(h_{ij}^R\). Preferences are given by
 \[
-u_{ijr}(w)=\frac{B_i}{\tau_{ijr}}
+u_{ij}(w)=\frac{B_i}{\tau_{ij}}
 \left(\frac{Q_{ij}}{\beta}\right)^{\beta}
 \left(\frac{h_{ij}^R}{1-\beta}\right)^{1-\beta}
-v_{ijr}(w),
+v_{ij}(w),
 \]
-where \(B_i\) is the residential amenity at location \(i\), \(\beta \in (0,1)\), and \(v_{ijr}(w)\) is an idiosyncratic preference shock.
+where \(B_i\) is the residential amenity at location \(i\), \(\beta \in (0,1)\), and \(v_{ij}(w)\) is an idiosyncratic preference shock.
 
 Let \(q_i^R\) denote the rental price of residential land at location \(i\), and \(w_j\) the wage earned at workplace location \(j\). The household's budget constraint is
 \[
@@ -244,25 +244,10 @@ Q_{ij}+q_i^R h_{ij}^R = w_j.
 \]
 Solving the within-choice consumption problem yields the indirect utility
 \[
-V_{ijr}(w)=\frac{B_i}{\tau_{ijr}}
-\frac{w_j}{(q_i^R)^{1-\beta}}v_{ijr}(w),
+V_{ij}(w)=\frac{B_i}{\tau_{ij}}
+\frac{w_j}{(q_i^R)^{1-\beta}}v_{ij}(w),
 \]
 up to a constant common to all choices.
-
-% To allow for a nested discrete-choice structure, let the idiosyncratic shocks follow a generalized extreme value distribution. The lower nest corresponds to route choice conditional on a residential-workplace pair \((i,j)\), while the upper nest corresponds to the joint choice of residence and workplace. Formally,
-% \[
-% G(\{v_{ijr}(w)\})
-% =
-% \exp \left(
-% -\sum_{i,j\in S^2}
-% \left(
-% \sum_{r\in R_{ij}} v_{ijr}^{-1/\rho}
-% \right)^{\rho/\theta}
-% \right),
-% \]
-% where \(\rho\) and \(\theta\) govern substitution within and across nests.
-
-% Conditional on \((i,j)\), households choose the commuting route that maximizes indirect utility. At the upper level, they choose residence and workplace locations based on the expected value from the lower nest. Thus, household sorting across space depends on wages, rents, local amenities, commuting costs, and transportation infrastructure.
 
 \subsubsection{Firms}
 
@@ -318,7 +303,7 @@ q_i^R, q_i^F, w_j, H_i^R, H_i^F, L_j, Z^g, I^R, I^T
 such that:
 
 \begin{enumerate}
-    \item Households choose residence, workplace, and commuting route to maximize utility.
+    \item Households choose residence and workplace location to maximize utility.
     \item Firms choose labor and commercial land to maximize profits.
     \item Each municipality chooses zoning to maximize incumbent resident welfare.
     \item The metropolitan transportation authority chooses road and transit investment to maximize regional net benefits, taking zoning as given.

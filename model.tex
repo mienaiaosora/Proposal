@@ -6,7 +6,7 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing}
 \usepackage{graphicx}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, amsthm}
 \usepackage{setspace}
 \usepackage{hyperref}
 \usepackage[
@@ -20,91 +20,188 @@
 \usepackage{titlesec}
 \usepackage{indentfirst}
 \addbibresource{reference.bib}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
 \title{Model}
 \author{}
 \date{}
+
 \begin{document}
 \maketitle
+
 \section{Model}
-\subsection{set up}
-Consider a metropolitan area consisting of a finite set of locations \(S=\{1,2,\dots,N\}\). These locations are partitioned into a set of municipalities \(g\in G\), such that
+
+\subsection{Environment}
+
+Consider a metropolitan area consisting of a finite set of locations $S = \{1, 2, \ldots, n\}$. These locations are partitioned into municipalities $g \in G$:
 \[
-S=\bigcup_{g\in G} S^g, \qquad S^g \cap S^{g'}=\emptyset \quad \text{for } g\neq g'.
+S = \bigcup_{g \in G} S^g, \qquad S^g \cap S^{g'} = \emptyset \quad \text{for } g \neq g'.
 \]
 
-Each location \(i\in S\) is endowed with a fixed amount of land \(\bar H_{i}\), which can be allocated between residential and commercial use:
+Each location $i \in S$ is endowed with a fixed supply of land $\bar{H}_i$, allocated between residential and commercial use by local zoning:
 \[
-H_i^R + H_i^F \leq \bar H_{i}.
+\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i,
 \]
-Land use is further subject to zoning regulations. Let \(Z_i^R\) and \(Z_i^F\) denote the residential and commercial zoning restrictions at location \(i\). These regulations impose upper bounds on feasible development:
-\[
-H_i^R \leq \bar H_i^R(Z_i), \qquad H_i^F \leq \bar H_i^F(Z_i),
-\]
-where stricter zoning lowers the feasible density of development.
+where $\bar{H}_i^R$ is residential floor space capacity and $\bar{H}_i^F$ is commercial floor space capacity. Both are chosen by the municipal government and assumed to be fully utilized in equilibrium.
 
-Locations are connected through a transportation network. Following \cite{Fajgelbaum2020-yv}, the generalized commuting cost is denoted by \(\tau_{ij}\), which depends on transportation infrastructure and congestion:
+Locations are connected by a transportation network. The generalized commuting cost from residence $i$ to workplace $j$ is
 \[
-\tau_{ij} = \tau_{ij}(I_{ij}, \mathbf n),
+\tau_{ij} = \tau_{ij}(I_{ij},\, n_{ij}),
 \]
-where \(I_{ij}\) denotes the transportation investment between locations \(i\) and \(j\), and \(\mathbf n\) collects equilibrium traffic and transit usage across routes, which generate congestion. The commuting cost is increasing in the quantity of commuters on the route
+where $I_{ij}$ is transportation investment on link $(i,j)$ and $n_{ij}$ is the equilibrium commuter flow on that link. Investment reduces commuting costs and congestion raises them:
+\[
+\frac{\partial \tau_{ij}}{\partial I_{ij}} \leq 0, \qquad \frac{\partial \tau_{ij}}{\partial n_{ij}} \geq 0.
+\]
+Following \cite{Fajgelbaum2020-yv}, I parametrize the commuting cost as
+\[
+\tau_{ij} = \delta_{ij}^{\tau}\, \frac{n_{ij}^{\rho}}{I_{ij}^{\gamma}},
+\]
+where $\delta_{ij}^{\tau} > 0$ captures geographic features of link $(i,j)$ and $\rho, \gamma > 0$.
+
+There are three types of agents: households, competitive firms, and governments. Households choose residence and workplace locations. Firms produce a freely tradable good using labor and commercial floor space. Government decisions operate at two levels: municipal governments choose local zoning, and a metropolitan transportation authority chooses investment across all links. In the decentralized equilibrium, municipalities and the transportation authority choose policies simultaneously, each treating the other's decisions as given.
+
+\subsection{Households}
+
+A household chooses a residence location $i$ and a workplace $j$ to maximize utility. Preferences over the composite good $Q_{ij}$ and residential floor space $h_{ij}^R$ are Cobb-Douglas:
+\[
+u_{ij}(\omega) = \frac{B_i}{\tau_{ij}}
+\left(\frac{Q_{ij}}{\alpha}\right)^{\!\alpha}
+\left(\frac{h_{ij}^R}{1-\alpha}\right)^{\!1-\alpha}
+v_{ij}(\omega),
+\]
+where $B_i > 0$ is a residential amenity at location $i$, $\alpha \in (0,1)$ is the expenditure share on the composite good, and $v_{ij}(\omega)$ is an idiosyncratic preference shock drawn independently for each $(i,j)$ pair.
+
+The household's budget constraint is
+\[
+Q_{ij} + q_i^R h_{ij}^R \leq w_j - \phi(N_i, L_i),
+\]
+where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at workplace $j$, and $\phi(N_i, L_i)$ is a monetary disutility from residing at $i$. The disutility captures two sources of local negative externalities: residential congestion from neighbors and the presence of workers near the residential location:
+\[
+\frac{\partial \phi}{\partial N_i} > 0, \qquad \frac{\partial \phi}{\partial L_i} > 0,
+\]
+where $N_i$ denotes residential population and $L_i$ denotes employment at location $i$ (defined below).
+
+Define effective income as $Y_{ij} \equiv w_j - \phi(N_i, L_i)$. Optimal demands are $Q_{ij}^* = \alpha Y_{ij}$ and $h_{ij}^{R*} = (1-\alpha)Y_{ij}/q_i^R$. Substituting into the utility function yields the deterministic component of indirect utility:
+\[
+\tilde{V}_{ij} = \frac{B_i\, Y_{ij}}{\tau_{ij}\,(q_i^R)^{1-\alpha}}.
+\]
+
+The idiosyncratic shock $v_{ij}(\omega)$ is drawn from a Fréchet distribution with $\Pr(v_{ij} \leq z) = \exp(-T_i E_j z^{-\epsilon})$, where $T_i > 0$ and $E_j > 0$ are location-specific scale parameters and $\epsilon > 1$ governs the dispersion of idiosyncratic tastes. By the Fréchet aggregation property, the probability that a household chooses residence $i$ and workplace $j$ is
 \begin{align}
-\frac{\partial \tau_{ij}}{\partial n_{ij}} \geq 0,
+    \pi_{ij} = \frac{T_i E_j\,\tilde{V}_{ij}^{\epsilon}}{\Phi}, \qquad
+    \Phi \equiv \sum_{i'}\sum_{j'} T_{i'} E_{j'}\,\tilde{V}_{i'j'}^{\epsilon},
 \end{align}
-and $I_{ij}$ leads to a reduction in the commuting cost
+and expected utility is
 \begin{align}
-\frac{\partial \tau_{ij}}{\partial I_{ij}} \leq 0.
+    U = \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}.
 \end{align}
-Following \cite{Fajgelbaum2020-yv}, I will parametrize the commuting cost function as follows:
-\begin{align}
-    \tau_{jk}(\mathbf n,I)=\delta^{\tau}_{jk}\frac{(\mathbf{n})^{\rho}}{\mathbf{I}^{\gamma}}
-\end{align}
-There are three types of agents in the model: households, firms, and governments. Households choose where to live, where to work, and how to commute. Competitive firms choose labor and commercial land to produce a freely tradable good. Government decisions are made at two levels. Municipal governments choose local zoning regulations, while a metropolitan transportation authority chooses transportation investment for the urban area as a whole.
-\subsection{Household}
-For a household $\omega$ located at $i$ and working at $j$, the utility is given by
+
+Let $N$ denote total metropolitan population, fixed in a closed economy. Equilibrium residential population at each location is
 \[
-u_{\omega i j}= \frac{B_{i}}{d_{ij}}(\frac{C_{ij}}{\alpha})^{\alpha}(\frac{H_{ij}}{1-\alpha})^{1-\alpha} v(\omega ij)
+N_i = N \sum_j \pi_{ij}.
 \]
-where \(C_{ij}\) and \(H_{ij}\) are the consumption of the composite good and housing, respectively, and \(v(\omega ij)\) captures idiosyncratic preferences for location and job pair \((i,j)\). The term \(B_i\) captures the local amenities at residence location \(i\), while \(d_{ij}\) captures the spatial friction of commuting from \(i\) to \(j\). The household faces a budget constraint:
-\[
-C_{ij}+q_{i}H_{ij} \leq w_{j}
-\]
-Solved: $V_{ij\omega}=\frac{B_{i}w_{j}q_{i}^{\alpha-1}}{d_{ij}}v_{ij\omega}$
-and $F(v_{ij\omega})=exp(-T_{i}E_{j}v_{ij\omega}^{-\epsilon})$
-
-Such that 
+Residential floor space market clearing at location $i$ pins down the equilibrium rent:
 \begin{align}
- \pi_{ij}=\frac{T_{i}E_{j}(\frac{B_{i}w_{j}q_{i}^{\alpha-1}}{d_{ij}})^{\epsilon}}{\sum \sum T_{r}E_{s}(\frac{B_{r}w_{s}q_{r}^{\alpha-1}}{d_{rs}})^{\epsilon}}=\frac{\Phi_{ij}}{\Phi}
+    q_i^R = \frac{(1-\alpha)\sum_j N\pi_{ij}\,Y_{ij}}{\bar{H}_i^R}.
 \end{align}
 
-Given equilibrium condition
-\begin{align}
-E(V_{ij\omega})=\Gamma (\sum \sum T_{r}E_{s}(\frac{B_{r}w_{s}q_{r}^{\alpha-1}}{d_{rs}})^{\epsilon})^{1/\epsilon}=U
-\end{align}
-    
+\subsection{Firms}
 
-
-\subsection{Firm}
-A firm located at \(j\) produces output using labor and commercial land from location \(j\) according to the production function    
+At each location $j$, competitive firms produce a freely tradable good using labor $L_j$ and commercial floor space $H_j^F$:
 \[
-y_{j}= A_{j}L_{mj}^{\beta}(H_{j}^F)^{1-\beta}
+Y_j = A_j L_j^{\gamma}(H_j^F)^{1-\gamma},
 \]
-where \(H_{j}\) denotes the commercial land available at location \(j\). \(L_{mj}\) denotes the labor demand from location \(j\).
-For now I ignore the agglomeration effect and assume that the productivity \(A_j\) is location-specific and exogenous.
+where $A_j > 0$ is location-specific productivity and $\gamma \in (0,1)$. Taking wages $w_j$ and commercial rents $q_j^F$ as given, profit maximization yields:
+\[
+w_j = \gamma A_j \!\left(\frac{H_j^F}{L_j}\right)^{\!1-\gamma}\!, \qquad
+q_j^F = (1-\gamma) A_j \!\left(\frac{L_j}{H_j^F}\right)^{\!\gamma}\!.
+\]
+Commercial floor space is constrained by zoning: $H_j^F = \bar{H}_j^F$. Labor market clearing at $j$ gives
+\[
+L_j = N \sum_i \pi_{ij},
+\]
+determined by household location choices. The disutility $\phi(N_i, L_i)$ uses $L_i$ to denote employment at location $i$ acting as a workplace, which is this same quantity evaluated at $j = i$.
 
-\subsection{Local Municipal}
-For each municipality \(g\), the local government chooses zoning regulations to maximize the welfare of its incumbent residents.
-\subsection{Optimal Transportation network}
-\subsection{Social planner}
+\subsection{Municipal Zoning}
 
+Each municipality $g \in G$ chooses the land-use allocation $\{\bar{H}_i^R, \bar{H}_i^F\}_{i \in S^g}$ to maximize the welfare of its incumbent residents. Following the political economy of local land use, municipal governments are disproportionately responsive to incumbent landowners, who benefit from rental income but bear the costs of local congestion and worker influx. Formally, municipality $g$ solves
+\[
+\max_{\{\bar{H}_i^R\}_{i \in S^g}}\;
+\sum_{i \in S^g}
+\Bigl[q_i^R \bar{H}_i^R + q_i^F \bar{H}_i^F - \phi(N_i, L_i)\Bigr]
+\]
+subject to $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for each $i \in S^g$, taking other municipalities' allocations $\{\bar{H}_{i'}^R, \bar{H}_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{jk}\}$ as given.
 
+Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating with respect to $\bar{H}_i^R$, the interior first-order condition at location $i \in S^g$ is
+\begin{align}
+\underbrace{\frac{\partial\bigl(q_i^R \bar{H}_i^R\bigr)}{\partial \bar{H}_i^R}
+- \frac{\partial\phi}{\partial N_i}\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\text{net marginal value of residential}}
+=
+\underbrace{\frac{\partial\bigl(q_i^F \bar{H}_i^F\bigr)}{\partial \bar{H}_i^F}
+- \frac{\partial\phi}{\partial L_i}\frac{\partial L_i}{\partial \bar{H}_i^F}}_{\text{net marginal value of commercial}}.
+\end{align}
+The municipality equates the net marginal return to allocating the last unit of land to residential versus commercial use. Both disutility terms work in the direction of restriction: incumbents dislike additional residents (raising $N_i$) and additional workers (raising $L_i$), depressing the optimal capacity on both margins relative to a planner who does not place weight on $\phi$.
 
+\subsection{Transportation Authority}
 
+The metropolitan transportation authority chooses investment $\{I_{jk}\}_{j,k \in S}$ to maximize aggregate household welfare, taking the full zoning vector $\{\bar{H}_i^R, \bar{H}_i^F\}$ as given:
+\[
+\max_{\{I_{jk}\}}\; N \cdot \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
+\]
+subject to the budget constraint
+\[
+\sum_{j,k} \delta_{jk}\, I_{jk} \leq K, \qquad I_{jk} \geq 0,
+\]
+where $\delta_{jk}$ is the per-unit cost of investment on link $(j,k)$ and $K$ is the total infrastructure budget.
 
-\section{Model 2}
-In this section, I try to build a model with two time periods to see if it help me capture the mechanism of zoning regulations better. In the first period There are existing incumbents who own the land and decide the zoning regulations for second period, wheras the government choose the transportation investment given the whole zoning regulations in each municipality. In the second period, the new entrants choose where to live and work given the zoning regulations and transportation network determined in the first period.
+Let $\mu \geq 0$ be the Lagrange multiplier on the budget constraint. The interior first-order condition for link $(j,k)$ is
+\begin{align}
+\frac{N}{\epsilon}\,\Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon-1}
+\frac{\partial\Phi}{\partial I_{jk}} = \mu\,\delta_{jk}.
+\end{align}
+The left-hand side is the marginal social benefit of investment on link $(j,k)$: lower commuting costs raise $\tilde{V}_{ij}$ for all commuters on that link, increasing $\Phi$ and hence aggregate welfare. The authority equates the marginal benefit per dollar of investment across all active links.
 
-\subsection{set up}
-Consider a metropolitan area consisting of a finite set of locations \(S=\{1,2,\dots,N\}\). These locations are partitioned into a set of municipalities \(g\in G\), such that
-\[S=\bigcup_{g\in G} S^g, \qquad S^g \cap S^{g'}=\emptyset \quad \text{for } g\neq g'.\]    
-Each location \(i\in S\) is endowed with a fixed amount of land \(\bar H_{i}\). In the first period, each location \(i\) is occupied by  incumbents who own the land and decides the zoning regulations for the second period.
+\subsection{Equilibrium}
+
+\begin{definition}[Decentralized Equilibrium]
+A decentralized equilibrium is a profile
+\[
+\Bigl(\{\bar{H}_i^{R*},\,\bar{H}_i^{F*}\}_{i \in S},\;
+\{I_{jk}^*\},\;
+\{q_i^{R*},\,q_i^{F*},\,w_j^*\}_{i,j \in S}\Bigr)
+\]
+such that:
+\begin{enumerate}
+    \item \textbf{Household optimality.} Commuting flows $\{N\pi_{ij}^*\}$ are given by the Fréchet probability formula at prices $(q_i^{R*}, w_j^*)$ and investment $I^*$.
+    \item \textbf{Firm optimality.} Wages $w_j^*$ and commercial rents $q_j^{F*}$ satisfy the firm first-order conditions at $H_j^F = \bar{H}_j^{F*}$ and $L_j^* = N\sum_i \pi_{ij}^*$.
+    \item \textbf{Market clearing.} Residential floor space, commercial floor space, and labor markets clear at each location.
+    \item \textbf{Municipal Nash equilibrium.} Each municipality $g$ maximizes its objective given $\{\bar{H}_{i'}^{R*}, \bar{H}_{i'}^{F*}\}_{i' \notin S^g}$ and $I^*$; no municipality has a profitable deviation.
+    \item \textbf{Transportation authority optimality.} $\{I_{jk}^*\}$ maximizes aggregate welfare given $\{\bar{H}_i^{R*}, \bar{H}_i^{F*}\}$ subject to the budget constraint.
+\end{enumerate}
+Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds.
+\end{definition}
+
+\subsection{Social Planner}
+
+A social planner jointly chooses zoning allocations $\{\bar{H}_i^R, \bar{H}_i^F\}$ and transportation investment $\{I_{jk}\}$ to maximize aggregate household welfare:
+\[
+\max_{\{\bar{H}_i^R,\,\bar{H}_i^F\},\,\{I_{jk}\}}\;
+N \cdot \Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
+\]
+subject to the budget constraint $\sum_{j,k}\delta_{jk}I_{jk} \leq K$, land constraints $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for all $i$, and market clearing.
+
+Comparing the planner's first-order condition for zoning with the municipal condition in (4) reveals two positive terms that municipalities systematically ignore. First, municipalities do not internalize the benefits that looser zoning confers on non-incumbent households — both potential in-movers and residents of neighboring municipalities — who gain from lower rents and more accessible housing. Second, municipalities do not account for the transit-zoning complementarity: denser residential and commercial development near transit-accessible locations raises ridership and the marginal return to transit investment, generating a positive externality on the transportation authority's problem. Road investment is comparatively less sensitive to local density, so this externality operates asymmetrically across infrastructure types.
+
+Both omitted terms are positive, implying that decentralized municipalities choose zoning that is too restrictive on both margins relative to the social optimum:
+\[
+\bar{H}_i^{R,\,\mathrm{SP}} \geq \bar{H}_i^{R,\,\mathrm{DE}}, \qquad
+\bar{H}_i^{F,\,\mathrm{SP}} \geq \bar{H}_i^{F,\,\mathrm{DE}}
+\qquad \text{for all } i \in S.
+\]
+The decentralized equilibrium therefore features underinvestment in transit — not because the transportation authority errs given the zoning it observes, but because the zoning it faces is itself distorted by fragmented local governance.
+
+\printbibliography
+
 \end{document}
