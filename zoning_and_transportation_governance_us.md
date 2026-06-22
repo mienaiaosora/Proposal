@@ -14,15 +14,15 @@
 - **Public input mechanisms:** Mailed notices to nearby property owners, two separate public hearings (Commission, then Council) — but no binding neighborhood vote.
 - **Example:** *Forward Dallas* (2024) — the first major citywide zoning overhaul in 18 years, allowing multiplexes in areas currently zoned single-family. Passed Council 11–4 despite vocal neighborhood opposition.
 
-### Why Authority Is Centralized, Not Local
+<!-- ### Why Authority Is Centralized, Not Local
 
 | Reason | Explanation |
 |---|---|
 | **Delegated state power** | Texas law authorizes *municipalities*, not neighborhoods, to zone. Cities can't sub-delegate binding authority downward without state law allowing it. |
 | **Spillover effects** | One block's zoning affects traffic, schools, and infrastructure citywide — a citywide body is meant to weigh those tradeoffs. |
-| **Legal defensibility** | Zoning maps function like law and get challenged in court; one consistent body with documented procedure is more defensible than many independent neighborhood votes. |
+| **Legal defensibility** | Zoning maps function like law and get challenged in court; one consistent body with documented procedure is more defensible than many independent neighborhood votes. | -->
 
-### The Real Spectrum: Local Zoning Does Exist Elsewhere
+### Other places
 
 | Model | Where Used | Who Decides | Binding on Residents? |
 |---|---|---|---|
