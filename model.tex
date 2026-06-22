@@ -91,7 +91,8 @@ Define effective income as $Y_{ij} \equiv w_j - \phi(N_i, L_i)$. Optimal demands
 The idiosyncratic shock $v_{ij}(\omega)$ is drawn from a Fréchet distribution with $\Pr(v_{ij} \leq z) = \exp(-T_i E_j z^{-\epsilon})$, where $T_i > 0$ and $E_j > 0$ are location-specific scale parameters and $\epsilon > 1$ governs the dispersion of idiosyncratic tastes. By the Fréchet aggregation property, the probability that a household chooses residence $i$ and workplace $j$ is
 \begin{align}
     \pi_{ij} = \frac{T_i E_j\,\tilde{V}_{ij}^{\epsilon}}{\Phi}, \qquad
-    \Phi \equiv \sum_{i'}\sum_{j'} T_{i'} E_{j'}\,\tilde{V}_{i'j'}^{\epsilon},
+    \Phi \equiv \sum_{i'}\Phi_{i'}, \qquad
+    \Phi_i \equiv \sum_j T_i E_j\,\tilde{V}_{ij}^{\epsilon},
 \end{align}
 and expected utility is
 \begin{align}
@@ -126,23 +127,22 @@ determined by household location choices. The disutility $\phi(N_i, L_i)$ uses $
 
 \subsection{Municipal Zoning}
 
-Each municipality $g \in G$ chooses the land-use allocation $\{\bar{H}_i^R, \bar{H}_i^F\}_{i \in S^g}$ to maximize the welfare of its incumbent residents. Following the political economy of local land use, municipal governments are disproportionately responsive to incumbent landowners, who benefit from rental income but bear the costs of local congestion and worker influx. Formally, municipality $g$ solves
+Each municipality $g \in G$ chooses the land-use allocation $\{\bar{H}_i^R, \bar{H}_i^F\}_{i \in S^g}$ to maximize the welfare of its current residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government acts as a representative of incumbent residents, who face a tradeoff between lower housing costs — which favor denser zoning — and lower congestion and fewer workers near their homes — which favor restrictive zoning. Formally, municipality $g$ solves
 \[
-\max_{\{\bar{H}_i^R\}_{i \in S^g}}\;
-\sum_{i \in S^g}
-\Bigl[q_i^R \bar{H}_i^R + q_i^F \bar{H}_i^F - \phi(N_i, L_i)\Bigr]
+\max_{\{\bar{H}_i^R\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} \bar{U}_i,
 \]
-subject to $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for each $i \in S^g$, taking other municipalities' allocations $\{\bar{H}_{i'}^R, \bar{H}_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{jk}\}$ as given.
+where $\bar{U}_i = \Gamma\!\left(1-\frac{1}{\epsilon}\right)\Phi_i^{1/\epsilon}$ is the expected utility of a representative resident at location $i$, subject to $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for each $i \in S^g$, taking other municipalities' allocations $\{\bar{H}_{i'}^R, \bar{H}_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{jk}\}$ as given.
 
-Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating with respect to $\bar{H}_i^R$, the interior first-order condition at location $i \in S^g$ is
+Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating, the interior first-order condition at location $i \in S^g$ is
 \begin{align}
-\underbrace{\frac{\partial\bigl(q_i^R \bar{H}_i^R\bigr)}{\partial \bar{H}_i^R}
-- \frac{\partial\phi}{\partial N_i}\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\text{net marginal value of residential}}
-=
-\underbrace{\frac{\partial\bigl(q_i^F \bar{H}_i^F\bigr)}{\partial \bar{H}_i^F}
-- \frac{\partial\phi}{\partial L_i}\frac{\partial L_i}{\partial \bar{H}_i^F}}_{\text{net marginal value of commercial}}.
+\underbrace{\frac{\partial \bar{U}_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(rent benefit)}}
++
+\underbrace{\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial N_i}\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\leq\;0\;\text{(congestion cost)}}
++
+\underbrace{\left(-\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial L_i}\frac{\partial L_i}{\partial \bar{H}_i^F}\right)}_{\geq\;0\;\text{(less worker influx)}}
+= 0.
 \end{align}
-The municipality equates the net marginal return to allocating the last unit of land to residential versus commercial use. Both disutility terms work in the direction of restriction: incumbents dislike additional residents (raising $N_i$) and additional workers (raising $L_i$), depressing the optimal capacity on both margins relative to a planner who does not place weight on $\phi$.
+The first term is positive: more residential capacity lowers $q_i^R$, raising effective income and resident welfare. The second term is negative: lower rents attract additional residents, raising $N_i$ and worsening local congestion through $\phi$. The third term is positive: expanding residential capacity at the expense of commercial capacity reduces employment $L_i$ at location $i$, lowering the disutility from worker influx. The municipality sets $\bar{H}_i^R$ where these three forces balance.
 
 \subsection{Transportation Authority}
 
