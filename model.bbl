@@ -64,6 +64,84 @@
       \field{pages}{1411\bibrangedash 1452}
       \range{pages}{42}
     \endentry
+    \entry{Mast2024-zi}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1443a4fc1aeb4dc26a24d5292d03fb9}{%
+           family={Mast},
+           familyi={M\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{fullhash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{fullhashraw}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{bibnamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorbibnamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authornamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorfullhash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorfullhashraw}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Local control of land-use regulation creates a not-in-my-backyard (NIMBY) problem that can suppress housing construction, contributing to rising prices and potentially slowing economic growth. I study how increased local control affects housing production by exploiting a common electoral reform—changing from “at-large” to “ward” elections for town council. These reforms, which are not typically motivated by housing markets, shrink each representative’s constituency from the entire town to one ward. Results from a variety of difference-in-differences estimators show that this decentralization decreases housing units permitted by 20\%, with similar effects on multi- and single-family permits. Effects are larger in whiter and higher-income towns.}
+      \field{day}{14}
+      \field{issue}{3}
+      \field{journaltitle}{The Review of Economics and Statistics}
+      \field{month}{5}
+      \field{title}{Warding off Development: Local Control, Housing Supply, and {NIMBYs}}
+      \field{volume}{106}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{671\bibrangedash 680}
+      \range{pages}{10}
+    \endentry
+    \entry{Rollet2025-mk}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=351f9396f8ceea35f7d87f3928a710e0}{%
+           family={Rollet},
+           familyi={R\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d4e7ba7d41975724bba1990e98b4615}{%
+           family={Weiwu},
+           familyi={W\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{fullhash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{fullhashraw}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{bibnamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorbibnamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authornamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorfullhash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorfullhashraw}{35b61b4b088ed4acac476aed6aa7237b}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Measuring Winners and Losers from Increasing Housing Supply}
+      \field{type}{resreport}
+      \field{year}{2025}
+      \field{dateera}{ce}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

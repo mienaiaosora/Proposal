@@ -14,22 +14,18 @@
 
 ## Model Architecture
 
-**Type:** Two-period quantitative spatial equilibrium model.
-
-**Timing (sequential — this is the resolved baseline):**
-1. t=0: Municipalities simultaneously and independently choose zoning capacity `h_{0,g}` (atomistic — each takes others' zoning and the transport investment as given).
-2. t=0: Transportation authority observes the full zoning vector and chooses network investment `I_{jk}`.
-3. t=1: Households solve location/commuting problem; housing markets clear; prices `q_i` and populations `N_i` are determined.
+**Type:** quantitative spatial equilibrium model.
 
 **Key agents:**
-- **Representative landowner** in each municipality `g`: chooses `h_{0,g}` to maximize period-1 utility net of construction cost `λ`.
-- **Households** `ω`: Cobb-Douglas preferences over consumption and housing; idiosyncratic Fréchet taste shocks `υ_{ωij}`; choose residence `i`, workplace `j`, and commute mode.
+- **Municaplity** in each municipality `g`: chooses optimal zoning regulations(both resitential and commercial landuse) to maximize the local incumbents' welfare, in terms of congestion disutility.
+- **Households** `ω`: Cobb-Douglas preferences over consumption and housing; idiosyncratic Fréchet taste shocks `υ_{ωij}`; choose residence `i`, workplace `j`.
+-  **Firms** At each location j, competitive firms produce a freely tradable good using labor and commercial land, following CoD production function, with A_{j} be location-specific productivity.
 - **Transportation authority**: maximizes aggregate household welfare subject to budget constraint `K`.
 
 **Key structure:**
-- Spatial friction `D_{oij}(I,N) = ε_{oij} exp(ρ m_{oi} + κ τ_{ij}(I,N))`.
-- Budget constraint `Σ_{j,k} δ_{jk} I_{jk} ≤ K`.
-- Household budget: `c_{ij} + h_{ij} q_i ≤ w_j - φ(N_i, h_{0,i}) + h_{0,o} q_o`.
+- Spatial friction `d_{ij}(I,N)=\delta^{\tau} \frac{N^{\gamma}}{I^{\beta}}`, where \delta capture the geographic feature like distance
+- Budget constraint `Σ_{j,k} \vardelta_{jk} I_{jk} ≤ K`.
+- Household budget: `c_{ij} + h_{ij} q_i ≤ w_j`.
 
 ---
 
@@ -49,13 +45,9 @@ Do not introduce new symbols for existing concepts. All sessions must use this r
 | `N_i` | Population at location i |
 | `I_{jk}` | Transportation investment on link j→k |
 | `K` | Total transportation budget |
-| `τ_{ij}(I,N)` | Commuting cost (generic); use `τ_{ijm}` for mode-specific |
-| `τ_{ijR}` | Road commuting cost: `d_{ijR} / s_R(I^R, n_R)` |
-| `τ_{ijT}` | Transit cost: `φ_i^T(I^T) + t_{ijT}(I^T) + φ_j^T(I^T)` |
-| `D_{oij}` | Spatial friction term |
-| `φ(N_i, h_{0,i})` | Congestion/density disutility: increasing in N_i, decreasing in h_{0,i} |
-| `λ` | Construction/zoning cost parameter |
-| `ω_1, ω_2, ω_3` | Municipal political weights (see below) |
+| `d_{ij}(I,N)` | Commuting cost (generic) spatial friction; 
+| `φ(H_{i},L_{i})` | Congestion/density disutility: both local residents and local employment can lead to disutility|
+
 | `ε` | Fréchet shape parameter (idiosyncratic taste shocks) |
 | `α` | Cobb-Douglas consumption share |
 | `B_i` | Location amenity |
@@ -69,12 +61,13 @@ Track which issues from SB's feedback are resolved vs. pending. **Read `comments
 
 | # | Issue | Status | Note |
 |---|-------|--------|------|
-| 1 | Road vs. transit structural distinction | **OPEN** | Need mode-specific `τ_{ijm}` with asymmetric density complementarity. Not yet in model.tex. SB: road = extensive margin, transit = intensive margin. |
+| 1 | Road vs. transit structural distinction | **OPEN** | Need mode-specific `τ_{ijm}` with asymmetric density complementarity. Not yet in model.tex. SB: road = extensive margin, transit = intensive margin. Put this distinction apart first, just consider in general the transportation|
 | 2 | Municipal objective ω interpretation | **OPEN** | Must frame as reduced-form political-economy weights, not welfare weights. Discipline via housing supply elasticity calibration. Not yet in model.tex. |
 | 3 | Nested-choice relocation friction | DEFERRED | Optional extension. User noted "think about later." |
-| 4 | Timing: simultaneous vs. sequential | **RESOLVED** | Sequential: zoning first, transport responds. Municipalities atomistic (don't internalize effect on I). Robustness: also compare simultaneous Nash and full planner. |
+| 4 | Timing: simultaneous vs. sequential | **RESOLVED** | 
+Simultaneously decided, both municipality and transportation investment come in the form of Nash Equilibrium
 | 5 | Quantification strategy | RESOLVED (plan) | Match equilibrium objects: commuting flows, mode shares, rents, employment. Data: NTD, LEHD/LODES, ACS, Baum-Snow & Han (2024) elasticity. Do NOT estimate all primitives directly. |
-
+|6| Scale of decision | **OPEN** | There are several mismatch in terms of the scale of the decisions and if they are made by different agent. First, there can be mismatch where local municipality decide the zoning regulations wheras the transportation investment are decided at the metropolitian level. Second, it can be that the two decisions are made at the same level but by two different agent, or representative? refer to zoning_and_transportation_governance_us.md for informations.
 ---
 
 ## File Map
@@ -83,14 +76,14 @@ Track which issues from SB's feedback are resolved vs. pending. **Read `comments
 |------|------|
 | `main.tex` / `main.pdf` | Full proposal: intro, lit review, model, empirics, conclusion |
 | `model.tex` / `model.pdf` | Standalone model document — primary development sandbox |
-| `two-period-model.md` | Informal model notes — living document, tracks evolving ideas |
+| `two-period-model.md` |Abolished|
 | `comments from SB.md` | Advisor feedback — **read before any model-section edit** |
 | `motivation_draft.md` | Motivation section draft |
 | `reference.bib` | BibLaTeX bibliography |
 | `main_original.tex` | Snapshot before major revisions (do not edit) |
 | `templates/model-section.tex` | Template for new model sections |
 | `templates/proposition.tex` | Template for propositions and proofs |
-
+|`zoning_and_transportation_governance_us.md`| informations about how the zoning regulations and transportation investment are decided in the context of United States|
 ---
 
 ## Workflow Rules
