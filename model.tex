@@ -127,22 +127,24 @@ determined by household location choices. The disutility $\phi(N_i, L_i)$ uses $
 
 \subsection{Municipal Zoning}
 
-Each municipality $g \in G$ chooses the land-use allocation $\{\bar{H}_i^R, \bar{H}_i^F\}_{i \in S^g}$ to maximize the welfare of its current residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government acts as a representative of incumbent residents, who face a tradeoff between lower housing costs — which favor denser zoning — and lower congestion and fewer workers near their homes — which favor restrictive zoning. Formally, municipality $g$ solves
+Each municipality $g \in G$ chooses the land-use allocation $\{\bar{H}_i^R, \bar{H}_i^F\}_{i \in S^g}$ to maximize the total welfare of its residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government acts as a representative of its residents, who face a tradeoff between lower housing costs — which favor denser zoning — and lower congestion and fewer workers near their homes — which favor restrictive zoning. Formally, municipality $g$ solves
 \[
-\max_{\{\bar{H}_i^R\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} \bar{U}_i,
+\max_{\{\bar{H}_i^R\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} N_i\,\bar{U}_i,
 \]
-where $\bar{U}_i = \Gamma\!\left(1-\frac{1}{\epsilon}\right)\Phi_i^{1/\epsilon}$ is the expected utility of a representative resident at location $i$, subject to $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for each $i \in S^g$, taking other municipalities' allocations $\{\bar{H}_{i'}^R, \bar{H}_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{jk}\}$ as given.
+where $N_i$ is the equilibrium population at location $i$ and $\bar{U}_i = \Gamma\!\left(1-\frac{1}{\epsilon}\right)\Phi_i^{1/\epsilon}$ is the expected utility of a representative resident at location $i$, subject to $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for each $i \in S^g$, taking other municipalities' allocations $\{\bar{H}_{i'}^R, \bar{H}_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{jk}\}$ as given.
 
-Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating, the interior first-order condition at location $i \in S^g$ is
+Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating $\sum_{i \in S^g} N_i\bar{U}_i$ with respect to $\bar{H}_i^R$, the interior first-order condition at location $i \in S^g$ is
 \begin{align}
-\underbrace{\frac{\partial \bar{U}_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(rent benefit)}}
-+
-\underbrace{\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial N_i}\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\leq\;0\;\text{(congestion cost)}}
-+
-\underbrace{\left(-\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial L_i}\frac{\partial L_i}{\partial \bar{H}_i^F}\right)}_{\geq\;0\;\text{(less worker influx)}}
+\underbrace{\bar{U}_i\,\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(in-movers)}}
++\;
+N_i\!\underbrace{\frac{\partial \bar{U}_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(rent benefit)}}
++\;
+N_i\!\underbrace{\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial N_i}\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\leq\;0\;\text{(congestion cost)}}
++\;
+N_i\!\underbrace{\left(-\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial L_i}\frac{\partial L_i}{\partial \bar{H}_i^F}\right)}_{\geq\;0\;\text{(less worker influx)}}
 = 0.
 \end{align}
-The first term is positive: more residential capacity lowers $q_i^R$, raising effective income and resident welfare. The second term is negative: lower rents attract additional residents, raising $N_i$ and worsening local congestion through $\phi$. The third term is positive: expanding residential capacity at the expense of commercial capacity reduces employment $L_i$ at location $i$, lowering the disutility from worker influx. The municipality sets $\bar{H}_i^R$ where these three forces balance.
+The first term is positive: looser zoning lowers rents, attracting additional residents from the rest of the metro area; each in-mover contributes $\bar{U}_i$ to the municipality's objective. The second term is positive: lower rents raise effective income for all $N_i$ existing residents. The third term is negative: in-movers raise $N_i$, worsening congestion for all current residents through $\phi$. The fourth term is positive: shifting land from commercial to residential reduces employment $L_i$ and the associated worker congestion. The municipality sets $\bar{H}_i^R$ where the benefit of attracting residents and lowering rents is offset by the congestion they impose.
 
 \subsection{Transportation Authority}
 
@@ -192,7 +194,7 @@ N \cdot \Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
 \]
 subject to the budget constraint $\sum_{j,k}\delta_{jk}I_{jk} \leq K$, land constraints $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for all $i$, and market clearing.
 
-Comparing the planner's first-order condition for zoning with the municipal condition in (4) reveals two positive terms that municipalities systematically ignore. First, municipalities do not internalize the benefits that looser zoning confers on non-incumbent households — both potential in-movers and residents of neighboring municipalities — who gain from lower rents and more accessible housing. Second, municipalities do not account for the transit-zoning complementarity: denser residential and commercial development near transit-accessible locations raises ridership and the marginal return to transit investment, generating a positive externality on the transportation authority's problem. Road investment is comparatively less sensitive to local density, so this externality operates asymmetrically across infrastructure types.
+Comparing the planner's first-order condition for zoning with the municipal condition in (4) reveals two positive terms that municipalities systematically ignore. First, because each municipality $g$ maximizes welfare only over $i \in S^g$, it ignores the welfare of residents in neighboring municipalities who gain from lower rents and more accessible housing when $g$ rezones — even though those residents move voluntarily and are made better off. Second, municipalities do not account for the transit-zoning complementarity: denser residential and commercial development near transit-accessible locations raises ridership and the marginal return to transit investment, generating a positive externality on the transportation authority's problem. Road investment is comparatively less sensitive to local density, so this externality operates asymmetrically across infrastructure types.
 
 Both omitted terms are positive, implying that decentralized municipalities choose zoning that is too restrictive on both margins relative to the social optimum:
 \[
