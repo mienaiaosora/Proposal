@@ -81,7 +81,11 @@ where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at work
 \[
 \frac{\partial \phi}{\partial N_i} > 0, \qquad \frac{\partial \phi}{\partial L_i} > 0,
 \]
-where $N_i$ denotes residential population and $L_i$ denotes employment at location $i$ (defined below).
+where $N_i$ denotes residential population and $L_i$ denotes employment at location $i$ (defined below). I parametrize the disutility as
+\begin{align}
+    \phi(N_i, L_i) = \eta_N N_i^{1+\rho} + \eta_L L_i^{1+\rho},
+\end{align}
+where $\eta_N, \eta_L > 0$ are congestion weights on residential crowding and worker influx respectively, and $\rho > 0$ governs the convexity of congestion costs. The marginal congestion costs are $\partial\phi/\partial N_i = (1+\rho)\eta_N N_i^{\rho}$ and $\partial\phi/\partial L_i = (1+\rho)\eta_L L_i^{\rho}$, both increasing in their arguments. Convexity ($\rho > 0$) ensures the municipal first-order condition has an interior solution: as the municipality loosens residential zoning, each additional resident raises congestion by more than the last, so the congestion cost eventually dominates the rent benefit. The ratio $\eta_N/\eta_L$ governs the relative weight incumbents place on residential crowding versus worker influx, and is disciplined by the observed mix of residential and commercial zoning restrictions across locations. The overall scale $(\eta_N, \eta_L)$ is calibrated to match the housing supply elasticity estimates of \citet{Baum-Snow2024-ii}, which proxy for how tightly the municipality's zoning constraint binds at the equilibrium allocation.
 
 Define effective income as $Y_{ij} \equiv w_j - \phi(N_i, L_i)$. Optimal demands are $Q_{ij}^* = \alpha Y_{ij}$ and $h_{ij}^{R*} = (1-\alpha)Y_{ij}/q_i^R$. Substituting into the utility function yields the deterministic component of indirect utility:
 \[
@@ -129,7 +133,7 @@ determined by household location choices. The disutility $\phi(N_i, L_i)$ uses $
 
 Each municipality $g \in G$ chooses the land-use allocation $\{\bar{H}_i^R, \bar{H}_i^F\}_{i \in S^g}$ to maximize the total welfare of its residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government acts as a representative of its residents, who face a tradeoff between lower housing costs — which favor denser zoning — and lower congestion and fewer workers near their homes — which favor restrictive zoning. Formally, municipality $g$ solves
 \[
-\max_{\{\bar{H}_i^R\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} N_i\,\bar{U}_i,
+\max_{\{\bar{H}_i^R,\bar{H}_i^F\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} N_i\,(\bar{U}-\phi(N_i, L_i))
 \]
 where $N_i$ is the equilibrium population at location $i$ and $\bar{U}_i = \Gamma\!\left(1-\frac{1}{\epsilon}\right)\Phi_i^{1/\epsilon}$ is the expected utility of a representative resident at location $i$, subject to $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for each $i \in S^g$, taking other municipalities' allocations $\{\bar{H}_{i'}^R, \bar{H}_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{jk}\}$ as given.
 

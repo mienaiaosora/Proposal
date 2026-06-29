@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Rscript *)",
+      "Bash(R --*)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(head *)",
+      "Bash(wc *)",
+      "Bash(mkdir *)",
+      "Bash(touch *)"
+    ],
+    "deny": []
+  }
+}

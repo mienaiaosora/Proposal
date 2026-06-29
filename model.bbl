@@ -19,6 +19,52 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{Baum-Snow2024-ii}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3ab304f229ed273705b65bd10541d9e3}{%
+           family={Baum-Snow},
+           familyi={B\bibinithyphendelim S\bibinitperiod},
+           given={Nathaniel},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=292e57f67acbacbc6a29d70208bd6498}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{fullhash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{fullhashraw}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{bibnamehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authorbibnamehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authornamehash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authorfullhash}{44b3430e36e1e77fdcaf7abaaa592166}
+      \strng{authorfullhashraw}{44b3430e36e1e77fdcaf7abaaa592166}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issue}{6}
+      \field{journaltitle}{The Journal of Political Economy}
+      \field{month}{6}
+      \field{title}{The microgeography of housing supply}
+      \field{volume}{132}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{1897\bibrangedash 1946}
+      \range{pages}{50}
+    \endentry
     \entry{Fajgelbaum2020-yv}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%
