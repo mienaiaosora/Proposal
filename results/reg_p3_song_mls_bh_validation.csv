@@ -1,0 +1,5 @@
+model,term,estimate,std.error,stars
+log_mla ~ WRLURI,(Intercept),8.89591052928569,0.14221183272120902,***
+log_mla ~ WRLURI,WRLURI,0.005428518176691569,0.1589286642086289,
+log_mla ~ elast_inner,(Intercept),9.024011094244665,0.2618034610040436,***
+log_mla ~ elast_inner,elast_inner,-0.4044127565326661,0.7360395250700997,

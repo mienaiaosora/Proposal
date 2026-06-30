@@ -385,6 +385,120 @@ Recommended robustness checks:
 
 A negative WRLURI coefficient supports the model's cross-metro implication: restrictive zoning lowers the payoff to transit investment by limiting the density response around transit-accessible locations. This does not prove that zoning caused the current network size, because transit networks are historically persistent. The result is best framed as evidence that the observed cross-metro pattern is consistent with the model's transit-zoning complementarity.
 
+## Robustness Check: Song (2025) Minimum Lot Size Data
+
+### Motivation
+
+SB's feedback (`comments from SB.md`, lines 15, 25, 198) calls for disciplining the
+land-use constraint with zoning measures beyond housing supply elasticity where
+possible. Jaehee Song's replication package
+(`data/song_mls_estimator/231447-V1/`, "The Effects of Residential Zoning in U.S.
+Housing Markets") provides a more direct, structurally-grounded measure: actual
+codebook minimum lot size (MLS) by zoning district. This section uses it to (a)
+re-check Proposition 3 with MLS as an alternative zoning measure, and (b) test
+whether WRLURI and Baum-Snow & Han (B&H) elasticity actually agree with this direct
+measure for the same places — a validation of the proxies themselves.
+
+### Data Coverage Caveat
+
+Song's *national* municipality-level MLS output (`mla_stats_state_muni_cbsa.csv`) is
+CoreLogic-derived and excluded from the public replication package. The only
+municipality-level MLS data available is `data/validation_set.csv` — actual codebook
+minimum lot sizes (`mla_act`) by zoning district, for all MAPC (Boston-area) towns
+plus **one sampled municipality per county** in ~18 other counties. This is an
+illustrative, small-N robustness check, **not** a metro-representative replication:
+the single sampled municipality per county may not represent that metro's overall
+zoning regime, and the sample of counties itself was built for Song's own validation
+exercise, not for metro coverage.
+
+### Variable Construction
+
+Implemented in `NA_Transit/R/07_p3_song_mls_check.R`:
+
+1. Within each municipality, take the parcel-weighted mean of `log(mla_act)` across
+   its sampled zoning districts (weight = `sample_apn`, the sampled parcel count per
+   district).
+2. Map each municipality's county FIPS to a CBSA via Song's
+   `data/map/cbsa2fipsxw.csv`, then to the WRLURI `cbdname` / Transit Explorer
+   `region` naming convention via a manually checked crosswalk (same pattern as the
+   `lookup` tribble in `06_p3_identification.R`). Song's own `"mapc"` label is mapped
+   directly to Boston.
+3. Aggregate to metro level (parcel-weighted mean across municipalities; degenerates
+   to one value per metro except Boston, which has 34 MAPC municipalities).
+
+Result: 55 municipalities → 19 metros. One (Jacksonville) fails to match WRLURI due
+to a pre-existing `cbdname` data-quality issue (`"Jacksonville,NC"` instead of
+`"Jacksonville"`) that already excludes Jacksonville from the main P3 panel in
+`06_p3_identification.R` — left as-is rather than patched, to avoid silently changing
+the existing pipeline's matched sample.
+
+### Specifications
+
+**(a) P3 re-check** — restricted to the 10 metros that are *also* in the existing P3
+transit panel (existing fixed-guideway transit + WRLURI match): re-estimate
+`log(transit_km) ~ zoning_measure [+ log(numtracts) + FracUnavail]` with
+`zoning_measure` ∈ {WRLURI, B&H `elast_inner`, Song `log(mla_metro)`}, bivariate and
+with controls.
+
+**(b) WRLURI/B&H cross-validation** — does *not* require transit data, so it uses the
+full 18-metro WRLURI/B&H match: `log(mla_metro) ~ WRLURI` and
+`log(mla_metro) ~ elast_inner`, plus simple correlations.
+
+### Results
+
+**(a) P3 re-check (N = 10):**
+
+| Zoning measure | Bivariate coef. | Bivariate R² | With controls | Expected sign |
+|---|---|---|---|---|
+| WRLURI | +2.553** | 0.58 | +2.302** | negative |
+| B&H `elast_inner` | −6.208 (n.s.) | 0.16 | −5.682 (n.s.) | positive |
+| Song `log(mla_metro)` | −0.388 (n.s.) | 0.01 | −0.761 (n.s.) | negative |
+
+WRLURI's puzzling *positive* coefficient (the opposite of the model's prediction)
+persists even in this 10-metro subsample, both with and without controls. B&H
+elasticity is also wrong-signed here, consistent with the full-panel result in
+`06_p3_identification.R`. Song's direct MLS measure is the only one of the three with
+the theoretically correct sign (larger minimum lot size → less transit), but the
+coefficient is far from significant (SE comparable to or larger than the estimate) —
+this should be read as "not inconsistent with the model," not as confirmation; N = 10
+has essentially no power.
+
+**(b) WRLURI/B&H cross-validation (N = 18):**
+
+| Comparison | Coefficient | Correlation | p-value |
+|---|---|---|---|
+| `log(mla_metro)` ~ WRLURI | +0.005 | 0.01 | 0.97 |
+| `log(mla_metro)` ~ `elast_inner` | −0.404 | −0.14 | 0.59 |
+
+WRLURI shows **no** relationship at all with Song's direct codebook measure in this
+sample. B&H elasticity has the theoretically expected sign (more elastic supply ↔
+smaller minimum lot size) but the relationship is weak and statistically
+indistinguishable from zero.
+
+### Interpretation
+
+This small sample does not contradict the model, but it also does not confirm it —
+N = 10–18 is underpowered for any of these tests. The more useful finding is in part
+(b): WRLURI in particular shows essentially zero correlation with a direct,
+codebook-based measure of zoning stringency for the same places. This is suggestive
+evidence that the "wrong-signed" WRLURI result in the main P3 analysis may partly
+reflect a **measurement-validity problem** — WRLURI may not cleanly track the specific
+land-use lever (minimum lot size / density caps) the model's mechanism operates
+through — rather than a failure of the zoning-transit complementarity itself. This
+strengthens the case (independent of this check) for pursuing a causal identification
+strategy with a more direct zoning measure, and for treating WRLURI-based results in
+the proposal with appropriate caution given this validity concern. A natural follow-up,
+if a path to the restricted CoreLogic-derived national MLS data opens up, is to redo
+both checks with full metro coverage instead of this single-municipality-per-county
+sample.
+
+### Outputs
+
+- `results/song_mls_metro.csv` — metro-level aggregated MLS measure + match diagnostics.
+- `results/reg_p3_song_mls.csv`, `results/reg_p3_song_mls_bh_validation.csv` — regression tables for (a) and (b).
+- `results/fig_p3_song_mls_check.pdf`/`.png` — log(MLS) vs. WRLURI and vs. B&H elasticity (N = 18).
+- `results/fig_p3_song_mls_transit.pdf`/`.png` — log(MLS) vs. log(transit km) (N = 10).
+
 ## Suggested Output Tables and Figures
 
 ### Table 1: Employment Concentration and Housing Supply Elasticity
