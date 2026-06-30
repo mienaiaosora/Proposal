@@ -139,6 +139,7 @@ where $N_i$ is the equilibrium population at location $i$ and $\bar{U}_i = \Gamm
 
 Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating $\sum_{i \in S^g} N_i\bar{U}_i$ with respect to $\bar{H}_i^R$, the interior first-order condition at location $i \in S^g$ is
 \begin{align}
+    \label{zoning-foc}
 \underbrace{\bar{U}_i\,\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(in-movers)}}
 +\;
 N_i\!\underbrace{\frac{\partial \bar{U}_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(rent benefit)}}
@@ -164,6 +165,7 @@ where $\delta_{jk}$ is the per-unit cost of investment on link $(j,k)$ and $K$ i
 
 Let $\mu \geq 0$ be the Lagrange multiplier on the budget constraint. The interior first-order condition for link $(j,k)$ is
 \begin{align}
+    \label{transit-foc}
 \frac{N}{\epsilon}\,\Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon-1}
 \frac{\partial\Phi}{\partial I_{jk}} = \mu\,\delta_{jk}.
 \end{align}
@@ -171,46 +173,13 @@ The left-hand side is the marginal social benefit of investment on link $(j,k)$:
 
 \section{Empirical Facts}
 
-The model's first-order conditions generate three testable predictions. From the municipal zoning FOC (equation~142): locations with larger employment inflows face a larger marginal worker-influx cost from loosening residential zoning (\textbf{Proposition 1}), and locations with better transit access face additional upward pressure on population, which amplifies the congestion term and triggers a preemptive tightening of zoning (\textbf{Proposition 2}). From the transportation authority's FOC (equation~166): because the marginal social benefit of transit investment depends on ridership, which depends on the density of residents and jobs near the corridor, restrictive zoning that suppresses station-area density should lower the equilibrium return to transit investment (\textbf{Proposition 3}).
+The model's first-order conditions generate two testable predictions. From the municipal zoning FOC equation~\eqref{zoning-foc}: locations with better transit access face additional upward pressure on population, which amplifies the congestion term and triggers a preemptive tightening of zoning (\textbf{Proposition 2}). From the transportation authority's FOC equation~\eqref{transit-foc}: because the marginal social benefit of transit investment depends on ridership, which depends on the density of residents and jobs near the corridor, restrictive zoning that suppresses station-area density should lower the equilibrium return to transit investment (\textbf{Proposition 3}).
 
-I test these three predictions using Dallas--Fort Worth (DFW) tract-level data and, for Proposition 3, a cross-metropolitan panel. These tests are best understood as \emph{equilibrium consistency checks} on the model's mechanism, not as causal estimates of the effect of zoning on transportation outcomes; a separate identification strategy, using historical transit routes, planned-route instruments, or policy shocks to zoning authority, would be needed to establish causality. The results are mixed: Propositions 1 and 2 are strongly supported within DFW, while Proposition 3 is not supported in its baseline cross-metro form and only weakly so in supplementary mechanism checks, which I report honestly below.
+I test these predictions using Dallas--Fort Worth (DFW) tract-level data and, for Proposition 3, a cross-metropolitan panel. These tests are best understood as \emph{equilibrium consistency checks} on the model's mechanism, not as causal estimates of the effect of zoning on transportation outcomes; a separate identification strategy, using historical transit routes, planned-route instruments, or policy shocks to zoning authority, would be needed to establish causality. The results are mixed: Proposition 2 is strongly supported within DFW, while Proposition 3 is not supported in its baseline cross-metro form and only weakly so in supplementary mechanism checks, which I report honestly below.
 
 \subsection{Data and Zoning Proxy}
 
 The primary proxy for zoning restrictiveness is the tract-level housing supply elasticity $\hat\gamma_i$ of \citet{Baum-Snow2024-ii}, available for the DFW metro area ($N=1{,}016$ tracts). Lower $\hat\gamma_i$ indicates that the local housing stock responds less to demand shocks, corresponding to a smaller $\bar H_i^R$ in the model. Employment inflows $L_i$ are constructed from LODES 2023 origin-destination flows, aggregated to the workplace tract. Transit access is measured using DART station locations (148 stations in DFW), with a tract classified as transit-adjacent if its centroid lies within 0.5 miles of a station. For the cross-metro test of Proposition 3, I use the Wharton Residential Land Use Regulatory Index (WRLURI) and existing fixed-guideway route-km from Transit Explorer, matched to Baum-Snow and Han metro-level elasticities through a manually checked metro-name crosswalk. As a robustness check on the zoning measure itself, I also use minimum-lot-area (MLA) estimates from \citet{Song2025-ft}'s codebook-based zoning estimator, which is a more direct, structurally grounded measure than either WRLURI or housing supply elasticity, though available only for a small, non-metro-representative sample of municipalities.
-
-\subsection{Proposition 1: Employment Concentration Tightens Zoning}
-
-The municipal FOC predicts $\partial \hat\gamma_i/\partial \log L_i < 0$: tracts with larger employment inflows impose a larger marginal worker-influx cost on incumbent residents, so municipalities respond with tighter residential zoning. I estimate
-\[
-\hat\gamma_i = \alpha + \beta_1 \log(1+L_i) + \beta_2\,\text{pctdis}_i + \varepsilon_i
-\]
-on the DFW tract sample ($N=1{,}016$), where $\text{pctdis}_i$ is the fractional distance from the tract centroid to the CBD, controlling for the urban density gradient.
-
-\begin{table}[h]
-\centering
-\caption{Employment Concentration and Housing Supply Elasticity}
-\label{tab:p1}
-\begin{tabular}{lcccc}
-\toprule
-& (1) & (2) & (3) & (4) \\
-& $\hat\gamma_{01a}$ & $\hat\gamma_{01a}$ & $\hat\gamma_{11a}$ & $\hat\gamma_{01a,\text{sp}}$ \\
-\midrule
-$\log(1+L_i)$ & $-0.009^{***}$ & $-0.009^{***}$ & $-0.006^{***}$ & $-0.009^{***}$ \\
- & (0.002) & (0.002) & (0.002) & (0.002) \\
-$\text{pctdis}_i$ & & $-0.087^{*}$ & $-0.095^{**}$ & $-0.040$ \\
- & & (0.045) & (0.045) & (0.042) \\
-\midrule
-$R^2$ & 0.016 & 0.020 & 0.011 & 0.017 \\
-$N$ & 1,016 & 1,016 & 1,016 & 1,016 \\
-\bottomrule
-\end{tabular}
-\begin{minipage}{0.9\textwidth}
-\footnotesize Note: Standard errors in parentheses. Columns (1)--(2) use the primary elasticity measure $\hat\gamma_{01a}$; column (3) uses the alternative 2010--2020 measure $\hat\gamma_{11a}$; column (4) uses a spatially smoothed version of $\hat\gamma_{01a}$. $^{*}p<0.10$, $^{**}p<0.05$, $^{***}p<0.01$.
-\end{minipage}
-\end{table}
-
-The coefficient on $\log(1+L_i)$ is negative and significant at the 1\% level across all four specifications (Table~\ref{tab:p1}), and is robust to controlling for distance to the CBD and to using an alternative elasticity vintage. This is consistent with the worker-influx term in the municipal FOC: tracts that already attract substantial employment face tighter residential zoning, as incumbent residents weigh the congestion cost of additional in-commuters against the benefits of looser land use.
 
 \subsection{Proposition 2: Transit Access Triggers a Zoning-Tightening Response}
 
@@ -246,7 +215,7 @@ $N$ & 581 & 581 & 581 & 581 \\
 \end{minipage}
 \end{table}
 
-DART-adjacent tracts have housing supply elasticities roughly 0.15--0.21 units lower than non-adjacent tracts, significant at the 1--5\% level across specifications (Table~\ref{tab:p2}), and the result is robust to controlling separately for CBD distance and employment concentration. The interaction between transit proximity and CBD distance is not significant, likely reflecting the small number of suburban DART-adjacent tracts in the sample. Taken together with Proposition 1, this provides within-DFW support for the model's congestion channel: both employment concentration and transit access, the two forces that raise local population pressure in the model, predict tighter observed zoning.
+DART-adjacent tracts have housing supply elasticities roughly 0.15--0.21 units lower than non-adjacent tracts, significant at the 1--5\% level across specifications (Table~\ref{tab:p2}), and the result is robust to controlling separately for CBD distance and employment concentration. The interaction between transit proximity and CBD distance is not significant, likely reflecting the small number of suburban DART-adjacent tracts in the sample. This provides within-DFW support for the model's congestion channel: transit access, which raises local population pressure in the model, predicts tighter observed zoning.
 
 \subsection{Proposition 3: Restrictive Zoning and the Return to Transit Investment}
 
@@ -332,7 +301,7 @@ These supplementary checks do not confirm Proposition 3, but they are informativ
 
 \subsection{Summary}
 
-Propositions 1 and 2, both implications of the municipal zoning FOC tested within DFW, are strongly supported: employment-concentrated tracts and DART-adjacent tracts are both significantly more restrictively zoned, consistent with the model's congestion and transit-pressure channels. Proposition 3, the transportation authority's FOC implication that restrictive zoning lowers the return to transit investment, is not supported by the baseline cross-metro WRLURI test, which is wrong-signed; the DFW station-area density mechanism check likewise does not confirm the channel, though it is consistent with substantial confounding between zoning, density, and transit history rather than a clean rejection. Supplementary checks using a direct, codebook-based zoning measure suggest that part of the difficulty lies in WRLURI's validity as a proxy for the specific land-use lever, minimum lot size or density caps, through which the model's mechanism operates. Taken together, these results provide reasonable empirical discipline for the municipal side of the model, while indicating that a credible test of the transportation authority's response to zoning will require either a more direct, plausibly exogenous zoning measure or a panel/event-study design exploiting the timing of transit investment, rather than a static cross-metro comparison.
+Proposition 2, an implication of the municipal zoning FOC tested within DFW, is strongly supported: DART-adjacent tracts are significantly more restrictively zoned, consistent with the model's transit-pressure channel. Proposition 3, the transportation authority's FOC implication that restrictive zoning lowers the return to transit investment, is not supported by the baseline cross-metro WRLURI test, which is wrong-signed; the DFW station-area density mechanism check likewise does not confirm the channel, though it is consistent with substantial confounding between zoning, density, and transit history rather than a clean rejection. Supplementary checks using a direct, codebook-based zoning measure suggest that part of the difficulty lies in WRLURI's validity as a proxy for the specific land-use lever, minimum lot size or density caps, through which the model's mechanism operates. Taken together, these results provide reasonable empirical discipline for the municipal side of the model, while indicating that a credible test of the transportation authority's response to zoning will require either a more direct, plausibly exogenous zoning measure or a panel/event-study design exploiting the timing of transit investment, rather than a static cross-metro comparison.
 
 \printbibliography
 
