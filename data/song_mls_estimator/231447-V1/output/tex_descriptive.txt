@@ -1,0 +1,50 @@
+\begingroup
+\centering
+\begin{tabular}{lcc}
+   \tabularnewline \midrule \midrule
+   Dependent Variable: & \multicolumn{2}{c}{log\_hval}\\
+   Model:         & (1)            & (2)\\  
+   \midrule
+   \emph{Variables}\\
+   log(mla\_est)  & 0.1896$^{***}$ & 0.2292$^{***}$\\   
+                  & (0.0146)       & (0.0179)\\   
+   dist1          &                & -0.2982$^{***}$\\   
+                  &                & (0.0483)\\   
+   \midrule
+   \emph{Fixed-effects}\\
+   cbsa           & Yes            & Yes\\  
+   \midrule
+   \emph{Fit statistics}\\
+   Observations   & 62,237         & 54,814\\  
+   R$^2$          & 0.60261        & 0.58180\\  
+   Within R$^2$   & 0.06837        & 0.08017\\  
+   \midrule \midrule
+   \multicolumn{3}{l}{\emph{Clustered (cbsa) standard-errors in parentheses}}\\
+   \multicolumn{3}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup
+\begingroup
+\centering
+\begin{tabular}{lcc}
+   \tabularnewline \midrule \midrule
+   Dependent Variable: & \multicolumn{2}{c}{log\_rent}\\
+   Model:         & (1)      & (2)\\  
+   \midrule
+   \emph{Variables}\\
+   log(mla\_est)  & 0.0061   & 0.0272$^{***}$\\   
+                  & (0.0056) & (0.0071)\\   
+   dist1          &          & -0.1810$^{***}$\\   
+                  &          & (0.0245)\\   
+   \midrule
+   \emph{Fixed-effects}\\
+   cbsa           & Yes      & Yes\\  
+   \midrule
+   \emph{Fit statistics}\\
+   Observations   & 47,347   & 40,989\\  
+   R$^2$          & 0.47571  & 0.43239\\  
+   Within R$^2$   & 0.00015  & 0.01312\\  
+   \midrule \midrule
+   \multicolumn{3}{l}{\emph{Clustered (cbsa) standard-errors in parentheses}}\\
+   \multicolumn{3}{l}{\emph{Signif. Codes: ***: 0.01, **: 0.05, *: 0.1}}\\
+\end{tabular}
+\par\endgroup

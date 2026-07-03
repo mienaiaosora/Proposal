@@ -64,7 +64,7 @@ There are three types of agents: households, competitive firms, and governments.
 
 \subsection{Households}
 
-A household chooses a residence location $i$ and a workplace $j$ to maximize utility. Preferences over the composite good $Q_{ij}$ and residential floor space $h_{ij}^R$ are Cobb-Douglas:
+A household chooses a residence location $i$ and a workplace $j$ to maximize utility. Preferences over the numaire good $Q_{ij}$ and residential floor space $h_{ij}^R$ are Cobb-Douglas:
 \[
 u_{ij}(\omega) = \frac{B_i}{\tau_{ij}}
 \left(\frac{Q_{ij}}{\alpha}\right)^{\!\alpha}
@@ -75,7 +75,7 @@ where $B_i > 0$ is a residential amenity at location $i$, $\alpha \in (0,1)$ is 
 
 The household's budget constraint is
 \[
-Q_{ij} + q_i^R h_{ij}^R \leq w_j - \phi(N_i, L_i),
+Q_{ij} + q_i^R h_{ij}^R \leq w_j ,
 \]
 where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at workplace $j$, and $\phi(N_i, L_i)$ is a monetary disutility from residing at $i$. The disutility captures two sources of local negative externalities: residential congestion from neighbors and the presence of workers near the residential location:
 \[
@@ -87,9 +87,9 @@ where $N_i$ denotes residential population and $L_i$ denotes employment at locat
 \end{align}
 where $\eta_N, \eta_L > 0$ are congestion weights on residential crowding and worker influx respectively, and $\rho > 0$ governs the convexity of congestion costs. The marginal congestion costs are $\partial\phi/\partial N_i = (1+\rho)\eta_N N_i^{\rho}$ and $\partial\phi/\partial L_i = (1+\rho)\eta_L L_i^{\rho}$, both increasing in their arguments. Convexity ($\rho > 0$) ensures the municipal first-order condition has an interior solution: as the municipality loosens residential zoning, each additional resident raises congestion by more than the last, so the congestion cost eventually dominates the rent benefit. The ratio $\eta_N/\eta_L$ governs the relative weight incumbents place on residential crowding versus worker influx, and is disciplined by the observed mix of residential and commercial zoning restrictions across locations. The overall scale $(\eta_N, \eta_L)$ is calibrated to match the housing supply elasticity estimates of \citet{Baum-Snow2024-ii}, which proxy for how tightly the municipality's zoning constraint binds at the equilibrium allocation.
 
-Define effective income as $Y_{ij} \equiv w_j - \phi(N_i, L_i)$. Optimal demands are $Q_{ij}^* = \alpha Y_{ij}$ and $h_{ij}^{R*} = (1-\alpha)Y_{ij}/q_i^R$. Substituting into the utility function yields the deterministic component of indirect utility:
+Optimal demands are $Q_{ij}^* = \alpha Y_{ij}$ and $h_{ij}^{R*} = (1-\alpha)Y_{ij}/q_i^R$. Substituting into the utility function yields the deterministic component of indirect utility:
 \[
-\tilde{V}_{ij} = \frac{B_i\, Y_{ij}}{\tau_{ij}\,(q_i^R)^{1-\alpha}}.
+\tilde{V}_{ij} = \frac{B_i\, w_{j}}{\tau_{ij}\,(q_i^R)^{1-\alpha}}.
 \]
 
 The idiosyncratic shock $v_{ij}(\omega)$ is drawn from a Fréchet distribution with $\Pr(v_{ij} \leq z) = \exp(-T_i E_j z^{-\epsilon})$, where $T_i > 0$ and $E_j > 0$ are location-specific scale parameters and $\epsilon > 1$ governs the dispersion of idiosyncratic tastes. By the Fréchet aggregation property, the probability that a household chooses residence $i$ and workplace $j$ is
@@ -169,44 +169,44 @@ Let $\mu \geq 0$ be the Lagrange multiplier on the budget constraint. The interi
 \end{align}
 The left-hand side is the marginal social benefit of investment on link $(j,k)$: lower commuting costs raise $\tilde{V}_{ij}$ for all commuters on that link, increasing $\Phi$ and hence aggregate welfare. The authority equates the marginal benefit per dollar of investment across all active links.
 
-\subsection{Equilibrium}
+% \subsection{Equilibrium}
 
-\begin{definition}[Decentralized Equilibrium]
-A decentralized equilibrium is a profile
-\[
-\Bigl(\{\bar{H}_i^{R*},\,\bar{H}_i^{F*}\}_{i \in S},\;
-\{I_{jk}^*\},\;
-\{q_i^{R*},\,q_i^{F*},\,w_j^*\}_{i,j \in S}\Bigr)
-\]
-such that:
-\begin{enumerate}
-    \item \textbf{Household optimality.} Commuting flows $\{N\pi_{ij}^*\}$ are given by the Fréchet probability formula at prices $(q_i^{R*}, w_j^*)$ and investment $I^*$.
-    \item \textbf{Firm optimality.} Wages $w_j^*$ and commercial rents $q_j^{F*}$ satisfy the firm first-order conditions at $H_j^F = \bar{H}_j^{F*}$ and $L_j^* = N\sum_i \pi_{ij}^*$.
-    \item \textbf{Market clearing.} Residential floor space, commercial floor space, and labor markets clear at each location.
-    \item \textbf{Municipal Nash equilibrium.} Each municipality $g$ maximizes its objective given $\{\bar{H}_{i'}^{R*}, \bar{H}_{i'}^{F*}\}_{i' \notin S^g}$ and $I^*$; no municipality has a profitable deviation.
-    \item \textbf{Transportation authority optimality.} $\{I_{jk}^*\}$ maximizes aggregate welfare given $\{\bar{H}_i^{R*}, \bar{H}_i^{F*}\}$ subject to the budget constraint.
-\end{enumerate}
-Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds.
-\end{definition}
+% \begin{definition}[Decentralized Equilibrium]
+% A decentralized equilibrium is a profile
+% \[
+% \Bigl(\{\bar{H}_i^{R*},\,\bar{H}_i^{F*}\}_{i \in S},\;
+% \{I_{jk}^*\},\;
+% \{q_i^{R*},\,q_i^{F*},\,w_j^*\}_{i,j \in S}\Bigr)
+% \]
+% such that:
+% \begin{enumerate}
+%     \item \textbf{Household optimality.} Commuting flows $\{N\pi_{ij}^*\}$ are given by the Fréchet probability formula at prices $(q_i^{R*}, w_j^*)$ and investment $I^*$.
+%     \item \textbf{Firm optimality.} Wages $w_j^*$ and commercial rents $q_j^{F*}$ satisfy the firm first-order conditions at $H_j^F = \bar{H}_j^{F*}$ and $L_j^* = N\sum_i \pi_{ij}^*$.
+%     \item \textbf{Market clearing.} Residential floor space, commercial floor space, and labor markets clear at each location.
+%     \item \textbf{Municipal Nash equilibrium.} Each municipality $g$ maximizes its objective given $\{\bar{H}_{i'}^{R*}, \bar{H}_{i'}^{F*}\}_{i' \notin S^g}$ and $I^*$; no municipality has a profitable deviation.
+%     \item \textbf{Transportation authority optimality.} $\{I_{jk}^*\}$ maximizes aggregate welfare given $\{\bar{H}_i^{R*}, \bar{H}_i^{F*}\}$ subject to the budget constraint.
+% \end{enumerate}
+% Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds.
+% \end{definition}
 
-\subsection{Social Planner}
+% \subsection{Social Planner}
 
-A social planner jointly chooses zoning allocations $\{\bar{H}_i^R, \bar{H}_i^F\}$ and transportation investment $\{I_{jk}\}$ to maximize aggregate household welfare:
-\[
-\max_{\{\bar{H}_i^R,\,\bar{H}_i^F\},\,\{I_{jk}\}}\;
-N \cdot \Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
-\]
-subject to the budget constraint $\sum_{j,k}\delta_{jk}I_{jk} \leq K$, land constraints $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for all $i$, and market clearing.
+% A social planner jointly chooses zoning allocations $\{\bar{H}_i^R, \bar{H}_i^F\}$ and transportation investment $\{I_{jk}\}$ to maximize aggregate household welfare:
+% \[
+% \max_{\{\bar{H}_i^R,\,\bar{H}_i^F\},\,\{I_{jk}\}}\;
+% N \cdot \Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
+% \]
+% subject to the budget constraint $\sum_{j,k}\delta_{jk}I_{jk} \leq K$, land constraints $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for all $i$, and market clearing.
 
-Comparing the planner's first-order condition for zoning with the municipal condition in (4) reveals two positive terms that municipalities systematically ignore. First, because each municipality $g$ maximizes welfare only over $i \in S^g$, it ignores the welfare of residents in neighboring municipalities who gain from lower rents and more accessible housing when $g$ rezones — even though those residents move voluntarily and are made better off. Second, municipalities do not account for the transit-zoning complementarity: denser residential and commercial development near transit-accessible locations raises ridership and the marginal return to transit investment, generating a positive externality on the transportation authority's problem. Road investment is comparatively less sensitive to local density, so this externality operates asymmetrically across infrastructure types.
+% Comparing the planner's first-order condition for zoning with the municipal condition in (4) reveals two positive terms that municipalities systematically ignore. First, because each municipality $g$ maximizes welfare only over $i \in S^g$, it ignores the welfare of residents in neighboring municipalities who gain from lower rents and more accessible housing when $g$ rezones — even though those residents move voluntarily and are made better off. Second, municipalities do not account for the transit-zoning complementarity: denser residential and commercial development near transit-accessible locations raises ridership and the marginal return to transit investment, generating a positive externality on the transportation authority's problem. Road investment is comparatively less sensitive to local density, so this externality operates asymmetrically across infrastructure types.
 
-Both omitted terms are positive, implying that decentralized municipalities choose zoning that is too restrictive on both margins relative to the social optimum:
-\[
-\bar{H}_i^{R,\,\mathrm{SP}} \geq \bar{H}_i^{R,\,\mathrm{DE}}, \qquad
-\bar{H}_i^{F,\,\mathrm{SP}} \geq \bar{H}_i^{F,\,\mathrm{DE}}
-\qquad \text{for all } i \in S.
-\]
-The decentralized equilibrium therefore features underinvestment in transit — not because the transportation authority errs given the zoning it observes, but because the zoning it faces is itself distorted by fragmented local governance.
+% Both omitted terms are positive, implying that decentralized municipalities choose zoning that is too restrictive on both margins relative to the social optimum:
+% \[
+% \bar{H}_i^{R,\,\mathrm{SP}} \geq \bar{H}_i^{R,\,\mathrm{DE}}, \qquad
+% \bar{H}_i^{F,\,\mathrm{SP}} \geq \bar{H}_i^{F,\,\mathrm{DE}}
+% \qquad \text{for all } i \in S.
+% \]
+% The decentralized equilibrium therefore features underinvestment in transit — not because the transportation authority errs given the zoning it observes, but because the zoning it faces is itself distorted by fragmented local governance.
 
 \printbibliography
 

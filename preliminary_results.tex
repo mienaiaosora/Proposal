@@ -33,13 +33,138 @@
 \end{frame}
 
 %% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}{Model: Setup}
+
+\textbf{Metro area} $S$ partitioned into municipalities $g \in G$; fixed total population $N$.
+
+\medskip
+\begin{columns}[T]
+\column{0.50\textwidth}
+\begin{block}{Households}
+  \small
+  Cobb-Douglas over consumption \& housing; Fréchet taste shocks $v_{ij}(\omega)$.\\[4pt]
+  Choose $(i,j)$; earn $w_j$, pay $q_i^R$, bear congestion disutility
+  \[
+    \phi(N_i,L_i) = \eta_N N_i^{1+\rho}+\eta_L L_i^{1+\rho}
+  \]
+  Location shares: $\;\pi_{ij}\propto T_i E_j\tilde{V}_{ij}^{\,\epsilon}$
+\end{block}
+
+\column{0.46\textwidth}
+\begin{block}{Firms at $j$}
+  \small
+  CRS production; commercial land $\bar H_j^F$ set by zoning.
+\end{block}
+
+\vspace{0.25cm}
+\begin{block}{Governments}
+  \small
+  \textbf{Municipality $g$:} sets $\bar H_i^R$ and $\bar H_i^F$\\[2pt]
+  \textbf{Transport authority:} sets $\{I_{jk}\}$\\[2pt]
+  $\Rightarrow$ Simultaneous Nash equilibrium
+\end{block}
+\end{columns}
+
+\medskip
+\small
+\textbf{Zoning proxy:} housing supply elasticity $\hat\gamma_i$
+from \citeauthor{Baum-Snow2024-ii}~(\citeyear{Baum-Snow2024-ii})
+(lower $\hat\gamma_i$ = tighter zoning = smaller $\bar H_i^R$).
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[shrink=5]{Municipal Problem: FOC $\Rightarrow$ Propositions 1 \& 2}
+
+Municipality $g$ maximizes $W^g = \sum_{i\in S^g} N_i\bigl(\bar U_i - \phi(N_i,L_i)\bigr)$.
+
+\smallskip
+\textbf{Interior FOC for residential capacity $\bar H_i^R$:}
+
+{\small
+\begin{align*}
+&\underbrace{\bar U_i\,\frac{\partial N_i}{\partial \bar H_i^R}}_{\substack{(+)\\\text{in-movers}}}
++\;
+N_i\underbrace{\frac{\partial \bar U_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar H_i^R}}_{\substack{(+)\\\text{rent falls}}}\\[8pt]
++\;&
+N_i\underbrace{\frac{\partial \bar U_i}{\partial \phi}\frac{\partial \phi}{\partial N_i}\frac{\partial N_i}{\partial \bar H_i^R}}_{\substack{(-)\\\text{congestion cost}}}
++\;
+N_i\underbrace{\left(-\frac{\partial \bar U_i}{\partial \phi}\frac{\partial \phi}{\partial L_i}\frac{\partial L_i}{\partial \bar H_i^F}\right)}_{\substack{(+)\\\text{less worker influx}}}
+= 0
+\end{align*}
+}
+
+\begin{columns}[T]
+\column{0.50\textwidth}
+\begin{alertblock}{Proposition 1}
+  \small
+  $\partial\phi/\partial L_i = (1+\rho)\eta_L L_i^{\rho}$ increases in $L_i$.\\[3pt]
+  Higher $L_i$ $\Rightarrow$ larger \emph{worker-influx} cost in FOC $\Rightarrow$ municipality restricts residential zoning.\\[4pt]
+  \textbf{Test:} $\;\partial\hat\gamma_i/\partial\log L_i < 0$
+\end{alertblock}
+
+\column{0.49\textwidth}
+\begin{block}{Proposition 2}
+  \small
+  Transit $\Rightarrow$ higher $\tilde V_{ij}$ $\Rightarrow$ upward pressure on $N_i$.\\[3pt]
+  Larger $N_i$ amplifies the \emph{congestion} term $\Rightarrow$ municipality preemptively tightens zoning.\\[4pt]
+  \textbf{Test:} $\;\hat\gamma_i|_{\text{near transit}} < \hat\gamma_i|_{\text{far}}$
+\end{block}
+\end{columns}
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[shrink=5]{Transportation Authority: FOC $\Rightarrow$ Proposition 3}
+
+Authority maximizes $N\cdot\Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}$
+subject to $\sum_{jk}\delta_{jk}I_{jk}\leq K$.
+
+\medskip
+\textbf{Interior FOC for link $(j,k)$:}
+\[
+  \underbrace{\frac{N}{\epsilon}\,\Gamma\!\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon-1}
+  \frac{\partial\Phi}{\partial I_{jk}}}_{\text{Marginal Social Benefit (MSB)}}
+  \;=\; \mu\,\delta_{jk}
+\]
+
+\smallskip
+The MSB increases in ridership on link $(j,k)$:
+\[
+  \frac{\partial\Phi}{\partial I_{jk}}
+  \;\propto\;
+  \underbrace{\sum_{\text{users of }(j,k)} n_{ij}}_{\text{ridership}}
+  \;\times\;
+  \underbrace{\left|\frac{\partial\tau_{ij}}{\partial I_{jk}}\right|}_{\text{cost reduction}}
+\]
+Transit ridership $n_{ij}$ depends on the density of residents \emph{and} jobs near the corridor.
+
+\begin{alertblock}{Proposition 3}
+\[
+  \underbrace{\text{Restrictive zoning}}_{\bar H_i^R\downarrow}
+  \;\Longrightarrow\;
+  \underbrace{N_i\downarrow,\; L_j\downarrow}_{\text{near transit}}
+  \;\Longrightarrow\;
+  \underbrace{n_{ij}\downarrow}_{\text{ridership}}
+  \;\Longrightarrow\;
+  \underbrace{\partial\Phi/\partial I_{jk}\,\downarrow}_{\text{MSB}}
+  \;\Longrightarrow\;
+  I^*_{jk}\downarrow
+\]
+\textbf{Test:} station-area density/ridership response to transit is weaker
+where land-use capacity is lower.
+\end{alertblock}
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
 \begin{frame}{Overview: Three Proposition Tests}
 
 \begin{block}{Empirical chain from the model's FOC}
 \begin{enumerate}
   \item \textbf{P1.} High employment concentration $\Rightarrow$ tighter residential zoning
   \item \textbf{P2.} Transit access raises population pressure $\Rightarrow$ tighter zoning response
-  \item \textbf{P3.} Restrictive land use $\Rightarrow$ lower metropolitan transit investment
+  \item \textbf{P3.} Restrictive land use $\Rightarrow$ lower station-area transit returns
 \end{enumerate}
 \end{block}
 
@@ -49,12 +174,52 @@
   \item Tract-level housing supply elasticity $\hat{\gamma}_i$: \citeauthor{Baum-Snow2024-ii} (\citeyear{Baum-Snow2024-ii}), Dallas metro (N\,=\,1,016 tracts)
   \item Employment inflows $L_i$: LODES 2023, aggregated to Census tract
   \item Transit access: DART station locations (148 stations), 0.5-mile buffer
-  \item Cross-metro zoning: WRLURI from Wharton; transit network: Transit Explorer (40 matched metros of 306)
+  \item P3 data audit: existing NHGIS extract has tract population and housing units,
+        but is not yet sufficient for a station-buffer panel
 \end{itemize}
 
 \vspace{0.2cm}
 \small\textit{Tests are equilibrium consistency checks, not causal estimates.
               Each proposition maps to a model FOC.}
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[shrink=3]{P1: Specification}
+
+\textbf{Model prediction} (from municipal FOC, worker-influx term):
+\[
+  \frac{\partial\hat\gamma_i}{\partial\log L_i} < 0
+\]
+Higher employment at a tract raises the marginal disutility of additional workers,
+so municipalities choose tighter residential zoning.
+
+\bigskip
+\textbf{OLS regression} \quad (Census tract, Dallas metro; $N = 1{,}016$):
+\[
+  \hat\gamma_i
+  \;=\; \alpha
+  + \underbrace{\beta_1}_{<\,0}\log(1+L_i)
+  + \beta_2\,\text{pctdis}_i
+  + \varepsilon_i
+\]
+
+\bigskip
+{\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lp{0.68\linewidth}@{}}
+\toprule
+Variable & Definition \\
+\midrule
+$\hat\gamma_i$        & Housing supply elasticity (Baum-Snow \& Han 2024);
+                        \emph{lower = tighter zoning} (proxies $\bar H_i^R$ in the model) \\[4pt]
+$\log(1+L_i)$         & Log employment inflows at tract $i$ from LODES 2023
+                        (proxies $L_i$ in the model) \\[4pt]
+$\text{pctdis}_i$     & Fractional distance from tract centroid to CBD;
+                        controls for the urban density gradient \\
+\bottomrule
+\end{tabular}
+}
+
 \end{frame}
 
 %% ─────────────────────────────────────────────────────────────────────────────
@@ -106,10 +271,49 @@ Consistent with the municipal congestion-cost FOC.
 \end{frame}
 
 %% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}{P2: Specification}
+
+\textbf{Model prediction} (from municipal FOC, congestion term):
+\[
+  \hat\gamma_i\big|_{\text{near transit}} \;<\; \hat\gamma_i\big|_{\text{far}}
+\]
+Transit access raises residential attractiveness $\tilde V_{ij}$,
+increasing $N_i$ pressure; municipalities respond by preemptively tightening zoning.
+
+\bigskip
+\textbf{OLS regression} \quad (Census tract, Dallas metro; $N = 581$):
+\[
+  \hat\gamma_i
+  \;=\; \alpha
+  + \underbrace{\beta_1}_{<\,0}\mathbf{1}[\text{near DART}]_i
+  + \beta_2\,\text{pctdis}_i
+  + \beta_3\log(1+L_i)
+  + \varepsilon_i
+\]
+
+\bigskip
+{\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lp{0.65\linewidth}@{}}
+\toprule
+Variable & Definition \\
+\midrule
+$\hat\gamma_i$                    & Housing supply elasticity; \emph{lower = tighter zoning} \\[4pt]
+$\mathbf{1}[\text{near DART}]_i$ & $=1$ if tract centroid within 0.5 mi of a DART rail station
+                                    (148 stations in DFW) \\[4pt]
+$\text{pctdis}_i$                 & Fractional distance to CBD (same as P1) \\[4pt]
+$\log(1+L_i)$                     & Log employment inflows (same as P1; added as control) \\
+\bottomrule
+\end{tabular}
+}
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
 \begin{frame}[shrink=5]{P2: DART Access and the Zoning-Tightening Response}
 
 \begin{columns}[T]
-\column{0.48\textwidth}
+\column{0.46\textwidth}
 \small
 \textbf{Prediction.} Transit access raises local attractiveness; municipalities respond
 by tightening residential capacity:
@@ -123,7 +327,7 @@ by tightening residential capacity:
 \end{center}
 {\scriptsize Blue = high $\hat\gamma_i$ (permissive); red = low (restrictive). DART lines in black.}
 
-\column{0.52\textwidth}
+\column{0.50\textwidth}
 \scriptsize
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{lcccc}
@@ -161,59 +365,184 @@ Interaction insignificant (few suburban near-station tracts).
 \end{frame}
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\begin{frame}[shrink=5]{P3: Zoning Restrictiveness and Metro Transit Networks}
+\begin{frame}[shrink=7]{P3: NHGIS Data Audit}
 
+\textbf{Question.} Can the NHGIS files currently in
+\texttt{/Volumes/ORICO/Proposal for SYP} support the requested station-area P3 test?
+
+\medskip
 \begin{columns}[T]
 \column{0.48\textwidth}
+\begin{block}{What is available}
 \small
-\textbf{Prediction.} Restrictive zoning suppresses ridership density, lowering transit ROI:
+\begin{itemize}
+  \item Two tract-level NHGIS nominal time-series CSV extracts
+  \item DFW county coverage: 2,856 integrated tract rows
+  \item Key available measures: total population, total housing units,
+        and travel-time-to-work bins
+  \item Census years include 1990, 2000, 2010, and 2020
+\end{itemize}
+\end{block}
+
+\column{0.50\textwidth}
+\begin{alertblock}{Why this is not sufficient}
+\small
+\begin{itemize}
+  \item No NHGIS GIS boundary shapefiles for 1990/2000/2010/2020
+  \item Nominal tracts are not harmonized geographies; codes can refer to
+        changed areas over time
+  \item No block-group extract, limiting 0.5-mile station-buffer precision
+  \item Missing controls/outcomes: income, tenure, vacancy, race/ethnicity,
+        commute mode or public-transit share
+\end{itemize}
+\end{alertblock}
+\end{columns}
+
+\vspace{0.1cm}
+\begin{alertblock}{Conclusion}
+\small
+The existing NHGIS data can help seed a tract-level panel, but it is not enough
+to estimate P3 as specified in the project instructions.
+\end{alertblock}
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[shrink=7]{P3: What to Download from NHGIS}
+
+\small
+\textbf{Download a DFW-focused NHGIS extract at tract or, preferably, block-group
+geography.}
+
+\medskip
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{@{}p{0.24\linewidth}p{0.70\linewidth}@{}}
+\toprule
+Need & NHGIS request \\
+\midrule
+Years & 1990, 2000, 2010, 2020; add ACS 2016--2020 and 2020--2024 if using
+commuting, income, or tenure controls \\[3pt]
+Geography & Block groups preferred; tracts acceptable for first version.
+Use geographically standardized 2010 or 2020 units if available \\[3pt]
+GIS files & Boundary shapefiles for every source year and the chosen target
+year, or NHGIS standardized GIS files if using standardized tables \\[3pt]
+Core outcomes & Total population, total housing units, occupied units,
+vacant units, owner/renter occupied units \\[3pt]
+Controls & Median household income, race/ethnicity counts, land area if
+available; otherwise compute area from GIS in EPSG:2276 \\[3pt]
+Transit response & Means of transportation to work, especially public
+transportation/transit commute counts or share; mean commute time if available \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.2cm}
+\begin{block}{Storage convention}
+\small
+Place raw NHGIS tables and shapefiles in \texttt{data/raw/nhgis/}. If
+geographically standardized files are unavailable, also add crosswalks to
+\texttt{data/raw/census\_crosswalks/}; otherwise use area-weighted overlay.
+\end{block}
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[shrink=5]{P3: Revised Station-Area Specification}
+
+\textbf{Model prediction} (from transportation authority FOC):
+restrictive land use lowers the density/ridership response that enters transit's
+marginal social benefit.
+
 \[
-  \frac{\partial \log(\text{TransitKm}_m)}{\partial \text{WRLURI}_m} < 0.
+  Y_{sbt}
+  =
+  \alpha_s+\lambda_t
+  + \beta_1 PostTransit_{st}
+  + \underbrace{\beta_2}_{<\,0}
+      (PostTransit_{st}\times TightZoning_b)
+  + X_{bt}'\Gamma+\varepsilon_{sbt}
+\]
+
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lp{0.66\linewidth}@{}}
+\toprule
+Variable & Definition \\
+\midrule
+$s,b,t$ & Station, intersected buffer geography, and year \\[3pt]
+$Y_{sbt}$ & Population density, housing-unit density, transit commute share,
+or station ridership if available \\[3pt]
+$PostTransit_{st}$ & Indicator for years after station $s$ opens \\[3pt]
+$TightZoning_b$ & Direct zoning capacity, minimum lot size, single-family share,
+or low pre-opening density/built-form proxy \\[3pt]
+$X_{bt}$ & Income, race/ethnicity, tenure, vacancy, and CBD-distance controls \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.15cm}
+\begin{alertblock}{Interpretation}
+\small
+This is the empirical object in the instructions: realized local development or
+ridership response to transit, not a cross-metro network-length regression.
+\end{alertblock}
+
+\end{frame}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{frame}[shrink=6]{P3: Interim Evidence from Existing Files}
+
+\begin{columns}[T]
+\column{0.46\textwidth}
+\small
+The full event-study panel cannot be run until the NHGIS GIS and additional
+attributes are added. As an interim check, I use the existing 2020 tract data:
+
+\[
+\begin{aligned}
+  \log(\text{density}_i)
+  ={}& \alpha + \beta_1 Tight_i + \beta_2 NearDART_i \\
+     &+ \beta_3(Tight_i\times NearDART_i) + X_i'\Gamma+\varepsilon_i .
+\end{aligned}
 \]
 
 \begin{center}
-  \includegraphics[width=\linewidth]{results/fig_p3_wrluri_transit.pdf}
+  \includegraphics[width=\linewidth]{results/fig_p3_bh_station_density.pdf}
 \end{center}
-{\scriptsize 40 US metros with existing transit matched to Baum-Snow; red = legacy systems.}
 
-\column{0.52\textwidth}
+\column{0.50\textwidth}
 \scriptsize
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{lccccc}
+\begin{tabular}{lcc}
 \toprule
-& \multicolumn{3}{c}{All metros ($N$=306)} & \multicolumn{2}{c}{Transit only} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-6}
-& (1) & (2) & (3) & (4) & (5) \\
+ & Log pop. density & Log unit density \\
 \midrule
-WRLURI
-  & $0.538^{***}$ & $0.193^{*}$ & $0.196^{*}$ & $0.965^{***}$ & $0.849^{**}$ \\
-  & \se{0.119} & \se{0.100} & \se{0.101} & \se{0.284} & \se{0.332} \\[3pt]
-$\log(\text{tracts})$
-  & & $0.847^{***}$ & $0.844^{***}$ & $0.995^{***}$ & $0.731^{**}$ \\
-  & & \se{0.068} & \se{0.068} & \se{0.208} & \se{0.271} \\[3pt]
-FracUnavail
-  & & & $-0.147$ & & $0.285$ \\
-  & & & \se{0.431} & & \se{1.413} \\
-\midrule
-Legacy excl.? & -- & -- & -- & No & Yes \\
-$R^2$ & 0.063 & 0.383 & 0.383 & 0.484 & 0.274 \\
-$N$   & 306   & 306   & 306   & 40    & 35    \\
+Tightness $\times$ near DART
+  & $-1.747^{**}$ & $-1.507^{*}$ \\
+  & \se{0.786} & \se{0.781} \\[3pt]
+Near DART, 0.5 mi
+  & $-0.923^{***}$ & $-0.841^{***}$ \\
+  & \se{0.231} & \se{0.229} \\[3pt]
+Controls
+  & Yes & Yes \\
+$R^2$
+  & 0.488 & 0.512 \\
+$N$
+  & 590 & 590 \\
 \bottomrule
 \end{tabular}}
 
-\vspace{0.1cm}
-\normalsize
-\begin{alertblock}{Sign reversal — caution}
-\small WRLURI is \emph{positive}: coastal legacy metros (NY, SF, Boston)
-are both more restrictive \emph{and} have larger transit systems.
-This reflects historical endogeneity, not a refutation of the model.
-\end{alertblock}
+\vspace{0.15cm}
+\begin{block}{Read cautiously}
+\small
+Around DART, tighter B\&H supply elasticity is associated with a weaker density
+base. This is consistent with the P3 mechanism, but it is a cross-section and
+cannot yet estimate post-opening returns.
+\end{block}
 \end{columns}
 
 \end{frame}
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\begin{frame}[shrink=5]{Interpretation and Next Steps}
+\begin{frame}[shrink=15]{Interpretation and Next Steps}
 
 \begin{columns}[T]
 \column{0.5\textwidth}
@@ -221,17 +550,19 @@ This reflects historical endogeneity, not a refutation of the model.
 \begin{itemize}\small
   \item \textbf{P1 \checkmark} Employment-concentrated tracts are systematically less permissive, consistent with the municipal congestion-cost FOC.
   \item \textbf{P2 \checkmark} DART-adjacent tracts are significantly less permissive than matched non-adjacent tracts, consistent with the transit-tightening channel.
-  \item \textbf{P3 —} Cross-metro raw correlation is \emph{positive}: legacy transit cities are restrictive and transit-rich. Historical endogeneity prevents direct inference.
+  \item \textbf{P3 data gap} Current NHGIS files are not sufficient for the requested station-buffer event-study panel.
+  \item \textbf{P3 interim} Existing 2020 tract evidence is consistent with weaker density near DART where land-use capacity is tighter, but it is not yet a causal return estimate.
 \end{itemize}
 \end{block}
 
 \column{0.5\textwidth}
-\begin{alertblock}{Identification strategy needed for P3}
+\begin{alertblock}{What's actually needed for P3}
 \begin{itemize}\small
-  \item Control for pre-automobile urban form (1920 density)
-  \item Instrument WRLURI with state-level regulation history or terrain
-  \item Use planned-but-unbuilt lines to isolate transit supply variation
-  \item Restrict to metros without pre-war rail (cleaner counterfactual)
+  \item NHGIS tract or block-group GIS boundaries for 1990, 2000, 2010, and 2020
+  \item NHGIS attributes for population, housing, tenure, vacancy, income, race/ethnicity, and commute mode
+  \item Harmonization to a common 2010 or 2020 geography
+  \item Station buffers joined to census geographies and station opening years
+  \item Direct zoning, land-use capacity, or pre-opening built-form measures around stations
 \end{itemize}
 \end{alertblock}
 
@@ -264,7 +595,7 @@ This reflects historical endogeneity, not a refutation of the model.
 \node[warn] (z)    {Restrictive local zoning\\(low $\hat\gamma_i$)};
 \node[res,  below=of z] (e) {\textbf{P1 \checkmark} High employment\\$\Rightarrow$ lower $\hat\gamma_i$ ($-0.009^{***}$)};
 \node[res,  below=of e] (t) {\textbf{P2 \checkmark} DART access\\$\Rightarrow$ lower $\hat\gamma_i$ ($-0.178^{***}$)};
-\node[warn, below=of t] (p) {\textbf{P3 —} Cross-metro WRLURI\\positive (historical endogeneity)};
+\node[warn, below=of t] (p) {\textbf{P3 data gap}\\NHGIS boundary and controls\\needed for station panel};
 
 \draw[arrow] (z) -- (e);
 \draw[arrow] (e) -- (t);
@@ -274,7 +605,7 @@ This reflects historical endogeneity, not a refutation of the model.
 \vspace{0.3cm}
 \small
 P1 and P2 provide within-DFW equilibrium support for the model's municipal FOC.\\
-P3 requires causal identification via historical or geographic instruments.
+P3 should be estimated as a station-area panel once the missing NHGIS files are added.
 
 \end{frame}
 

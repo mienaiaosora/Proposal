@@ -444,6 +444,56 @@ with controls.
 full 18-metro WRLURI/B&H match: `log(mla_metro) ~ WRLURI` and
 `log(mla_metro) ~ elast_inner`, plus simple correlations.
 
+**(c) Station-area density mechanism test** — test the channel more directly by
+replacing the outcome `log(transit_km)` with density around existing transit
+stations. This is closer to the model's mechanism:
+
+$$
+\text{restrictive zoning}
+\rightarrow
+\text{lower station-area density}
+\rightarrow
+\text{lower ridership base}
+\rightarrow
+\text{lower return to transit investment}.
+$$
+
+The ideal specification would use local MLA measured for CBGs or municipalities
+near each station:
+
+$$
+\log(\text{density}_{b})
+=
+\alpha
++ \beta_1 \log(\text{MLA}_{b})
++ \beta_2 \mathbf{1}[\text{near station}]_b
++ \beta_3 \log(\text{MLA}_{b})\times \mathbf{1}[\text{near station}]_b
++ X_b'\gamma
++ \varepsilon_b,
+$$
+
+with $\beta_1<0$ and $\beta_3<0$. However, the public Song package does not include
+the CBG-level or municipality-boundary MLA file needed for that exact local test.
+The feasible public-data version is therefore a metro-level mechanism check:
+
+$$
+\log(\text{station-area density}_m)
+=
+\alpha
++ \beta_1 \log(\text{MLA}_m)
++ \beta_2 \log(\text{tracts}_m)
++ \beta_3 \text{FracUnavail}_m
++ \varepsilon_m,
+$$
+
+where station-area density is computed from CBGs whose centroids are within 0.5 mile
+of existing fixed-guideway transit stations in Transit Explorer. The expected sign is
+$\beta_1<0$: metros with larger minimum lot sizes should have lower density around
+transit stations. A complementary outcome is the station-area density ratio,
+station-area density divided by overall metro density, which asks whether restrictive
+zoning suppresses density specifically around transit rather than just lowering
+density everywhere in the metro.
+
 ### Results
 
 **(a) P3 re-check (N = 10):**
@@ -475,6 +525,72 @@ sample. B&H elasticity has the theoretically expected sign (more elastic supply 
 smaller minimum lot size) but the relationship is weak and statistically
 indistinguishable from zero.
 
+**(c) Station-area density mechanism check (N = 11):**
+
+Implemented in `NA_Transit/R/08_p3_mls_station_density.R`. The script aggregates
+Song's validation-set MLA to metro level, identifies CBGs whose centroids are within
+0.5 mile of existing fixed-guideway stations, and computes station-area population
+and housing-unit density.
+
+| Outcome | Sample | Bivariate coef. on `log_mla_metro` | With controls |
+|---|---:|---:|---:|
+| `log(station pop density)` | 11 metros | +0.141 (1.346) | −0.411 (1.207) |
+| `log(station unit density)` | 11 metros | +0.201 (1.300) | — |
+| `log(station density / metro density)` | 11 metros | +0.190 (1.285) | −0.334 (1.243) |
+| `log(station pop density)` | 9 metros, ≥10 station CBGs | +0.126 (0.478) | +0.184 (0.327) |
+
+The expected sign is negative. The estimates are small, unstable in sign, and nowhere
+near statistically significant. This available-data mechanism check therefore does
+**not** provide evidence that higher metro-level minimum lot size is associated with
+lower observed station-area density. This is not a decisive rejection of the model:
+the test uses a metro-level MLA proxy from Song's validation sample rather than local
+MLA measured around each station, and the matched sample remains extremely small.
+
+**(d) Tract-level station-area density check using B&H elasticity (Dallas):**
+
+Implemented in `NA_Transit/R/09_p3_bh_station_density.R`. This version uses the
+finer B&H tract-level housing supply elasticity instead of Song's small metro-level
+validation sample. I merge Dallas B&H tracts to CBG-derived tract population and
+housing-unit density, then mark a tract as near DART if its centroid is within
+0.5 mile of an existing DART station.
+
+Because B&H elasticity is a permissiveness measure, the model's density-channel
+prediction would be:
+
+$$
+\log(\text{density}_i)
+=
+\alpha
++ \beta_1 \hat\gamma_i
++ \beta_2 \mathbf{1}[\text{near DART}]_i
++ \beta_3 \hat\gamma_i \times \mathbf{1}[\text{near DART}]_i
++ X_i'\theta
++ \varepsilon_i,
+$$
+
+with $\beta_1>0$ or at least $\beta_1+\beta_3>0$ near transit. Equivalently, using
+`restrictiveness = -gamma`, expected signs would be negative.
+
+Result: 593 matched Dallas tracts; 15 near DART within 0.5 mile and 86 within 1 mile.
+
+| Outcome | Specification | Elasticity coef. | Elasticity × near DART |
+|---|---|---:|---:|
+| `log(pop density)` | bivariate | −1.709*** (0.153) | — |
+| `log(pop density)` | controls | −2.189*** (0.132) | — |
+| `log(pop density)` | controls + 0.5-mi interaction | −2.295*** (0.133) | +1.747** (0.786) |
+| `log(unit density)` | controls + 0.5-mi interaction | −2.549*** (0.132) | +1.507* (0.781) |
+| `log(pop density)` | controls + 1-mi interaction | −2.384*** (0.138) | +1.487*** (0.368) |
+
+The direct density-on-elasticity relationship is negative, not positive: in Dallas,
+tracts with lower B&H elasticity are denser. This is likely an equilibrium/endogeneity
+pattern: central, high-demand, transit-accessible places can be both denser and more
+restricted. The positive interaction says the negative elasticity-density gradient is
+weaker near DART, but the implied near-DART slope remains negative
+($-2.295+1.747=-0.548$). Therefore this test does **not** confirm the model's
+``permissive zoning raises station-area density'' channel. Instead, it reinforces the
+need for a causal or pre-determined zoning measure, or for an outcome based on
+changes in density/ridership after transit investment rather than levels.
+
 ### Interpretation
 
 This small sample does not contradict the model, but it also does not confirm it —
@@ -496,8 +612,12 @@ sample.
 
 - `results/song_mls_metro.csv` — metro-level aggregated MLS measure + match diagnostics.
 - `results/reg_p3_song_mls.csv`, `results/reg_p3_song_mls_bh_validation.csv` — regression tables for (a) and (b).
+- `results/p3_mls_station_density_panel.csv`, `results/reg_p3_mls_station_density.csv` — station-area density panel and regressions for (c).
+- `results/p3_bh_station_density_panel.csv`, `results/reg_p3_bh_station_density.csv` — Dallas tract-level B&H elasticity density panel and regressions for (d).
 - `results/fig_p3_song_mls_check.pdf`/`.png` — log(MLS) vs. WRLURI and vs. B&H elasticity (N = 18).
 - `results/fig_p3_song_mls_transit.pdf`/`.png` — log(MLS) vs. log(transit km) (N = 10).
+- `results/fig_p3_mls_station_density.pdf`/`.png` — log(MLA) vs. station-area population density.
+- `results/fig_p3_bh_station_density.pdf`/`.png` — B&H elasticity vs. tract population density, colored by DART proximity.
 
 ## Suggested Output Tables and Figures
 
