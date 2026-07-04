@@ -1,0 +1,38 @@
+% Template: Proposition / Lemma / Corollary with proof
+% Usage: Copy into document body. Replace ALL_CAPS placeholders.
+%
+% Requires in preamble (add once if not present):
+%   \usepackage{amsthm}
+%   \newtheorem{proposition}{Proposition}
+%   \newtheorem{lemma}{Lemma}
+%   \newtheorem{corollary}{Corollary}[proposition]
+%   \theoremstyle{remark}
+%   \newtheorem*{remark}{Remark}
+
+% --- Proposition ---
+\begin{proposition}\label{prop:LABEL}
+\textit{(TITLE_OR_SHORT_DESCRIPTION.)} Under Assumptions~\ref{ass:X}--\ref{ass:Y},
+FORMAL_STATEMENT.
+\end{proposition}
+
+\begin{proof}
+STEP_1. STEP_2. Therefore CONCLUSION. $\square$
+\end{proof}
+
+\begin{remark}
+ECONOMIC_INTERPRETATION_IN_PLAIN_LANGUAGE.
+\end{remark}
+
+% --- Lemma (if needed as building block) ---
+\begin{lemma}\label{lem:LABEL}
+STATEMENT.
+\end{lemma}
+
+\begin{proof}
+PROOF. $\square$
+\end{proof}
+
+% --- Corollary (consequence of a proposition) ---
+\begin{corollary}\label{cor:LABEL}
+STATEMENT.
+\end{corollary}
