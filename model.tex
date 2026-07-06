@@ -253,13 +253,13 @@ The household block delivers a log-linear estimating system once the congestion 
 \end{align}
 in the spirit of \citet{Ahlfeldt2015-zb}. With origin and destination fixed effects, the coefficients on $\ln n_{ij}$, $\ln I_{ij}$, and $\phi_i/w_j$ identify $-\epsilon\rho$, $\epsilon\gamma$, and $-\epsilon$ respectively. Given $\epsilon$, the origin fixed effect nets out $\ln T_i+\epsilon\ln B_i$ as a residual (observed $q_i^R,\alpha$), the standard model-inversion step.
 
-The zoning fee requires no approximation: \eqref{eq:arbitrage} gives $t_i^F\equiv q_i^F-q_i^R$ directly from residential and commercial rent data, with no estimation. Given a constructed $\hat\phi_i$ from the step above, the congestion parameters follow from
-\begin{align}
-\ln\hat\phi_i = \ln\eta + a\ln N_i + b\ln L_i + u_i,
-\end{align}
-recovering $(\eta,a,b)$ directly, with $a>1$ testable against the convexity restriction.
+% The zoning fee requires: \eqref{eq:arbitrage} gives $t_i^F\equiv q_i^F-q_i^R$ directly from residential and commercial rent data, with no estimation. Given a constructed $\hat\phi_i$ from the step above, the congestion parameters follow from
+% \begin{align}
+% \ln\hat\phi_i = \ln\eta + a\ln N_i + b\ln L_i + u_i,
+% \end{align}
+% recovering $(\eta,a,b)$ directly, with $a>1$ testable against the convexity restriction.
 
-The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a further object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is a general-equilibrium comparative static, not a single-equation partial derivative — exactly why counterfactuals in this literature are solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx 0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by ordinary matrix inversion; working this out is the natural next step for the quantitative exercise.
+% The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a further object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is a general-equilibrium comparative static, not a single-equation partial derivative — exactly why counterfactuals in this literature are solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx 0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,=\hat\phi_i)$ solvable by ordinary matrix inversion; working this out is the natural next step for the quantitative exercise.
 
 \subsection{Data and Calibration}
 
@@ -269,9 +269,6 @@ Following \citet{Fajgelbaum2020-yv}'s treatment of network and cost fundamentals
 
 \paragraph{Estimated from model equations.} $\epsilon, \rho$, and the commuting-cost investment elasticity in \eqref{eq:gravity}; $(\eta,a,b)$ from the congestion regression; $t_i^F$ is not estimated at all, but read directly off rent data via \eqref{eq:arbitrage}.
 
-\paragraph{Set externally.} $\alpha$, the consumption expenditure share, from the CEX or national accounts; $\gamma$, the firm's labor share in \eqref{eq:rent-clearing}'s underlying production function, from the local labor share of income (BEA). \emph{Notation note:} the commuting-cost investment elasticity in $\tau_{ij}=\delta_{ij}^\tau n_{ij}^\rho/I_{ij}^\gamma$ currently reuses the symbol $\gamma$ already assigned to the firm's labor share in $Y_j=A_jL_j^\gamma(H_j^F)^{1-\gamma}$ — these are distinct parameters with distinct empirical targets and should be given separate symbols before the calibration is finalized.
-
-\paragraph{Fundamentals recovered as residuals.} $T_i, B_i$ (jointly, from the origin fixed effect) and $E_j, A_j$ (from the destination fixed effect and the firm's first-order condition) so that the model exactly matches observed $N_i, L_i, w_j, q_i^R$ at the calibrated parameters, following the model-inversion logic of \citet{Ahlfeldt2015-zb} and \citet{Fajgelbaum2020-yv}.
 
 % \subsection{Social Planner}
 
