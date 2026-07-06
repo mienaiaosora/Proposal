@@ -19,51 +19,61 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
-    \entry{Baum-Snow2024-ii}{article}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=3ab304f229ed273705b65bd10541d9e3}{%
-           family={Baum-Snow},
-           familyi={B\bibinithyphendelim S\bibinitperiod},
-           given={Nathaniel},
-           giveni={N\bibinitperiod},
+    \entry{Ahlfeldt2015-zb}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=507b8cebb9d8f8bd3bf8c67ab1cd1401}{%
+           family={Ahlfeldt},
+           familyi={A\bibinitperiod},
+           given={Gabriel\bibnamedelima M},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=292e57f67acbacbc6a29d70208bd6498}{%
-           family={Han},
-           familyi={H\bibinitperiod},
-           given={Lu},
-           giveni={L\bibinitperiod},
+        {{un=0,uniquepart=base,hash=29db3ac8f93041c5506aa68eca7e6163}{%
+           family={Redding},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d505aef6d71613e121c7a31035ef4035}{%
+           family={Sturm},
+           familyi={S\bibinitperiod},
+           given={Daniel\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e169ac4dff3c27603b6fc22af7ea191}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={Nikolaus},
+           giveni={N\bibinitperiod},
            givenun=0}}%
       }
       \list{language}{1}{%
         {en}%
       }
       \list{publisher}{1}{%
-        {University of Chicago Press}%
+        {The Econometric Society}%
       }
-      \strng{namehash}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{fullhash}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{fullhashraw}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{bibnamehash}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{authorbibnamehash}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{authornamehash}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{authorfullhash}{44b3430e36e1e77fdcaf7abaaa592166}
-      \strng{authorfullhashraw}{44b3430e36e1e77fdcaf7abaaa592166}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \strng{namehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{fullhash}{acedd17633ed2b4de37a5c956ae358e9}
+      \strng{fullhashraw}{acedd17633ed2b4de37a5c956ae358e9}
+      \strng{bibnamehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{authorbibnamehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{authornamehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{authorfullhash}{acedd17633ed2b4de37a5c956ae358e9}
+      \strng{authorfullhashraw}{acedd17633ed2b4de37a5c956ae358e9}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{1}
       \field{issue}{6}
-      \field{journaltitle}{The Journal of Political Economy}
-      \field{month}{6}
-      \field{title}{The microgeography of housing supply}
-      \field{volume}{132}
-      \field{year}{2024}
+      \field{journaltitle}{Econometrica: journal of the Econometric Society}
+      \field{title}{The economics of density: Evidence from the Berlin wall}
+      \field{volume}{83}
+      \field{year}{2015}
       \field{dateera}{ce}
-      \field{pages}{1897\bibrangedash 1946}
-      \range{pages}{50}
+      \field{pages}{2127\bibrangedash 2189}
+      \range{pages}{63}
     \endentry
     \entry{Fajgelbaum2020-yv}{article}{}{}
       \name{author}{2}{}{%
@@ -109,6 +119,50 @@
       \field{dateera}{ce}
       \field{pages}{1411\bibrangedash 1452}
       \range{pages}{42}
+    \endentry
+    \entry{Glaeser2002-vq}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2b41d6ca29618683e119f3255b723113}{%
+           family={Glaeser},
+           familyi={G\bibinitperiod},
+           given={Edward\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6c63eff67ae7f34599b0ac43f4a7554}{%
+           family={Gyourko},
+           familyi={G\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA}%
+      }
+      \list{publisher}{1}{%
+        {National Bureau of Economic Research}%
+      }
+      \strng{namehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{fullhash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{fullhashraw}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{bibnamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorbibnamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authornamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorfullhash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorfullhashraw}{44ccea5de7a87e6b9498bac67e0965fa}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{8835}
+      \field{title}{The Impact of Zoning on Housing Affordability}
+      \field{type}{resreport}
+      \field{year}{2002}
+      \field{dateera}{ce}
     \endentry
     \entry{Mast2024-zi}{article}{}{}
       \name{author}{1}{}{%

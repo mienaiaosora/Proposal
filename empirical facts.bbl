@@ -110,6 +110,50 @@
       \field{pages}{1411\bibrangedash 1452}
       \range{pages}{42}
     \endentry
+    \entry{Glaeser2002-vq}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2b41d6ca29618683e119f3255b723113}{%
+           family={Glaeser},
+           familyi={G\bibinitperiod},
+           given={Edward\bibnamedelima L},
+           giveni={E\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6c63eff67ae7f34599b0ac43f4a7554}{%
+           family={Gyourko},
+           familyi={G\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA}%
+      }
+      \list{publisher}{1}{%
+        {National Bureau of Economic Research}%
+      }
+      \strng{namehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{fullhash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{fullhashraw}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{bibnamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorbibnamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authornamehash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorfullhash}{44ccea5de7a87e6b9498bac67e0965fa}
+      \strng{authorfullhashraw}{44ccea5de7a87e6b9498bac67e0965fa}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{8835}
+      \field{title}{The Impact of Zoning on Housing Affordability}
+      \field{type}{resreport}
+      \field{year}{2002}
+      \field{dateera}{ce}
+    \endentry
     \entry{Mast2024-zi}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=f1443a4fc1aeb4dc26a24d5292d03fb9}{%

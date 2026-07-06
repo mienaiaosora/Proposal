@@ -46,12 +46,13 @@ Do not introduce new symbols for existing concepts. All sessions must use this r
 | `I_{jk}` | Transportation investment on link j→k |
 | `K` | Total transportation budget |
 | `d_{ij}(I,N)` | Commuting cost (generic) spatial friction; 
-| `φ(H_{i},L_{i})` | Congestion/density disutility: both local residents and local employment can lead to disutility|
+| `φ(N_i,L_i) = η N_i^a L_i^b` | Congestion/density disutility, Cobb-Douglas form: both local residents and local employment cause disutility. `η>0` overall scale; `a,b>0` relative weights; `a>1` needed for own-argument convexity (interior FOC). Generates a complementarity (`∂²φ/∂N_i∂L_i>0`) absent from an additive parametrization. |
 
 | `ε` | Fréchet shape parameter (idiosyncratic taste shocks) |
 | `α` | Cobb-Douglas consumption share |
 | `B_i` | Location amenity |
 | `T_i, E_j` | Fréchet scale parameters at residence i and workplace j |
+| `t_i^F` (defined via `q_i^R = q_i^F - t_i^F`) | **Primary municipal instrument.** A fee on commercial land use (commercial-linkage-fee framing). Land is competitively allocated between residential and commercial use within each location; if both uses are active, competition equalizes after-fee returns, giving the no-arbitrage condition `q_i^R = q_i^F - t_i^F` (eq. `eq:arbitrage`). Combined with the land identity and the model's own rent functions `q_i^R(H_i^R)`, `q_i^F(H_i^F)` (each strictly decreasing in own argument), this pins down `H_i^R(t_i^F)` — strictly increasing — via the implicit function theorem (eq. `eq:landsplit`); no developer or supply-side agent, no assumed cost schedule. FOC derived by differentiating wrt `H_i^R` then translating back via chain rule (nonzero derivative, same interior solution). `H_i^F` itself can be read as a *quota* (cap on commercial floor space). A symmetric residential-side fee `t_i^R ≡ q_i^R - q_i^F = -t_i^F` is an equivalent alternative parametrization, not used as primary. |
 
 ---
 
@@ -68,6 +69,7 @@ Track which issues from SB's feedback are resolved vs. pending. **Read `comments
 Simultaneously decided, both municipality and transportation investment come in the form of Nash Equilibrium
 | 5 | Quantification strategy | RESOLVED (plan) | Match equilibrium objects: commuting flows, mode shares, rents, employment. Data: NTD, LEHD/LODES, ACS, Baum-Snow & Han (2024) elasticity. Do NOT estimate all primitives directly. |
 |6| Scale of decision | **OPEN** | There are several mismatch in terms of the scale of the decisions and if they are made by different agent. First, there can be mismatch where local municipality decide the zoning regulations wheras the transportation investment are decided at the metropolitian level. Second, it can be that the two decisions are made at the same level but by two different agent, or representative? refer to zoning_and_transportation_governance_us.md for informations.
+| 7 | Municipal instrument: quantity vs. price/quota | **RESOLVED** | SB (via `july_1st_comment.md`, 2026-07-01): municipality should not directly control land-supply quantity; think price/quota, subject to data availability. Resolved *without* adding a developer, endogenous supply side, or assumed cost schedule — total land `H̄_i` stays fixed. `§Municipal Zoning` in model.tex/empirical facts.tex now formally leads with the municipality choosing a **fee** `t_i^F` on commercial land use (commercial-linkage-fee framing). Land is competitively allocated between residential and commercial use; a no-arbitrage condition `q_i^R = q_i^F - t_i^F` between the model's own residential and commercial rent functions (not an assumed marginal-cost schedule) pins down `H_i^R(t_i^F)` via the implicit function theorem. The FOC is derived by differentiating wrt `H_i^R` (cleanest algebra) then translated back to the fee via chain rule — same interior solution, since the map is a monotone nonzero-derivative reparametrization. `H_i^F` is also explicitly notable as a **quota**. A symmetric residential-side fee `t_i^R = -t_i^F` is mentioned as an equivalent alternative. `main.tex`'s model subsection was left un-synced (already a lighter, out-of-date stub) pending a separate resync pass.
 ---
 
 ## File Map
