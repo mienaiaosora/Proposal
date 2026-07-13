@@ -75,6 +75,80 @@
       \field{pages}{2127\bibrangedash 2189}
       \range{pages}{63}
     \endentry
+    \entry{Allen2022-ms}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c6da22fb2258db0db845299a5091c5c7}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={Treb},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c99d9d323f323ffc11adc74acb24b4f}{%
+           family={Arkolakis},
+           familyi={A\bibinitperiod},
+           given={Costas},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press (OUP)}%
+      }
+      \strng{namehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{fullhash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{fullhashraw}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{bibnamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorbibnamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authornamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorfullhash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorfullhashraw}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Each year in the US, hundreds of billions of dollars are spent on transportation infrastructure and billions of hours are lost in traffic. We develop a quantitative general equilibrium spatial framework featuring endogenous transportation costs and traffic congestion and apply it to evaluate the welfare impact of transportation infrastructure improvements. Our approach yields analytical expressions for transportation costs between any two locations, the traffic along each link of the transportation network, and the equilibrium distribution of economic activity across the economy, each as a function of the underlying quality of infrastructure and the strength of traffic congestion. We characterize the properties of such an equilibrium and show how the framework can be combined with traffic data to evaluate the impact of improving any segment of the infrastructure network. Applying our framework to both the US highway network and the Seattle road network, we find highly variable returns to investment across different links in the respective transportation networks, highlighting the importance of well-targeted infrastructure investment.}
+      \field{day}{7}
+      \field{issue}{6}
+      \field{journaltitle}{The Review of Economic Studies}
+      \field{month}{11}
+      \field{title}{The Welfare Effects of Transportation Infrastructure Improvements}
+      \field{volume}{89}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{pages}{2911\bibrangedash 2957}
+      \range{pages}{47}
+    \endentry
+    \entry{Bordeu2026-df}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cd65de41b1f5412ba4fad434bb5c0011}{%
+           family={Bordeu},
+           familyi={B\bibinitperiod},
+           given={Olivia},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{fullhash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{fullhashraw}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{bibnamehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authorbibnamehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authornamehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authorfullhash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authorfullhashraw}{cd65de41b1f5412ba4fad434bb5c0011}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Commuting Infrastructure in Fragmented Cities}
+      \field{year}{2026}
+      \field{dateera}{ce}
+    \endentry
     \entry{Fajgelbaum2020-yv}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%
