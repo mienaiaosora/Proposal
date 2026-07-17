@@ -46,75 +46,76 @@ Each location $i \in S$ is endowed with a fixed supply of land $\bar{H}_i$, allo
 \]
 where $\bar{H}_i^R$ is residential floor space capacity and $\bar{H}_i^F$ is commercial floor space capacity. Both are chosen by the municipal government and assumed to be fully utilized in equilibrium.
 
-Locations are connected by a transportation network $(S, E)$, where $E \subseteq S \times S$ is a set of directed edges (links). Transportation investment $I_{k\ell}$ is chosen at the \emph{edge} level, for each $(k,\ell) \in E$ — not directly for residence-workplace pairs, which need not be adjacent in the network. The utility cost of traveling through edge $(k,\ell)$ is
+\subsubsection{Transportation}
+Locations are connected by a transportation network $(S, E)$, where $E \subseteq S \times S$ is a set of directed edges (links). Transportation investment $I_{k\ell}$ is chosen at the \emph{edge} level, for each $(k,\ell) \in E$ The utility cost of traveling through edge $(k,\ell)$ is
 \[
-d_{k\ell} = d_{k\ell}(I_{k\ell},\, n_{k\ell}),
+d_{k\ell} = exp(\kappa \times time_{k\ell}),
 \]
-where $n_{k\ell}$ is the equilibrium commuter flow on that edge. Investment reduces edge-level travel cost and congestion raises it:
+where $time_{k\ell}$ is the travel time on edge $(k,\ell)$ and $\kappa > 0$ is a scale parameter, following \cite{ahlfeldt2015zoning}. The travel time $time_{k\ell}$ is a function of the edge-level traffic $n_{k\ell}$ and investment $I_{k\ell}$:
 \[
-\frac{\partial d_{k\ell}}{\partial I_{k\ell}} \leq 0, \qquad \frac{\partial d_{k\ell}}{\partial n_{k\ell}} \geq 0.
+time_{k\ell} = \delta_{kl}^{0}+\delta_{kl}^{1}\frac{n_{k\ell}^{\rho}}{I_{k\ell}^{\beta}}.
 \]
-Following \cite{Fajgelbaum2020-yv}, I parametrize the edge-level cost as
+Following \cite{Fajgelbaum2020-yv}, $\delta_{kl}^{0}$ is the free-flow travel time on edge $(k,\ell)$, $\delta_{kl}^{1} > 0$ is a scale parameter, and $\rho, \beta > 0$ are elasticities of travel time with respect to traffic and investment respectively. 
+Therefore for a given route r, the commuting cost $\tau_{ij}$ between residence $i$ and workplace $j$ is the product of the costs of all edges along that route:    
 \[
-d_{k\ell} = \delta_{k\ell}^{\tau}\, \frac{n_{k\ell}^{\rho}}{I_{k\ell}^{\gamma}},
+\tau_{ijr} = \prod_{(k,\ell) \in r_{ij}} d_{k\ell}(I_{k\ell}, n_{k\ell}),
 \]
-where $\delta_{k\ell}^{\tau} > 0$ captures geographic features of edge $(k,\ell)$ and $\rho, \gamma > 0$.
-
-Each residence-workplace pair $(i,j)$ is connected by an exogenously known route $r_{ij} \subseteq E$ — a sequence of edges linking $i$ to $j$, taken from GIS shortest-path data for roads or the observed line/transfer sequence for transit. The route is fixed: households do not choose among alternative paths between $i$ and $j$, though they do choose $(i,j)$ itself. Allowing endogenous multi-route choice, as in \citet{Allen2022-ms} and \citet{Bordeu2026-df}, is a natural extension, deferred here for tractability. The generalized commuting cost between $i$ and $j$ accumulates over the route,
-\[
-\tau_{ij} = \prod_{(k,\ell) \in r_{ij}} d_{k\ell}(I_{k\ell}, n_{k\ell}),
-\]
-and edge-level traffic aggregates every commuter flow whose route uses that edge,
-\begin{align}
-    \label{eq:edge-traffic}
-    n_{k\ell} = \sum_{(i,j)\,:\,(k,\ell) \in r_{ij}} N\pi_{ij}.
-\end{align}
-Because $\tau_{ij}$ is built from the routes' constituent edges rather than treated as a primitive of $(i,j)$ directly, investment on a single edge affects every residence-workplace pair whose route passes through it, not only pairs adjacent to that edge — the network is the source of investment spillovers in this model (see the Transportation Authority subsection).
+where $r_{ij}$ is the route chosen by commuters from $i$ to $j$. 
 
 There are three types of agents: households, competitive firms, and governments. Households choose residence and workplace locations. Firms produce a freely tradable good using labor and commercial floor space. Government decisions operate at two levels: municipal governments choose local zoning, and a metropolitan transportation authority chooses investment across all links. In the decentralized equilibrium, municipalities and the transportation authority choose policies simultaneously, each treating the other's decisions as given.
 
-
 \subsection{Households}
 
-A household chooses a residence location $i$ and a workplace $j$ to maximize utility. Preferences over the numaire good $Q_{ij}$ and residential floor space $h_{ij}^R$ are Cobb-Douglas:
+A household chooses a residence location $i$, a workplace $j$, and a route $r$ from a finite, exogenously given choice set $R_{ij}$ of feasible routes between $i$ and $j$ (e.g. the $k$ shortest GIS paths, or distinct road/transit alternatives) to maximize utility. Preferences over the numaire good $Q_{ij}$ and residential floor space $h_{ij}^R$ are Cobb-Douglas:
 \[
-u_{ij}(\omega) = \frac{B_i}{\tau_{ij}}
+u_{ijr}(\omega) = \frac{B_i}{\tau_{ijr}}
 \left(\frac{Q_{ij}}{\alpha}\right)^{\!\alpha}
 \left(\frac{h_{ij}^R}{1-\alpha}\right)^{\!1-\alpha}
-v_{ij}(\omega),
+v_{ij,r}(\omega),
 \]
-where $B_i > 0$ is a residential amenity at location $i$, $\alpha \in (0,1)$ is the expenditure share on the composite good, and $v_{ij}(\omega)$ is an idiosyncratic preference shock drawn independently for each $(i,j)$ pair.
+where $B_i > 0$ is a residential amenity at location $i$, $\alpha \in (0,1)$ is the expenditure share on the composite good, $\tau_{ijr}$ is the commuting cost along route $r$, and $\{v_{ij,r}(\omega)\}$ is a vector of idiosyncratic shocks, jointly distributed according to a nested (generalized extreme value) Fréchet copula with cumulative distribution function
+\begin{align}
+    \label{GEV}
+    F(\{v_{ij,r}\}) = \exp\!\left[-\sum_{ij \in S^{2}} T_iE_j\left(\sum_{r\in R_{ij}}v_{ij,r}^{-\theta}\right)^{\!\epsilon/\theta}\right], \qquad \theta \geq \epsilon > 1.
+\end{align}
+The outer exponent is $+\epsilon/\theta$, not $-\epsilon/\theta$: a valid CDF must satisfy $F\to1$ as any $v_{ij,r}\to\infty$ holding the rest fixed, which pins the sign down. $T_i,E_j$ enter at the outer $(i,j)$ nest only, not inside the inner route sum: they are location-pair accessibility scales, not route-specific ones, exactly as in the single-route model. Setting $R_{ij}=\{r\}$ for every $(i,j)$ collapses \eqref{GEV} to the original univariate Fréchet marginal $\Pr(v_{ij}\leq z)=\exp(-T_iE_jz^{-\epsilon})$, confirming the nesting strictly generalizes it; $\theta\geq\epsilon$ is required for \eqref{GEV} to be a valid (positively correlated within-nest) GEV copula.
 
 The household's budget constraint is
 \[
 Q_{ij} + q_i^R h_{ij}^R \leq w_j-\phi(N_i, L_i),
 \]
-where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at workplace $j$. Optimal demands are $Q_{ij}^* = \alpha Y_{ij}$ and $h_{ij}^{R*} = (1-\alpha)Y_{ij}/q_i^R$. Substituting into the utility function yields the deterministic component of indirect utility:
+where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at workplace $j$. Let $\tilde{W}_{ij} = w_j-\phi(N_i, L_i)$ denote the household's income, where $\phi(N_{i},L_{i})$ is the utility cost from local congestion. Optimal demands are $Q_{ij}^* = \alpha \tilde{W}_{ij}$ and $h_{ij}^{R*} = (1-\alpha)\tilde{W}_{ij}/q_i^R$, giving the deterministic component of indirect utility for a given route,
 \[
-\tilde{V}_{ij} = \frac{B_i\, (w_{j}-\phi(N_i, L_i))}{\tau_{ij}\,(q_i^R)^{1-\alpha}}.
+\tilde{V}_{ijr} = \frac{B_i\, \tilde W_{ij}}{\tau_{ijr}\,(q_i^R)^{1-\alpha}}.
 \]
 
-The idiosyncratic shock $v_{ij}(\omega)$ is drawn from a Fréchet distribution with $\Pr(v_{ij} \leq z) = \exp(-T_i E_j z^{-\epsilon})$, where $T_i > 0$ and $E_j > 0$ are location-specific scale parameters and $\epsilon > 1$ governs the dispersion of idiosyncratic tastes. By the Fréchet aggregation property, the probability that a household chooses residence $i$ and workplace $j$ is
+\paragraph{Upper nest choice}: applying the GEV choice-probability formula to \eqref{GEV}, households compare residence-workplace pairs using the route-choice-corrected value $\tilde V_{ij}$, with $T_i,E_j$ entering exactly as in the single-route model:
 \begin{align}
-    \pi_{ij} = \frac{T_i E_j\,\tilde{V}_{ij}^{\epsilon}}{\Phi}, \qquad
-    \Phi \equiv \sum_{i'}\Phi_{i'}, \qquad
-    \Phi_i \equiv \sum_j T_i E_j\,\tilde{V}_{ij}^{\epsilon},
+    \label{eq:pi}
+    \pi_{ij} = \frac{T_i E_j \tilde{V}_{ij}^{\epsilon}}{\sum_{i'j' \in S^{2}} T_{i'} E_{j'} \tilde{V}_{i'j'}^{\epsilon}} = \frac{T_iE_j\tilde V_{ij}^\epsilon}{\Phi},
 \end{align}
-and expected utility is
+where $\tilde{V}_{ij}=\dfrac{B_{i}\tilde{W}_{ij}}{\tau_{ij}(q_{i}^R)^{1-\alpha}}$ and $\tau_{ij} = \left(\sum_{r\in R_{ij}}\tau_{ijr}^{-\theta}\right)^{-1/\theta}$ is the Fréchet mean of route costs.such that the population choosing i,j pair is:
 \begin{align}
-    U = \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}.
-\end{align}
-
-Let $N$ denote total metropolitan population, fixed in a closed economy. Equilibrium residential population at each location is
-\[
-N_i = N \sum_j \pi_{ij}.
-\]
-Residential floor space market clearing at location $i$ pins down the equilibrium rent:
-\begin{align}
-    \label{eq:rent-clearing}
-    q_i^R = \frac{(1-\alpha)\sum_j N\pi_{ij}\,Y_{ij}}{\bar{H}_i^R}.
+    \label{eq:pi-pop}
+    N_{ij} =T_iE_j\tilde V_{ij}^\epsilon \frac{N}{\Phi},
 \end{align}
 
+\paragraph{Lower nest choice}: conditional on choosing $(i,j)$, the household chooses a route $r \in R_{ij}$. Following \citet{Allen2022-ms}, we can rewrite $\tau_{ij} = \left(\sum_{r\in R_{ij}}\tau_{ijr}^{-\theta}\right)^{-1/\theta}$ such that
+\begin{align}
+    \label{eq:pi-route}
+    \tau=((I-A)^{-1})^{-1/\theta},
+\end{align}
+where $A$ is a matrix with elements (k,l) is $d_{kl}^{-\theta}$,such that for matrix $\tau$, the element (i,j) is $\tau_{ij}$.
+Accordingly, we can derive the link intensity as follows:
+\begin{align}
+    \label{eq:edge-traffic}
+    \pi_{jk}^{k\ell} = (\frac{\tau_{ij}}{\tau_{ik}d_{kl}\tau_{lj}})^{\theta}
+\end{align}
+Therefore I can derive the traffic on edge (k,l) as follows:   
+\begin{align}
+    \label{eq:edge-traffic}
+    n_{k\ell} = \sum_{ij \in S^{2}}N_{ij}\pi_{jk}^{k\ell}
+\end{align}
 
 \subsection{Firms}
 
@@ -124,37 +125,25 @@ Y_j = A_j L_j^{\gamma}(H_j^F)^{1-\gamma},
 \]
 where $A_j > 0$ is location-specific productivity and $\gamma \in (0,1)$. Taking wages $w_j$ and commercial rents $q_j^F$ as given, profit maximization yields:
 \[
-w_j = \gamma A_j \!\left(\frac{H_j^F}{L_j}\right)^{\!1-\gamma}\!, \qquad
-q_j^F = (1-\gamma) A_j \!\left(\frac{L_j}{H_j^F}\right)^{\!\gamma}\!.
+L_{j}=(\frac{\gamma A_{j}}{w_{j}})^{1/(1-\gamma)}H_{j}^F, \qquad
+q_{j}^F=(1-\gamma)(\frac{\gamma}{w_{j}})^{\gamma/(1-\gamma)}A_{j}^{1/(1-\gamma)}.
 \]
-Commercial floor space is constrained by zoning: $H_j^F = \bar{H}_j^F$. Labor market clearing at $j$ gives
-\[
-L_j = N \sum_i \pi_{ij},
-\]
-determined by household location choices. The disutility $\phi(N_i, L_i)$ uses $L_i$ to denote employment at location $i$ acting as a workplace, which is this same quantity evaluated at $j = i$.
 
 \subsection{Municipal Zoning}
 
-Land at each location competes for residential and commercial use. Each municipality $g \in G$ chooses an iceberg cost $\{t_i^F\}_{i \in S^g} \geq 0$ on commercial land use at each location: procedural burden — discretionary review, permitting delay, litigation risk, compliance — melts away a fraction of commercial floor space's usable value before it reaches the market, in the spirit of how long approval processes or stringent review requirements shrink the effective commercial return without generating revenue for anyone. Because the same underlying land parcel can be put to either use, competitive landowners allocate it to whichever use pays the higher effective return; if both uses are active in equilibrium, this competition equalizes returns at the margin:
+Land at each location competes for residential and commercial use. Each municipality $g \in G$ chooses an iceberg cost $\{t_i^F\}_{i \in S^g} \geq 0$ on commercial land use at each location: procedural burden — discretionary review, permitting delay, litigation risk, compliance — melts away a fraction of commercial floor space's usable value before it reaches the market. Because the same underlying land parcel can be put to either use, competitive landowners allocate it to whichever use pays the higher effective return; if both uses are active in equilibrium, this competition equalizes returns at the margin:
 \begin{align}
     \label{eq:arbitrage}
     q_i^R = \frac{q_i^F}{1+t_i^F}.
 \end{align}
-Together with the land identity $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$, the residential rent $q_i^R(\bar{H}_i^R)$ from \eqref{eq:rent-clearing} and the commercial rent $q_i^F(\bar{H}_i^F)$ from the firm's first-order condition — each strictly decreasing in its own floor-space argument — condition \eqref{eq:arbitrage} pins down the equilibrium land split given the iceberg cost. Define
-\[
-g(\bar{H}_i^R;\, t_i^F) \equiv q_i^R(\bar{H}_i^R) - \frac{q_i^F(\bar{H}_i - \bar{H}_i^R)}{1+t_i^F}.
-\]
-Since $q_i^R$ is strictly decreasing in $\bar{H}_i^R$ and $q_i^F$ is strictly decreasing in $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ (so $-q_i^F(\bar{H}_i-\bar{H}_i^R)/(1+t_i^F)$ is itself strictly decreasing in $\bar{H}_i^R$ for any $t_i^F\geq 0$), $g$ is strictly decreasing in $\bar{H}_i^R$, so $g(\bar{H}_i^R;t_i^F)=0$ has a unique solution $\bar{H}_i^R(t_i^F)$ for every iceberg cost. By the implicit function theorem,
+
+Combined with euqation \ref{eq:rent-clearing}, we can get
 \begin{align}
-    \label{eq:landsplit}
-\frac{d\bar{H}_i^R}{dt_i^F} = \frac{q_i^F(\bar{H}_i-\bar{H}_i^R)/(1+t_i^F)^2}{-g'(\bar{H}_i^R)} > 0, \qquad
-g'(\bar{H}_i^R) \equiv \frac{\partial q_i^R}{\partial \bar{H}_i^R} + \frac{1}{1+t_i^F}\frac{\partial q_i^F}{\partial \bar{H}_i^F} < 0,
+    \label{eq:arbitrage1}
+    (1-\gamma)(\frac{\gamma}{w_{i}})^{\gamma/(1-\gamma)}A_{i}^{1/(1-\gamma)} = (1+t_i^F)\frac{(1-\alpha)\sum_j N\pi_{ij}\,\tilde{W}_{ij}}{\bar{H}_i^R}.
 \end{align}
-so a higher iceberg cost on commercial use raises equilibrium residential floor space: melting away more of the commercial return pushes land toward residential use — the same qualitative comparative static as an additive fee, since both the numerator and $-g'(\bar{H}_i^R)$ above are strictly positive. No supplier or developer is introduced — \eqref{eq:arbitrage} is a no-arbitrage condition on a competitive land market, using only the rent functions the model already has, and total land $\bar{H}_i$ remains fixed.
 
-Unlike an additive fee, the melted portion of commercial value is \emph{definitionally} a real resource loss rather than an assumption: it never becomes usable floor space for anyone, so it is not rebated to residents and does not enter any budget constraint. This keeps household optimization and every downstream object ($\tilde V_{ij}, \Phi_i, N_i, q_i^R$) exactly as derived below, unaffected by the iceberg cost except through \eqref{eq:arbitrage}. The closest empirical analogue remains \citet{Glaeser2002-vq}'s price/construction-cost wedge, read here as a proportional rather than dollar gap: $t_i^F = q_i^F/q_i^R - 1$.
-
-The municipality sets $\{t_i^F\}$ to maximize the total welfare of its residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government acts as a representative of its residents, who face a tradeoff between lower housing costs — which favor a higher iceberg cost, pushing land toward residential use — and lower congestion and fewer workers near their homes — which favor a lower iceberg cost, leaving land available for commercial use. Formally, municipality $g$ solves
+The municipality sets $\{t_i^F\}$ to maximize the total welfare of its residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government, acting as a representative of its residents, trades off (1) lower rents and reduced worker-congestion from shrinking commercial land — both favor a higher iceberg cost — against (2) the residential crowding that comes with the resulting in-migration, and (3) the loss of local wage income to residents who both live and work at $i$, both of which favor a lower iceberg cost.
 \[
 \max_{\{t_i^F\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} N_i\,\bar{U}_i
 \quad\text{s.t.}\quad
@@ -168,51 +157,37 @@ where $N_i$ denotes residential population and $L_i$ denotes employment at locat
 \begin{align}
     \phi(N_i, L_i) = \eta\, N_i^{a}\, L_i^{b}, \qquad \eta > 0,\ a, b > 0,
 \end{align}
-where $\eta$ is an overall congestion scale and $a, b$ govern the relative importance of residential crowding versus worker influx. The marginal congestion costs are
-\begin{align}
-    \label{eq:phi-partials}
-\frac{\partial \phi}{\partial N_i} = \eta a\, N_i^{a-1} L_i^{b}, \qquad
-\frac{\partial \phi}{\partial L_i} = \eta b\, N_i^{a} L_i^{b-1},
-\end{align}
-both positive. Unlike an additively separable disutility, the two congestion sources are here mutual complements: $\partial^2\phi/\partial N_i\partial L_i = \eta a b\, N_i^{a-1}L_i^{b-1} > 0$, so an additional resident is more burdensome the more workers already commute into $i$, and vice versa. Own-argument convexity, $\partial^2\phi/\partial N_i^2 = \eta a(a-1)N_i^{a-2}L_i^b > 0$, requires $a>1$, ensuring the first-order condition below has an interior solution.
-
-\paragraph{Characterizing the optimum.} Since $\bar{H}_i^R = \bar{H}_i - \bar{H}_i^F(t_i^F)$ is a strictly increasing, invertible function of $t_i^F$, it is equivalent — and algebraically simpler — to characterize the iceberg-cost choice by differentiating the objective with respect to $\bar{H}_i^R$ directly, then translating back to the iceberg cost at the end. Substituting $\bar{H}_i^F = \bar{H}_i - \bar{H}_i^R$ and differentiating $\sum_{i \in S^g} N_i\bar{U}_i$ with respect to $\bar{H}_i^R$, the interior first-order condition at location $i \in S^g$ is
+Since $\bar H_i^F = \bar H_i - \bar H_i^R$, the chain rule reduces the municipal first-order condition to a single comparison,
 \begin{align}
     \label{zoning-foc}
-\underbrace{\bar{U}_i\,\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(in-movers)}}
-+\;
-N_i\!\underbrace{\frac{\partial \bar{U}_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}}_{\geq\;0\;\text{(rent benefit)}}
-+\;
-N_i\!\underbrace{\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial N_i}\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\leq\;0\;\text{(congestion cost)}}
-+\;
-N_i\!\underbrace{\left(-\frac{\partial \bar{U}_i}{\partial \phi}\frac{\partial \phi}{\partial L_i}\frac{\partial L_i}{\partial \bar{H}_i^F}\right)}_{\geq\;0\;\text{(less worker influx)}}
-= 0.
+\frac{dW^g}{dt_i^F} &= \left(\frac{\partial W^g}{\partial \bar{H}_i^R} - \frac{\partial W^g}{\partial \bar{H}_i^F}\right)\\
+&\quad\times\frac{d\bar H_i^R}{dt_i^F} = 0,
 \end{align}
-The first term is positive: a higher iceberg cost $t_i^F$ pushes land toward residential use, and the resulting looser residential zoning lowers rents, attracting additional residents from the rest of the metro area; each in-mover contributes $\bar{U}_i$ to the municipality's objective. The second term is positive: lower rents raise effective income for all $N_i$ existing residents. The third term is negative: in-movers raise $N_i$, worsening congestion for all current residents through $\phi$. The fourth term is positive: shifting land from commercial to residential reduces employment $L_i$ and the associated worker congestion. The municipality sets the iceberg cost where the benefit of attracting residents and lowering rents is offset by the congestion they impose.
+so the optimum reduces to signing $\partial W^g/\partial \bar H_i^R - \partial W^g/\partial \bar H_i^F$, given $d\bar H_i^R/dt_i^F \neq 0$ (\eqref{zoning-foc-tax} below).
 
-Substituting the Cobb-Douglas marginal congestion costs \eqref{eq:phi-partials} into the congestion-cost and worker-influx terms makes the interaction between the two channels explicit:
+\paragraph{Channels.} Only the $i$-th term of $W^g=\sum_{i'\in S^g}N_{i'}\bar U_{i'}$ depends on $\bar H_i^R,\bar H_i^F$ to leading order, holding other locations' land use and the metro-wide index $\Phi$ fixed. Three exact partials of $\bar U_i=\Gamma(1-1/\epsilon)\Phi_i^{1/\epsilon}$ follow directly from $\Phi_i=\sum_j T_iE_jB_i^\epsilon(w_j-\phi_i)^\epsilon\tau_{ij}^{-\epsilon}(q_i^R)^{-\epsilon(1-\alpha)}$:
+\[
+\frac{\partial \bar U_i}{\partial q_i^R} = -\frac{(1-\alpha)\bar U_i}{q_i^R}, \qquad
+\frac{\partial \bar U_i}{\partial \phi_i} < 0, \qquad
+\frac{\partial \bar U_i}{\partial w_i} = \frac{\pi_{ii|i}\,\bar U_i}{w_i-\phi_i} > 0,
+\]
+where $\pi_{ii|i}$ is the conditional probability that a resident of $i$ also works at $i$ (the local live-work share): the first equality is exact since $q_i^R$ enters $\Phi_i$ as a common factor across every $j$; the third holds because only the $j=i$ term of $\Phi_i$ depends on $w_i$, so the wage channel is scaled down by how many residents actually capture it.
+
+Substituting these, together with $\phi_i=\eta N_i^aL_i^b$, into $\partial(N_i\bar U_i)/\partial \bar H_i^R - \partial(N_i\bar U_i)/\partial \bar H_i^F$ gives the explicit optimality condition
 \begin{align}
     \label{zoning-foc-explicit}
-\bar{U}_i\,\frac{\partial N_i}{\partial \bar{H}_i^R}
-+
-N_i\,\frac{\partial \bar{U}_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}
-+
-N_i\,\frac{\partial \bar{U}_i}{\partial \phi}\,\eta a\, N_i^{a-1}L_i^{b}\,\frac{\partial N_i}{\partial \bar{H}_i^R}
--
-N_i\,\frac{\partial \bar{U}_i}{\partial \phi}\,\eta b\, N_i^{a}L_i^{b-1}\,\frac{\partial L_i}{\partial \bar{H}_i^F}
+&\underbrace{\bar U_i\,\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\text{(1) in-mover}\;\geq\,0}
++\underbrace{N_i\frac{\partial \bar U_i}{\partial q_i^R}\frac{\partial q_i^R}{\partial \bar{H}_i^R}}_{\text{(2) rent}\;\geq\,0}
++\underbrace{N_i\frac{\partial \bar U_i}{\partial \phi_i}\,\eta a N_i^{a-1}L_i^b\,\frac{\partial N_i}{\partial \bar{H}_i^R}}_{\text{(3) residential congestion}\;\leq\,0} \nonumber\\
+&-\underbrace{N_i\frac{\partial \bar U_i}{\partial \phi_i}\,\eta b N_i^aL_i^{b-1}\,\frac{\partial L_i}{\partial \bar{H}_i^F}}_{\text{(4) worker-congestion relief}\;\geq\,0}
+-\underbrace{N_i\frac{\partial \bar U_i}{\partial w_i}\frac{\partial w_i}{\partial \bar{H}_i^F}}_{\text{(5) local-wage loss}\;\leq\,0}
 = 0.
 \end{align}
-Because $\partial \bar U_i/\partial\phi < 0$ (higher disutility lowers $\tilde V_{ij}$, hence $\Phi_i$ and $\bar U_i$, for every $j$), the third term is a product of a negative and two non-negative factors and so is $\le 0$, and the fourth term (after the leading minus sign) is $\ge 0$, matching the signs already established above. The Cobb-Douglas cross-term makes clear that the congestion cost of loosening residential zoning at $i$ is amplified when $i$ already hosts substantial employment $L_i$ ($N_i^{a-1}L_i^b$ rising in $L_i$ for $b>0$), and symmetrically that the worker-influx benefit of shifting land toward residential use is larger where residential population $N_i$ is already high ($N_i^a L_i^{b-1}$ rising in $N_i$) — a complementarity the additively separable form could not generate.
+Terms (1)–(5) reproduce the  trade-off: attracting residents and lowering rents (1)–(2), against the residential crowding those in-movers bring (3), net of the worker-congestion relief from shrinking commercial land (4), shrinking $\bar H_i^F$ contracts local labor demand along an upward-sloping labor supply curve — household workplace choice responds to $w_i$ with finite elasticity $\epsilon$ (5). The municipality thus weighs the value of local jobs to its own live-work residents against the congestion those same jobs create.Given the monoticity of $H_{i}^{R}(t_{i}^F)$, the municipal first-order condition \eqref{zoning-foc} on $t_{i}^{F}$ is equivalent to the first-order condition on $\bar H_i^R$.
 
-\paragraph{Translating back to the iceberg cost.} By the chain rule and \eqref{eq:landsplit},
-\begin{align}
-    \label{zoning-foc-tax}
-\frac{dW^g}{dt_i^F} = \frac{dW^g}{d\bar{H}_i^R}\cdot\frac{d\bar{H}_i^R}{dt_i^F}, \qquad
-\frac{d\bar{H}_i^R}{dt_i^F} = \frac{q_i^F(\bar{H}_i-\bar{H}_i^R)/(1+t_i^F)^2}{-g'(\bar{H}_i^R)} \neq 0,
-\end{align}
-so $dW^g/dt_i^F = 0$ holds if and only if $dW^g/d\bar{H}_i^R = 0$, i.e., if and only if \eqref{zoning-foc} (equivalently \eqref{zoning-foc-explicit}) holds at the residential floor space implied by the arbitrage condition \eqref{eq:arbitrage}. Choosing the iceberg cost $t_i^F$ therefore characterizes exactly the same interior solution as the underlying quantity choice; it is simply monotonically rescaled by the strictly positive factor in \eqref{zoning-foc-tax}, which does not change where the derivative vanishes.
+For now the total land supply is fixed and fully utilized. In a future extension, I will incorporate a endogenous land supply where developers choose whether or not to build.
 
-$\bar{H}_i^F$ itself can equivalently be read as a \emph{quota}: a cap on how much land may be used commercially. The iceberg-cost and quota formulations describe the same one-dimensional municipal choice at $i$; the model could equally be stated with a residential-side iceberg cost $t_i^R \geq 0$ defined via $q_i^F = q_i^R/(1+t_i^R)$, which is strictly decreasing (rather than increasing) in $\bar{H}_i^R$ but satisfies the same equivalence by the symmetric argument. I take $t_i^F$ — an iceberg cost on commercial use — as the primary instrument going forward, since it maps most directly onto how regulatory burden (delay, discretionary review) actually shrinks usable commercial floor space, while remaining recoverable from the same residential and commercial rent data used to measure zoning restrictiveness empirically \citep{Glaeser2002-vq}.
+
 
 \subsection{Transportation Authority}
 
@@ -240,7 +215,7 @@ The left-hand side is the marginal social benefit of investment on edge $(k,\ell
 \begin{definition}[Decentralized Equilibrium]
 A decentralized equilibrium is a profile
 \[
-\Bigl(\{\bar{H}_i^{R*},\,\bar{H}_i^{F*}\}_{i \in S},\;
+\Bigl(
 \{I_{k\ell}^*\}_{(k,\ell) \in E},\;
 \{q_i^{R*},\,q_i^{F*},\,w_j^*\}_{i,j \in S}\Bigr)
 \]
@@ -271,7 +246,7 @@ The zoning iceberg cost requires no approximation: \eqref{eq:arbitrage} gives $t
 \end{align}
 recovering $(\eta,a,b)$ directly, with $a>1$ testable against the convexity restriction.
 
-The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a further object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is a general-equilibrium comparative static, not a single-equation partial derivative — exactly why counterfactuals in this literature are solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx 0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by ordinary matrix inversion; working this out is the natural next step for the quantitative exercise.
+The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a general-equilibrium object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is not a single-equation partial derivative — exactly why counterfactuals in this literature are usually solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by matrix inversion; working this out explicitly, including the wage channel in \eqref{zoning-foc-explicit}, is the natural next step.
 
 \subsection{Data and Calibration}
 

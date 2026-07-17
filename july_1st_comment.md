@@ -1,16 +1,15 @@
-# 1. municipality's choice
+# July_1st comment
+## 1. municipality's choice
 instead of controling directly the land supply, think about price/ quota, stuff like that for municipality to make zoning, also this highly depends on what kind of data I could have access to
 
-# 2. Land supply
+## 2. Land supply
 for now my land supply is fixed, there is no land supplier who has a maxmization problem in the model, but in reality this may not be the case
 Suggestion: start with fixed total land supply, then extend to the margin of endogeneous land supply
 check: DFW's unused land data,
 
-# 3.empirical part
+## 3.empirical part
 for the first one: syntheti control, show across cities
 for the second one: one potential method after getting historical zoning data:transit decision is explained better by contemporary zoning but wek by later zoning. Again, be more clear about the measurement of zoning, what kind of data I can get.
-
----
 
 ## Response / plan (2026-07-05)
 
@@ -55,3 +54,17 @@ This test needs real panel/historical zoning variation, which is the current bot
 2. Follow up on ZoneComics/Rollet & Weiwu access and DFW coverage (Problem 2 in `empirical facts.tex`).
 3. Pull Census BPS as a secondary quantity-of-supply panel, both for the price/quota question above and as a possible zoning-tightness proxy over time.
 4. Scope the synthetic-control city sample (candidate early-transit cities: Boston, Chicago, Philadelphia, NYC, San Francisco) against candidate car-oriented comparisons, once the above data checks are done.
+
+# July_6th comment
+
+## Transportation agent's problem uncleared
+What is I_{jk}, in Fajgelbaum and Schaal, they use lanes operated between each node as investment, does that applies to transit? and what is the network like in my setting? 
+
+
+Read Fajgelbaum, Pablo, Cecile Gaubert, Nicole Gorton, Eduardo Morales, and Edouard Schaal. 2023. “Political Preferences and Transport Infrastructure: Evidence from California’s High-Speed Rail.” Cambridge, MA: National Bureau of Economic Research. https://doi.org/10.3386/w31438. to get intuition about the decision on transit investment.
+and Bordeu, Olivia. 2026. “Commuting Infrastructure in Fragmented Cities.” https://www.oliviabordeu.com/papers/fragmented_cities_obordeu.pdf.to think about the spillover effect of such investment
+carefully.
+
+## Think about the investment spillover effect, in the commuting cost, the commuting between j and k is only affected by I_{jk} wheras in reality the investment can have spillover effects along or beyond the path.
+
+## The municipality's decision is not really a tax, this can be interprete as an iceberg cost for commercial landuse.
