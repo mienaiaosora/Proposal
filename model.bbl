@@ -1,0 +1,251 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{Ahlfeldt2015-zb}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=507b8cebb9d8f8bd3bf8c67ab1cd1401}{%
+           family={Ahlfeldt},
+           familyi={A\bibinitperiod},
+           given={Gabriel\bibnamedelima M},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=29db3ac8f93041c5506aa68eca7e6163}{%
+           family={Redding},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d505aef6d71613e121c7a31035ef4035}{%
+           family={Sturm},
+           familyi={S\bibinitperiod},
+           given={Daniel\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9e169ac4dff3c27603b6fc22af7ea191}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={Nikolaus},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {The Econometric Society}%
+      }
+      \strng{namehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{fullhash}{acedd17633ed2b4de37a5c956ae358e9}
+      \strng{fullhashraw}{acedd17633ed2b4de37a5c956ae358e9}
+      \strng{bibnamehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{authorbibnamehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{authornamehash}{233167bd7d41928391b2e7ddb63ae6a9}
+      \strng{authorfullhash}{acedd17633ed2b4de37a5c956ae358e9}
+      \strng{authorfullhashraw}{acedd17633ed2b4de37a5c956ae358e9}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{6}
+      \field{journaltitle}{Econometrica: journal of the Econometric Society}
+      \field{title}{The economics of density: Evidence from the Berlin wall}
+      \field{volume}{83}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{pages}{2127\bibrangedash 2189}
+      \range{pages}{63}
+    \endentry
+    \entry{Allen2022-ms}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c6da22fb2258db0db845299a5091c5c7}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={Treb},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c99d9d323f323ffc11adc74acb24b4f}{%
+           family={Arkolakis},
+           familyi={A\bibinitperiod},
+           given={Costas},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press (OUP)}%
+      }
+      \strng{namehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{fullhash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{fullhashraw}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{bibnamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorbibnamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authornamehash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorfullhash}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \strng{authorfullhashraw}{9c56a3bdd99e322c96f7704cc52b4bb7}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Each year in the US, hundreds of billions of dollars are spent on transportation infrastructure and billions of hours are lost in traffic. We develop a quantitative general equilibrium spatial framework featuring endogenous transportation costs and traffic congestion and apply it to evaluate the welfare impact of transportation infrastructure improvements. Our approach yields analytical expressions for transportation costs between any two locations, the traffic along each link of the transportation network, and the equilibrium distribution of economic activity across the economy, each as a function of the underlying quality of infrastructure and the strength of traffic congestion. We characterize the properties of such an equilibrium and show how the framework can be combined with traffic data to evaluate the impact of improving any segment of the infrastructure network. Applying our framework to both the US highway network and the Seattle road network, we find highly variable returns to investment across different links in the respective transportation networks, highlighting the importance of well-targeted infrastructure investment.}
+      \field{day}{7}
+      \field{issue}{6}
+      \field{journaltitle}{The Review of Economic Studies}
+      \field{month}{11}
+      \field{title}{The Welfare Effects of Transportation Infrastructure Improvements}
+      \field{volume}{89}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{pages}{2911\bibrangedash 2957}
+      \range{pages}{47}
+    \endentry
+    \entry{Fajgelbaum2020-yv}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%
+           family={Fajgelbaum},
+           familyi={F\bibinitperiod},
+           given={Pablo\bibnamedelima D},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d14ebb8e5545310e2916d361c886645}{%
+           family={Schaal},
+           familyi={S\bibinitperiod},
+           given={Edouard},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {The Econometric Society}%
+      }
+      \strng{namehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{fullhash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{fullhashraw}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{bibnamehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authorbibnamehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authornamehash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authorfullhash}{08b9fec9061bc455f80fe4b64d70dde7}
+      \strng{authorfullhashraw}{08b9fec9061bc455f80fe4b64d70dde7}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study optimal transport networks in spatial equilibrium. We develop a framework consisting of a neoclassical trade model with labor mobility in which locations are arranged on a graph. Goods must be shipped through linked locations, and transport costs depend on congestion and on the infrastructure in each link, giving rise to an optimal transport problem in general equilibrium. The optimal transport network is the solution to a social planner's problem of building infrastructure in each link. We provide conditions such that this problem is globally convex, guaranteeing its numerical tractability. We also study cases with increasing returns to transport technologies in which global convexity fails. We apply the framework to assess optimal investments and inefficiencies in the road networks of European countries.}
+      \field{issue}{4}
+      \field{journaltitle}{Econometrica: Journal of the Econometric Society}
+      \field{title}{Optimal transport networks in spatial equilibrium}
+      \field{volume}{88}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{pages}{1411\bibrangedash 1452}
+      \range{pages}{42}
+    \endentry
+    \entry{Mast2024-zi}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1443a4fc1aeb4dc26a24d5292d03fb9}{%
+           family={Mast},
+           familyi={M\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{fullhash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{fullhashraw}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{bibnamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorbibnamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authornamehash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorfullhash}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \strng{authorfullhashraw}{f1443a4fc1aeb4dc26a24d5292d03fb9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Local control of land-use regulation creates a not-in-my-backyard (NIMBY) problem that can suppress housing construction, contributing to rising prices and potentially slowing economic growth. I study how increased local control affects housing production by exploiting a common electoral reform—changing from “at-large” to “ward” elections for town council. These reforms, which are not typically motivated by housing markets, shrink each representative’s constituency from the entire town to one ward. Results from a variety of difference-in-differences estimators show that this decentralization decreases housing units permitted by 20\%, with similar effects on multi- and single-family permits. Effects are larger in whiter and higher-income towns.}
+      \field{day}{14}
+      \field{issue}{3}
+      \field{journaltitle}{The Review of Economics and Statistics}
+      \field{month}{5}
+      \field{title}{Warding off Development: Local Control, Housing Supply, and {NIMBYs}}
+      \field{volume}{106}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{pages}{671\bibrangedash 680}
+      \range{pages}{10}
+    \endentry
+    \entry{Rollet2025-mk}{report}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=351f9396f8ceea35f7d87f3928a710e0}{%
+           family={Rollet},
+           familyi={R\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d4e7ba7d41975724bba1990e98b4615}{%
+           family={Weiwu},
+           familyi={W\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{fullhash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{fullhashraw}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{bibnamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorbibnamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authornamehash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorfullhash}{35b61b4b088ed4acac476aed6aa7237b}
+      \strng{authorfullhashraw}{35b61b4b088ed4acac476aed6aa7237b}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Measuring Winners and Losers from Increasing Housing Supply}
+      \field{type}{resreport}
+      \field{year}{2025}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

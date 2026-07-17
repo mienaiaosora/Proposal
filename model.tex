@@ -51,7 +51,7 @@ Locations are connected by a transportation network $(S, E)$, where $E \subseteq
 \[
 d_{k\ell} = exp(\kappa \times time_{k\ell}),
 \]
-where $time_{k\ell}$ is the travel time on edge $(k,\ell)$ and $\kappa > 0$ is a scale parameter, following \cite{ahlfeldt2015zoning}. The travel time $time_{k\ell}$ is a function of the edge-level traffic $n_{k\ell}$ and investment $I_{k\ell}$:
+where $time_{k\ell}$ is the travel time on edge $(k,\ell)$ and $\kappa > 0$ is a scale parameter, following \cite{Ahlfeldt2015-zb}. The travel time $time_{k\ell}$ is a function of the edge-level traffic $n_{k\ell}$ and investment $I_{k\ell}$:
 \[
 time_{k\ell} = \delta_{kl}^{0}+\delta_{kl}^{1}\frac{n_{k\ell}^{\rho}}{I_{k\ell}^{\beta}}.
 \]
@@ -230,23 +230,23 @@ such that:
 Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds. The equilibrium iceberg cost $t_i^{F*} \equiv q_i^{F*}/q_i^{R*} - 1$ is computed from the equilibrium quantities in this profile, not solved for as a separate object.
 \end{definition}
 
-\subsection{Quantification}
+% \subsection{Quantification}
 
-The household block delivers a log-linear estimating system once the congestion term is handled: writing $w_j-\phi_i=w_j(1-\phi_i/w_j)$ and taking a first-order log approximation, $\ln(w_j-\phi_i)\approx \ln w_j - \phi_i/w_j$. Substituting into $\ln\pi_{ij}=\ln T_i+\ln E_j+\epsilon\ln\tilde V_{ij}-\ln\Phi$ with $\tau_{ij}=\prod_{(k,\ell)\in r_{ij}} \delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ gives a structural-gravity regression on observed commuting flows $N\pi_{ij}$:
-\begin{align}
-    \label{eq:gravity}
-\ln\pi_{ij} \approx\; & \underbrace{\bigl[\ln T_i+\epsilon\ln B_i-\epsilon(1-\alpha)\ln q_i^R\bigr]}_{\text{origin FE}} + \underbrace{\bigl[\ln E_j+\epsilon\ln w_j\bigr]}_{\text{destination FE}} -\epsilon\frac{\phi_i}{w_j} \nonumber\\
-& -\epsilon\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln\delta_{k\ell}^\tau -\epsilon\rho\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln n_{k\ell}+\epsilon\gamma\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln I_{k\ell}-\ln\Phi,
-\end{align}
-in the spirit of \citet{Ahlfeldt2015-zb}. The regressors $\ln n_{ij}, \ln I_{ij}$ of the OD-level friction become route-level sums $\sum_{(k,\ell)\in r_{ij}}\ln n_{k\ell}$, $\sum_{(k,\ell)\in r_{ij}}\ln I_{k\ell}$ once routes span multiple edges — a measurement change (route-level GIS data replace a single OD-level number) rather than an identification problem, since the underlying elasticities $\rho,\gamma$ are still edge-level primitives. With origin and destination fixed effects, the coefficients on these route sums and on $\phi_i/w_j$ identify $-\epsilon\rho$, $\epsilon\gamma$, and $-\epsilon$ respectively. Given $\epsilon$, the origin fixed effect nets out $\ln T_i+\epsilon\ln B_i$ as a residual (observed $q_i^R,\alpha$), the standard model-inversion step.
+% The household block delivers a log-linear estimating system once the congestion term is handled: writing $w_j-\phi_i=w_j(1-\phi_i/w_j)$ and taking a first-order log approximation, $\ln(w_j-\phi_i)\approx \ln w_j - \phi_i/w_j$. Substituting into $\ln\pi_{ij}=\ln T_i+\ln E_j+\epsilon\ln\tilde V_{ij}-\ln\Phi$ with $\tau_{ij}=\prod_{(k,\ell)\in r_{ij}} \delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ gives a structural-gravity regression on observed commuting flows $N\pi_{ij}$:
+% \begin{align}
+%     \label{eq:gravity}
+% \ln\pi_{ij} \approx\; & \underbrace{\bigl[\ln T_i+\epsilon\ln B_i-\epsilon(1-\alpha)\ln q_i^R\bigr]}_{\text{origin FE}} + \underbrace{\bigl[\ln E_j+\epsilon\ln w_j\bigr]}_{\text{destination FE}} -\epsilon\frac{\phi_i}{w_j} \nonumber\\
+% & -\epsilon\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln\delta_{k\ell}^\tau -\epsilon\rho\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln n_{k\ell}+\epsilon\gamma\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln I_{k\ell}-\ln\Phi,
+% \end{align}
+% in the spirit of \citet{Ahlfeldt2015-zb}. The regressors $\ln n_{ij}, \ln I_{ij}$ of the OD-level friction become route-level sums $\sum_{(k,\ell)\in r_{ij}}\ln n_{k\ell}$, $\sum_{(k,\ell)\in r_{ij}}\ln I_{k\ell}$ once routes span multiple edges — a measurement change (route-level GIS data replace a single OD-level number) rather than an identification problem, since the underlying elasticities $\rho,\gamma$ are still edge-level primitives. With origin and destination fixed effects, the coefficients on these route sums and on $\phi_i/w_j$ identify $-\epsilon\rho$, $\epsilon\gamma$, and $-\epsilon$ respectively. Given $\epsilon$, the origin fixed effect nets out $\ln T_i+\epsilon\ln B_i$ as a residual (observed $q_i^R,\alpha$), the standard model-inversion step.
 
-The zoning iceberg cost requires no approximation: \eqref{eq:arbitrage} gives $t_i^F= q_i^F/q_i^R-1$ directly from residential and commercial rent data, with no estimation. Given a constructed $\hat\phi_i$ from the step above, the congestion parameters follow from
-\begin{align}
-\ln\hat\phi_i = \ln\eta + a\ln N_i + b\ln L_i + u_i,
-\end{align}
-recovering $(\eta,a,b)$ directly, with $a>1$ testable against the convexity restriction.
+% The zoning iceberg cost requires no approximation: \eqref{eq:arbitrage} gives $t_i^F= q_i^F/q_i^R-1$ directly from residential and commercial rent data, with no estimation. Given a constructed $\hat\phi_i$ from the step above, the congestion parameters follow from
+% \begin{align}
+% \ln\hat\phi_i = \ln\eta + a\ln N_i + b\ln L_i + u_i,
+% \end{align}
+% recovering $(\eta,a,b)$ directly, with $a>1$ testable against the convexity restriction.
 
-The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a general-equilibrium object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is not a single-equation partial derivative — exactly why counterfactuals in this literature are usually solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by matrix inversion; working this out explicitly, including the wage channel in \eqref{zoning-foc-explicit}, is the natural next step.
+% The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a general-equilibrium object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is not a single-equation partial derivative — exactly why counterfactuals in this literature are usually solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by matrix inversion; working this out explicitly, including the wage channel in \eqref{zoning-foc-explicit}, is the natural next step.
 
 \subsection{Data and Calibration}
 
