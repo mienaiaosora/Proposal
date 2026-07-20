@@ -122,6 +122,33 @@
       \field{pages}{2911\bibrangedash 2957}
       \range{pages}{47}
     \endentry
+    \entry{Bordeu2026-df}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cd65de41b1f5412ba4fad434bb5c0011}{%
+           family={Bordeu},
+           familyi={B\bibinitperiod},
+           given={Olivia},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{fullhash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{fullhashraw}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{bibnamehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authorbibnamehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authornamehash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authorfullhash}{cd65de41b1f5412ba4fad434bb5c0011}
+      \strng{authorfullhashraw}{cd65de41b1f5412ba4fad434bb5c0011}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Commuting Infrastructure in Fragmented Cities}
+      \field{year}{2026}
+      \field{dateera}{ce}
+    \endentry
     \entry{Fajgelbaum2020-yv}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=7b078032683823f5b04a69f0c0110a90}{%

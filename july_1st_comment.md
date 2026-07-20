@@ -68,3 +68,32 @@ carefully.
 ## Think about the investment spillover effect, in the commuting cost, the commuting between j and k is only affected by I_{jk} wheras in reality the investment can have spillover effects along or beyond the path.
 
 ## The municipality's decision is not really a tax, this can be interprete as an iceberg cost for commercial landuse.
+
+# July_17th comment
+
+**Disutility \phi(N,L)**
+Putting them into B_{i}, will make it more coherent to interprete and potentially easier to calibrate, 
+
+**Landlord Problem**
+where does the land rent go? Several ways to go, 1) ommit this issue, assume a landlord who collects all these benefit and consume elsewhere, not in this city anyway, which leads to no difference in my setting 2)distributed equally to the local residents.
+
+This can be more explored when including the extensino of land supplier
+
+**Why zoning decisions will favor the transportation infrastructure**
+1) better job access for residents
+2) productivity agglomeration
+   
+**Counterfactual issue**
+2 things change: 1) scale of decision change 2) the agent who make the decision change(from two different agents to one)
+
+**In terms of the discussion of Bordeu(2025)**
+She made the local government's problem as maximizing local land value, but sometimes it is equivalent to maximize \bar{U}, be aware of this and think about it.
+
+**Extension: Endogenize K**
+The total budget constraint for infrastructure can be endogeneous.
+
+**Next step**
+First characterize the equilibrium, solve the potimal policy problem.
+
+Second, data issue. a lot of data needed, after getting the equilibrium think about what parameter I need to calibrate, validate and what parameter I can borrow from existing paper.
+

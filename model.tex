@@ -44,7 +44,7 @@ Each location $i \in S$ is endowed with a fixed supply of land $\bar{H}_i$, allo
 \[
 \bar{H}_i^R + \bar{H}_i^F = \bar{H}_i,
 \]
-where $\bar{H}_i^R$ is residential floor space capacity and $\bar{H}_i^F$ is commercial floor space capacity. Both are chosen by the municipal government and assumed to be fully utilized in equilibrium.
+where $\bar{H}_i^R$ is residential floor space capacity and $\bar{H}_i^F$ is commercial floor space capacity. Both are chosen by the municipal government and assumed to be fully utilized in equilibrium. Land at each location is owned by absentee landlords who collect $q_i^R\bar H_i^R + q_i^F\bar H_i^F$ and consume it outside the metropolitan area; this rental income has no further equilibrium feedback — it does not enter household budgets or municipal welfare.
 
 \subsubsection{Transportation}
 Locations are connected by a transportation network $(S, E)$, where $E \subseteq S \times S$ is a set of directed edges (links). Transportation investment $I_{k\ell}$ is chosen at the \emph{edge} level, for each $(k,\ell) \in E$ The utility cost of traveling through edge $(k,\ell)$ is
@@ -68,12 +68,12 @@ There are three types of agents: households, competitive firms, and governments.
 
 A household chooses a residence location $i$, a workplace $j$, and a route $r$ from a finite, exogenously given choice set $R_{ij}$ of feasible routes between $i$ and $j$ (e.g. the $k$ shortest GIS paths, or distinct road/transit alternatives) to maximize utility. Preferences over the numaire good $Q_{ij}$ and residential floor space $h_{ij}^R$ are Cobb-Douglas:
 \[
-u_{ijr}(\omega) = \frac{B_i}{\tau_{ijr}}
+u_{ijr}(\omega) = \frac{B_i(N_i,L_i)}{\tau_{ijr}}
 \left(\frac{Q_{ij}}{\alpha}\right)^{\!\alpha}
 \left(\frac{h_{ij}^R}{1-\alpha}\right)^{\!1-\alpha}
 v_{ij,r}(\omega),
 \]
-where $B_i > 0$ is a residential amenity at location $i$, $\alpha \in (0,1)$ is the expenditure share on the composite good, $\tau_{ijr}$ is the commuting cost along route $r$, and $\{v_{ij,r}(\omega)\}$ is a vector of idiosyncratic shocks, jointly distributed according to a nested (generalized extreme value) Fréchet copula with cumulative distribution function
+where $B_i(N_i,L_i) = \bar B_i/\phi(N_i,L_i) > 0$ is the effective residential amenity at location $i$: an exogenous location-specific level $\bar B_i$, discounted by the congestion disutility $\phi(N_i,L_i)$ from local residential and workplace density (defined below in \S Municipal Zoning). $\alpha \in (0,1)$ is the expenditure share on the composite good, $\tau_{ijr}$ is the commuting cost along route $r$, and $\{v_{ij,r}(\omega)\}$ is a vector of idiosyncratic shocks, jointly distributed according to a nested (generalized extreme value) Fréchet copula with cumulative distribution function
 \begin{align}
     \label{GEV}
     F(\{v_{ij,r}\}) = \exp\!\left[-\sum_{ij \in S^{2}} T_iE_j\left(\sum_{r\in R_{ij}}v_{ij,r}^{-\theta}\right)^{\!\epsilon/\theta}\right], \qquad \theta \geq \epsilon > 1.
@@ -82,11 +82,11 @@ The outer exponent is $+\epsilon/\theta$, not $-\epsilon/\theta$: a valid CDF mu
 
 The household's budget constraint is
 \[
-Q_{ij} + q_i^R h_{ij}^R \leq w_j-\phi(N_i, L_i),
+Q_{ij} + q_i^R h_{ij}^R \leq w_j,
 \]
-where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at workplace $j$. Let $\tilde{W}_{ij} = w_j-\phi(N_i, L_i)$ denote the household's income, where $\phi(N_{i},L_{i})$ is the utility cost from local congestion. Optimal demands are $Q_{ij}^* = \alpha \tilde{W}_{ij}$ and $h_{ij}^{R*} = (1-\alpha)\tilde{W}_{ij}/q_i^R$, giving the deterministic component of indirect utility for a given route,
+where $q_i^R$ is the residential rent at location $i$ and $w_j$ is the wage at workplace $j$ — local congestion no longer enters the budget directly; it operates entirely through the amenity $B_i(N_i,L_i)$ above. Optimal demands are $Q_{ij}^* = \alpha w_j$ and $h_{ij}^{R*} = (1-\alpha)w_j/q_i^R$, giving the deterministic component of indirect utility for a given route,
 \[
-\tilde{V}_{ijr} = \frac{B_i\, \tilde W_{ij}}{\tau_{ijr}\,(q_i^R)^{1-\alpha}}.
+\tilde{V}_{ijr} = \frac{B_i(N_i,L_i)\, w_j}{\tau_{ijr}\,(q_i^R)^{1-\alpha}}.
 \]
 
 \paragraph{Upper nest choice}: applying the GEV choice-probability formula to \eqref{GEV}, households compare residence-workplace pairs using the route-choice-corrected value $\tilde V_{ij}$, with $T_i,E_j$ entering exactly as in the single-route model:
@@ -94,7 +94,7 @@ where $q_i^R$ is the residential rent at location $i$, $w_j$ is the wage at work
     \label{eq:pi}
     \pi_{ij} = \frac{T_i E_j \tilde{V}_{ij}^{\epsilon}}{\sum_{i'j' \in S^{2}} T_{i'} E_{j'} \tilde{V}_{i'j'}^{\epsilon}} = \frac{T_iE_j\tilde V_{ij}^\epsilon}{\Phi},
 \end{align}
-where $\tilde{V}_{ij}=\dfrac{B_{i}\tilde{W}_{ij}}{\tau_{ij}(q_{i}^R)^{1-\alpha}}$ and $\tau_{ij} = \left(\sum_{r\in R_{ij}}\tau_{ijr}^{-\theta}\right)^{-1/\theta}$ is the Fréchet mean of route costs.such that the population choosing i,j pair is:
+where $\tilde{V}_{ij}=\dfrac{B_i(N_i,L_i)\,w_j}{\tau_{ij}(q_{i}^R)^{1-\alpha}}$ and $\tau_{ij} = \left(\sum_{r\in R_{ij}}\tau_{ijr}^{-\theta}\right)^{-1/\theta}$ is the Fréchet mean of route costs.such that the population choosing i,j pair is:
 \begin{align}
     \label{eq:pi-pop}
     N_{ij} =T_iE_j\tilde V_{ij}^\epsilon \frac{N}{\Phi},
@@ -143,13 +143,13 @@ Combined with euqation \ref{eq:rent-clearing}, we can get
     (1-\gamma)(\frac{\gamma}{w_{i}})^{\gamma/(1-\gamma)}A_{i}^{1/(1-\gamma)} = (1+t_i^F)\frac{(1-\alpha)\sum_j N\pi_{ij}\,\tilde{W}_{ij}}{\bar{H}_i^R}.
 \end{align}
 
-The municipality sets $\{t_i^F\}$ to maximize the total welfare of its residents. In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government, acting as a representative of its residents, trades off (1) lower rents and reduced worker-congestion from shrinking commercial land — both favor a higher iceberg cost — against (2) the residential crowding that comes with the resulting in-migration, and (3) the loss of local wage income to residents who both live and work at $i$, both of which favor a lower iceberg cost.
+The municipality sets $\{t_i^F\}$ to maximize the total welfare of its residents.\footnote{This differs from \citet{Bordeu2026-df}, who models the local government's objective as maximizing aggregate land value. Under absentee landownership (the assumption maintained throughout this paper, \S Environment), land value and incumbent-resident welfare $\sum_iN_i\bar U_i$ are generally distinct objects: the equivalence Bordeu notes holds specifically when residents are also the landowners who capture their own parcel's rent, which is not the case here.} In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government, acting as a representative of its residents, trades off (1) lower rents and reduced worker-congestion from shrinking commercial land — both favor a higher iceberg cost — against (2) the residential crowding that comes with the resulting in-migration, and (3) the loss of local wage income to residents who both live and work at $i$, both of which favor a lower iceberg cost.
 \[
 \max_{\{t_i^F\}_{i \in S^g}}\; W^g = \sum_{i \in S^g} N_i\,\bar{U}_i
 \quad\text{s.t.}\quad
 \eqref{eq:arbitrage},\ \ \bar{H}_i^R + \bar{H}_i^F = \bar{H}_i,
 \]
-where $N_i$ is the equilibrium population at location $i$ and $\bar{U}_i = \Gamma\!\left(1-\frac{1}{\epsilon}\right)\Phi_i^{1/\epsilon}$ is the expected utility of a representative resident at location $i$, taking other municipalities' iceberg costs $\{t_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{k\ell}\}$ as given. $\phi(N_i, L_i)$ is a disutility from residing at $i$, capturing two sources of local negative externalities: residential congestion from neighbors and the presence of workers near the residential location:
+where $N_i$ is the equilibrium population at location $i$ and $\bar{U}_i = \Gamma\!\left(1-\frac{1}{\epsilon}\right)\Phi_i^{1/\epsilon}$ is the expected utility of a representative resident at location $i$, taking other municipalities' iceberg costs $\{t_{i'}^F\}_{i' \notin S^g}$ and transportation investment $\{I_{k\ell}\}$ as given. $\phi(N_i, L_i)$ is the congestion term that discounts the effective amenity $B_i(N_i,L_i)=\bar B_i/\phi(N_i,L_i)$ introduced in \S Households, capturing two sources of local negative externalities: residential congestion from neighbors and the presence of workers near the residential location:
 \[
 \frac{\partial \phi}{\partial N_i} > 0, \qquad \frac{\partial \phi}{\partial L_i} > 0,
 \]
@@ -157,7 +157,7 @@ where $N_i$ denotes residential population and $L_i$ denotes employment at locat
 \begin{align}
     \phi(N_i, L_i) = \eta\, N_i^{a}\, L_i^{b}, \qquad \eta > 0,\ a, b > 0,
 \end{align}
-Since $\bar H_i^F = \bar H_i - \bar H_i^R$, the chain rule reduces the municipal first-order condition to a single comparison,
+so that $B_i(N_i,L_i) = \bar B_i\,\eta^{-1} N_i^{-a}L_i^{-b}$: an exogenous amenity level $\bar B_i$, marked down by local residential and workplace density. Since $\bar H_i^F = \bar H_i - \bar H_i^R$, the chain rule reduces the municipal first-order condition to a single comparison,
 \begin{align}
     \label{zoning-foc}
 \frac{dW^g}{dt_i^F} &= \left(\frac{\partial W^g}{\partial \bar{H}_i^R} - \frac{\partial W^g}{\partial \bar{H}_i^F}\right)\\
@@ -165,13 +165,13 @@ Since $\bar H_i^F = \bar H_i - \bar H_i^R$, the chain rule reduces the municipal
 \end{align}
 so the optimum reduces to signing $\partial W^g/\partial \bar H_i^R - \partial W^g/\partial \bar H_i^F$, given $d\bar H_i^R/dt_i^F \neq 0$ (\eqref{zoning-foc-tax} below).
 
-\paragraph{Channels.} Only the $i$-th term of $W^g=\sum_{i'\in S^g}N_{i'}\bar U_{i'}$ depends on $\bar H_i^R,\bar H_i^F$ to leading order, holding other locations' land use and the metro-wide index $\Phi$ fixed. Three exact partials of $\bar U_i=\Gamma(1-1/\epsilon)\Phi_i^{1/\epsilon}$ follow directly from $\Phi_i=\sum_j T_iE_jB_i^\epsilon(w_j-\phi_i)^\epsilon\tau_{ij}^{-\epsilon}(q_i^R)^{-\epsilon(1-\alpha)}$:
+\paragraph{Channels.} Only the $i$-th term of $W^g=\sum_{i'\in S^g}N_{i'}\bar U_{i'}$ depends on $\bar H_i^R,\bar H_i^F$ to leading order, holding other locations' land use and the metro-wide index $\Phi$ fixed. With the congestion term now in the amenity, $\Phi_i=\bar B_i^\epsilon\phi_i^{-\epsilon}\sum_j T_iE_jw_j^\epsilon\tau_{ij}^{-\epsilon}(q_i^R)^{-\epsilon(1-\alpha)}$, and the partials of $\bar U_i=\Gamma(1-1/\epsilon)\Phi_i^{1/\epsilon}$ are exact and closed-form:
 \[
 \frac{\partial \bar U_i}{\partial q_i^R} = -\frac{(1-\alpha)\bar U_i}{q_i^R}, \qquad
-\frac{\partial \bar U_i}{\partial \phi_i} < 0, \qquad
-\frac{\partial \bar U_i}{\partial w_i} = \frac{\pi_{ii|i}\,\bar U_i}{w_i-\phi_i} > 0,
+\frac{\partial \bar U_i}{\partial \phi_i} = -\frac{\bar U_i}{\phi_i}, \qquad
+\frac{\partial \bar U_i}{\partial w_i} = \frac{\pi_{ii|i}\,\bar U_i}{w_i} > 0,
 \]
-where $\pi_{ii|i}$ is the conditional probability that a resident of $i$ also works at $i$ (the local live-work share): the first equality is exact since $q_i^R$ enters $\Phi_i$ as a common factor across every $j$; the third holds because only the $j=i$ term of $\Phi_i$ depends on $w_i$, so the wage channel is scaled down by how many residents actually capture it.
+where $\pi_{ii|i}$ is the conditional probability that a resident of $i$ also works at $i$ (the local live-work share): the first equality is exact since $q_i^R$ enters $\Phi_i$ as a common factor across every $j$; the second is exact because $\phi_i$ enters $\Phi_i$ as the single power $\phi_i^{-\epsilon}$, common across every $j$ — no first-order approximation is needed, unlike the earlier income-side formulation where $\phi_i$ was netted against $w_j$; the third holds because only the $j=i$ term of $\Phi_i$ depends on $w_i$, so the wage channel is scaled down by how many residents actually capture it, and is likewise simpler than before since $w_i$ no longer nets against $\phi_i$.
 
 Substituting these, together with $\phi_i=\eta N_i^aL_i^b$, into $\partial(N_i\bar U_i)/\partial \bar H_i^R - \partial(N_i\bar U_i)/\partial \bar H_i^F$ gives the explicit optimality condition
 \begin{align}
@@ -232,19 +232,15 @@ Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium bet
 
 % \subsection{Quantification}
 
-% The household block delivers a log-linear estimating system once the congestion term is handled: writing $w_j-\phi_i=w_j(1-\phi_i/w_j)$ and taking a first-order log approximation, $\ln(w_j-\phi_i)\approx \ln w_j - \phi_i/w_j$. Substituting into $\ln\pi_{ij}=\ln T_i+\ln E_j+\epsilon\ln\tilde V_{ij}-\ln\Phi$ with $\tau_{ij}=\prod_{(k,\ell)\in r_{ij}} \delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ gives a structural-gravity regression on observed commuting flows $N\pi_{ij}$:
+% With the congestion term folded into the amenity $B_i(N_i,L_i)=\bar B_i/\phi(N_i,L_i)$ (\S Households, \S Municipal Zoning), the household block delivers an \emph{exact} log-linear estimating system — no first-order approximation of the income term is needed, unlike the earlier formulation where $\phi_i$ was netted against $w_j$. Substituting $\ln\tilde V_{ij}=\ln\bar B_i-\ln\phi_i-\ln\tau_{ij}+\ln w_j-(1-\alpha)\ln q_i^R$ and $\phi_i=\eta N_i^aL_i^b$ into $\ln\pi_{ij}=\ln T_i+\ln E_j+\epsilon\ln\tilde V_{ij}-\ln\Phi$ with $\tau_{ij}=\prod_{(k,\ell)\in r_{ij}} \delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ gives a structural-gravity regression on observed commuting flows $N\pi_{ij}$:
 % \begin{align}
 %     \label{eq:gravity}
-% \ln\pi_{ij} \approx\; & \underbrace{\bigl[\ln T_i+\epsilon\ln B_i-\epsilon(1-\alpha)\ln q_i^R\bigr]}_{\text{origin FE}} + \underbrace{\bigl[\ln E_j+\epsilon\ln w_j\bigr]}_{\text{destination FE}} -\epsilon\frac{\phi_i}{w_j} \nonumber\\
+% \ln\pi_{ij} =\; & \underbrace{\bigl[\ln T_i+\epsilon\ln\bar B_i-\epsilon\ln\eta-\epsilon a\ln N_i-\epsilon b\ln L_i-\epsilon(1-\alpha)\ln q_i^R\bigr]}_{\text{origin FE}} + \underbrace{\bigl[\ln E_j+\epsilon\ln w_j\bigr]}_{\text{destination FE}} \nonumber\\
 % & -\epsilon\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln\delta_{k\ell}^\tau -\epsilon\rho\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln n_{k\ell}+\epsilon\gamma\!\!\sum_{(k,\ell)\in r_{ij}}\!\!\ln I_{k\ell}-\ln\Phi,
 % \end{align}
-% in the spirit of \citet{Ahlfeldt2015-zb}. The regressors $\ln n_{ij}, \ln I_{ij}$ of the OD-level friction become route-level sums $\sum_{(k,\ell)\in r_{ij}}\ln n_{k\ell}$, $\sum_{(k,\ell)\in r_{ij}}\ln I_{k\ell}$ once routes span multiple edges — a measurement change (route-level GIS data replace a single OD-level number) rather than an identification problem, since the underlying elasticities $\rho,\gamma$ are still edge-level primitives. With origin and destination fixed effects, the coefficients on these route sums and on $\phi_i/w_j$ identify $-\epsilon\rho$, $\epsilon\gamma$, and $-\epsilon$ respectively. Given $\epsilon$, the origin fixed effect nets out $\ln T_i+\epsilon\ln B_i$ as a residual (observed $q_i^R,\alpha$), the standard model-inversion step.
+% in the spirit of \citet{Ahlfeldt2015-zb}. The regressors $\ln n_{ij}, \ln I_{ij}$ of the OD-level friction become route-level sums $\sum_{(k,\ell)\in r_{ij}}\ln n_{k\ell}$, $\sum_{(k,\ell)\in r_{ij}}\ln I_{k\ell}$ once routes span multiple edges — a measurement change (route-level GIS data replace a single OD-level number) rather than an identification problem, since the underlying elasticities $\rho,\gamma$ are still edge-level primitives. With origin and destination fixed effects, the coefficients on these route sums identify $-\epsilon\rho$ and $\epsilon\gamma$; the coefficients on $\ln N_i,\ln L_i$ within the origin FE identify $-\epsilon a$ and $-\epsilon b$ directly, given $\epsilon$ — this is the calibration payoff of moving $\phi$ into the amenity: $(a,b)$ no longer require the separate congestion regression below, only a decomposition of the origin fixed effect. Given $\epsilon$, the remainder of the origin fixed effect nets out $\ln T_i+\epsilon\ln\bar B_i-\epsilon\ln\eta$ as a residual (observed $q_i^R,\alpha$), the standard model-inversion step.
 
-% The zoning iceberg cost requires no approximation: \eqref{eq:arbitrage} gives $t_i^F= q_i^F/q_i^R-1$ directly from residential and commercial rent data, with no estimation. Given a constructed $\hat\phi_i$ from the step above, the congestion parameters follow from
-% \begin{align}
-% \ln\hat\phi_i = \ln\eta + a\ln N_i + b\ln L_i + u_i,
-% \end{align}
-% recovering $(\eta,a,b)$ directly, with $a>1$ testable against the convexity restriction.
+% The zoning iceberg cost requires no approximation: \eqref{eq:arbitrage} gives $t_i^F= q_i^F/q_i^R-1$ directly from residential and commercial rent data, with no estimation.
 
 % The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a general-equilibrium object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is not a single-equation partial derivative — exactly why counterfactuals in this literature are usually solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by matrix inversion; working this out explicitly, including the wage channel in \eqref{zoning-foc-explicit}, is the natural next step.
 
@@ -258,7 +254,7 @@ Following \citet{Fajgelbaum2020-yv}'s treatment of network and cost fundamentals
 
 \paragraph{Set externally.} $\alpha$, the consumption expenditure share, from the CEX or national accounts; $\gamma$, the firm's labor share in \eqref{eq:rent-clearing}'s underlying production function, from the local labor share of income (BEA). \emph{Notation note:} the commuting-cost investment elasticity in $d_{k\ell}=\delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ currently reuses the symbol $\gamma$ already assigned to the firm's labor share in $Y_j=A_jL_j^\gamma(H_j^F)^{1-\gamma}$ — these are distinct parameters with distinct empirical targets and should be given separate symbols before the calibration is finalized.
 
-\paragraph{Fundamentals recovered as residuals.} $T_i, B_i$ (jointly, from the origin fixed effect) and $E_j, A_j$ (from the destination fixed effect and the firm's first-order condition) so that the model exactly matches observed $N_i, L_i, w_j, q_i^R$ at the calibrated parameters, following the model-inversion logic of \citet{Ahlfeldt2015-zb} and \citet{Fajgelbaum2020-yv}.
+\paragraph{Fundamentals recovered as residuals.} $T_i, \bar B_i$ (jointly, from the origin fixed effect, net of the $(a,b)$ congestion terms) and $E_j, A_j$ (from the destination fixed effect and the firm's first-order condition) so that the model exactly matches observed $N_i, L_i, w_j, q_i^R$ at the calibrated parameters, following the model-inversion logic of \citet{Ahlfeldt2015-zb} and \citet{Fajgelbaum2020-yv}.
 
 % \subsection{Social Planner}
 
