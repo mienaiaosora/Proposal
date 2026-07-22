@@ -1,0 +1,85 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+\usepackage[
+    bibstyle=numeric,
+    citestyle=authoryear,
+    backend=biber,
+    natbib=true,
+    sorting=nyt]{biblatex}
+\addbibresource{reference.bib}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}[proposition]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\title{Land Value vs.\ Resident Welfare as the Municipal Objective}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Setup}
+
+This note isolates a single question raised in \S Municipal Zoning of \texttt{model.tex}: does maximizing local land value give the same zoning policy as maximizing incumbent-resident welfare, in this model's absentee-landlord environment? \citet{Bordeu2026-df} models the local government as maximizing land value and notes this is sometimes equivalent to maximizing aggregate resident welfare $\bar U$; this note makes precise \emph{why that equivalence fails here}, and what assumption would need to change to restore it.
+
+Notation follows \texttt{model.tex}: at location $i$, $\bar U_i=\Gamma(1-\tfrac1\epsilon)\Phi_i^{1/\epsilon}$ is the representative resident's expected utility, $N_i$ is population, $q_i^R$ is the residential rent, $\bar H_i^R$ is the municipality's chosen residential floor-space cap, and land at $i$ is owned by \emph{absentee} landlords who collect $q_i^R\bar H_i^R+q_i^F\bar H_i^F$ and consume it outside the metro (\S Environment). The municipal welfare objective is $W^g=\sum_{i\in S^g}N_i\bar U_i$; define the land-value objective as $V^g=\sum_{i\in S^g}V_i$, $V_i \equiv q_i^R\bar H_i^R+q_i^F\bar H_i^F$.
+
+\section*{Result}
+
+\begin{proposition}[Non-equivalence under absentee landownership]
+\label{prop:nonequiv}
+Fix all locations' quantities $\{\bar H_{i}^R,\bar H_i^F\}_{i\in S^g}$ and consider a marginal increase in the residential rent $q_i^R$ at a single location $i$ driven by any force external to the quantity choice itself (e.g.\ a rise in aggregate housing demand at $i$). Then
+\[
+\frac{\partial V_i}{\partial q_i^R} = \bar H_i^R > 0,
+\qquad\text{while}\qquad
+\frac{d\bigl(N_i\bar U_i\bigr)}{d q_i^R} < 0.
+\]
+Hence $V^g$ and $W^g$ are strictly increasing and strictly decreasing, respectively, in $q_i^R$: on the rent margin the two objectives point in opposite directions, so no monotone reparametrization of the model's primitives ($\alpha,\epsilon,a,b,\eta,\gamma$) can make land-value maximization and welfare maximization select the same zoning policy in general.
+\end{proposition}
+
+\begin{proof}
+\emph{Land value.} By definition, holding $\bar H_i^R$ fixed, $\partial V_i/\partial q_i^R=\bar H_i^R>0$: a marginal rent increase raises land value one-for-one with the quantity of residential floor space it applies to.
+
+\emph{Welfare.} From the household block (\S Households), $\Phi_i$ enters through $\tilde V_{ij}\propto (q_i^R)^{-(1-\alpha)}$, giving the exact partial already derived in \S Municipal Zoning of \texttt{model.tex},
+\[
+\frac{\partial \bar U_i}{\partial q_i^R} = -\frac{(1-\alpha)\,\bar U_i}{q_i^R} < 0.
+\]
+This is a pure price effect with \emph{no offsetting income effect}: because landlords are absentee, the rent a resident of $i$ pays leaves the local economy entirely and does not return to residents through any budget-constraint or amenity channel (\S Environment). Population $N_i$ is likewise weakly decreasing in $q_i^R$: a higher rent lowers $\tilde V_{ij}$ for every $j$, hence lowers $\pi_{ij}$ for every $j$ (eq.~\texttt{eq:pi} in \texttt{model.tex}), hence lowers $N_i=\sum_jN\pi_{ij}$. So
+\[
+\frac{d(N_i\bar U_i)}{dq_i^R} = \underbrace{N_i\,\frac{\partial \bar U_i}{\partial q_i^R}}_{<0} + \underbrace{\bar U_i\,\frac{\partial N_i}{\partial q_i^R}}_{\leq 0} < 0.
+\]
+Both terms are non-positive and the first is strictly negative, so the sum is strictly negative. $\blacksquare$
+\end{proof}
+
+\begin{remark}
+The proof isolates the cleanest possible channel — a pure rent increase, quantities fixed — precisely so the sign conflict cannot be an artifact of the municipality's specific instrument. It is structural: land value is high exactly when residents are paying a lot for housing, while welfare is high exactly when they are not. Under absentee ownership, what is a cost to the resident is not simultaneously a benefit to the resident acting in some other capacity (e.g.\ as landowner) — it is a pure leakage out of the metro.
+\end{remark}
+
+\section*{Why land value is a fundamentally different objective, not just a differently weighted one}
+
+Proposition~\ref{prop:nonequiv} shows the two objectives disagree at the margin; the corollary below shows they disagree in a more basic, structural sense — because $V_i$ does not depend on the amenity/congestion terms that are the entire content of the welfare objective's zoning trade-off in \S Municipal Zoning.
+
+\begin{corollary}[Land value is congestion- and amenity-blind]
+\label{cor:blind}
+Using the residential rent-clearing condition (eq.~\texttt{eq:rent-clearing} in \texttt{model.tex}), $q_i^R\bar H_i^R=(1-\alpha)\sum_j N\pi_{ij}w_j$, so land value at $i$ can be written purely in terms of income flows,
+\[
+V_i = (1-\alpha)\sum_j N\pi_{ij}\,w_j \;+\; q_i^F\,\bar H_i^F,
+\]
+with no dependence on $\bar B_i$, $\phi(N_i,L_i)$, or $\bar U_i$ itself. A land-value-maximizing municipality is therefore indifferent, \emph{holding aggregate resident income $\sum_jN\pi_{ij}w_j$ fixed}, to how much of that income residents actually get to keep as utility versus pay out as rent, and it places no direct weight on the residential-crowding term $\phi(N_i,L_i)$ that drives channels (3)–(4) of \texttt{model.tex}'s \texttt{zoning-foc-explicit}. Welfare maximization weighs exactly these terms.
+\end{corollary}
+
+\begin{remark}[What would restore equivalence]
+\citet{Bordeu2026-df}'s equivalence result requires residents to \emph{be} the landowners who capture their own parcel's rent. If \S Environment's absentee-landlord assumption were replaced with full local rebate — each resident of $i$ receiving a $1/N_i$ share of $q_i^R\bar H_i^R+q_i^F\bar H_i^F$ as a lump-sum transfer added to the budget constraint — the price effect in Proposition~\ref{prop:nonequiv} would be exactly offset by an equal wealth effect for residents who both pay and receive the rent, and $\partial \bar U_i/\partial q_i^R$ would no longer be signed by the price channel alone. Even then, equivalence with land-value maximization is not automatic: it requires the specific Cobb-Douglas/Fréchet functional forms here to make the wealth effect cancel the price effect \emph{exactly}, not just partially, which is a knife-edge property of the model rather than a generic one. This is left as a possible extension alongside the land-supplier extension already flagged in \S Municipal Zoning of \texttt{model.tex} (item 13 of \texttt{CLAUDE.md}'s Open Model Questions).
+\end{remark}
+
+\printbibliography
+
+\end{document}

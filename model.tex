@@ -88,6 +88,14 @@ where $q_i^R$ is the residential rent at location $i$ and $w_j$ is the wage at w
 \[
 \tilde{V}_{ijr} = \frac{B_i(N_i,L_i)\, w_j}{\tau_{ijr}\,(q_i^R)^{1-\alpha}}.
 \]
+Residential floor space clears when aggregate demand from all residents of $i$ exhausts the fixed supply $\bar H_i^R$: summing $h_{ij}^{R*}$ over workplaces $j$, weighted by the population $N\pi_{ij}$ commuting from $i$ to $j$,
+\begin{align}
+    \label{eq:rent-clearing}
+    \sum_j N\pi_{ij}\,\frac{(1-\alpha)w_j}{q_i^R} = \bar H_i^R
+    \quad\Longleftrightarrow\quad
+    q_i^R = \frac{(1-\alpha)\sum_j N\pi_{ij}\,w_j}{\bar H_i^R},
+\end{align}
+which pins down $q_i^R$ as a function of the commuting-flow pattern $\{\pi_{ij}\}$, wages, and the zoning-determined residential supply $\bar H_i^R$.
 
 \paragraph{Upper nest choice}: applying the GEV choice-probability formula to \eqref{GEV}, households compare residence-workplace pairs using the route-choice-corrected value $\tilde V_{ij}$, with $T_i,E_j$ entering exactly as in the single-route model:
 \begin{align}
@@ -108,7 +116,7 @@ where $\tilde{V}_{ij}=\dfrac{B_i(N_i,L_i)\,w_j}{\tau_{ij}(q_{i}^R)^{1-\alpha}}$ 
 where $A$ is a matrix with elements (k,l) is $d_{kl}^{-\theta}$,such that for matrix $\tau$, the element (i,j) is $\tau_{ij}$.
 Accordingly, we can derive the link intensity as follows:
 \begin{align}
-    \label{eq:edge-traffic}
+    \label{eq:edge-intensity}
     \pi_{jk}^{k\ell} = (\frac{\tau_{ij}}{\tau_{ik}d_{kl}\tau_{lj}})^{\theta}
 \end{align}
 Therefore I can derive the traffic on edge (k,l) as follows:   
@@ -120,14 +128,27 @@ Therefore I can derive the traffic on edge (k,l) as follows:
 \subsection{Firms}
 
 At each location $j$, competitive firms produce a freely tradable good using labor $L_j$ and commercial floor space $H_j^F$:
-\[
+\begin{align}
+    \label{eq:firm-production}
 Y_j = A_j L_j^{\gamma}(H_j^F)^{1-\gamma},
-\]
+\end{align}
 where $A_j > 0$ is location-specific productivity and $\gamma \in (0,1)$. Taking wages $w_j$ and commercial rents $q_j^F$ as given, profit maximization yields:
 \[
 L_{j}=(\frac{\gamma A_{j}}{w_{j}})^{1/(1-\gamma)}H_{j}^F, \qquad
 q_{j}^F=(1-\gamma)(\frac{\gamma}{w_{j}})^{\gamma/(1-\gamma)}A_{j}^{1/(1-\gamma)}.
 \]
+
+\paragraph{Productivity agglomeration.} Local productivity is itself subject to a Marshallian externality from local employment density:
+\begin{align}
+    \label{eq:agglomeration}
+    A_j = \bar A_j\,L_j^{\zeta}, \qquad \bar A_j>0,\ \zeta\in(0,1-\gamma),
+\end{align}
+where $\bar A_j$ is the exogenous fundamental and $\zeta$ is the agglomeration elasticity. As with the congestion term $\phi(N_i,L_i)$ in \S Municipal Zoning, individual firms are atomistic and take $A_j$ — hence $L_j$ — as given when maximizing profit; the externality only appears once the labor-demand condition above is solved out in equilibrium. Substituting \eqref{eq:agglomeration} into $L_j=(\gamma A_j/w_j)^{1/(1-\gamma)}\bar H_j^F$ and solving explicitly for $L_j$,
+\begin{align}
+    \label{eq:labor-demand-agglom}
+    L_j = \left[\frac{\gamma\,\bar A_j\,(\bar H_j^F)^{1-\gamma}}{w_j}\right]^{\frac{1}{1-\gamma-\zeta}}.
+\end{align}
+The restriction $\zeta<1-\gamma$ is required for this exponent to be finite and positive, i.e.\ for equilibrium local labor demand to remain strictly decreasing in $w_j$ — a stability condition on the strength of the externality relative to the labor share, playing the same role as the $a>1$ convexity condition already imposed on $\phi$.
 
 \subsection{Municipal Zoning}
 
@@ -137,11 +158,17 @@ Land at each location competes for residential and commercial use. Each municipa
     q_i^R = \frac{q_i^F}{1+t_i^F}.
 \end{align}
 
-Combined with euqation \ref{eq:rent-clearing}, we can get
+Combined with the firm's optimal commercial rent $q_i^F$ (\S Firms) and the residential rent-clearing condition \eqref{eq:rent-clearing}, we can get
 \begin{align}
     \label{eq:arbitrage1}
-    (1-\gamma)(\frac{\gamma}{w_{i}})^{\gamma/(1-\gamma)}A_{i}^{1/(1-\gamma)} = (1+t_i^F)\frac{(1-\alpha)\sum_j N\pi_{ij}\,\tilde{W}_{ij}}{\bar{H}_i^R}.
+    (1-\gamma)\left(\frac{\gamma}{w_{i}}\right)^{\gamma/(1-\gamma)}A_{i}^{1/(1-\gamma)} = (1+t_i^F)\,\frac{(1-\alpha)\sum_j N\pi_{ij}\,w_{j}}{\bar{H}_i^R}.
 \end{align}
+The right-hand side is strictly decreasing in $\bar H_i^R$ (holding $\{\pi_{ij}\},\{w_j\}$ fixed): raising $\bar H_i^R$ lowers $q_i^R$ one-for-one with the fixed numerator, by \eqref{eq:rent-clearing}. The left-hand side is treated as locally independent of $\bar H_i^R$ at this step by the same simplification already applied to $w_i$: since $A_i=\bar A_iL_i^\zeta$ (\eqref{eq:agglomeration}) and $L_i$ responds to $\bar H_i^F=\bar H_i-\bar H_i^R$ through \eqref{eq:labor-demand-agglom}, holding $w_i$ fixed for this step is now understood to hold $L_i$, and hence $A_i$, fixed as well — a genuine general-equilibrium channel deferred to the quantification stage in the same way as the other GE objects in \S Municipal Zoning and \S Transportation Authority, not a new approximation. Under this, the implicit function theorem applied to \eqref{eq:arbitrage1} gives
+\begin{align}
+    \label{zoning-foc-tax}
+    \frac{d\bar H_i^R}{dt_i^F} = -\,\frac{q_i^F/(1+t_i^F)^2}{-\,\partial\bigl[(1+t_i^F)(1-\alpha)\sum_j N\pi_{ij}w_j/\bar H_i^R\bigr]/\partial \bar H_i^R} = -\,\frac{q_i^F/(1+t_i^F)^2}{-\,q_i^R/\bar H_i^R} = \frac{\bar H_i^R\,q_i^F}{(1+t_i^F)^2\,q_i^R} > 0,
+\end{align}
+using $q_i^F=(1+t_i^F)q_i^R$ from \eqref{eq:arbitrage} to simplify. So a higher iceberg cost strictly raises the residential floor-space allocation $\bar H_i^R$ — a marginally higher $t_i^F$ melts away commercial land's effective return, and competitive land allocation reassigns the freed land to residential use. This confirms $\bar H_i^R(t_i^F)$ is strictly increasing and monotone, so the map between the iceberg-cost instrument and the direct-quantity instrument is one-to-one wherever both uses are active.
 
 The municipality sets $\{t_i^F\}$ to maximize the total welfare of its residents.\footnote{This differs from \citet{Bordeu2026-df}, who models the local government's objective as maximizing aggregate land value. Under absentee landownership (the assumption maintained throughout this paper, \S Environment), land value and incumbent-resident welfare $\sum_iN_i\bar U_i$ are generally distinct objects: the equivalence Bordeu notes holds specifically when residents are also the landowners who capture their own parcel's rent, which is not the case here.} In line with the political economy of local land use \citep{Mast2024-zi, Rollet2025-mk}, the municipal government, acting as a representative of its residents, trades off (1) lower rents and reduced worker-congestion from shrinking commercial land — both favor a higher iceberg cost — against (2) the residential crowding that comes with the resulting in-migration, and (3) the loss of local wage income to residents who both live and work at $i$, both of which favor a lower iceberg cost.
 \[
@@ -183,7 +210,7 @@ Substituting these, together with $\phi_i=\eta N_i^aL_i^b$, into $\partial(N_i\b
 -\underbrace{N_i\frac{\partial \bar U_i}{\partial w_i}\frac{\partial w_i}{\partial \bar{H}_i^F}}_{\text{(5) local-wage loss}\;\leq\,0}
 = 0.
 \end{align}
-Terms (1)–(5) reproduce the  trade-off: attracting residents and lowering rents (1)–(2), against the residential crowding those in-movers bring (3), net of the worker-congestion relief from shrinking commercial land (4), shrinking $\bar H_i^F$ contracts local labor demand along an upward-sloping labor supply curve — household workplace choice responds to $w_i$ with finite elasticity $\epsilon$ (5). The municipality thus weighs the value of local jobs to its own live-work residents against the congestion those same jobs create.Given the monoticity of $H_{i}^{R}(t_{i}^F)$, the municipal first-order condition \eqref{zoning-foc} on $t_{i}^{F}$ is equivalent to the first-order condition on $\bar H_i^R$.
+Terms (1)–(5) reproduce the  trade-off: attracting residents and lowering rents (1)–(2), against the residential crowding those in-movers bring (3), net of the worker-congestion relief from shrinking commercial land (4), shrinking $\bar H_i^F$ contracts local labor demand along an upward-sloping labor supply curve — household workplace choice responds to $w_i$ with finite elasticity $\epsilon$ (5). The municipality thus weighs the value of local jobs to its own live-work residents against the congestion those same jobs create. With the productivity agglomeration externality \eqref{eq:agglomeration}, term (5) is larger in magnitude than in a model with exogenous $A_i$: shrinking $\bar H_i^F$ lowers $L_i$ along the labor-demand curve \eqref{eq:labor-demand-agglom} \emph{and} lowers local productivity $A_i=\bar A_iL_i^\zeta$ directly, so $\partial w_i/\partial\bar H_i^F$ now compounds a pure quantity effect with a genuine productivity loss — the local-wage channel through which zoning restriction is costly to residents is strictly stronger once agglomeration is present. Given the monoticity of $H_{i}^{R}(t_{i}^F)$, the municipal first-order condition \eqref{zoning-foc} on $t_{i}^{F}$ is equivalent to the first-order condition on $\bar H_i^R$.
 
 For now the total land supply is fixed and fully utilized. In a future extension, I will incorporate a endogenous land supply where developers choose whether or not to build.
 
@@ -191,24 +218,85 @@ For now the total land supply is fixed and fully utilized. In a future extension
 
 \subsection{Transportation Authority}
 
-The metropolitan transportation authority chooses investment $\{I_{k\ell}\}_{(k,\ell) \in E}$ to maximize aggregate household welfare, taking the full zoning vector $\{\bar{H}_i^R, \bar{H}_i^F\}$ and the route assignment $\{r_{ij}\}$ as given:
-\[
-\max_{\{I_{k\ell}\}}\; N \cdot \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
-\]
-subject to the budget constraint
-\[
-\sum_{(k,\ell) \in E} \delta_{k\ell}\, I_{k\ell} \leq K, \qquad I_{k\ell} \geq 0,
-\]
-where $\delta_{k\ell}$ is the per-unit cost of investment on edge $(k,\ell)$ and $K$ is the total infrastructure budget.
+The metropolitan transportation authority chooses investment $\{I_{k\ell}\}_{(k,\ell) \in E}$ to maximize aggregate household welfare, taking the full zoning vector $\{\bar{H}_i^R, \bar{H}_i^F\}$ and the route assignment $\{r_{ij}\}$ as given. Following \citet{Bordeu2026-df}'s formalization of her local government's problem (her \S2.1.4), the maximization is stated with the equilibrium conditions of the rest of the model entered directly as constraints, alongside the budget constraint, rather than solved for separately beforehand:
+\begin{align}
+    \label{eq:TA-problem}
+\max_{\{I_{k\ell}\}_{(k,\ell)\in E}}\;\; & N \cdot \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}, \qquad \Phi\equiv\sum_{i'j'}T_{i'}E_{j'}\tilde V_{i'j'}^\epsilon \\
+\text{subject to} \quad
+\text{(i) household optimality:}\; & \{\pi_{ij}\}\; \text{given by \eqref{eq:pi}--\eqref{eq:pi-pop};} \nonumber\\
+\text{(ii) commuting-cost index:}\; & \tau_{ij} \;\text{given by \eqref{eq:pi-route};} \nonumber\\
+\text{(iii) edge-level commuting cost:}\; & d_{k\ell} = \exp(\kappa\,time_{k\ell}(I_{k\ell},n_{k\ell})) \;\;(\text{\S Transportation}); \nonumber\\
+\text{(iv) edge traffic:}\; & n_{k\ell} = \textstyle\sum_{ij\in S^2} N\pi_{ij}\,\pi_{ij}^{k\ell} \;\;\eqref{eq:edge-traffic}; \nonumber\\
+\text{(v) labor market clearing:}\; & N\textstyle\sum_i \pi_{ij} = L_j(w_j)\equiv(\gamma A_j/w_j)^{1/(1-\gamma)}\bar H_j^F \;\;(\text{\S Firms}); \nonumber\\
+\text{(vi) residential rent clearing:}\; & q_i^R \;\text{given by \eqref{eq:rent-clearing}}; \nonumber\\
+\text{(vii) budget:}\; & \textstyle\sum_{(k,\ell)\in E}c_{k\ell}I_{k\ell}\leq K, \quad I_{k\ell}\geq0, \nonumber
+\end{align}
+where $c_{k\ell}$ is the per-unit cost of investment on edge $(k,\ell)$ and $K$ is the total infrastructure budget. Constraints (ii) and (iii) split what was previously described only in prose as "route choice": (ii) is the bilateral commuting-cost index aggregating route costs within an OD pair (\citealt{Bordeu2026-df}'s analogous constraint, her eq.~12), and (iii) is the edge-level cost technology itself (her eq.~10) — kept as separate constraints, following her construction exactly, rather than substituted directly, because $I_{k\ell}$ enters the whole system only through (iii). Constraint (v) folds \emph{firm optimality} directly into \emph{labor-market clearing}: the firm's labor demand $L_j(w_j)$ is a simple closed-form function of $w_j$ (\S Firms), not an implicit/coupled object, so it is substituted in rather than given its own multiplier — the same combination Bordeu uses for her analogous wage/labor-clearing condition. Constraints (i)--(vi) are solved jointly, not sequentially: (iii) feeds back into (ii) and hence (i), (iv) feeds back into (iii) through $n_{k\ell}$, while (v)--(vi) simultaneously pin down $w_j$ and $q_i^R$, which enter $\tilde V_{ij}$ inside $\Phi$. This system defines $\{\pi_{ij}(I), \tau_{ij}(I), d_{k\ell}(I), n_{k\ell}(I), w_j(I), q_i^R(I)\}$ as equilibrium objects rather than free parameters, and hence also $N_i(I)=N\sum_j\pi_{ij}(I)$ and $L_i(I)=N\sum_j\pi_{ji}(I)$; $\Phi$ in the objective is the resulting reduced-form value, a function of $I$ through this whole system, not only through $\tau_{ij}$ directly.
 
-Let $\mu \geq 0$ be the Lagrange multiplier on the budget constraint. Because $\ln \tau_{ij} = \sum_{(k,\ell) \in r_{ij}} \ln d_{k\ell}$, investment on edge $(k,\ell)$ only affects the commuting cost of a residence-workplace pair $(i,j)$ whose route uses that edge, through $\partial \ln \tau_{ij}/\partial I_{k\ell} = -\gamma/I_{k\ell}$ for $(k,\ell) \in r_{ij}$ (and $0$ otherwise). Aggregating over all such pairs, the interior first-order condition for edge $(k,\ell)$ is
+\paragraph{Direct edge elasticity.} From $d_{k\ell}=\exp(\kappa\, time_{k\ell})$ and $time_{k\ell}=\delta_{k\ell}^0+\delta_{k\ell}^1 n_{k\ell}^\rho/I_{k\ell}^\beta$ (\S Transportation),
+\begin{align}
+    \label{eq:d-elasticity}
+    \frac{\partial \ln d_{k\ell}}{\partial I_{k\ell}} = -\frac{\kappa\beta\,\delta_{k\ell}^1\,n_{k\ell}^\rho}{I_{k\ell}^{\beta+1}}\quad(\text{holding }n_{k\ell}\text{ fixed}), \qquad
+    \frac{\partial \ln d_{k\ell}}{\partial n_{k\ell}} = \frac{\kappa\rho\,\delta_{k\ell}^1\,n_{k\ell}^{\rho-1}}{I_{k\ell}^\beta}.
+\end{align}
+
+\paragraph{Route-choice bookkeeping.} Differentiating $\tau_{ij}^{-\theta}=\sum_{r\in R_{ij}}\tau_{ijr}^{-\theta}$ and using $\ln\tau_{ijr}=\sum_{(k,\ell)\in r}\ln d_{k\ell}$,
+\[
+\frac{\partial \ln \tau_{ij}}{\partial d_{k\ell}} = \sum_{r\in R_{ij}}\pi_{r|ij}\,\frac{\partial \ln \tau_{ijr}}{\partial d_{k\ell}} = \frac{1}{d_{k\ell}}\sum_{r\ni(k,\ell)}\pi_{r|ij} = \frac{\pi_{ij}^{k\ell}}{d_{k\ell}}\qquad(\text{holding all other }d\text{'s fixed}),
+\]
+where $\pi_{r|ij}=(\tau_{ij}/\tau_{ijr})^\theta$ is the conditional route-choice probability and $\pi_{ij}^{k\ell}=\sum_{r\ni(k,\ell)}\pi_{r|ij}$ is exactly the edge-intensity object of \eqref{eq:edge-intensity}: the probability that an $(i,j)$-commuter's chosen route uses edge $(k,\ell)$. This is the object that links $\tau_{ij}$ to $d_{k\ell}$ below; it does not yet involve $I_{k\ell}$ or $n_{k\ell}$ directly, since those enter only through $d_{k\ell}$ itself, constraint (iii).
+
+\paragraph{Formalizing "subject to equilibrium": the Lagrangian.} $\tau_{ij},d_{k\ell},w_j,q_i^R,N_i,L_i$ (and, through them, $\tilde V_{ij}$) are equilibrium objects, not primitives — they respond to $I_{k\ell}$ through the constraint system above. Following \citet{Bordeu2026-df}'s treatment of her local government's problem (her \S2.1.4 and Appendix A.3, which formalizes exactly this "planner subject to equilibrium" structure by entering every equilibrium condition into the Lagrangian with its own multiplier, rather than approximating their effect away), I write the authority's problem as a single Lagrangian over constraints (i)--(vi) of \eqref{eq:TA-problem} — six multipliers, one per constraint, matching Bordeu's own six ($\lambda_{ij},\eta_{Ri},\eta_{Fj},\gamma_{ij},\epsilon_{k\ell},\phi_{k\ell}$ in her notation) rather than substituting any of them away:
+\begin{align}
+    \label{eq:TA-lagrangian}
+\mathcal{L} = {}& N\Gamma\!\left(1-\tfrac1\epsilon\right)\Phi^{1/\epsilon} - \mu\Bigl(\sum_{k\ell}c_{k\ell}I_{k\ell}-K\Bigr) + \sum_{ij}\lambda_{ij}\Bigl[T_iE_j\tilde V_{ij}^\epsilon - \pi_{ij}\Phi\Bigr] \nonumber\\
+&+ \sum_{ij}\gamma_{ij}\Bigl[\tau_{ij}-((I-A)^{-1})^{-1/\theta}] + \sum_{k\ell}\psi_{k\ell}\Bigl[d_{k\ell}-\exp\bigl(\kappa\,time_{k\ell}(I_{k\ell},n_{k\ell})\bigr)\Bigr] \nonumber\\
+&+ \sum_{k\ell}\varphi_{k\ell}\Bigl[n_{k\ell}-\sum_{ij}N\pi_{ij}\pi_{ij}^{k\ell}\Bigr] + \sum_i\eta_i^q\Bigl[q_i^R\bar H_i^R-(1-\alpha)\sum_jN\pi_{ij}w_j\Bigr] \nonumber\\
+&+ \sum_j\eta_j^w\Bigl[L_j(w_j)-N\sum_i\pi_{ij}\Bigr],
+\end{align}
+where $\lambda_{ij}$, $\gamma_{ij}$, $\psi_{k\ell}$, $\varphi_{k\ell}$, $\eta_i^q$, $\eta_j^w$ are the multipliers on constraints (i)--(vi) respectively. $\lambda_{ij}$ is the metro-wide marginal social value of an additional household choosing the $(i,j)$ commute pattern; $\gamma_{ij}$ is the shadow value of the commuting-cost index $\tau_{ij}$; $\psi_{k\ell}$ is the shadow value of the edge-level cost technology $d_{k\ell}$ itself; $\varphi_{k\ell}$ is the shadow value of an additional unit of traffic on edge $(k,\ell)$.
+
+\paragraph{First-order conditions for $I_{k\ell}$ and $n_{k\ell}$.} With $d_{k\ell}$ pulled out as its own variable, $I_{k\ell}$ and $n_{k\ell}$ each appear in $\mathcal L$ \emph{only} inside their own constraint-(iii) bracket — $I_{k\ell}$ nowhere else at all, $n_{k\ell}$ also in its own constraint-(iv) bracket. This is strictly simpler than differentiating through every OD pair routed through the edge directly. Differentiating,
+\begin{align}
+    \label{eq:I-foc-lagrangian}
+\mu c_{k\ell} &= -\psi_{k\ell}\,\frac{\partial d_{k\ell}}{\partial I_{k\ell}} = -\psi_{k\ell}\,d_{k\ell}\,\frac{\partial \ln d_{k\ell}}{\partial I_{k\ell}}, \\
+    \label{eq:phi-kl}
+\varphi_{k\ell} &= \psi_{k\ell}\,\frac{\partial d_{k\ell}}{\partial n_{k\ell}} = \psi_{k\ell}\,d_{k\ell}\,\frac{\partial \ln d_{k\ell}}{\partial n_{k\ell}}.
+\end{align}
+Dividing \eqref{eq:I-foc-lagrangian} by \eqref{eq:phi-kl} already eliminates $\psi_{k\ell}d_{k\ell}$ and gives the ratio condition below, \emph{before} $\psi_{k\ell}$ itself is pinned down — the level of $I_{k\ell}$ relative to $\varphi_{k\ell}$ does not require solving the rest of the multiplier system.
+
+\paragraph{Closing the system: from $\lambda_{ij}$ to $\psi_{k\ell}$.} $\psi_{k\ell}$ is itself determined by $\mathcal L$'s first-order condition in $d_{k\ell}$, which appears in its own bracket and in every $\gamma_{ij}$ bracket for OD pairs routed through $(k,\ell)$ (via $\partial\ln\tau_{ij}/\partial d_{k\ell}=\pi_{ij}^{k\ell}/d_{k\ell}$, above); $\gamma_{ij}$ in turn is determined by the FOC in $\tau_{ij}$, which appears in its own bracket and in the $\lambda_{ij}$ bracket (via $\tilde V_{ij}\propto\tau_{ij}^{-1}$). Tracing this chain through — the same linear system flagged in \S Transportation Authority's earlier discussion, not expanded symbol-by-symbol here any more than Bordeu expands hers in her main text — reproduces exactly
+\[
+\psi_{k\ell}\,d_{k\ell} = \epsilon\sum_{(i,j):(k\ell)\in r_{ij}}\lambda_{ij}\,T_iE_j\tilde V_{ij}^\epsilon\,\pi_{ij}^{k\ell} \;\equiv\; \epsilon\,\Lambda_{k\ell},
+\]
+so that \eqref{eq:I-foc-lagrangian}--\eqref{eq:phi-kl} read $\mu c_{k\ell}=-\epsilon(\partial\ln d_{k\ell}/\partial I_{k\ell})\Lambda_{k\ell}$ and $\varphi_{k\ell}=\epsilon(\partial\ln d_{k\ell}/\partial n_{k\ell})\Lambda_{k\ell}$ — identical in form to a direct-substitution derivation, but now every multiplier in the chain ($\lambda_{ij}\to\gamma_{ij}\to\psi_{k\ell}\to\varphi_{k\ell}$) is a named, separately-constrained object rather than collapsed into one step.
+I call $\Lambda_{k\ell}$ edge $(k,\ell)$'s \emph{market access}: the traffic-intensity-weighted sum of accessibility gains it delivers across every OD pair routed through it, each pair weighted by its own shadow value $\lambda_{ij}$ rather than treated symmetrically. All six multiplier families — $\lambda_{ij},\gamma_{ij},\psi_{k\ell},\varphi_{k\ell},\eta_i^q,\eta_j^w$ — solve their own first-order conditions jointly, a linear system coupled because a change in any $\pi_{ij}$ moves $N_i,L_i$ (hence the congestion amenity $B_i$, hence every $\tilde V_{ij'}$), every route's cost index, every edge's traffic, every location's rent, and every workplace's wage simultaneously. I do not expand this system symbol-by-symbol here — Bordeu does not either, in her main text — beyond noting it is the same size and type of object as her "$2N+E$"-plus-route/edge-cost system (her Appendix A.3).
+
+\paragraph{The optimal-investment condition.} Dividing \eqref{eq:I-foc-lagrangian} by \eqref{eq:phi-kl} eliminates $\Lambda_{k\ell}$ and gives, using the model's actual $d_{k\ell}$,
 \begin{align}
     \label{transit-foc}
-\frac{N\gamma}{I_{k\ell}}\,\Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon-1}
-\sum_{(i,j)\,:\,(k,\ell) \in r_{ij}} T_i E_j\, \tilde{V}_{ij}^{\epsilon}
-= \mu\,\delta_{k\ell}.
+\mu c_{k\ell} = -\varphi_{k\ell}\,\frac{\partial d_{k\ell}/\partial I_{k\ell}}{\partial d_{k\ell}/\partial n_{k\ell}} = \varphi_{k\ell}\,\frac{\beta}{\rho}\,\frac{n_{k\ell}}{I_{k\ell}},
 \end{align}
-The left-hand side is the marginal social benefit of investment on edge $(k,\ell)$: lower travel cost on that edge raises $\tilde{V}_{ij}$, and hence $\Phi$, for \emph{every} residence-workplace pair routed through it — not only pairs directly adjacent to $k$ and $\ell$. This is the sense in which investment spillovers arise endogenously from the network structure: an edge shared by many routes is more valuable to the authority than one used only by its own endpoints, holding the direct commuting-cost elasticity fixed. The authority equates this marginal benefit per dollar of investment across all active edges.
+structurally identical to \citet{Bordeu2026-df}'s eq.~(18). Substituting \eqref{eq:phi-kl} into \eqref{transit-foc} and solving for $I_{k\ell}$,
+\begin{align}
+    \label{eq:I-given-mu}
+I_{k\ell} = \left(\frac{\epsilon\kappa\beta}{\mu}\right)^{\!1/(\beta+1)} W_{k\ell}^{\,1/(\beta+1)}, \qquad W_{k\ell}\equiv\frac{\delta_{k\ell}^1\,n_{k\ell}^\rho\,\Lambda_{k\ell}}{c_{k\ell}}.
+\end{align}
+Substituting into the budget constraint $\sum_{k'\ell'}c_{k'\ell'}I_{k'\ell'}=K$ (binding at the optimum, since the marginal benefit in \eqref{eq:I-foc-lagrangian} is unbounded as $I_{k\ell}\to0^+$ whenever $W_{k\ell}>0$) pins down $(\epsilon\kappa\beta/\mu)^{1/(\beta+1)}=K/\sum_{k'\ell'}c_{k'\ell'}W_{k'\ell'}^{1/(\beta+1)}$, eliminating $\mu$ and giving the closed-form optimal investment rule
+\begin{align}
+    \label{eq:I-optimal}
+I_{k\ell}^{*} = K\cdot\frac{W_{k\ell}^{\,1/(\beta+1)}}{\displaystyle\sum_{(k'\ell')\in E}c_{k'\ell'}\,W_{k'\ell'}^{\,1/(\beta+1)}}, \qquad W_{k\ell}\equiv\frac{\delta_{k\ell}^1\,n_{k\ell}^\rho\,\Lambda_{k\ell}}{c_{k\ell}}.
+\end{align}
+This is a budget-share rule: edge $(k,\ell)$'s share of the infrastructure budget rises with its own $\lambda$-weighted market access $\Lambda_{k\ell}$ and its equilibrium traffic $n_{k\ell}$ (through $\rho$: busier edges get more investment, a "fix the bottleneck" force), and falls with its own cost $c_{k\ell}$. It automatically handles the corner case: if $W_{k\ell}=0$ (no OD pair routed through $(k,\ell)$, or zero equilibrium traffic under $\rho>0$), then $I_{k\ell}^*=0$, no separate complementary-slackness case needed.
+
+
+% \paragraph{A useful corollary} is the pairwise ratio, independent of both $K$ and $\mu$:
+% \[
+% \frac{I_{k\ell}^*}{I_{k'\ell'}^*} = \left(\frac{W_{k\ell}}{W_{k'\ell'}}\right)^{1/(\beta+1)},
+% \]
+% so relative investment across any two edges is determined purely by their relative congestion-technology, traffic, market-access, and cost fundamentals, regardless of the total budget. Because $\Lambda_{k\ell}$ is larger for edges serving denser, higher-value bundles of OD pairs, and restrictive zoning is exactly what suppresses the density that generates a large $\Lambda_{k\ell}$ for corridor-type edges (\S Municipal Zoning), \eqref{eq:I-optimal} is the precise channel through which fragmented zoning tilts the investment ratio away from any edge whose value depends on concentrated density — without yet distinguishing road and transit technologies structurally, which remains Open Question \#1.
+
+% \emph{Resolution algorithm.} Following \citet{Bordeu2026-df}'s Appendix A.5 computational procedure directly: (1) given the current equilibrium $\{\pi_{ij},n_{k\ell},w_j,q_i^R\}$, solve the linear system in $(\lambda_{ij},\varphi_{k\ell},\eta_i^q,\eta_j^w)$; (2) given the equilibrium and the multipliers, compute $I_{k\ell}^*$ from \eqref{eq:I-optimal}; (3) given the new $\{I_{k\ell}^*\}$, resolve the nonlinear household/firm/market-clearing system (\S Households, \S Firms) for a new equilibrium; iterate to convergence. This is deferred to the quantification stage, as with the analogous zoning fixed point (\S Municipal Zoning).
 
 \subsection{Equilibrium}
 
@@ -216,19 +304,58 @@ The left-hand side is the marginal social benefit of investment on edge $(k,\ell
 A decentralized equilibrium is a profile
 \[
 \Bigl(
-\{I_{k\ell}^*\}_{(k,\ell) \in E},\;
-\{q_i^{R*},\,q_i^{F*},\,w_j^*\}_{i,j \in S}\Bigr)
+\{I_{k\ell}^*\}_{(k,\ell) \in E},\;\;
+\{t_i^{F*}\}_{i \in S},\;\;
+\{N\pi_{ij}^*\}_{i,j \in S},\;\;
+\{n_{k\ell}^*\}_{(k,\ell) \in E},\;\;
+\{q_i^{R*},\,q_i^{F*},\,w_i^*\}_{i \in S}
+\Bigr)
 \]
 such that:
 \begin{enumerate}
-    \item \textbf{Household optimality.} Commuting flows $\{N\pi_{ij}^*\}$ are given by the Fréchet probability formula at prices $(q_i^{R*}, w_j^*)$ and investment $I^*$, with route-based commuting costs $\{\tau_{ij}^*\}$ and edge traffic $\{n_{k\ell}^*\}$ satisfying \eqref{eq:edge-traffic}.
-    \item \textbf{Firm optimality.} Wages $w_j^*$ and commercial rents $q_j^{F*}$ satisfy the firm first-order conditions at $H_j^F = \bar{H}_j^{F*}$ and $L_j^* = N\sum_i \pi_{ij}^*$.
-    \item \textbf{Market clearing.} Residential floor space clears at $q_i^{R*}$ given by \eqref{eq:rent-clearing}, commercial floor space is fixed at $H_j^F = \bar{H}_j^{F*}$, and the labor market clears at $L_j^* = N\sum_i \pi_{ij}^*$.
+    \item \textbf{Household optimality.} Commuting flows $\{N\pi_{ij}^*\}$ are given by \eqref{eq:pi}--\eqref{eq:pi-pop} at prices $(q_i^{R*}, w_i^*)$ and investment $I^*$, with route choice by \eqref{eq:pi-route} and route-based commuting costs $\{\tau_{ij}^*\}$.
+    \item \textbf{Edge traffic.} $\{n_{k\ell}^*\}$ satisfies \eqref{eq:edge-traffic} given $\{\pi_{ij}^*\}$ and route assignment $\{r_{ij}\}$, jointly with (1) since $n_{k\ell}^*$ feeds back into $d_{k\ell}(I_{k\ell}^*,n_{k\ell}^*)$ and hence $\tau_{ij}^*$.
+    \item \textbf{Firm optimality.} Wages $w_i^*$ and commercial rents $q_i^{F*}$ satisfy the firm's first-order conditions at $H_i^F = \bar{H}_i^{F*}$, with labor demand $L_i^*$ solving \eqref{eq:labor-demand-agglom} under the productivity externality \eqref{eq:agglomeration}.
+    \item \textbf{Market clearing.} Residential floor space clears at $q_i^{R*}$ given by \eqref{eq:rent-clearing}, commercial floor space is fixed at $H_i^F = \bar{H}_i^{F*}$, and the labor market clears at $L_i^* = N\sum_j \pi_{ji}^*$.
     \item \textbf{Municipal Nash equilibrium.} Each municipality $g$ sets the iceberg cost $\{t_i^{F*}\}_{i \in S^g}$ — equivalently, induces $\{\bar{H}_i^{R*}, \bar{H}_i^{F*}\}_{i \in S^g}$ via \eqref{zoning-foc-tax} — to satisfy the first-order condition \eqref{zoning-foc}, given $\{\bar{H}_{i'}^{R*}, \bar{H}_{i'}^{F*}\}_{i' \notin S^g}$ and $I^*$; no municipality has a profitable deviation.
-    \item \textbf{Transportation authority optimality.} $\{I_{k\ell}^*\}$ satisfies the first-order condition \eqref{transit-foc} for every edge $(k,\ell) \in E$, maximizing aggregate welfare given $\{\bar{H}_i^{R*}, \bar{H}_i^{F*}\}$ subject to the budget constraint.
+    \item \textbf{Transportation authority optimality.} $\{I_{k\ell}^*\}$ solves \eqref{eq:TA-problem}, given $\{\bar{H}_i^{R*}, \bar{H}_i^{F*}\}$: equivalently, $I_{k\ell}^*$ satisfies \eqref{transit-foc} for every edge $(k,\ell)\in E$, where the multipliers $(\lambda_{ij}^*,\gamma_{ij}^*,\psi_{k\ell}^*,\varphi_{k\ell}^*,\eta_i^{q*},\eta_j^{w*})$ solve their own first-order conditions from \eqref{eq:TA-lagrangian} jointly with (1)--(4) at the equilibrium profile.
 \end{enumerate}
-Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds. The equilibrium iceberg cost $t_i^{F*} \equiv q_i^{F*}/q_i^{R*} - 1$ is computed from the equilibrium quantities in this profile, not solved for as a separate object.
+Conditions (v) and (vi) jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds. The equilibrium iceberg cost $t_i^{F*} \equiv q_i^{F*}/q_i^{R*} - 1$ is computed from the equilibrium quantities in this profile, not solved for as a separate object.
 \end{definition}
+
+\subsection{Social Planner}
+
+The decentralized equilibrium splits control of the metro's two instruments across two kinds of agents, each at its own scale: zoning is chosen municipality-by-municipality, each maximizing only over its own $S^g$; investment is chosen by a metropolitan authority, but taking zoning as given. The natural benchmark isolates both distortions at once — a single metropolitan government choosing \emph{both} instruments, for the \emph{whole} metro, jointly. Following \citet{Bordeu2026-df}'s comparison of her decentralized and "Centralized Planner (Metropolitan)" cases, and using exactly the Lagrangian apparatus of \S Transportation Authority, the planner's problem is
+\begin{align}
+    \label{eq:SP-problem}
+\max_{\{t_i^F\}_{i\in S},\,\{I_{k\ell}\}_{(k,\ell)\in E}}\;\; & N \cdot \Gamma\!\left(1 - \tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon} \\
+\text{subject to} \quad & \text{(i)--(vii) of \eqref{eq:TA-problem}, and} \nonumber\\
+\text{(viii) land identity:}\; & \bar H_i^R + \bar H_i^F = \bar H_i \quad \forall i\in S. \nonumber
+\end{align}
+The only difference from \eqref{eq:TA-problem} is that $\{\bar H_i^R,\bar H_i^F\}_{i\in S}$ — equivalently $\{t_i^F\}_{i\in S}$, via \eqref{eq:arbitrage} — are now genuine choice variables for every location, not parameters the constraint system takes as given; correspondingly, \eqref{eq:TA-lagrangian} gains one term, $\sum_i\nu_i[\bar H_i-\bar H_i^R-\bar H_i^F]$, with multiplier $\nu_i$ on the land identity at $i$.
+
+\paragraph{Investment.} $I_{k\ell}$ enters the planner's Lagrangian through exactly the same terms as in \eqref{eq:TA-lagrangian} — the objective and constraints (i)–(vii) are unchanged — so the FOC is unchanged in form:
+\begin{align}
+    \label{eq:I-optimal-SP}
+I_{k\ell}^{SP} = K\cdot\frac{W_{k\ell}^{\,1/(\beta+1)}}{\displaystyle\sum_{(k'\ell')\in E}c_{k'\ell'}\,W_{k'\ell'}^{\,1/(\beta+1)}}, \qquad W_{k\ell}\equiv\frac{\delta_{k\ell}^1\,n_{k\ell}^\rho\,\Lambda_{k\ell}}{c_{k\ell}},
+\end{align}
+identical to \eqref{eq:I-optimal}. The planner's investment rule is the \emph{same formula}, evaluated at the jointly optimal zoning vector $\{\bar H_i^{R,SP}\}$ instead of the Nash-equilibrium one $\{\bar H_i^{R,DE}\}$ — the entire wedge between $I_{k\ell}^{SP}$ and $I_{k\ell}^{DE}$ operates through how zoning shifts $n_{k\ell}$ and $\Lambda_{k\ell}$, not through any change in the investment rule itself.
+
+\paragraph{Zoning.} The FOC for $\bar H_i^R$ reproduces the same trade-off as \eqref{zoning-foc-explicit} — attracting residents against the rent and congestion consequences (channels (1)–(5), unchanged) — but with two additional channels a municipality cannot see, because \eqref{zoning-foc-explicit} was derived holding fixed everything outside $i$'s own term of $W^g=\sum_{i'\in S^g}N_{i'}\bar U_{i'}$, whereas the planner's objective sums $\lambda_{i'j'}$ over \emph{every} $i'\in S$:
+\begin{align}
+    \label{zoning-foc-planner}
+\underbrace{\sum_{(i',j'):\,i'\neq i}\lambda_{i'j'}\,\frac{\partial\bigl[T_{i'}E_{j'}\tilde V_{i'j'}^\epsilon\bigr]}{\partial \bar H_i^R}}_{\text{(6) cross-jurisdiction spillover}}
+\;+\;
+\underbrace{\sum_{(k\ell):\,i\in\{k,\ell\}\text{ or }i\in r_{i'j'}\ni(k\ell)}\frac{\partial \Lambda_{k\ell}}{\partial \bar H_i^R}\cdot\frac{\partial I_{k\ell}^{SP}}{\partial \Lambda_{k\ell}}}_{\text{(7) transit-zoning complementarity}}
+\end{align}
+added to the left-hand side of \eqref{zoning-foc-explicit}. Term (6) is the welfare gain to residents \emph{outside} $S^g$ from $i$'s rezoning — lower rents and better access reallocate households metro-wide via the labor and rent markets; under the natural condition that a location's own rezoning does not make outside residents worse off on net, (6) is weakly positive.
+
+
+% \paragraph{Decentralization result.} Term (6) is unambiguously weakly positive and entirely absent from \eqref{zoning-foc}; term (7) is additionally absent and signed positive under the dominance condition above. Whenever both hold, the planner's marginal benefit of residential rezoning at $i$ strictly exceeds the municipality's at the municipality's own optimum $\bar H_i^{R,DE}$, so by the monotone comparative statics of \eqref{eq:SP-problem} in $\bar H_i^R$,
+% \[
+% \bar H_i^{R,SP} \geq \bar H_i^{R,DE} \qquad \text{for all } i\in S,
+% \]
+% with strict inequality wherever (6) or (7) is strictly positive. Decentralized zoning is too restrictive relative to the planner's optimum on both the residential and (via the land identity) commercial margins, \emph{conditional on} the same channel-dominance conditions already required to sign \eqref{zoning-foc-explicit} itself — this result is not unconditional, and should not be presented as one. Where it holds, \eqref{eq:I-optimal-SP} implies $I_{k\ell}^{SP}\geq I_{k\ell}^{DE}$ on exactly the edges where decentralized zoning suppressed $\Lambda_{k\ell}$ the most — the planner both zones more permissively and invests more, where the two reinforce each other. As throughout \S Transportation Authority, this identifies the \emph{scale/coordination} wedge (item 6 of the Open Model Questions) rigorously; it does not yet speak to the structural road/transit distinction of Open Question \#1, which remains a separate, open extension.
 
 % \subsection{Quantification}
 
@@ -244,36 +371,17 @@ Conditions (iv) and (v) jointly constitute the simultaneous Nash equilibrium bet
 
 % The comparative statics inside \eqref{zoning-foc-explicit} ($\partial N_i/\partial \bar H_i^R$ etc.) are a general-equilibrium object: $N_i, q_i^R, w_i, \phi_i$ are jointly determined through $\Phi=\sum_{i'}\Phi_{i'}$ and the labor market, so their response to a zoning change is not a single-equation partial derivative — exactly why counterfactuals in this literature are usually solved as a linearized system rather than a closed-form elasticity. A tractable special case treats each location as small relative to the metro ($d\ln\Phi\approx0$, wages elsewhere unaffected), collapsing the metro-wide fixed point to a local system in $(\hat N_i,\hat L_i,\hat q_i^R,\hat w_i,\hat\phi_i)$ solvable by matrix inversion; working this out explicitly, including the wage channel in \eqref{zoning-foc-explicit}, is the natural next step.
 
-\subsection{Data and Calibration}
+% \subsection{Data and Calibration}
 
-Following \citet{Fajgelbaum2020-yv}'s treatment of network and cost fundamentals, parameters split into three groups: estimated from the model's own equations (\S Quantification), set from external estimates, and location/link fundamentals recovered as residuals or calibrated directly to observed infrastructure costs.
+% Following \citet{Fajgelbaum2020-yv}'s treatment of network and cost fundamentals, parameters split into three groups: estimated from the model's own equations (\S Quantification), set from external estimates, and location/link fundamentals recovered as residuals or calibrated directly to observed infrastructure costs.
 
-\paragraph{Data.} Commuting flows $N\pi_{ij}$ and employment $L_i$: LODES/LEHD origin-destination data. Wages $w_j$ and population $N_i$: ACS. Residential and commercial rents $q_i^R, q_i^F$: county appraisal district records or commercial listing data (CoStar), jointly identifying $t_i^F$ via \eqref{eq:arbitrage}. Land area $\bar H_i$: parcel/GIS data. Network edges $E$, route assignment $\{r_{ij}\}$, and travel times, for $\delta_{k\ell}^\tau$: GIS road network shortest paths and observed transit line/transfer sequences. Historical investment $I_{k\ell}$ and per-unit construction costs $\delta_{k\ell}$: NTD and state DOT capital programs, at the edge level. Total budget $K$: observed metro-area transportation capital spending over the relevant period.
+% \paragraph{Data.} Commuting flows $N\pi_{ij}$ and employment $L_i$: LODES/LEHD origin-destination data. Wages $w_j$ and population $N_i$: ACS. Residential and commercial rents $q_i^R, q_i^F$: county appraisal district records or commercial listing data (CoStar), jointly identifying $t_i^F$ via \eqref{eq:arbitrage}. Land area $\bar H_i$: parcel/GIS data. Network edges $E$, route assignment $\{r_{ij}\}$, and travel times, for $\delta_{k\ell}^\tau$: GIS road network shortest paths and observed transit line/transfer sequences. Historical investment $I_{k\ell}$ and per-unit construction costs $c_{k\ell}$: NTD and state DOT capital programs, at the edge level. Total budget $K$: observed metro-area transportation capital spending over the relevant period.
 
-\paragraph{Estimated from model equations.} $\epsilon, \rho$, and the commuting-cost investment elasticity in \eqref{eq:gravity}; $(\eta,a,b)$ from the congestion regression; $t_i^F$ is not estimated at all, but read directly off rent data via \eqref{eq:arbitrage}.
+% \paragraph{Estimated from model equations.} $\epsilon, \rho$, and the commuting-cost investment elasticity, from the structural-gravity regression on commuting flows (\S Quantification, currently commented pending resync — see note below); $(\eta,a,b)$ from the same regression's origin fixed effect; $t_i^F$ is not estimated at all, but read directly off rent data via \eqref{eq:arbitrage}.
 
-\paragraph{Set externally.} $\alpha$, the consumption expenditure share, from the CEX or national accounts; $\gamma$, the firm's labor share in \eqref{eq:rent-clearing}'s underlying production function, from the local labor share of income (BEA). \emph{Notation note:} the commuting-cost investment elasticity in $d_{k\ell}=\delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ currently reuses the symbol $\gamma$ already assigned to the firm's labor share in $Y_j=A_jL_j^\gamma(H_j^F)^{1-\gamma}$ — these are distinct parameters with distinct empirical targets and should be given separate symbols before the calibration is finalized.
+% \paragraph{Set externally.} $\alpha$, the consumption expenditure share, from the CEX or national accounts; $\gamma$, the firm's labor share in \eqref{eq:firm-production}, from the local labor share of income (BEA); $\zeta$, the agglomeration elasticity in \eqref{eq:agglomeration}, from existing urban-economics estimates of the employment-density elasticity of local TFP — e.g.\ the agglomeration term estimated alongside amenities in \citet{Ahlfeldt2015-zb} — rather than estimated in-sample; a dedicated survey citation should be added to the bibliography before this is finalized. \emph{Notation note:} the commuting-cost investment elasticity in $d_{k\ell}=\delta_{k\ell}^\tau n_{k\ell}^\rho/I_{k\ell}^\gamma$ currently reuses the symbol $\gamma$ already assigned to the firm's labor share in $Y_j=A_jL_j^\gamma(H_j^F)^{1-\gamma}$ — these are distinct parameters with distinct empirical targets and should be given separate symbols before the calibration is finalized.
 
-\paragraph{Fundamentals recovered as residuals.} $T_i, \bar B_i$ (jointly, from the origin fixed effect, net of the $(a,b)$ congestion terms) and $E_j, A_j$ (from the destination fixed effect and the firm's first-order condition) so that the model exactly matches observed $N_i, L_i, w_j, q_i^R$ at the calibrated parameters, following the model-inversion logic of \citet{Ahlfeldt2015-zb} and \citet{Fajgelbaum2020-yv}.
-
-% \subsection{Social Planner}
-
-% A social planner jointly chooses zoning allocations $\{\bar{H}_i^R, \bar{H}_i^F\}$ and transportation investment $\{I_{k\ell}\}$ to maximize aggregate household welfare:
-% \[
-% \max_{\{\bar{H}_i^R,\,\bar{H}_i^F\},\,\{I_{k\ell}\}}\;
-% N \cdot \Gamma\!\left(1-\tfrac{1}{\epsilon}\right)\Phi^{1/\epsilon}
-% \]
-% subject to the budget constraint $\sum_{(k,\ell)\in E}\delta_{k\ell}I_{k\ell} \leq K$, land constraints $\bar{H}_i^R + \bar{H}_i^F = \bar{H}_i$ for all $i$, and market clearing.
-
-% Comparing the planner's first-order condition for zoning with the municipal condition in (4) reveals two positive terms that municipalities systematically ignore. First, because each municipality $g$ maximizes welfare only over $i \in S^g$, it ignores the welfare of residents in neighboring municipalities who gain from lower rents and more accessible housing when $g$ rezones — even though those residents move voluntarily and are made better off. Second, municipalities do not account for the transit-zoning complementarity: denser residential and commercial development near transit-accessible locations raises ridership and the marginal return to transit investment, generating a positive externality on the transportation authority's problem. Road investment is comparatively less sensitive to local density, so this externality operates asymmetrically across infrastructure types.
-
-% Both omitted terms are positive, implying that decentralized municipalities choose zoning that is too restrictive on both margins relative to the social optimum:
-% \[
-% \bar{H}_i^{R,\,\mathrm{SP}} \geq \bar{H}_i^{R,\,\mathrm{DE}}, \qquad
-% \bar{H}_i^{F,\,\mathrm{SP}} \geq \bar{H}_i^{F,\,\mathrm{DE}}
-% \qquad \text{for all } i \in S.
-% \]
-% The decentralized equilibrium therefore features underinvestment in transit — not because the transportation authority errs given the zoning it observes, but because the zoning it faces is itself distorted by fragmented local governance.
+% \paragraph{Fundamentals recovered as residuals.} $T_i, \bar B_i$ (jointly, from the origin fixed effect, net of the $(a,b)$ congestion terms) and $E_j, \bar A_j$ (from the destination fixed effect and the firm's first-order condition, net of the $\zeta\ln L_j$ agglomeration term in \eqref{eq:agglomeration} — the same residual logic already used to net $(a,b)$ out of $\bar B_i$) so that the model exactly matches observed $N_i, L_i, w_j, q_i^R$ at the calibrated parameters, following the model-inversion logic of \citet{Ahlfeldt2015-zb} and \citet{Fajgelbaum2020-yv}.
 
 \printbibliography
 
