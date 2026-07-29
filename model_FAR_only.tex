@@ -1,0 +1,652 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.4cm,right=2.4cm,top=2.4cm,bottom=2.4cm}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\F}{\mathrm{F}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\1}{\mathbb 1}
+
+\title{Spatial Equilibrium and Optimal Transportation Investment\\under Endogenous FAR}
+\author{Ke Jiang}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\section{Purpose and timing}
+
+This version replaces the residential-vs-commercial land-use choice with a floor-area-ratio (FAR) choice as the municipal instrument. Land-use shares and the total land envelope remain exogenous,
+\[
+\mathbf v=\{v_i^{\R},v_i^{\F}\}_{i\in S},
+\qquad
+v_i^{\R}+v_i^{\F}=1,
+\qquad
+v_i^u\geq0,
+\]
+but the FAR caps are no longer given: each municipality $g\in G$, governing a subset $S^g\subseteq S$ with $S=\bigcup_{g\in G}S^g$, chooses $\{\bar f_i^{\R},\bar f_i^{\F}\}_{i\in S^g}$. The transportation authority chooses network investment $\mathbf I$. Municipalities and the transportation authority move \emph{simultaneously}: each takes every other agent's choice as given and best-responds, anticipating the full spatial equilibrium that follows — the same timing already established for the main model (zoning-and-transport proposal, Open Model Question \#4). Conditional on $(\mathbf v,\bar{\mathbf f},\mathbf I)$, households, firms, developers, rents, wages, OD flows, routes, and congestion are determined in spatial equilibrium exactly as before.
+
+The logical sequence is
+\begin{align*}
+\{\mathbf v\}\ \text{given}
+\quad\longrightarrow\quad
+&\{\bar{\mathbf f},\mathbf I\}\ \text{chosen simultaneously (Nash) by municipalities}\\
+&\text{and the transportation authority}
+\quad\longrightarrow\quad
+\text{spatial equilibrium.}
+\end{align*}
+Both sets of agents anticipate the full equilibrium response to their own choice.
+
+\section{Environment and transportation network}
+
+The metropolitan area contains locations $i\in S$ connected by a directed network $(S,E)$. Each location has $\Delta_i>0$ units of land. Exogenous land-use shares assign
+\begin{align}
+\bar L_i^u&\equiv v_i^u\Delta_i,
+&
+\bar H_i^u&\equiv \bar L_i^u\bar f_i^u,
+\qquad u\in\{\R,\F\},
+\label{eq:zoning-primitives}
+\end{align}
+where $\bar L_i^u$ is land zoned for use $u$ — now a fixed primitive, since $v_i^u$ is exogenous — and $\bar H_i^u$ is the maximum floor space permitted by the FAR cap $\bar f_i^u$, which is municipality $g$'s choice variable for $i\in S^g$.
+
+Investment on edge $e=(k,\ell)$ is $I_{k\ell}\geq0$. Edge traffic is $n_{k\ell}$, travel time is
+\begin{align}
+\operatorname{time}_{k\ell}
+=
+\delta_{k\ell}^0+
+\delta_{k\ell}^1\frac{n_{k\ell}^{\rho}}{I_{k\ell}^{\beta}},
+\qquad
+\delta_{k\ell}^1,\rho,\beta>0,
+\label{eq:edge-time}
+\end{align}
+and the multiplicative edge cost is
+\begin{align}
+d_{k\ell}=\exp\!\left(\kappa\operatorname{time}_{k\ell}\right).
+\label{eq:edge-cost}
+\end{align}
+For route $r\in R_{ij}$,
+\begin{align}
+\tau_{ijr}&=\prod_{e\in r}d_{k\ell},
+&
+\tau_{ij}
+&=
+\left(\sum_{r\in R_{ij}}\tau_{ijr}^{-\theta}\right)^{-1/\theta}.
+\label{eq:route-costs}
+\end{align}
+The conditional route probability is
+\begin{align}
+    \label{eq:edge-intensity}
+    \pi_{jk}^{k\ell} = (\frac{\tau_{ij}}{\tau_{ik}d_{kl}\tau_{lj}})^{\theta}
+\end{align}
+and the traffic volume using edge $(k,\ell)$ is
+\begin{align}
+ n_{k\ell} = \sum_{ij \in S^{2}}N_{ij}\pi_{jk}^{k\ell}
+\end{align}
+
+\section{Households}
+
+A household chooses residence $i$, workplace $j$, and route $r\in R_{ij}$. Utility is
+\begin{align}
+u_{ijr}(\omega)
+=
+\frac{B_i(N_i,L_i)}{\tau_{ijr}}
+\left(\frac{Q_{ij}}{\alpha}\right)^{\alpha}
+\left(\frac{h_{ij}^{\R}}{1-\alpha}\right)^{1-\alpha}
+v_{ijr}(\omega),
+\label{eq:household-utility}
+\end{align}
+subject to
+\[
+Q_{ij}+q_i^{\R}h_{ij}^{\R}\leq w_j.
+\]
+Local amenities satisfy
+\begin{align}
+B_i(N_i,L_i)
+=
+\frac{\bar B_i}{\phi_i(N_i,L_i)},
+\qquad
+\phi_i(N_i,L_i)=\eta N_i^aL_i^b,
+\qquad a,b,\eta>0.
+\label{eq:amenity}
+\end{align}
+Optimal demands are
+\begin{align}
+Q_{ij}^*&=\alpha w_j,
+&
+h_{ij}^{\R*}&=\frac{(1-\alpha)w_j}{q_i^{\R}}.
+\label{eq:household-demands}
+\end{align}
+After aggregating over routes, deterministic indirect utility is
+\begin{align}
+\widetilde V_{ij}
+=
+\frac{B_i(N_i,L_i)w_j}
+{\tau_{ij}(q_i^{\R})^{1-\alpha}}.
+\label{eq:indirect-utility}
+\end{align}
+The residence--workplace share is
+\begin{align}
+\pi_{ij}
+&=
+\frac{T_iE_j\widetilde V_{ij}^{\epsilon}}{\Phi},
+&
+\Phi
+&\equiv
+\sum_{m,n\in S}T_mE_n\widetilde V_{mn}^{\epsilon}.
+\label{eq:od-share}
+\end{align}
+Metropolitan ex ante utility is
+\begin{align}
+\bar U
+=
+\Gamma\!\left(1-\frac1\epsilon\right)\Phi^{1/\epsilon}.
+\label{eq:expected-utility}
+\end{align}
+Population and employment are
+\begin{align}
+N_i&=N\sum_j\pi_{ij},
+&
+L_j&=N\sum_i\pi_{ij}.
+\label{eq:population-employment}
+\end{align}
+Write $\Phi_i\equiv\sum_nT_iE_n\widetilde V_{in}^\epsilon$ for location $i$'s own contribution to $\Phi$, so that $\Phi_i/\Phi=N_i/N$ by \eqref{eq:od-share}--\eqref{eq:population-employment}; this ratio is used repeatedly in \S8.
+
+\section{Competitive floor-space supply given zoning caps}
+
+For use $u\in\{\R,\F\}$, developers use land $L_i^u$ and non-land capital $K_i^u$ to produce
+\begin{align}
+H_i^u
+=
+\Xi_i^u(L_i^u)^{\vartheta}(K_i^u)^{1-\vartheta},
+\qquad
+\Xi_i^u>0,
+\quad
+\vartheta\in(0,1).
+\label{eq:construction}
+\end{align}
+The price of non-land capital is one. With positive demand and zero outside land use,
+\[
+L_i^u=\bar L_i^u=v_i^u\Delta_i.
+\]
+Define actual FAR $f_i^u=H_i^u/L_i^u$. Minimum capital per unit of land needed to produce FAR $f$ is
+\begin{align}
+c_i^u(f)
+=
+\left(\frac{f}{\Xi_i^u}\right)^{1/(1-\vartheta)}.
+\label{eq:construction-cost}
+\end{align}
+A competitive developer solves
+\begin{align}
+\max_{0\leq f\leq\bar f_i^u}
+\quad
+q_i^u f-c_i^u(f)-r_i^u.
+\label{eq:developer-problem}
+\end{align}
+Let
+\begin{align}
+\varpi
+&\equiv\frac{1-\vartheta}{\vartheta},
+&
+\mathcal K_i^u
+&\equiv
+\bar L_i^u(\Xi_i^u)^{1/\vartheta}(1-\vartheta)^{\varpi}.
+\label{eq:supply-constants}
+\end{align}
+The unconstrained FAR and floor-space supply are
+\begin{align}
+f_i^{u,0}(q_i^u)
+&=
+(\Xi_i^u)^{1/\vartheta}
+\bigl[(1-\vartheta)q_i^u\bigr]^{\varpi},
+\label{eq:far-unconstrained}\\
+H_i^{u,0}(q_i^u)
+&=
+\mathcal K_i^u(q_i^u)^{\varpi}.
+\label{eq:supply-unconstrained}
+\end{align}
+Actual supply is therefore
+\begin{align}
+H_i^u
+=
+\min\left\{
+\bar H_i^u,
+\mathcal K_i^u(q_i^u)^{\varpi}
+\right\}.
+\label{eq:floorspace-supply}
+\end{align}
+Land rent is the residual
+\begin{align}
+r_i^u=q_i^uf_i^u-c_i^u(f_i^u).
+\label{eq:land-rent}
+\end{align}
+The FAR cap binds when the unconstrained floor-space quantity $H_i^{u,0}(q_i^u)$ exceeds $\bar H_i^u$; \S8 formalizes this as a complementary-slackness condition rather than treating it as an always-active assumption.
+
+\section{Firms and the commercial floor-space block}
+
+A firm at workplace $j$ produces
+\begin{align}
+Y_j=A_jL_j^{\gamma}(H_j^{\F})^{1-\gamma},
+\qquad
+A_j=\bar A_jL_j^{\zeta},
+\qquad
+0<\zeta<1-\gamma.
+\label{eq:firm-production}
+\end{align}
+The agglomeration term is external to the individual firm. Conditional on aggregate employment $L_j$ and commercial floor space $H_j^{\F}$, factor prices are
+\begin{align}
+w_j
+&=
+\gamma\bar A_jL_j^{\gamma+\zeta-1}
+(H_j^{\F})^{1-\gamma},
+\label{eq:wage}\\
+q_j^{\F}
+&=
+(1-\gamma)\bar A_jL_j^{\gamma+\zeta}
+(H_j^{\F})^{-\gamma}.
+\label{eq:commercial-rent}
+\end{align}
+
+The commercial block can be solved analytically conditional on $L_j$. Define
+\begin{align}
+\mathcal C_j(L_j)
+\equiv
+(1-\gamma)\bar A_jL_j^{\gamma+\zeta}.
+\label{eq:commercial-C}
+\end{align}
+If the commercial FAR cap is slack, combining \eqref{eq:floorspace-supply} and \eqref{eq:commercial-rent} yields
+\begin{align}
+H_j^{\F,0}(L_j)
+=
+\left[
+\mathcal K_j^{\F}
+\mathcal C_j(L_j)^{\varpi}
+\right]^{1/(1+\gamma\varpi)}.
+\label{eq:commercial-unconstrained-solution}
+\end{align}
+Hence the equilibrium commercial quantity and rent conditional on $L_j$ are
+\begin{align}
+H_j^{\F}
+&=
+\min\left\{
+\bar H_j^{\F},
+H_j^{\F,0}(L_j)
+\right\},
+\label{eq:commercial-quantity-solution}\\
+q_j^{\F}
+&=
+\mathcal C_j(L_j)(H_j^{\F})^{-\gamma},
+\label{eq:commercial-price-solution}
+\end{align}
+and the equilibrium wage follows from \eqref{eq:wage}.
+
+\section{Residential floor-space market}
+
+Aggregate housing expenditure by residents of $i$ is
+\begin{align}
+\mathcal E_i^{\R}
+\equiv
+(1-\alpha)N\sum_j\pi_{ij}w_j.
+\label{eq:residential-expenditure}
+\end{align}
+Residential market clearing is
+\begin{align}
+q_i^{\R}H_i^{\R}=\mathcal E_i^{\R}.
+\label{eq:residential-clearing}
+\end{align}
+The residential block can also be solved analytically conditional on OD shares and wages. If the residential FAR cap is slack,
+\begin{align}
+q_i^{\R,0}
+&=
+\left(\frac{\mathcal E_i^{\R}}{\mathcal K_i^{\R}}\right)^{\vartheta},
+\label{eq:residential-rent-unconstrained}\\
+H_i^{\R,0}
+&=
+(\mathcal K_i^{\R})^{\vartheta}
+(\mathcal E_i^{\R})^{1-\vartheta}.
+\label{eq:residential-quantity-unconstrained}
+\end{align}
+Therefore, conditional on $\{\pi_{ij},w_j\}$,
+\begin{align}
+H_i^{\R}
+&=
+\min\left\{
+\bar H_i^{\R},
+H_i^{\R,0}
+\right\},
+\label{eq:residential-quantity-solution}\\
+q_i^{\R}
+&=
+\frac{\mathcal E_i^{\R}}{H_i^{\R}}.
+\label{eq:residential-price-solution}
+\end{align}
+When the cap binds, quantity is fixed at $\bar H_i^{\R}$ and rent absorbs the demand response. When it is slack, both quantity and rent respond endogenously.
+
+\section{Traffic and spatial equilibrium}
+
+Given OD shares and conditional route choices, edge traffic is
+\begin{align}
+n_e
+=
+N\sum_{i,j\in S}\pi_{ij}\pi_{ij}^{e}.
+\label{eq:edge-traffic}
+\end{align}
+The equilibrium is most compactly represented as a fixed point in OD shares and edge traffic. Let
+\[
+x\equiv(\boldsymbol\pi,\mathbf n),
+\]
+where $\boldsymbol\pi=\{\pi_{ij}\}_{i,j\in S}$ and $\mathbf n=\{n_e\}_{e\in E}$. For given $(\mathbf I,\bar{\mathbf f};\mathbf v)$, construct the mapping $\mathcal T(x;\mathbf I,\bar{\mathbf f};\mathbf v)$ as follows:
+\begin{enumerate}
+\item Use $\boldsymbol\pi$ to compute $N_i$ and $L_j$ from \eqref{eq:population-employment}.
+\item Use $L_j$ and the commercial FAR cap to compute $H_j^{\F}$, $q_j^{\F}$, and $w_j$ from \eqref{eq:commercial-quantity-solution}--\eqref{eq:wage}.
+\item Use $\boldsymbol\pi$ and wages to compute $\mathcal E_i^{\R}$, $H_i^{\R}$, and $q_i^{\R}$ from \eqref{eq:residential-expenditure}--\eqref{eq:residential-price-solution}.
+\item Use $(N_i,L_i)$ to compute amenities from \eqref{eq:amenity}.
+\item Use $(\mathbf n,\mathbf I)$ to compute edge costs, route costs, route shares, and $\pi_{ij}^e$ from \eqref{eq:edge-time}--\eqref{eq:edge-intensity}.
+\item Update OD shares using \eqref{eq:indirect-utility}--\eqref{eq:od-share} and update edge traffic using \eqref{eq:edge-traffic}.
+\end{enumerate}
+
+\begin{definition}[Spatial equilibrium conditional on zoning and investment]
+For land shares $\mathbf v$, FAR caps $\bar{\mathbf f}$, and investment $\mathbf I$, a spatial equilibrium is a fixed point
+\begin{align}
+x^*(\mathbf I,\bar{\mathbf f};\mathbf v)
+=
+\mathcal T\bigl(x^*(\mathbf I,\bar{\mathbf f};\mathbf v);\mathbf I,\bar{\mathbf f};\mathbf v\bigr),
+\label{eq:spatial-fixed-point}
+\end{align}
+together with the prices, wages, floor-space quantities, route shares, and amenities recovered from steps 1--5 above.
+\end{definition}
+
+Equivalently, write all equilibrium conditions as
+\begin{align}
+F(x,\mathbf I,\bar{\mathbf f};\mathbf v)=0.
+\label{eq:equilibrium-system}
+\end{align}
+If $F_x$ is nonsingular at an equilibrium, the local response of the equilibrium to any parameter $p\in\{\mathbf I,\bar{\mathbf f}\}$ is
+\begin{align}
+\frac{\partial x^*}{\partial p}
+=
+-F_x^{-1}F_{p}.
+\label{eq:equilibrium-derivative}
+\end{align}
+This derivative contains all general-equilibrium responses through construction, rents, wages, sorting, route choice, and congestion — it is stated for a generic parameter $p$ because \S8 reuses it for $\bar{\mathbf f}$ exactly as \S7 uses it for $\mathbf I$.
+
+\section{Transportation authority}
+
+The transportation authority takes land shares $\mathbf v$ and the current FAR caps $\bar{\mathbf f}$ as given (Nash: it does not internalize how its own investment choice might affect what municipalities would optimally choose, nor vice versa — each best-responds to the other's current choice) and anticipates the conditional spatial equilibrium. Define reduced-form welfare
+\begin{align}
+\widehat U(\mathbf I;\bar{\mathbf f},\mathbf v)
+\equiv
+\bar U\bigl(x^*(\mathbf I,\bar{\mathbf f};\mathbf v),\mathbf I\bigr).
+\label{eq:reduced-welfare}
+\end{align}
+The authority solves
+\begin{align}
+\max_{\mathbf I\geq0}
+\quad
+\widehat U(\mathbf I;\bar{\mathbf f},\mathbf v)
+\qquad
+\text{subject to}
+\qquad
+\sum_{e\in E}c_eI_e\leq K.
+\label{eq:transport-problem}
+\end{align}
+Let $\mu\geq0$ be the multiplier on the infrastructure budget. The exact KKT conditions are
+\begin{align}
+\frac{d\widehat U}{dI_e}
+&\leq \mu c_e,
+&
+I_e\left(\mu c_e-\frac{d\widehat U}{dI_e}\right)&=0,
+\label{eq:transport-kkt}\\
+\mu\left(K-\sum_ec_eI_e\right)&=0.
+\label{eq:budget-kkt}
+\end{align}
+Using \eqref{eq:equilibrium-derivative},
+\begin{align}
+\frac{d\widehat U}{dI_e}
+=
+\bar U_{I_e}
+-
+\bar U_xF_x^{-1}F_{I_e}.
+\label{eq:total-investment-gradient}
+\end{align}
+In the present model, investment affects utility through equilibrium travel costs, so the second term is the central object.
+
+\subsection{Adjoint representation}
+
+Directly computing $F_x^{-1}$ separately for every edge is unnecessary. Let the adjoint vector $\lambda$ solve
+\begin{align}
+F_x^{\prime}\lambda
+=
+\bar U_x^{\prime}.
+\label{eq:adjoint-system}
+\end{align}
+Then
+\begin{align}
+\frac{d\widehat U}{dI_e}
+=
+\bar U_{I_e}-\lambda^{\prime}F_{I_e}.
+\label{eq:adjoint-gradient}
+\end{align}
+$\lambda$ is a property of the linearized equilibrium system at the current equilibrium point — it does not depend on which parameter is being perturbed. \S8 reuses this exact $\lambda$ for the FAR gradient rather than solving a second adjoint system.
+
+The same adjoint system generates the shadow value of each edge's market access. Let $\Lambda_e\geq0$ denote the resulting shadow-value-weighted importance of edge $e$ across all OD pairs and routes. With the edge technology \eqref{eq:edge-time}--\eqref{eq:edge-cost}, the interior investment condition can be written
+\begin{align}
+\mu c_e
+=
+\epsilon\kappa\beta
+\delta_e^1n_e^{\rho}\Lambda_e
+I_e^{-(\beta+1)}.
+\label{eq:investment-foc}
+\end{align}
+The term $\Lambda_e$ incorporates all equilibrium effects transmitted through OD choices, wages, rents, floor-space supply, amenities, and route substitution. It must be evaluated at the same equilibrium as $n_e$.
+
+Solving \eqref{eq:investment-foc} gives
+\begin{align}
+I_e
+=
+\left(
+\frac{\epsilon\kappa\beta}{\mu}
+\right)^{1/(\beta+1)}
+\left(
+\frac{\delta_e^1n_e^{\rho}\Lambda_e}{c_e}
+\right)^{1/(\beta+1)}.
+\label{eq:investment-level}
+\end{align}
+Define
+\begin{align}
+W_e
+\equiv
+\frac{\delta_e^1n_e^{\rho}\Lambda_e}{c_e}.
+\label{eq:edge-weight}
+\end{align}
+If the budget binds, the optimal allocation satisfies
+\begin{align}
+\boxed{
+I_e^*
+=
+K
+\frac{W_e^{1/(\beta+1)}}
+{\displaystyle\sum_{e'\in E}c_{e'}W_{e'}^{1/(\beta+1)}}.
+}
+\label{eq:investment-rule}
+\end{align}
+Because $n_e$ and $\Lambda_e$ depend on $\mathbf I$, \eqref{eq:investment-rule} is a fixed-point characterization of optimal investment, not a one-shot closed form.
+
+\section{Municipal FAR choice}
+
+Municipality $g$ chooses $\{\bar f_i^{\R},\bar f_i^{\F}\}_{i\in S^g}$ to maximize the same metropolitan welfare $\bar U$ the transportation authority uses, taking every other municipality's FAR caps and the transportation authority's investment $\mathbf I$ as given. There is a single welfare object in this model — every agent maximizes $\bar U$ — so, exactly as in the zoning-and-transport proposal's main model after its own most recent revision, what distinguishes agents is only which variables they control and whether their problem is solved as a Nash best response or jointly; it is not a difference in objectives.
+
+\subsection{FAR choice is a rescaled floor-space choice}
+
+Since $\bar H_i^u=\bar L_i^u\bar f_i^u$ \eqref{eq:zoning-primitives} and $\bar L_i^u=v_i^u\Delta_i$ is now a fixed primitive,
+\begin{align}
+\frac{\partial \bar U}{\partial \bar f_i^u}=\bar L_i^u\,\frac{\partial \bar U}{\partial \bar H_i^u}.
+\label{eq:far-chain-rule}
+\end{align}
+Because $\bar L_i^u>0$, choosing $\bar f_i^u$ and choosing $\bar H_i^u$ directly are the same decision problem up to a positive rescaling. The remainder of this section derives $\partial\bar U/\partial\bar H_i^u$ and translates back to $\bar f_i^u$ only in the final boxed condition \eqref{eq:far-foc}.
+
+\subsection{The binding/slack regime}
+
+Actual floor space is $H_i^u=\min\{\bar H_i^u, H_i^{u,0}(q_i^u)\}$ \eqref{eq:floorspace-supply}. Two regimes are possible, and — unlike a setting where zoning capacity is assumed always fully utilized — which regime applies is itself part of what the municipality's choice determines:
+\begin{itemize}
+\item \textbf{Slack} ($\bar H_i^u\geq H_i^{u,0}(q_i^u)$): $H_i^u=H_i^{u,0}(q_i^u)$ is set entirely by the developer's own unconstrained optimum and does not respond to $\bar H_i^u$ at the margin, so $\partial \bar U/\partial \bar f_i^u=0$ identically — a genuine flat region, not merely a small effect. The municipality is indifferent among every FAR cap at or above the unconstrained level $f_i^{u,0}(q_i^{u*})$. This gives the model a mechanism for \emph{unused zoning capacity} that a fixed-total-land specification with an always-binding cap cannot represent.
+\item \textbf{Binding} ($\bar H_i^u<H_i^{u,0}(q_i^u)$): $H_i^u=\bar H_i^u$ exactly, and price absorbs the constrained quantity through \eqref{eq:residential-price-solution} (residential) or \eqref{eq:commercial-price-solution} (commercial). This is the regime with real content.
+\end{itemize}
+Writing $\psi_i^u\geq0$ for the shadow value of the developer-side constraint $H_i^u\leq\bar H_i^u$, the two regimes are complementary slackness,
+\begin{align}
+\psi_i^u\bigl(\bar H_i^u-H_i^u\bigr)=0,\qquad \psi_i^u\geq0,
+\label{eq:far-slackness}
+\end{align}
+the same KKT structure already used for the infrastructure budget in \eqref{eq:budget-kkt}.
+
+\subsection{The binding-regime gradient: reusing the adjoint vector}
+
+In the binding regime, $\bar H_i^u$ enters the equilibrium system $F(x,\mathbf I,\bar{\mathbf f};\mathbf v)=0$ \eqref{eq:equilibrium-system} only through the now-active floor-space identity $H_i^u-\bar H_i^u=0$, which replaces the developer's own interior first-order condition at that location and use — exactly the role $I_e$ plays for the edge-cost equation in \S7. Since the adjoint vector $\lambda$ solving \eqref{eq:adjoint-system} is a property of the linearized system, not of which parameter is perturbed, it can be reused directly:
+\begin{align}
+\frac{d\bar U}{d\bar H_i^u}
+=
+\bar U_{\bar H_i^u}-\lambda'F_{\bar H_i^u}
+\equiv
+\bar U_{\bar H_i^u}\Big|_{\text{direct}}+\Lambda_i^u,
+\label{eq:far-gradient}
+\end{align}
+where $\Lambda_i^u\equiv-\lambda'F_{\bar H_i^u}$ collects every general-equilibrium feedback transmitted through the rest of the system — congestion at $i$ and at every other location, sorting, wages, rents, and route choice — exactly analogous to $\Lambda_e$ in \eqref{eq:investment-foc}, and, like $\Lambda_e$, not expanded further here; it must be evaluated at the same equilibrium as everything else.
+
+\subsection{The direct piece: closed form}
+
+The direct term in \eqref{eq:far-gradient} is available in closed form, since $\widetilde V_{ij}$ \eqref{eq:indirect-utility} has the same functional form used for the corresponding partials in the main model. Using $\Phi_i/\Phi=N_i/N$ (\S3),
+\begin{align}
+\frac{\partial \bar U}{\partial q_i^{\R}}=-\frac{(1-\alpha)N_i}{N}\frac{\bar U}{q_i^{\R}},
+\qquad
+\frac{\partial \bar U}{\partial w_j}=\frac{L_j}{N}\frac{\bar U}{w_j}.
+\label{eq:direct-partials}
+\end{align}
+Combined with this model's own supply block, evaluated at the binding point:
+
+\textbf{Residential.} From \eqref{eq:residential-price-solution}, $q_i^{\R}=\mathcal E_i^{\R}/H_i^{\R}$; at $H_i^{\R}=\bar H_i^{\R}$, holding $\mathcal E_i^{\R}$ fixed, $\partial q_i^{\R}/\partial\bar H_i^{\R}=-q_i^{\R}/\bar H_i^{\R}$. Hence
+\begin{align}
+\bar U_{\bar H_i^{\R}}\Big|_{\text{direct}}
+=
+\frac{\partial \bar U}{\partial q_i^{\R}}\frac{\partial q_i^{\R}}{\partial\bar H_i^{\R}}
+=
+\frac{(1-\alpha)N_i}{N}\frac{\bar U}{\bar H_i^{\R}}
+>0.
+\label{eq:direct-residential}
+\end{align}
+
+\textbf{Commercial.} From \eqref{eq:wage}, $w_j\propto(H_j^{\F})^{1-\gamma}$ at fixed $L_j$; at $H_j^{\F}=\bar H_j^{\F}$, $\partial w_j/\partial\bar H_j^{\F}=(1-\gamma)w_j/\bar H_j^{\F}$. Hence
+\begin{align}
+\bar U_{\bar H_j^{\F}}\Big|_{\text{direct}}
+=
+\frac{\partial \bar U}{\partial w_j}\frac{\partial w_j}{\partial\bar H_j^{\F}}
+=
+\frac{(1-\gamma)L_j}{N}\frac{\bar U}{\bar H_j^{\F}}
+>0.
+\label{eq:direct-commercial}
+\end{align}
+
+Both direct pieces are unambiguously positive: relaxing either cap directly lowers the residential rent or raises the wage, and both raise $\bar U$. \textbf{The direct channel alone can never rationalize a binding cap} — the entire reason a municipality would optimally restrict FAR is the congestion externality $\phi_i(N_i,L_i)=\eta N_i^aL_i^b$, which depends on \emph{both} $N_i$ and $L_i$ at every location and is transmitted entirely through $\Lambda_i^u$: more residential floor space raises $N_i$, more commercial floor space raises $L_i$, and either raises $\phi_i$ (hence lowers the amenity $B_i$) everywhere that congestion is shared. A binding cap is optimal only where the congestion cost captured in $\Lambda_i^u$ outweighs \eqref{eq:direct-residential} or \eqref{eq:direct-commercial}.
+
+\subsection{The FAR first-order condition}
+
+If, at the unconstrained developer quantity $H_i^{u,0}(q_i^{u*})$, the direct term \eqref{eq:direct-residential}/\eqref{eq:direct-commercial} plus $\Lambda_i^u$ is already non-negative, the municipality has nothing to gain from restricting: the optimal policy is not to bind, and any $\bar f_i^u\geq f_i^{u,0}(q_i^{u*})$ achieves the same (unconstrained) outcome. Otherwise, the optimum is interior to the binding regime, where the gradient \eqref{eq:far-gradient} is driven to zero. Combining this with the chain rule \eqref{eq:far-chain-rule} and the closed-form direct pieces, municipality $g$'s optimal FAR cap at $i\in S^g$ satisfies, for each use $u\in\{\R,\F\}$,
+\begin{align}
+\boxed{
+\begin{gathered}
+\frac{(1-\alpha)N_i}{N}\frac{\bar U}{\bar H_i^{\R}}+\Lambda_i^{\R}=0\\
+\text{or}\quad
+\bar f_i^{\R}\geq f_i^{\R,0}(q_i^{\R*})
+\end{gathered}
+}
+\label{eq:far-foc}
+\end{align}
+\begin{align}
+\boxed{
+\begin{gathered}
+\frac{(1-\gamma)L_i}{N}\frac{\bar U}{\bar H_i^{\F}}+\Lambda_i^{\F}=0\\
+\text{or}\quad
+\bar f_i^{\F}\geq f_i^{\F,0}(q_i^{\F*})
+\end{gathered}
+}
+\label{eq:far-foc-commercial}
+\end{align}
+with $\bar H_i^u=\bar L_i^u\bar f_i^u$ substituted to recover the FAR level from the first branch when it applies. This is structurally parallel to \eqref{eq:transport-kkt}: an interior optimality condition when the constraint is worth using, and a "don't bother constraining" branch when it is not — the same complementary-slackness logic already used for the investment budget, now applied to a genuinely two-sided municipal choice.
+
+\section{Equilibrium with municipal FAR choice and optimal investment}
+
+\begin{definition}[Nash equilibrium under endogenous FAR]
+Given exogenous land shares $\mathbf v$, a Nash equilibrium is a collection
+\[
+\left(
+\bar{\mathbf f}^*,
+\mathbf I^*,
+\boldsymbol\pi^*,
+\mathbf n^*,
+\mathbf q^{\R*},
+\mathbf q^{\F*},
+\mathbf w^*,
+\mathbf H^{\R*},
+\mathbf H^{\F*}
+\right)
+\]
+such that:
+\begin{enumerate}
+\item $(\boldsymbol\pi^*,\mathbf n^*)$ solves the spatial fixed point \eqref{eq:spatial-fixed-point} given $(\mathbf I^*,\bar{\mathbf f}^*;\mathbf v)$;
+\item residential and commercial floor-space quantities and prices satisfy \eqref{eq:commercial-quantity-solution}--\eqref{eq:residential-price-solution};
+\item firms satisfy \eqref{eq:wage}--\eqref{eq:commercial-rent};
+\item household OD shares and route choices satisfy \eqref{eq:route-costs}--\eqref{eq:od-share};
+\item traffic and travel costs satisfy \eqref{eq:edge-time}--\eqref{eq:edge-traffic};
+\item \textbf{Municipal Nash equilibrium.} For every $g\in G$ and $i\in S^g$, $\bar f_i^{R*},\bar f_i^{F*}$ satisfy \eqref{eq:far-foc}--\eqref{eq:far-foc-commercial}, given $\{\bar f_{i'}^{R*},\bar f_{i'}^{F*}\}_{i'\notin S^g}$ and $\mathbf I^*$; no municipality has a profitable deviation;
+\item \textbf{Transportation authority optimality.} $\mathbf I^*$ solves \eqref{eq:transport-problem}, equivalently satisfying \eqref{eq:transport-kkt}--\eqref{eq:budget-kkt} and, for interior edges, \eqref{eq:investment-rule}, given $\bar{\mathbf f}^*$.
+\end{enumerate}
+Conditions 6 and 7 jointly constitute the simultaneous Nash equilibrium between municipalities and the transportation authority: each set of agents takes the other's choices as given and best-responds.
+\end{definition}
+
+\section{Solution algorithm}
+
+A nested fixed-point algorithm solves the model:
+\begin{enumerate}
+\item Fix exogenous land shares $\mathbf v$ and choose initial feasible vectors $\bar{\mathbf f}^{(0)}$ and $\mathbf I^{(0)}$.
+\item Given $(\mathbf I^{(m)},\bar{\mathbf f}^{(m)})$, solve \eqref{eq:spatial-fixed-point} for $x^{(m)}=(\boldsymbol\pi^{(m)},\mathbf n^{(m)})$. At each inner iteration, use the analytical commercial and residential solutions \eqref{eq:commercial-quantity-solution}--\eqref{eq:residential-price-solution}, checking at each location and use whether the FAR cap binds or is slack.
+\item Evaluate welfare and solve the adjoint system \eqref{eq:adjoint-system}. Recover $\Lambda_e^{(m)}$, $W_e^{(m)}$ for every edge and $\Lambda_i^{u,(m)}$ for every location and use.
+\item Update investment using
+\[
+\widetilde I_e^{(m+1)}
+=
+K
+\frac{(W_e^{(m)})^{1/(\beta+1)}}
+{\sum_{e'}c_{e'}(W_{e'}^{(m)})^{1/(\beta+1)}}.
+\]
+\item Update each FAR cap: where the interior branch of \eqref{eq:far-foc}--\eqref{eq:far-foc-commercial} applies, solve it for $\bar H_i^{u,(m+1)}$ and set $\widetilde f_i^{u,(m+1)}=\bar H_i^{u,(m+1)}/\bar L_i^u$; where the non-binding branch applies, set $\widetilde f_i^{u,(m+1)}$ to (at or above) the current unconstrained FAR $f_i^{u,0}(q_i^{u,(m)})$.
+\item Apply damping in logs to both updates,
+\begin{align*}
+\log I_e^{(m+1)}
+&=
+(1-\omega_I)\log I_e^{(m)}+\omega_I\log\widetilde I_e^{(m+1)},\\
+\log \bar f_i^{u,(m+1)}
+&=
+(1-\omega_f)\log \bar f_i^{u,(m)}+\omega_f\log\widetilde f_i^{u,(m+1)},
+\end{align*}
+with $\omega_I,\omega_f\in(0,1]$.
+\item Repeat steps 2--6 until investment, FAR caps, OD shares, traffic, wages, rents, and floor-space quantities converge.
+\end{enumerate}
+
+\section{What endogenous FAR does in this model}
+
+The FAR instrument reproduces the same qualitative restrictiveness result as a directly-chosen floor-space cap, but with two features a fixed-total-land specification does not have.
+
+First, the trade-off underlying \eqref{eq:far-foc}--\eqref{eq:far-foc-commercial} is transparent: relaxing either FAR cap directly helps residents through the rent or wage channel (\eqref{eq:direct-residential}, \eqref{eq:direct-commercial}, both signed unambiguously positive), and the only force pushing back is the congestion externality, carried entirely by the adjoint term $\Lambda_i^u$. A municipality restricts FAR exactly where, and only where, the general-equilibrium congestion cost of additional density exceeds this direct benefit.
+
+Second, and new relative to a specification where zoning is assumed always fully utilized: the FAR cap can be genuinely \emph{slack}. When the developer's own unconstrained choice already falls short of the permitted envelope, the cap has no effect on the equilibrium at all, and the "optimal" municipal choice is simply not to bind — any FAR at or above the market-clearing level is equivalent. This gives the model a direct way to represent unused zoning capacity, which a specification where $\bar H_i^R+\bar H_i^F=\bar H_i$ is always exactly exhausted cannot express. Whether a location's cap binds or is slack in equilibrium is itself an empirical question the model can now speak to, rather than an assumption built into the setup.
+
+\end{document}

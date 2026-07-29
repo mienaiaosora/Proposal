@@ -49,3 +49,27 @@ Sanity checks:
 
 Next refinement:
 - If the proposal needs City of Dallas rather than the full metro area, filter blocks using an explicit city/place boundary or parse the LODES crosswalk with a CSV-aware tool. Do not treat Dallas County as equivalent to City of Dallas.
+
+## JT01 (primary jobs), 2026-07-28
+
+Per §12.1 item 1: re-pulled as `JT01` (primary jobs only, i.e. each worker's single highest-paying job) rather than `JT00` (all jobs, including secondary/multiple-job holders), since `JT01` is the standard choice for a one-workplace-per-worker discrete-choice model like this one's.
+
+Source:
+- Same LODES8/2023/Texas vintage as the JT00 pull above, `tx_od_main_JT01_2023.csv.gz`.
+- **Host correction**: the JT00 README above doesn't state a URL, but the download host used at the time was `lehd.ce.census.gov`, which no longer resolves. LEHD's current host is `lehd.ces.census.gov` (note the extra `s`) — e.g. `https://lehd.ces.census.gov/data/lodes/LODES8/tx/od/tx_od_main_JT01_2023.csv.gz`. Use this host for any future LODES re-pulls, including if JT00 is ever re-downloaded.
+- Reuses the existing `data/raw/lodes/tx_xwalk.csv.gz` crosswalk (state- and vintage-invariant).
+
+Raw file:
+- `data/raw/lodes/tx_od_main_JT01_2023.csv.gz`
+
+Processed files (same filter rule, same DFW county set, same column derivation as the JT00 files above):
+- `dfw_od_main_JT01_2023_block.csv.gz`
+- `dfw_od_main_JT01_2023_tract.csv.gz`
+
+Sanity checks:
+- Statewide JT01 row count: 11,225,546 (vs. JT00's larger, unrecorded statewide count — JT01 is a subset of JT00 by construction, since it excludes secondary jobs).
+- DFW-filtered block-level rows: 3,874,380 (JT00: 4,159,207 — about 7% fewer, consistent with dropping secondary jobs).
+- DFW-filtered tract-level rows: 1,467,209 (JT00: 1,548,071).
+- Tract-level `S000` sum: 4,152,953 jobs (JT00: 4,460,409 — about 6.9% fewer total jobs, in line with the row-count drop).
+
+Use JT01 as the primary series for calibration (single workplace per worker matches the model's discrete residence–workplace choice); keep JT00 as a robustness/coverage check per the original §12.1 note.

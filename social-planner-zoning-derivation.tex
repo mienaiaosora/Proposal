@@ -1,0 +1,153 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+
+\theoremstyle{definition}
+\newtheorem{step}{Step}
+
+\title{Deriving the Social Planner's Optimal Zoning Condition, Step by Step}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Purpose}
+
+This note expands, with every algebraic step shown, the derivation that \texttt{model.tex}'s \S Social Planner states compactly as \texttt{zoning-foc-planner}. It is a companion to \texttt{model.tex}, not a replacement: notation, primitives, and every object referenced below (\S Households, \S Firms, \S Transportation Authority) are defined there and not re-derived here. As of the 2026-07-27 revision (Open Model Questions \#20--\#21), the municipal, metropolitan-authority, and planner zoning conditions are the identical equation derived below, differing only in scope ($S^g$ vs.\ $S$) and in whether it is solved as a Nash best response or as part of the planner's simultaneous joint optimum — so this is, at the same time, the derivation of the municipal and metropolitan-authority zoning conditions, read at the appropriate scope.
+
+\section*{The Planner's Problem}
+
+The planner chooses zoning $\{\bar H_i^R,\bar H_i^F\}_{i\in S}$ (equivalently $\{t_i\}_{i\in S}$ via \texttt{eq:arbitrage}) and investment $\{I_{k\ell}\}_{(k,\ell)\in E}$ jointly to maximize
+\[
+\bar U \;=\; \Gamma\!\left(1-\tfrac1\epsilon\right)\Phi^{1/\epsilon}, \qquad \Phi\equiv\sum_{i'\in S}\Phi_{i'}, \qquad \Phi_i\equiv \bar B_i^\epsilon\,\phi_i^{-\epsilon}\sum_j T_iE_jw_j^\epsilon\tau_{ij}^{-\epsilon}(q_i^R)^{-\epsilon(1-\alpha)},
+\]
+subject to household optimality, the commuting-cost/edge-traffic system, labor-market clearing, residential rent clearing, the infrastructure budget, and the land identity $\bar H_i^R+\bar H_i^F=\bar H_i$ — constraints (i)--(viii) of \texttt{model.tex}'s \texttt{eq:SP-problem}. This note isolates the \emph{zoning} first-order condition, i.e.\ $\partial\mathcal L/\partial \bar H_i^R=0$ and $\partial\mathcal L/\partial \bar H_i^F=0$; the investment FOC (\texttt{eq:I-optimal-SP}) is unchanged in form from the transportation authority's own (\texttt{eq:I-optimal}) and is not re-derived here, only used at the end to confirm it contributes no cross-term.
+
+\section*{The Lagrangian}
+
+Only the terms that $\bar H_i^R,\bar H_i^F$ can possibly touch matter for this derivation: the objective, the pulled-out congestion identity, household optimality (all OD pairs, since a rezoning at $i$ moves $\Phi_i$ and hence the metro-wide $\Phi$ that every OD pair's choice probability depends on), the population/employment identities, rent clearing, labor clearing, and the land identity. The edge/route/traffic constraints (ii)--(iv) of \texttt{eq:TA-problem} do not reference $\bar H_i^R,\bar H_i^F$ at all and drop out of this particular first-order condition entirely (they matter only for the investment FOC). Restricting to the relevant terms,
+\begin{align}
+\mathcal L = {}& \Gamma\!\left(1-\tfrac1\epsilon\right)\Phi^{1/\epsilon}
++ \sum_{i\in S}\chi_i\Bigl[\phi_i-\eta N_i^aL_i^b\Bigr]
++ \sum_{i'j'\in S^2}\lambda_{i'j'}\Bigl[T_{i'}E_{j'}\tilde V_{i'j'}^\epsilon - \pi_{i'j'}\Phi\Bigr] \nonumber\\
+&+ \sum_{i\in S}\sigma_i\Bigl[N_i - N\textstyle\sum_j\pi_{ij}\Bigr]
++ \sum_{i\in S}\rho_i\Bigl[L_i - N\textstyle\sum_j\pi_{ji}\Bigr] \nonumber\\
+&+ \sum_{i\in S}\eta_i^q\Bigl[q_i^R\bar H_i^R - (1-\alpha)\textstyle\sum_jN\pi_{ij}w_j\Bigr]
++ \sum_j\eta_j^w\Bigl[L_j(w_j) - N\textstyle\sum_i\pi_{ij}\Bigr] \nonumber\\
+&+ \sum_{i\in S}\nu_i\Bigl[\bar H_i-\bar H_i^R-\bar H_i^F\Bigr] \;+\;(\text{edge/route/budget terms, irrelevant here}), \nonumber
+\end{align}
+where $\tilde V_{ij}=\bar B_iw_j/(\phi_i\tau_{ij}(q_i^R)^{1-\alpha})$ and $L_j(w_j)\equiv(\gamma A_j/w_j)^{1/(1-\gamma)}\bar H_j^F$ (labor demand under the agglomeration externality, \S Firms). This is \texttt{model.tex}'s \texttt{eq:TA-lagrangian} with the land-identity term added, over the whole metro $S$.
+
+\section*{Step 1: $N_i,L_i$}
+
+$N_i,L_i$ enter $\mathcal L$ only through the $\chi_i$ bracket (their defining congestion identity) and their own identity bracket — nowhere else, since $\Phi$ has no direct $N_i,L_i$ dependence once $\phi_i$ is pulled out as its own variable.
+\begin{step}
+\[
+\frac{\partial\mathcal L}{\partial N_i} = \chi_i\left(-a\eta N_i^{a-1}L_i^b\right) + \sigma_i = -\chi_i\frac{a\phi_i}{N_i}+\sigma_i = 0 \;\;\Longrightarrow\;\; \sigma_i=\chi_i\frac{a\phi_i}{N_i}.
+\]
+\[
+\frac{\partial\mathcal L}{\partial L_i} = \chi_i\left(-b\eta N_i^aL_i^{b-1}\right) + \rho_i = -\chi_i\frac{b\phi_i}{L_i}+\rho_i = 0 \;\;\Longrightarrow\;\; \rho_i=\chi_i\frac{b\phi_i}{L_i}.
+\]
+\end{step}
+Neither equation involves $\bar U$: population and employment carry no direct weight in the objective, only through the congestion identity that determines $\phi_i$.
+
+\section*{Step 2: $\bar H_i^R,\bar H_i^F$}
+
+$\bar H_i^R$ appears only in the rent-clearing bracket and the land-identity bracket; $\bar H_i^F$ appears only in labor demand $L_j(w_j)$ (inside the $\eta_i^w$ bracket, at $j=i$) and the land-identity bracket.
+\begin{step}
+\[
+\frac{\partial \mathcal L}{\partial \bar H_i^R} = \eta_i^q q_i^R - \nu_i = 0 \;\;\Longrightarrow\;\; \nu_i = \eta_i^q q_i^R.
+\]
+\[
+\frac{\partial \mathcal L}{\partial \bar H_i^F} = \eta_i^w\frac{\partial L_i}{\partial \bar H_i^F} - \nu_i = 0, \qquad \frac{\partial L_i}{\partial \bar H_i^F}\bigg|_{w_i\text{ fixed}} = \frac{(1-\gamma)L_i}{(1-\gamma-\zeta)\bar H_i^F}
+\]
+using \S Firms' labor-demand solution $L_j=[\gamma\bar A_j(\bar H_j^F)^{1-\gamma}/w_j]^{1/(1-\gamma-\zeta)}$. So
+\[
+\nu_i = \eta_i^w\,\frac{(1-\gamma)L_i}{(1-\gamma-\zeta)\bar H_i^F}.
+\]
+\end{step}
+Eliminating $\nu_i$ between the two boxes gives the shadow-price form of the zoning condition,
+\begin{equation}
+\eta_i^q q_i^R \;=\; \eta_i^w\,\frac{(1-\gamma)L_i}{(1-\gamma-\zeta)\bar H_i^F}. \label{eq:shadow-price-form}
+\end{equation}
+This is as far as Steps 1--2 alone can go: $\eta_i^q,\eta_i^w$ are themselves undetermined multipliers, closed only once $q_i^R,\phi_i,w_i$'s own first-order conditions are solved.
+
+\section*{Step 3: Closing the System — the Three Exact Partials of $\bar U$}
+
+$\phi_i,q_i^R,w_i$ each enter $\tilde V_{ij}$ (hence the objective, through $\Phi$) \emph{and} their own market-clearing bracket \emph{and} every $\lambda_{i'j'}$ bracket they touch. Differentiating $\mathcal L$ with respect to each pins down $\chi_i,\eta_i^q,\eta_j^w$. The key algebraic fact used three times below is $\Phi_i/\Phi=N_i/N$ (a direct consequence of \texttt{eq:pi-pop}, $N_i=N\Phi_i/\Phi$).
+
+\begin{step}[$\phi_i$] $\phi_i$ enters $\Phi_i$ as the single power $\phi_i^{-\epsilon}$ and enters no other $\Phi_{i'}$ ($i'\neq i$), since congestion at $i$ only discounts the amenity of residing at $i$:
+\[
+\frac{\partial \Phi_i}{\partial \phi_i} = -\frac{\epsilon\,\Phi_i}{\phi_i}, \qquad
+\frac{\partial \bar U}{\partial \phi_i} = \Gamma\!\left(1-\tfrac1\epsilon\right)\frac{1}{\epsilon}\Phi^{1/\epsilon-1}\frac{\partial\Phi_i}{\partial\phi_i}
+= -\frac{\bar U}{\Phi}\cdot\frac{\Phi_i}{\phi_i} = -\frac{N_i\bar U}{N\phi_i}.
+\]
+The $\lambda$-bracket contributes, for each $j$, $\lambda_{ij}\,\partial(T_iE_j\tilde V_{ij}^\epsilon)/\partial\phi_i = -\epsilon\lambda_{ij}T_iE_j\tilde V_{ij}^\epsilon/\phi_i$; summing over $j$ and defining $\Lambda_i^\phi\equiv\sum_j\lambda_{ij}T_iE_j\tilde V_{ij}^\epsilon$, the FOC is
+\[
+\frac{\partial\mathcal L}{\partial\phi_i} = -\frac{N_i\bar U}{N\phi_i} - \frac{\epsilon}{\phi_i}\Lambda_i^\phi + \chi_i = 0 \;\;\Longrightarrow\;\; \chi_i = \frac{N_i\bar U+\epsilon\Lambda_i^\phi}{N\phi_i}.
+\]
+\end{step}
+
+\begin{step}[$q_i^R$] By an identical argument ($q_i^R$ enters $\Phi_i$ as $(q_i^R)^{-\epsilon(1-\alpha)}$, no other $\Phi_{i'}$):
+\[
+\frac{\partial \bar U}{\partial q_i^R} = -\frac{(1-\alpha)N_i\bar U}{Nq_i^R}, \qquad
+\frac{\partial\mathcal L}{\partial q_i^R} = -\frac{(1-\alpha)N_i\bar U}{Nq_i^R} - \frac{\epsilon(1-\alpha)}{q_i^R}\Lambda_i^q + \eta_i^q\bar H_i^R = 0,
+\]
+with $\Lambda_i^q\equiv\sum_j\lambda_{ij}T_iE_j\tilde V_{ij}^\epsilon$ (the same sum as $\Lambda_i^\phi$, since both derivatives pull out the same $j$-sum). Solving,
+\[
+\eta_i^q = \frac{(1-\alpha)\bigl[N_i\bar U+\epsilon\Lambda_i^q\bigr]}{Nq_i^R\bar H_i^R}.
+\]
+\end{step}
+
+\begin{step}[$w_i$, as a workplace wage] Unlike $\phi_i,q_i^R$, the wage $w_i$ enters \emph{every} residence's $\Phi_{i'}$ through the $j=i$ term of $\Phi_{i'}=\sum_j T_{i'}E_jw_j^\epsilon(\cdots)$ — a resident of any $i'$ who happens to work at $i$ cares about $w_i$. Only that one term of each $\Phi_{i'}$ depends on $w_i$:
+\[
+\frac{\partial \Phi_{i'}}{\partial w_i} = \frac{\epsilon}{w_i}\,T_{i'}E_i\tilde V_{i'i}^\epsilon \quad(\text{the single term } j=i\text{ of the sum defining }\Phi_{i'}),
+\]
+\[
+\frac{\partial\Phi}{\partial w_i} = \sum_{i'\in S}\frac{\partial \Phi_{i'}}{\partial w_i} = \frac{\epsilon}{w_i}\sum_{i'\in S}T_{i'}E_i\tilde V_{i'i}^\epsilon.
+\]
+Using $T_{i'}E_i\tilde V_{i'i}^\epsilon = N_{i'i}\,\Phi/N$ (\texttt{eq:pi-pop}, applied to the OD pair $(i',i)$) and summing over $i'$: $\sum_{i'}T_{i'}E_i\tilde V_{i'i}^\epsilon = (\Phi/N)\sum_{i'}N_{i'i} = (\Phi/N)L_i$, since $L_i=N\sum_{i'}\pi_{i'i}=\sum_{i'}N_{i'i}$ is exactly total employment at $i$. Hence
+\[
+\frac{\partial\Phi}{\partial w_i} = \frac{\epsilon\Phi L_i}{Nw_i}, \qquad
+\frac{\partial \bar U}{\partial w_i} = \Gamma\!\left(1-\tfrac1\epsilon\right)\frac1\epsilon\Phi^{1/\epsilon-1}\frac{\partial\Phi}{\partial w_i} = \frac{\bar U}{\Phi}\cdot\frac{\Phi L_i}{Nw_i} = \frac{L_i\bar U}{Nw_i}.
+\]
+This is the aggregate analogue of the familiar local result: population share $N_i/N$ is replaced by \emph{employment} share $L_i/N$, since $w_i$ is a workplace-side price. The $\lambda$-bracket contributes, over every OD pair $(i',i)$ ending at workplace $i$, $\Lambda_i^w\equiv\sum_{i'\in S}\lambda_{i'i}T_{i'}E_i\tilde V_{i'i}^\epsilon$ — summed over the \emph{whole} metro $S$, since any location's residents might commute to $i$, not just locations in a single municipality's own $S^g$:
+\[
+\frac{\partial\mathcal L}{\partial w_i} = \frac{L_i\bar U}{Nw_i} + \frac{\epsilon}{w_i}\Lambda_i^w + \eta_i^w L_i'(w_i) = 0
+\;\;\Longrightarrow\;\;
+\eta_i^w = -\frac{L_i\bar U+\epsilon N\Lambda_i^w}{Nw_iL_i'(w_i)},
+\]
+where $L_i'(w_i)<0$ is labor demand's own slope, so $\eta_i^w>0$ as required. (This closes $\eta_i^w$ in terms of primitives and $\Lambda_i^w$; \texttt{model.tex} does not expand it further, deferring $\Lambda_i^w$ itself — like $\Lambda_i^q,\Lambda_i^\phi$ above and $\Lambda_{k\ell}$ in \S Transportation Authority — to the joint linear multiplier system solved at the quantification stage, since a change at $\phi_i,q_i^R,w_i$ moves $\pi_{i'j'}$ for every OD pair simultaneously.)
+\end{step}
+
+\section*{Step 4: The Zoning First-Order Condition}
+
+Substituting $\eta_i^q$ from Step 3 into \eqref{eq:shadow-price-form} gives the optimal zoning condition in closed (if not fully expanded) form:
+\begin{equation}
+\boxed{\;\frac{(1-\alpha)\bigl[N_i\bar U+\epsilon\Lambda_i^q\bigr]}{\bar H_i^R} \;=\; \eta_i^w\,\frac{(1-\gamma)L_i}{(1-\gamma-\zeta)\bar H_i^F}\;} \label{eq:final-zoning-foc}
+\end{equation}
+— \texttt{model.tex}'s \texttt{zoning-foc-planner}. Both sides are shadow prices of relaxing the land constraint through the residential and commercial margins respectively; \eqref{eq:final-zoning-foc} says the planner sets $\bar H_i^R$ (equivalently $t_i$, via the strictly increasing map \texttt{zoning-foc-tax}) so that these two shadow prices are equal, for every $i\in S$ simultaneously.
+
+\section*{Step 5: Why Investment Contributes No Extra Term}
+
+$\bar H_i^R$ and $I_{k\ell}$ are chosen jointly, each with its own first-order condition. At the optimum, $\partial\mathcal L/\partial I_{k\ell}=0$ for every edge — the transportation authority's own investment FOC (\texttt{eq:I-foc-lagrangian}), unaffected by which agent is choosing zoning. Because this holds identically at the optimum, any chain-rule term $(\partial\mathcal L/\partial I_{k\ell})(\partial I_{k\ell}^{SP}/\partial \bar H_i^R)$ vanishes — there is nothing to add to \eqref{eq:final-zoning-foc} from the investment margin. Equivalently, by the envelope theorem applied to $\tilde W(t)\equiv \bar U(t,I^{SP}(t))$: $d\tilde W/dt_i = \partial \bar U/\partial t_i + \sum_{k\ell}(\partial \bar U/\partial I_{k\ell})(dI_{k\ell}^{SP}/dt_i)$, and $\partial \bar U/\partial I_{k\ell}=\mu c_{k\ell}$ at the optimum while $\sum_{k\ell}c_{k\ell}I_{k\ell}^{SP}(t)=K$ binds identically in $t$ (fixed budget), so $\sum_{k\ell}c_{k\ell}\,dI_{k\ell}^{SP}/dt_i=0$ and the second sum is zero. \eqref{eq:final-zoning-foc} is the \emph{whole} zoning condition.
+
+\section*{Remark: Local, Metropolitan, and Planner Read-Offs — and Where They Actually Differ}
+
+Steps 1--2 (the $N_i,L_i$ and $\bar H_i^R,\bar H_i^F$ first-order conditions) go through unchanged whether the choice variables are $\{\bar H_i^R\}_{i\in S^g}$ for a single municipality, $\{\bar H_i^R\}_{i\in S}$ for a metropolitan authority, or the planner's full $\{\bar H_i^R\}_{i\in S}\cup\{I_{k\ell}\}$ — none of Steps 1--2's algebra referenced $S^g$ versus $S$ at all. \textbf{Step 3 is where scope actually bites, and not in the way a first pass suggests.} It is tempting to think the three problems simply solve \eqref{eq:final-zoning-foc} "the same way," differing only in whether $\Lambda_i^q,\Lambda_i^w$ are evaluated taking other locations' zoning as fixed (Nash) or as jointly co-optimized (planner) — but that framing does not survive scrutiny: if every zoning-setter maximizes the identical scalar $\bar U$, a Nash equilibrium of players each solving their own first-order condition, holding others' \emph{current} choices fixed, is mathematically the same system of equations as everyone's first-order condition holding \emph{simultaneously} — a team game's Nash equilibrium coincides with the joint optimum of a shared objective. "Nash vs.\ joint," read literally, predicts \emph{no} gap here, not one.
+
+The real difference is not strategic, it is in which equations are in each agent's Lagrangian to begin with. In Step 3, $\Lambda_i^q,\Lambda_i^w$ are built from $\lambda_{ij}$, and $\lambda_{ij}$'s own first-order condition (differentiating the full Lagrangian in $\pi_{ij}$) references $\sigma_i,\rho_j,\eta_i^q$ — the residence-$i$ population identity, the workplace-$j$ employment identity, and residence-$i$ rent clearing. \texttt{model.tex}'s \texttt{eq:muni-lagrangian} writes $\chi_i,\sigma_i,\rho_i,\eta_i^q$ as sums over $i\in S^g$ \emph{only} — correctly, since municipality $g$ has no $\bar H_i^R$ to set outside $S^g$ and so no reason to carry those identities — while $\lambda_{i'j'}$ and $\eta_j^w$ are summed over the whole metro $S$, because $g$'s own zoning move reprices every OD pair through the shared $\Phi$ regardless of where it lives or works. So for any OD pair $(i,j)$ touching a location outside $S^g$, $\lambda_{ij}$'s first-order condition is missing whichever of $\sigma_i,\rho_j,\eta_i^q$ belongs to that outside location — not approximated, not assumed fixed, simply absent as an equation. This contaminates $\Lambda_i^q,\Lambda_i^w$ even for municipality $g$'s \emph{own} $i\in S^g$, since those sums run over every workplace/residence its own residents' commutes touch, inside or outside $S^g$.
+
+\begin{itemize}
+\item \textbf{Municipality $g$} (\S Municipal Zoning): \eqref{eq:final-zoning-foc} for $i\in S^g$ only, with $\Lambda_i^q,\Lambda_i^w$ built from a linear system missing every $\sigma_{i'},\rho_{i'},\eta_{i'}^q$ for $i'\notin S^g$.
+\item \textbf{Metropolitan Zoning Authority} (\S Scale of the Zoning Decision): \eqref{eq:final-zoning-foc} for all $i\in S$; $\chi_i,\sigma_i,\rho_i,\eta_i^q$ now span all of $S$ too, so $\Lambda_i^q,\Lambda_i^w$ are built from the \emph{complete} system — exact, still taking $\{I_{k\ell}\}$ as given.
+\item \textbf{Social planner} (\S Social Planner): \eqref{eq:final-zoning-foc} for all $i\in S$, same complete system as the metropolitan authority, additionally solved jointly with the investment FOC (Step 5) — which Step 5 already shows contributes nothing extra at the margin.
+\end{itemize}
+So the metropolitan authority and the planner should coincide on the zoning margin (both have the complete system; Step 5 shows investment doesn't separately matter) — the entire decentralized-vs-planner welfare gap traces to \emph{fragmentation of scope itself} ($S^g\subsetneq S$), not to who chooses investment or how "strategically" anyone behaves. Economically: a municipality that restricts residential land pushes displaced residents to relocate elsewhere in the metro, raising congestion and rents wherever they land, and it neither bears nor computes that cost, because the location that absorbs it was never an equation in its own problem.
+
+\end{document}
