@@ -58,7 +58,7 @@ This test needs real panel/historical zoning variation, which is the current bot
 # July_6th comment
 
 ## Transportation agent's problem uncleared
-What is I_{jk}, in Fajgelbaum and Schaal, they use lanes operated between each node as investment, does that applies to transit? and what is the network like in my setting?
+What is I_{jk}, in Fajgelbaum and Schaal, they use lanes operated between each node as investment, does that applies to transit? and what is the network like in my setting? 
 
 
 Read Fajgelbaum, Pablo, Cecile Gaubert, Nicole Gorton, Eduardo Morales, and Edouard Schaal. 2023. “Political Preferences and Transport Infrastructure: Evidence from California’s High-Speed Rail.” Cambridge, MA: National Bureau of Economic Research. https://doi.org/10.3386/w31438. to get intuition about the decision on transit investment.
@@ -72,7 +72,7 @@ carefully.
 # July_17th comment
 
 **Disutility \phi(N,L)**
-Putting them into B_{i}, will make it more coherent to interprete and potentially easier to calibrate,
+Putting them into B_{i}, will make it more coherent to interprete and potentially easier to calibrate, 
 
 **Landlord Problem**
 where does the land rent go? Several ways to go, 1) ommit this issue, assume a landlord who collects all these benefit and consume elsewhere, not in this city anyway, which leads to no difference in my setting 2)distributed equally to the local residents.
@@ -82,7 +82,7 @@ This can be more explored when including the extensino of land supplier
 **Why zoning decisions will favor the transportation infrastructure**
 1) better job access for residents
 2) productivity agglomeration
-
+   
 **Counterfactual issue**
 2 things change: 1) scale of decision change 2) the agent who make the decision change(from two different agents to one)
 

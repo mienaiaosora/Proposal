@@ -58,12 +58,12 @@ where $time_{k\ell}$ is the travel time on edge $(k,\ell)$ and $\kappa > 0$ is a
 \[
 time_{k\ell} = \delta_{kl}^{0}+\delta_{kl}^{1}\frac{n_{k\ell}^{\rho}}{I_{k\ell}^{\beta}}.
 \]
-Following \cite{Fajgelbaum2020-yv}, $\delta_{kl}^{0}$ is the free-flow travel time on edge $(k,\ell)$, $\delta_{kl}^{1} > 0$ is a scale parameter, and $\rho, \beta > 0$ are elasticities of travel time with respect to traffic and investment respectively.
-Therefore for a given route r, the commuting cost $\tau_{ij}$ between residence $i$ and workplace $j$ is the product of the costs of all edges along that route:
+Following \cite{Fajgelbaum2020-yv}, $\delta_{kl}^{0}$ is the free-flow travel time on edge $(k,\ell)$, $\delta_{kl}^{1} > 0$ is a scale parameter, and $\rho, \beta > 0$ are elasticities of travel time with respect to traffic and investment respectively. 
+Therefore for a given route r, the commuting cost $\tau_{ij}$ between residence $i$ and workplace $j$ is the product of the costs of all edges along that route:    
 \[
 \tau_{ijr} = \prod_{(k,\ell) \in r_{ij}} d_{k\ell}(I_{k\ell}, n_{k\ell}),
 \]
-where $r_{ij}$ is the route chosen by commuters from $i$ to $j$.
+where $r_{ij}$ is the route chosen by commuters from $i$ to $j$. 
 
 There are three types of agents: households, competitive firms, and governments. Households choose residence and workplace locations. Firms produce a freely tradable good using labor and commercial floor space. Government decisions operate at two levels: municipal governments choose local zoning, and a metropolitan transportation authority chooses investment across all links. In the decentralized equilibrium, municipalities and the transportation authority choose policies simultaneously, each treating the other's decisions as given.
 
@@ -139,7 +139,7 @@ Accordingly, we can derive the link intensity as follows:
     \label{eq:edge-intensity}
     \pi_{jk}^{k\ell} = (\frac{\tau_{ij}}{\tau_{ik}d_{kl}\tau_{lj}})^{\theta}
 \end{align}
-Therefore I can derive the traffic on edge (k,l) as follows:
+Therefore I can derive the traffic on edge (k,l) as follows:   
 \begin{align}
     \label{eq:edge-traffic}
     n_{k\ell} = \sum_{ij \in S^{2}}N_{ij}\pi_{jk}^{k\ell}

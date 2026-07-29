@@ -1,6 +1,6 @@
 # Model Progress Report
 
-**Date:** July 28, 2026
+**Date:** July 28, 2026  
 **Main drafts reviewed:** `model_rederived.tex` and `model_bordeu_objective_FAR.tex`
 
 ## Executive summary
