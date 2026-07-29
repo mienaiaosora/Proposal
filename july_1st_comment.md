@@ -58,7 +58,7 @@ This test needs real panel/historical zoning variation, which is the current bot
 # July_6th comment
 
 ## Transportation agent's problem uncleared
-What is I_{jk}, in Fajgelbaum and Schaal, they use lanes operated between each node as investment, does that applies to transit? and what is the network like in my setting? 
+What is I_{jk}, in Fajgelbaum and Schaal, they use lanes operated between each node as investment, does that applies to transit? and what is the network like in my setting?
 
 
 Read Fajgelbaum, Pablo, Cecile Gaubert, Nicole Gorton, Eduardo Morales, and Edouard Schaal. 2023. “Political Preferences and Transport Infrastructure: Evidence from California’s High-Speed Rail.” Cambridge, MA: National Bureau of Economic Research. https://doi.org/10.3386/w31438. to get intuition about the decision on transit investment.
@@ -72,7 +72,7 @@ carefully.
 # July_17th comment
 
 **Disutility \phi(N,L)**
-Putting them into B_{i}, will make it more coherent to interprete and potentially easier to calibrate, 
+Putting them into B_{i}, will make it more coherent to interprete and potentially easier to calibrate,
 
 **Landlord Problem**
 where does the land rent go? Several ways to go, 1) ommit this issue, assume a landlord who collects all these benefit and consume elsewhere, not in this city anyway, which leads to no difference in my setting 2)distributed equally to the local residents.
@@ -82,7 +82,7 @@ This can be more explored when including the extensino of land supplier
 **Why zoning decisions will favor the transportation infrastructure**
 1) better job access for residents
 2) productivity agglomeration
-   
+
 **Counterfactual issue**
 2 things change: 1) scale of decision change 2) the agent who make the decision change(from two different agents to one)
 
@@ -127,3 +127,13 @@ Asked whether a closed form for $t_i^F$ is available at the metropolitan-zoning 
 
 **Also resolved in this pass:** working through whether `W^g=Σ N_i\bar U_i` should instead be `N^g\cdot\bar U` (prompted by your "under free mobility, isn't `Ū_i` the same everywhere?" question), found that `\bar U` (built from the aggregate `\Phi`) is the expected utility of a household *freely choosing* its residence — a Fréchet/GEV compensating-shock argument makes this the *same* constant at every location, not what a municipality representing incumbents should use. `N^g\cdot\bar U` was tried and produces a corner solution (no cost to attracting residents, since `\bar U` is fixed for a small municipality) that undermines the whole zoning-restriction mechanism. Kept `\bar U_i=\Gamma(1-1/\epsilon)\Phi_i^{1/\epsilon}` (no equation changes) but added a rigorous justification in §Households ("Two notions of expected utility") and a cross-reference + rejected-alternative footnote in §Municipal Zoning: `\bar U_i` is the expected utility of an incumbent, residence held exogenously fixed — the right object for a government representing people already living there, as opposed to `\bar U`, which is right for an agent (TA, planner) representing the whole population including the free residence margin. Logged as Open Model Question #18.
 
+**Optimization of Municipality**
+To make sure the maximization target are at the same level, suggestion is that the local municipality, metropolitian level municipality, and TA, all maximize the average indirect utiliy `\bar U`, for local it is `\bar U_{i}`.
+
+## Response / plan (2026-07-27) — implemented
+
+Distinguished this from item 18 (already resolved): item 18 was about *which* utility object a municipality should use (`\bar U_i`, local/incumbent, vs.\ `\bar U`, aggregate/free-mobility) — unaffected by this note. This note is about whether that object should be *population-weighted* in the objective. Before this change: municipal `W^g=\sum_{i\in S^g}N_i\bar U_i` (weighted by local population `N_i`), while TA/metropolitan-authority/planner used `N\cdot\Gamma(1-1/\epsilon)\Phi^{1/\epsilon}=N\cdot\bar U` (population `N` times the aggregate average) — not actually "at the same level" in the sense you flagged.
+
+For the TA/metropolitan authority/planner, dropping the `N\cdot` prefix is FOC-neutral: total population `N` is a fixed constant here, not a choice variable, so it doesn't change the argmax, only how the objective is written. Rewrote their stated objectives as `\Gamma(1-1/\epsilon)\Phi^{1/\epsilon}=\bar U` in `model.tex` (`eq:TA-problem`, `eq:TA-lagrangian`, the Metropolitan Zoning Authority's objective in §Scale of the Zoning Decision, and `eq:SP-problem`) — downstream `\Lambda`-based first-order conditions (`eq:I-optimal`, `zoning-foc-planner`) needed no changes, since they're defined self-referentially in terms of their own (consistently rescaled) Lagrangian's multipliers, not tied to any particular normalization of the objective.
+
+For the municipality this is a genuine, not merely cosmetic, change: `N_i` is the municipality's *own* zoning choice's population response, not a fixed weight, so removing it changes the first-order condition. Changed `W^g` to `\sum_{i\in S^g}\bar U_i` and rederived the affected Lagrangian pieces by hand, checking the method against the document's own pre-existing results (reproduced `\chi_i=(N_i\bar U_i+\epsilon\Lambda_i^\phi)/\phi_i` independently before applying the same method to the revised objective, confirming it). Effects: the `\sigma_i` multiplier's FOC loses its `-\bar U_i` term, becoming identical in form to the planner's own (`\sigma_i=\chi_i a\phi_i/N_i`); `\chi_i,\eta_i^q`, and the `\eta_i^w`-closing term lose their `N_i` factor; and `zoning-foc-explicit` loses channel (1) — the "in-mover" term — entirely, collapsing from five channels to four (rent, residential congestion, worker-congestion relief, local-wage loss). The municipality no longer directly values attracting residents; in-migration now matters only through the price/congestion channels it triggers — exactly the same structural reason the planner's `zoning-foc-planner` already lacked a channel-(1) analogue (§Social Planner). This closes most, but not all, of the structural gap between the municipal and planner zoning conditions flagged in §Welfare Comparison's `Remark`: both are now four-channel, no-in-mover conditions, differing only in `\bar U_i` (local) vs.\ `\bar U` (aggregate) and in whether `\Lambda_i^\phi,\Lambda_i^q,\Lambda_i^w` are collapsible (municipal, small-open-location) or genuinely live (planner, spans all of `S`) — the Remark's wording was updated accordingly, and it no longer cites "missing channel (1)" as a distinguishing feature. Whether the sharper parallel licenses a cleaner leading-order welfare-gap decomposition than Proposition~2's current form is flagged as an open follow-up, not attempted in this pass. Logged as Open Model Question #20 in `CLAUDE.md`.

@@ -1,0 +1,583 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{left=2.4cm,right=2.4cm,top=2.4cm,bottom=2.4cm}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  natbib=true,
+  sorting=nyt
+]{biblatex}
+\addbibresource{reference.bib}
+\onehalfspacing
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\F}{\mathrm{F}}
+\newcommand{\E}{\mathbb E}
+\newcommand{\1}{\mathbb 1}
+
+\title{Spatial Equilibrium and Optimal Transportation Investment\\under Exogenous Zoning}
+\author{Ke Jiang}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\section{Purpose and timing}
+
+This version treats municipal zoning as exogenous. Let
+\[
+\mathbf z
+=
+\{s_i^{\R},s_i^{\F},\bar f_i^{\R},\bar f_i^{\F}\}_{i\in S},
+\]
+where $s_i^u$ is the land share assigned to use $u\in\{\R,\F\}$ and $\bar f_i^u$ is the corresponding FAR cap. These policy variables satisfy
+\[
+s_i^{\R}+s_i^{\F}=1,
+\qquad
+s_i^u\geq 0,
+\qquad
+\bar f_i^u>0.
+\]
+The transportation authority takes $\mathbf z$ as given and chooses network investment. Conditional on zoning and investment, households, firms, developers, rents, wages, OD flows, recursive path choices, and congestion are determined jointly in spatial equilibrium.
+
+\section{Environment and transportation network}
+
+The metropolitan area contains locations $i\in S$ connected by a directed network $(S,E)$. Each location has $\Delta_i>0$ units of land. Exogenous zoning assigns
+\begin{align}
+\bar L_i^u&\equiv s_i^u\Delta_i,
+&
+\bar H_i^u&\equiv \bar L_i^u\bar f_i^u,
+\qquad u\in\{\R,\F\},
+\label{eq:zoning-primitives}
+\end{align}
+where $\bar L_i^u$ is land zoned for use $u$ and $\bar H_i^u$ is the maximum floor space permitted by the FAR cap.
+
+Investment on edge $e=(k,\ell)$ is $I_{k\ell}\geq0$. Following \citet{Fajgelbaum2020-yv}, edge traffic is $n_{k\ell}$ and travel time is
+\begin{align}
+\operatorname{time}_{k\ell}
+=
+\delta_{k\ell}^0+
+\delta_{k\ell}^1\frac{n_{k\ell}^{\rho}}{I_{k\ell}^{\beta}},
+\qquad
+\delta_{k\ell}^1,\rho,\beta>0,
+\label{eq:edge-time}
+\end{align}
+and the multiplicative edge cost is
+\begin{align}
+d_{k\ell}=\exp\!\left(\kappa\operatorname{time}_{k\ell}\right).
+\label{eq:edge-cost}
+\end{align}
+For any directed network walk $r$ from $i$ to $j$, walk cost is
+\begin{align}
+\tau_{ijr}
+=
+\prod_{(k,\ell)\in r}d_{k\ell}.
+\label{eq:walk-cost}
+\end{align}
+Let $A(\mathbf d)$ be the weighted adjacency matrix with
+$A_{k\ell}=d_{k\ell}^{-\theta}$ for $(k,\ell)\in E$ and zero otherwise. Assume its spectral radius satisfies $\rho(A)<1$. Then
+\begin{align}
+G
+&\equiv
+(\mathbf I-A)^{-1}
+=
+\mathbf I+A+A^2+\cdots,
+\label{eq:recursive-G}\\
+\tau_{ij}
+&=
+G_{ij}^{-1/\theta}.
+\label{eq:route-costs}
+\end{align}
+Following \citet{Allen2022-ms}, this inverse aggregates all recursively generated network walks. Conditional on OD pair $(i,j)$, the probability of selecting walk $r$ and the probability of using edge $(k,\ell)$ are
+\begin{align}
+\pi_{r\mid ij}
+&=
+\left(\frac{\tau_{ij}}{\tau_{ijr}}\right)^\theta,
+\label{eq:route-share}\\
+\pi_{ij}^{k\ell}
+&=
+\sum_{r\ni(k,\ell)}\pi_{r\mid ij}
+=
+\frac{G_{ik}A_{k\ell}G_{\ell j}}{G_{ij}}
+=
+\left(
+\frac{\tau_{ij}}
+{\tau_{ik}d_{k\ell}\tau_{\ell j}}
+\right)^\theta.
+\label{eq:edge-use-share}
+\end{align}
+The final expression includes all recursive walks using the edge; it is not based on a finite, exogenously enumerated route set.
+
+\section{Households}
+
+A household chooses residence $i$, workplace $j$, and a recursively generated network walk $r$. Utility is
+\begin{align}
+u_{ijr}(\omega)
+=
+\frac{B_i(N_i,L_i)}{\tau_{ijr}}
+\left(\frac{Q_{ij}}{\alpha}\right)^{\alpha}
+\left(\frac{h_{ij}^{\R}}{1-\alpha}\right)^{1-\alpha}
+v_{ijr}(\omega),
+\label{eq:household-utility}
+\end{align}
+subject to
+\[
+Q_{ij}+q_i^{\R}h_{ij}^{\R}\leq w_j.
+\]
+The multiplicative taste shock $v_{ijr}(\omega)$ has a nested
+extreme-value structure that generates conditional walk-choice
+elasticity $\theta$ and residence--workplace choice elasticity
+$\epsilon$.
+Local amenities satisfy
+\begin{align}
+B_i(N_i,L_i)
+=
+\bar B_i \phi_i(N_i,L_i),
+\qquad
+\phi_i(N_i,L_i)=N_i^aL_i^b,
+\qquad a,b<0.
+\label{eq:amenity}
+\end{align}
+Optimal demands are
+\begin{align}
+Q_{ij}^*&=\alpha w_j,
+&
+h_{ij}^{\R*}&=\frac{(1-\alpha)w_j}{q_i^{\R}}.
+\label{eq:household-demands}
+\end{align}
+After aggregating over recursive walks, deterministic indirect utility is
+\begin{align}
+\widetilde V_{ij}
+=
+\frac{B_i(N_i,L_i)w_j}
+{\tau_{ij}(q_i^{\R})^{1-\alpha}}.
+\label{eq:indirect-utility}
+\end{align}
+The residence--workplace share is
+\begin{align}
+\pi_{ij}
+&=
+\frac{T_iE_j\widetilde V_{ij}^{\epsilon}}{\Phi},
+&
+\Phi
+&\equiv
+\sum_{m,n\in S}T_mE_n\widetilde V_{mn}^{\epsilon}.
+\label{eq:od-share}
+\end{align}
+Metropolitan ex ante utility is
+\begin{align}
+\bar U
+=
+\Gamma\!\left(1-\frac1\epsilon\right)\Phi^{1/\epsilon}.
+\label{eq:expected-utility}
+\end{align}
+Population and employment are
+\begin{align}
+N_i&=N\sum_j\pi_{ij},
+&
+L_j&=N\sum_i\pi_{ij}.
+\label{eq:population-employment}
+\end{align}
+
+\section{Competitive floor-space supply under exogenous zoning}
+
+For use $u\in\{\R,\F\}$, developers use land $L_i^u$ and non-land capital $K_i^u$ to produce
+\begin{align}
+H_i^u
+=
+\Xi_i^u(L_i^u)^{\vartheta}(K_i^u)^{1-\vartheta},
+\qquad
+\Xi_i^u>0,
+\quad
+\vartheta\in(0,1).
+\label{eq:construction}
+\end{align}
+The price of non-land capital is one. With positive demand and zero outside land use,
+\[
+L_i^u=\bar L_i^u=s_i^u\Delta_i.
+\]
+Define actual FAR $f_i^u=H_i^u/L_i^u$. Minimum capital per unit of land needed to produce FAR $f$ is
+\begin{align}
+c_i^u(f)
+=
+\left(\frac{f}{\Xi_i^u}\right)^{1/(1-\vartheta)}.
+\label{eq:construction-cost}
+\end{align}
+A competitive developer solves
+\begin{align}
+\max_{0\leq f\leq\bar f_i^u}
+\quad
+q_i^u f-c_i^u(f)-r_i^u.
+\label{eq:developer-problem}
+\end{align}
+Let
+\begin{align}
+\varpi
+&\equiv\frac{1-\vartheta}{\vartheta},
+&
+\mathcal K_i^u
+&\equiv
+\bar L_i^u(\Xi_i^u)^{1/\vartheta}(1-\vartheta)^{\varpi}.
+\label{eq:supply-constants}
+\end{align}
+The unconstrained FAR and floor-space supply are
+\begin{align}
+f_i^{u,0}(q_i^u)
+&=
+(\Xi_i^u)^{1/\vartheta}
+\bigl[(1-\vartheta)q_i^u\bigr]^{\varpi},
+\label{eq:far-unconstrained}\\
+H_i^{u,0}(q_i^u)
+&=
+\mathcal K_i^u(q_i^u)^{\varpi}.
+\label{eq:supply-unconstrained}
+\end{align}
+Actual supply is therefore
+\begin{align}
+H_i^u
+=
+\min\left\{
+\bar H_i^u,
+\mathcal K_i^u(q_i^u)^{\varpi}
+\right\}.
+\label{eq:floorspace-supply}
+\end{align}
+Land rent is the residual
+\begin{align}
+r_i^u=q_i^uf_i^u-c_i^u(f_i^u).
+\label{eq:land-rent}
+\end{align}
+Zoning is binding when the unconstrained floor-space quantity exceeds $\bar H_i^u$.
+
+\section{Firms and the commercial floor-space block}
+
+A firm at workplace $j$ produces
+\begin{align}
+Y_j=A_jL_j^{\gamma}(H_j^{\F})^{1-\gamma},
+\qquad
+A_j=\bar A_jL_j^{\zeta},
+\qquad
+0<\zeta<1-\gamma.
+\label{eq:firm-production}
+\end{align}
+The agglomeration term is external to the individual firm. Conditional on aggregate employment $L_j$ and commercial floor space $H_j^{\F}$, factor prices are
+\begin{align}
+w_j
+&=
+\gamma\bar A_jL_j^{\gamma+\zeta-1}
+(H_j^{\F})^{1-\gamma},
+\label{eq:wage}\\
+q_j^{\F}
+&=
+(1-\gamma)\bar A_jL_j^{\gamma+\zeta}
+(H_j^{\F})^{-\gamma}.
+\label{eq:commercial-rent}
+\end{align}
+
+The commercial block can be solved analytically conditional on $L_j$. Define
+\begin{align}
+\mathcal C_j(L_j)
+\equiv
+(1-\gamma)\bar A_jL_j^{\gamma+\zeta}.
+\label{eq:commercial-C}
+\end{align}
+If the commercial FAR cap is slack, combining \eqref{eq:floorspace-supply} and \eqref{eq:commercial-rent} yields
+\begin{align}
+H_j^{\F,0}(L_j)
+=
+\left[
+\mathcal K_j^{\F}
+\mathcal C_j(L_j)^{\varpi}
+\right]^{1/(1+\gamma\varpi)}.
+\label{eq:commercial-unconstrained-solution}
+\end{align}
+Hence the equilibrium commercial quantity and rent conditional on $L_j$ are
+\begin{align}
+H_j^{\F}
+&=
+\min\left\{
+\bar H_j^{\F},
+H_j^{\F,0}(L_j)
+\right\},
+\label{eq:commercial-quantity-solution}\\
+q_j^{\F}
+&=
+\mathcal C_j(L_j)(H_j^{\F})^{-\gamma},
+\label{eq:commercial-price-solution}
+\end{align}
+and the equilibrium wage follows from \eqref{eq:wage}.
+
+\section{Residential floor-space market}
+
+Aggregate housing expenditure by residents of $i$ is
+\begin{align}
+\mathcal E_i^{\R}
+\equiv
+(1-\alpha)N\sum_j\pi_{ij}w_j.
+\label{eq:residential-expenditure}
+\end{align}
+Residential market clearing is
+\begin{align}
+q_i^{\R}H_i^{\R}=\mathcal E_i^{\R}.
+\label{eq:residential-clearing}
+\end{align}
+The residential block can also be solved analytically conditional on OD shares and wages. If the residential FAR cap is slack,
+\begin{align}
+q_i^{\R,0}
+&=
+\left(\frac{\mathcal E_i^{\R}}{\mathcal K_i^{\R}}\right)^{\vartheta},
+\label{eq:residential-rent-unconstrained}\\
+H_i^{\R,0}
+&=
+(\mathcal K_i^{\R})^{\vartheta}
+(\mathcal E_i^{\R})^{1-\vartheta}.
+\label{eq:residential-quantity-unconstrained}
+\end{align}
+Therefore, conditional on $\{\pi_{ij},w_j\}$,
+\begin{align}
+H_i^{\R}
+&=
+\min\left\{
+\bar H_i^{\R},
+H_i^{\R,0}
+\right\},
+\label{eq:residential-quantity-solution}\\
+q_i^{\R}
+&=
+\frac{\mathcal E_i^{\R}}{H_i^{\R}}.
+\label{eq:residential-price-solution}
+\end{align}
+When the cap binds, quantity is fixed at $\bar H_i^{\R}$ and rent absorbs the demand response. When it is slack, both quantity and rent respond endogenously.
+
+\section{Traffic and spatial equilibrium}
+
+Given OD shares and conditional recursive-walk choices, edge traffic is
+\begin{align}
+n_e
+=
+N\sum_{i,j\in S}\pi_{ij}\pi_{ij}^{e}.
+\label{eq:edge-traffic}
+\end{align}
+The equilibrium is most compactly represented as a fixed point in OD shares and edge traffic. Let
+\[
+x\equiv(\boldsymbol\pi,\mathbf n),
+\]
+where $\boldsymbol\pi=\{\pi_{ij}\}_{i,j\in S}$ and $\mathbf n=\{n_e\}_{e\in E}$. For given $(\mathbf I,\mathbf z)$, construct the mapping $\mathcal T(x;\mathbf I,\mathbf z)$ as follows:
+\begin{enumerate}
+\item Use $\boldsymbol\pi$ to compute $N_i$ and $L_j$ from \eqref{eq:population-employment}.
+\item Use $L_j$ and exogenous commercial zoning to compute $H_j^{\F}$, $q_j^{\F}$, and $w_j$ from \eqref{eq:commercial-quantity-solution}--\eqref{eq:wage}.
+\item Use $\boldsymbol\pi$ and wages to compute $\mathcal E_i^{\R}$, $H_i^{\R}$, and $q_i^{\R}$ from \eqref{eq:residential-expenditure}--\eqref{eq:residential-price-solution}.
+\item Use $(N_i,L_i)$ to compute amenities from \eqref{eq:amenity}.
+\item Use $(\mathbf n,\mathbf I)$ to compute edge costs, composite OD travel costs, walk shares, and $\pi_{ij}^e$ from \eqref{eq:edge-time}--\eqref{eq:edge-use-share}.
+\item Update OD shares using \eqref{eq:indirect-utility}--\eqref{eq:od-share} and update edge traffic using \eqref{eq:edge-traffic}.
+\end{enumerate}
+
+\begin{definition}[Spatial equilibrium conditional on zoning and investment]
+For exogenous zoning $\mathbf z$ and investment $\mathbf I$, a spatial equilibrium is a fixed point
+\begin{align}
+x^*(\mathbf I;\mathbf z)
+=
+\mathcal T\bigl(x^*(\mathbf I;\mathbf z);\mathbf I,\mathbf z\bigr),
+\label{eq:spatial-fixed-point}
+\end{align}
+together with the prices, wages, floor-space quantities, recursive-walk shares, and amenities recovered from steps 1--5 above.
+\end{definition}
+
+Equivalently, write all equilibrium conditions as
+\begin{align}
+F(x,\mathbf I;\mathbf z)=0.
+\label{eq:equilibrium-system}
+\end{align}
+If $F_x$ is nonsingular at an equilibrium, the local investment response of the equilibrium is
+\begin{align}
+\frac{\partial x^*}{\partial I_e}
+=
+-F_x^{-1}F_{I_e}.
+\label{eq:equilibrium-derivative}
+\end{align}
+This derivative contains all general-equilibrium responses through construction, rents, wages, sorting, route choice, and congestion.
+
+\section{Transportation authority}
+
+The transportation authority takes zoning $\mathbf z$ as exogenous and anticipates the conditional spatial equilibrium. Define reduced-form welfare
+\begin{align}
+\widehat U(\mathbf I;\mathbf z)
+\equiv
+\bar U\bigl(x^*(\mathbf I;\mathbf z),\mathbf I;\mathbf z\bigr).
+\label{eq:reduced-welfare}
+\end{align}
+The authority solves
+\begin{align}
+\max_{\mathbf I\geq0}
+\quad
+\widehat U(\mathbf I;\mathbf z)
+\qquad
+\text{subject to}
+\qquad
+\sum_{e\in E}c_eI_e\leq K.
+\label{eq:transport-problem}
+\end{align}
+Let $\mu\geq0$ be the multiplier on the infrastructure budget. The exact KKT conditions are
+\begin{align}
+\frac{d\widehat U}{dI_e}
+&\leq \mu c_e,
+&
+I_e\left(\mu c_e-\frac{d\widehat U}{dI_e}\right)&=0,
+\label{eq:transport-kkt}\\
+\mu\left(K-\sum_ec_eI_e\right)&=0.
+\label{eq:budget-kkt}
+\end{align}
+Using \eqref{eq:equilibrium-derivative},
+\begin{align}
+\frac{d\widehat U}{dI_e}
+=
+\bar U_{I_e}
+-
+\bar U_xF_x^{-1}F_{I_e}.
+\label{eq:total-investment-gradient}
+\end{align}
+In the present model, investment affects utility through equilibrium travel costs, so the second term is the central object.
+
+\subsection{Adjoint representation}
+
+Directly computing $F_x^{-1}$ separately for every edge is unnecessary. Let the adjoint vector $\lambda$ solve
+\begin{align}
+F_x^{\prime}\lambda
+=
+\bar U_x^{\prime}.
+\label{eq:adjoint-system}
+\end{align}
+Then
+\begin{align}
+\frac{d\widehat U}{dI_e}
+=
+\bar U_{I_e}-\lambda^{\prime}F_{I_e}.
+\label{eq:adjoint-gradient}
+\end{align}
+The same adjoint system generates the shadow value of each edge's market access. Let $\Lambda_e\geq0$ denote the resulting shadow-value-weighted importance of edge $e$ across all OD pairs and recursive walks. With the edge technology \eqref{eq:edge-time}--\eqref{eq:edge-cost}, the interior investment condition can be written
+\begin{align}
+\mu c_e
+=
+\epsilon\kappa\beta
+\delta_e^1n_e^{\rho}\Lambda_e
+I_e^{-(\beta+1)}.
+\label{eq:investment-foc}
+\end{align}
+The term $\Lambda_e$ incorporates all equilibrium effects transmitted through OD choices, wages, rents, floor-space supply, amenities, and recursive-path substitution. It must be evaluated at the same equilibrium as $n_e$.
+
+Solving \eqref{eq:investment-foc} gives
+\begin{align}
+I_e
+=
+\left(
+\frac{\epsilon\kappa\beta}{\mu}
+\right)^{1/(\beta+1)}
+\left(
+\frac{\delta_e^1n_e^{\rho}\Lambda_e}{c_e}
+\right)^{1/(\beta+1)}.
+\label{eq:investment-level}
+\end{align}
+Define
+\begin{align}
+W_e
+\equiv
+\frac{\delta_e^1n_e^{\rho}\Lambda_e}{c_e}.
+\label{eq:edge-weight}
+\end{align}
+If the budget binds, the optimal allocation satisfies
+\begin{align}
+\boxed{
+I_e^*
+=
+K
+\frac{W_e^{1/(\beta+1)}}
+{\displaystyle\sum_{e'\in E}c_{e'}W_{e'}^{1/(\beta+1)}}.
+}
+\label{eq:investment-rule}
+\end{align}
+For any two interior edges,
+\begin{align}
+\frac{I_e^*}{I_{e'}^*}
+=
+\left(
+\frac{W_e}{W_{e'}}
+\right)^{1/(\beta+1)}.
+\label{eq:investment-ratio}
+\end{align}
+Because $n_e$ and $\Lambda_e$ depend on $\mathbf I$, \eqref{eq:investment-rule} is a fixed-point characterization of optimal investment, not a one-shot closed form.
+
+\section{Equilibrium with optimal transportation investment}
+
+\begin{definition}[Transport equilibrium under exogenous zoning]
+Given zoning $\mathbf z$, a transport equilibrium is a collection
+\[
+\left(
+\mathbf I^*,
+\boldsymbol\pi^*,
+\mathbf n^*,
+\mathbf q^{\R*},
+\mathbf q^{\F*},
+\mathbf w^*,
+\mathbf H^{\R*},
+\mathbf H^{\F*}
+\right)
+\]
+such that:
+\begin{enumerate}
+\item $(\boldsymbol\pi^*,\mathbf n^*)$ solves the spatial fixed point \eqref{eq:spatial-fixed-point} given $(\mathbf I^*,\mathbf z)$;
+\item residential and commercial floor-space quantities and prices satisfy \eqref{eq:commercial-quantity-solution}--\eqref{eq:residential-price-solution};
+\item firms satisfy \eqref{eq:wage}--\eqref{eq:commercial-rent};
+\item household OD and recursive-walk choices satisfy \eqref{eq:route-share}--\eqref{eq:od-share};
+\item traffic and travel costs satisfy \eqref{eq:edge-time}--\eqref{eq:edge-traffic};
+\item $\mathbf I^*$ solves \eqref{eq:transport-problem}, equivalently satisfying \eqref{eq:transport-kkt}--\eqref{eq:budget-kkt}, and interior edges satisfy \eqref{eq:investment-rule}.
+\end{enumerate}
+\end{definition}
+
+\section{Solution algorithm}
+
+A nested fixed-point algorithm solves the model:
+\begin{enumerate}
+\item Fix exogenous zoning $\mathbf z$ and choose an initial feasible investment vector $\mathbf I^{(0)}$.
+\item Given $\mathbf I^{(m)}$, solve \eqref{eq:spatial-fixed-point} for $x^{(m)}=(\boldsymbol\pi^{(m)},\mathbf n^{(m)})$. At each inner iteration, use the analytical commercial and residential solutions \eqref{eq:commercial-quantity-solution}--\eqref{eq:residential-price-solution}.
+\item Evaluate welfare and solve the adjoint system \eqref{eq:adjoint-system}. Recover $\Lambda_e^{(m)}$ and $W_e^{(m)}$ for every edge.
+\item Update investment using
+\[
+\widetilde I_e^{(m+1)}
+=
+K
+\frac{(W_e^{(m)})^{1/(\beta+1)}}
+{\sum_{e'}c_{e'}(W_{e'}^{(m)})^{1/(\beta+1)}}.
+\]
+Use damping if necessary:
+\[
+I_e^{(m+1)}
+=(1-\omega_I)I_e^{(m)}+\omega_I\widetilde I_e^{(m+1)},
+\qquad \omega_I\in(0,1].
+\]
+\item Repeat steps 2--4 until investment, OD shares, traffic, wages, rents, and floor-space quantities converge.
+\end{enumerate}
+
+\section{What exogenous zoning does in this model}
+
+Zoning affects the transportation solution only through the conditional spatial equilibrium. A tighter residential FAR cap lowers $\bar H_i^{\R}$. When binding, it fixes local housing quantity and causes demand changes to appear primarily in $q_i^{\R}$. This changes residential sorting, OD flows, edge traffic, and the edge weights $W_e$. A tighter commercial cap similarly changes local employment capacity, wages, workplace choice, and traffic.
+
+With a fixed infrastructure budget $K$, exogenous zoning changes the allocation of investment across edges. It cannot change aggregate investment expenditure. A model of aggregate overinvestment or underinvestment requires replacing the fixed budget with an endogenous investment-cost problem such as
+\[
+\max_{\mathbf I\geq0}
+\widehat U(\mathbf I;\mathbf z)-\sum_eC_e(I_e).
+\]
+Under the current fixed-budget formulation, the correct outcome is spatial misallocation of a given transportation budget across links.
+
+\printbibliography
+
+\end{document}
